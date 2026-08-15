@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog - TechNexus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#4a4949",
+                        "on-primary-fixed": "#161e00",
+                        "on-tertiary": "#303030",
+                        "on-surface-variant": "#c4c9ac",
+                        "outline-variant": "#444933",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary": "#283500",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#abd600",
+                        "outline": "#8e9379",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "surface-bright": "#37393a",
+                        "background": "#121414",
+                        "tertiary": "#ffffff",
+                        "on-secondary": "#313030",
+                        "surface-dim": "#121414",
+                        "on-secondary-container": "#bab8b7",
+                        "on-tertiary-container": "#656464",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-container-highest": "#333535",
+                        "tertiary-container": "#e5e2e1",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "primary-fixed": "#c3f400",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-variant": "#333535",
+                        "surface-container-high": "#282a2b",
+                        "primary": "#ffffff",
+                        "surface": "#121414",
+                        "on-tertiary-fixed": "#1b1b1c",
+                        "on-surface": "#e2e2e2",
+                        "secondary": "#c8c6c5",
+                        "surface-container": "#1e2020",
+                        "surface-container-low": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#556d00",
+                        "on-background": "#e2e2e2",
+                        "primary-container": "#c3f400",
+                        "surface-tint": "#abd600",
+                        "surface-container-lowest": "#0c0f0f",
+                        "inverse-primary": "#506600",
+                        "inverse-on-surface": "#2f3131",
+                        "tertiary-fixed": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "section-gap": "120px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(18, 20, 20, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(68, 73, 51, 0.2);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(171, 214, 0, 0.2);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(171, 214, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+    <div id="site-header" style="min-height: 81px;"></div>
+    <script>
+        fetch("header.html")
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el header");
+                }
+                return response.text();
+            })
+            .then(function (html) {
+                document.getElementById("site-header").innerHTML = html;
+                var activeLink = document.querySelector('[data-nav-item="blog"]');
+                if (activeLink) {
+                    activeLink.classList.remove("text-on-surface-variant");
+                    activeLink.classList.add("text-surface-tint");
+                    activeLink.classList.remove("border-transparent");
+                    activeLink.classList.add("border-surface-tint");
+                }
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    </script>
+<!-- Main Content -->
+<main class="flex-grow pt-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header -->
+<header class="py-stack-lg border-b border-outline-variant/20 mb-stack-lg">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm text-glow">Tech Insights</h1>
+<p class="text-on-surface-variant text-body-lg max-w-2xl">Explorando la frontera del desarrollo de software, la arquitectura en la nube y la transformación digital empresarial.</p>
+</header>
+<!-- Featured Post -->
+<section class="mb-section-gap">
+<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-outline-variant/20 hover:border-surface-tint/50 transition-colors duration-300 grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
+<div class="h-[300px] lg:h-full w-full relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Abstract representation of serverless cloud computing. Glowing neon green data nodes connecting over a deep charcoal and black geometric background. High-tech, futuristic corporate aesthetic. 3D rendering with subtle depth of field and premium dark mode styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnsArvU-9r0f5A3AKmGYxPXNQ83yq9ZEq3qAdgbHGfOhAgQyQ9zHpiUhn9uxXEIyuixtJpJcrahr0q0hvJPz3E9qz-FhjNWp2fpG-Ic2nhuejnS8ju5gOlZhegI1vq7tz7PFiFk6lq8k6b7H5EZfYj6aAznaZ3Q8XXNRCQlI707crDoACjMxoOQhCWIU0a5SvcG6t-wH1-74bMEXBa2QhUMJyJKtgrJMw_KT9aNAXmf_saYthiUwSK3A"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent lg:hidden"></div>
+</div>
+<div class="p-stack-lg md:p-margin-desktop flex flex-col justify-center bg-surface-container/90 lg:bg-transparent relative z-10">
+<span class="text-surface-tint font-label-caps text-label-caps mb-stack-sm tracking-widest uppercase">Arquitectura Cloud</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md group-hover:text-surface-tint transition-colors">La Evolución de las Arquitecturas Serverless en Entornos Enterprise</h2>
+<p class="text-on-surface-variant mb-stack-lg">Un análisis profundo sobre cómo las grandes corporaciones están migrando de microservicios tradicionales a funciones serverless para optimizar costos y escalar de manera infinita.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="text-on-surface-variant text-sm">24 Oct, 2024</span>
+</div>
+<button class="flex items-center gap-2 text-primary-container font-label-caps text-label-caps group-hover:text-surface-tint">
+                            Leer Artículo <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Sidebar: Categories -->
+<aside class="lg:col-span-3 order-2 lg:order-1">
+<div class="sticky top-[120px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">Categorías</h3>
+<ul class="flex flex-col gap-2">
+<li><a class="flex justify-between items-center py-2 text-surface-tint font-semibold border-l-2 border-surface-tint pl-3 bg-surface-container/50" href="#"><span>Desarrollo de Software</span> <span class="text-xs bg-surface-container-high px-2 py-1 rounded">12</span></a></li>
+<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>Cloud Migration</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">8</span></a></li>
+<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>System Audits</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">5</span></a></li>
+<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>Ciberseguridad</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">9</span></a></li>
+<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>DevOps</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">14</span></a></li>
+</ul>
+<div class="mt-stack-lg bg-surface-container-highest p-stack-md rounded-xl border border-outline-variant/10">
+<h4 class="font-headline-sm text-lg text-primary mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-surface-tint">mail</span> Newsletter</h4>
+<p class="text-sm text-on-surface-variant mb-4">Recibe los últimos insights técnicos directamente en tu bandeja.</p>
+<form class="flex flex-col gap-2">
+<input class="bg-background border border-outline-variant/30 text-on-surface rounded-DEFAULT p-2 focus:border-surface-tint focus:ring-1 focus:ring-surface-tint outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="tu@empresa.com" type="email"/>
+<button class="bg-primary-container text-on-primary-container py-2 rounded-DEFAULT font-label-caps text-label-caps glow-hover transition-all w-full mt-2" type="button">Suscribirse</button>
+</form>
+</div>
+</div>
+</aside>
+<!-- Latest Articles Grid -->
+<div class="lg:col-span-9 order-1 lg:order-2">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-md flex items-center gap-2">Últimos Artículos <div class="h-[1px] bg-outline-variant/20 flex-grow ml-4"></div></h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Article 1 -->
+<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A glowing blue shield icon overlaid on a dark mesh network background representing cyber security. Minimalist, premium dark mode aesthetic with high contrast neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmAg0dxp1p3hydrxCtLI_oviE9umuuP9gy89UEreWKcDz2f-G2kp2la-ICLk6RVaiM--x0g6LbsqPwcK4oQlUhYhUggfEr2AqS_913AOKXHD4kYu-SFxwkZNSEDjoWN2AivfZjh0BROo-MtGf4PvfXM7TKVLzwdTO7jJsEeHXg37rowzLT_85jrclMP82vVDhGWtD15Sd40peaBKfAioBYWSAyQfI006suF69g_yv38U1ZFVbT-_E-_w"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col">
+<span class="text-surface-tint font-label-caps text-label-caps mb-2">Seguridad</span>
+<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">Implementando Zero Trust en Redes Híbridas</h4>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Estrategias prácticas para asegurar el perímetro corporativo cuando los empleados y los servidores están distribuidos globalmente.</p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">18 Oct, 2024</span>
+<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
+</div>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract representation of continuous integration pipelines. Interlocking geometric glowing lines in neon green and white against a pure black void. High tech professional vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlh-mWnWvw_jlDDg-YOIOfMBJQ5QndLO3l42THWrhV0o6f7w6fHcoWZEVQ96SQtcx_tDix4hyW_ExgmFR1uS4vZp352KejrK4snYumNoQx845VnJaZ28uWicxWfhDNncAglGp9vBcny8LuHorthmqZSLTCcwNcTrMcBVrheKp7CdcyIiOCcXy2vfY-dAKXEgOwX3FAvZZtev7H-hy8CvUji_ZHrQ9TR_DuHQtyKRIkrZdVpTyzwEXXUg"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col">
+<span class="text-surface-tint font-label-caps text-label-caps mb-2">DevOps</span>
+<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">CI/CD Pipelines: Reduciendo el TTM en un 40%</h4>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Cómo la automatización agresiva del testing y el despliegue puede transformar la velocidad de entrega de valor al cliente.</p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">12 Oct, 2024</span>
+<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
+</div>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Code editor interface showing complex modern software development structure, rendered realistically with a dark theme. Subtle neon green syntax highlighting accents on a charcoal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxopWBNsXVg2wdr0nLVGdh9GRqu7LR5hTblqb4TGvhKyzddp7_Jm45ELHu-g3lb-495gQhlrdnEtu-2oYjeayZmJZjrCV2SgiwhLYXv4pc9cikl9GwHu6I_g4mKQCDSVFVaTeYdAJLCZMfsmc-zYS1OOaWeNE9tbU2JWcthQYo4g66-doyZy7FIji25sCmnIHv-pv2TUzk8vCAvbZE7uTsMpbPX66uRJjTO1G0jDPOgwjEfRkRP9QkwQ"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col">
+<span class="text-surface-tint font-label-caps text-label-caps mb-2">Desarrollo</span>
+<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">Micro-Frontends: Arquitectura para Equipos Escalables</h4>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Desacoplando aplicaciones monolíticas en el cliente para permitir el desarrollo independiente de múltiples squads ágiles.</p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">05 Oct, 2024</span>
+<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
+</div>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Visual representation of data auditing. Glowing charts and analytical graphs floating in a dark, sophisticated digital space. Sharp, crisp professional corporate imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkzYvRB3FVtoV7Ifr6kqyi-uEd01cpm-AMxTdgR9DS-ANYOP24J_6WecpmzXuo_yQMmhzdft6zXVH0yPbB1c7F1mVmnvgKF3t3Kfi8ga_1_Q2N-ycBJIJ9Fm_FuTDruxb7EDMBWXO5OXgGoxwOwjcq7C6JNerrvBjpYzNPTIoxKF17uzBjltcQ1S6t_Wvu2w8Ed4jDZKweGwUEEx56_yEDe93faPkElJ38vX-0JirdkAOZYoP9KrJGQ"/>
+</div>
+<div class="p-stack-md flex-grow flex flex-col">
+<span class="text-surface-tint font-label-caps text-label-caps mb-2">Auditoría</span>
+<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">El Costo Oculto de la Deuda Técnica</h4>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Métricas y metodologías para cuantificar y presentar la deuda técnica a los stakeholders no técnicos de la organización.</p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">28 Sep, 2024</span>
+<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center mt-stack-lg gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-10 h-10 flex items-center justify-center rounded bg-primary-container text-on-primary-container font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+<div id="site-footer" style="min-height: 220px;"></div>
+<script>
+    fetch("footer.html")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("No se pudo cargar el footer");
+            }
+            return response.text();
+        })
+        .then(function (html) {
+            document.getElementById("site-footer").innerHTML = html;
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+</script>
+</body></html>

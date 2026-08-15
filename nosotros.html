@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechNexus - Nosotros</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#556d00",
+                      "inverse-surface": "#e2e2e2",
+                      "surface-bright": "#37393a",
+                      "on-error-container": "#ffdad6",
+                      "surface-container": "#1e2020",
+                      "inverse-primary": "#506600",
+                      "on-secondary-container": "#bab8b7",
+                      "secondary-container": "#4a4949",
+                      "surface-container-lowest": "#0c0f0f",
+                      "on-tertiary": "#303030",
+                      "surface": "#121414",
+                      "surface-container-highest": "#333535",
+                      "surface-container-high": "#282a2b",
+                      "on-tertiary-container": "#656464",
+                      "error-container": "#93000a",
+                      "tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#1b1b1c",
+                      "primary-fixed": "#c3f400",
+                      "error": "#ffb4ab",
+                      "on-primary": "#283500",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-background": "#e2e2e2",
+                      "outline": "#8e9379",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "surface-dim": "#121414",
+                      "on-error": "#690005",
+                      "secondary": "#c8c6c5",
+                      "primary": "#ffffff",
+                      "on-primary-fixed": "#161e00",
+                      "on-surface": "#e2e2e2",
+                      "tertiary-container": "#e5e2e1",
+                      "surface-tint": "#abd600",
+                      "surface-container-low": "#1a1c1c",
+                      "secondary-fixed": "#e5e2e1",
+                      "on-secondary-fixed-variant": "#474646",
+                      "tertiary-fixed": "#e5e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "primary-fixed-dim": "#abd600",
+                      "on-secondary": "#313030",
+                      "surface-variant": "#333535",
+                      "outline-variant": "#444933",
+                      "on-surface-variant": "#c4c9ac",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "inverse-on-surface": "#2f3131",
+                      "primary-container": "#c3f400",
+                      "background": "#121414",
+                      "on-primary-fixed-variant": "#3c4d00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "container-max": "1280px",
+                      "section-gap": "120px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .team-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(18,20,20,1) 0%, rgba(18,20,20,0) 50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .team-image {
+            filter: grayscale(100%) contrast(1.2);
+            transition: filter 0.5s ease;
+        }
+
+        .team-card:hover .team-image {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(171, 214, 0, 0.05);
+        }
+        
+        .neon-accent {
+            color: #abd600; /* surface-tint */
+        }
+        
+        .glass-panel {
+            background: rgba(18, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(68, 73, 51, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md">
+<div id="site-header" style="min-height: 81px;"></div>
+<script>
+        fetch("header.html")
+                .then(function (response) {
+                        if (!response.ok) {
+                                throw new Error("No se pudo cargar el header");
+                        }
+                        return response.text();
+                })
+                .then(function (html) {
+                        document.getElementById("site-header").innerHTML = html;
+                        var activeLink = document.querySelector('[data-nav-item="nosotros"]');
+                        if (activeLink) {
+                                activeLink.classList.remove("text-on-surface-variant");
+                                activeLink.classList.add("text-surface-tint");
+                                activeLink.classList.remove("border-transparent");
+                                activeLink.classList.add("border-surface-tint");
+                        }
+                })
+                .catch(function (error) {
+                        console.error(error);
+                });
+</script>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap">
+<!-- Header Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-end gap-stack-lg border-b border-outline-variant/20 pb-8">
+<div class="max-w-2xl">
+<p class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">Nosotros</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Nuestro Equipo de Expertos</h1>
+</div>
+<div class="max-w-md text-right md:text-left">
+<p class="font-body-lg text-body-lg text-on-surface-variant">Talento senior de ingeniería dedicado a resolver los desafíos técnicos más complejos de la industria.</p>
+</div>
+</div>
+</section>
+<!-- Team Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-gutter">
+<!-- Member 1 -->
+<div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+<img alt="Alex" class="w-full h-full object-cover team-image" data-alt="A professional headshot of a male software engineer in a high-tech modern office setting. Dark mode aesthetic, dramatic lighting with subtle neon green accents. Grayscale base with sharp contrast. High-end corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWLenCCxIO6wXBHXTT_bmgwJ9KBh9r2NXYeCp2lh6QdvHHrb2K21r6pAAe-ldpGcDWwkgnXBNjgYVEHWcQ73xkymv77sPynXbwXj0C5Vl6TPLqiwGBn9MIVJavxNXvlXwZoNc04d-SfszFf-Wu_j4xZdNBYRTMQgF_E_87-cTQR_0hjxYRIihuhJHwjCItLcKGhlntX2wYVQp03Scp02n2NYsX4PIO1dePmHMqQAXlxyZTYFFaUk_G0g"/>
+</div>
+<div class="relative z-20 p-6 -mt-20 flex flex-col justify-end h-[140px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Alex</h3>
+<p class="font-label-caps text-label-caps text-surface-tint mb-2">Full Stack</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Node.js / React</p>
+</div>
+</div>
+<!-- Member 2 -->
+<div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+<img alt="Maria" class="w-full h-full object-cover team-image" data-alt="A professional headshot of a female backend developer in a sleek server room setting. Dark mode aesthetic, dramatic lighting. Grayscale base with sharp contrast. High-end corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZQAz9zItqrOxFjR7vVNcAFLAT-U0XVvlx1NRP9wDXJTUlHcG5WpDC3vz7sk26ZplUOON2gm01t5RSCSkJW4NoRDT2TahF5XW4ztb18tlXDPQD64ZgwcVkM-K0UP2Eyy-kwciszuLCejmFbfHQEzB7Zjgw0GWdVUMWuiuD4pQl-E_fLQaT5bKT9Dhen72v60tKVdUPR36qsBBOYfXcoXHxlnQES4VDzdkS2INhVcAqVReA-zTHoBEcyA"/>
+</div>
+<div class="relative z-20 p-6 -mt-20 flex flex-col justify-end h-[140px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Maria</h3>
+<p class="font-label-caps text-label-caps text-surface-tint mb-2">Backend</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Python / Go</p>
+</div>
+</div>
+<!-- Member 3 -->
+<div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+<img alt="Carlos" class="w-full h-full object-cover team-image" data-alt="A professional headshot of a male mobile developer looking at the camera in a modern startup environment. Dark mode aesthetic, moody lighting. Grayscale base with sharp contrast. High-end corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG67PPbqI7XOClAtLYWS11s-S5HUJeHAAR1ebJhbv_EZvKE8YpkWHHXz3tNQUWf_Qs0Q_xKER9F5nnfiIgrYlPWVb-jGinqSJHdew7axre6w1fO_vu_rwyrxOpgHc9fL49fw4lPEJSeoTUVLgaKHyID0hMWzszrWy95KFnyXZ7YC58vXe6uj6UePSs_bh1Im6vwOED5U9WQxxTZn_dj3A90px6V2pkk7Jyk24h5RmSM0rTkPmKmiAs_Q"/>
+</div>
+<div class="relative z-20 p-6 -mt-20 flex flex-col justify-end h-[140px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Carlos</h3>
+<p class="font-label-caps text-label-caps text-surface-tint mb-2">Mobile</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Flutter / Swift</p>
+</div>
+</div>
+<!-- Member 4 -->
+<div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+<img alt="Elena" class="w-full h-full object-cover team-image" data-alt="A professional headshot of a female data scientist in a high-tech lab with data visualizations blurred in background. Dark mode aesthetic. Grayscale base with sharp contrast. High-end corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQpdInTPjxOzDNcFvWDADf34Qp19X3wiD3TtMJnKSz2lGO_4kfPNCe5YkR1VSvpaDWfokQlKN3uCXFPK-wBe6GKp1hl9lo0I_lhXhe_s45PIQgZ03ekCJ1ayXXNeTBSf93JnpfC06MhDIBxhd6eB652KVsjfDIsZ-6_cYdfkDfeulvfU22TzPz2U_P8R9PLq5oGOROX9qRNrAcyFVpsPpbjE-olJ25uh1HdKYPwH5SvgBb1mFn1Xreg"/>
+</div>
+<div class="relative z-20 p-6 -mt-20 flex flex-col justify-end h-[140px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Elena</h3>
+<p class="font-label-caps text-label-caps text-surface-tint mb-2">Data Science</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">R / Python</p>
+</div>
+</div>
+<!-- Member 5 -->
+<div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-t-lg">
+<img alt="Javier" class="w-full h-full object-cover team-image" data-alt="A professional headshot of a male DevOps engineer standing near server racks. Dark mode aesthetic, cool blue and subtle green accent lighting. Grayscale base with sharp contrast. High-end corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWMBeqvdLlzKDQJWBR4nGoK78lF-Wzqvpm6Ks2iLlYlc1OmZljVDwF0oeoDMFovVmAUTtRF9fsWve9Li1rsfXDenpnn-s4VL7GJgCI4oYmEVB7ORegCRCtrRjKpHJdlurY4cQdJl20hJI27NC8BIMLwX9GfuD9jInx9U1_Ig_Fol3VK-t5lnzcAcmt82sPD3m2JUWfeaTZPkixkmmExMA1sKaF4eAqTGo-UtPFVhOWWYaMhXRPfayOOw"/>
+</div>
+<div class="relative z-20 p-6 -mt-20 flex flex-col justify-end h-[140px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Javier</h3>
+<p class="font-label-caps text-label-caps text-surface-tint mb-2">DevOps</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">AWS / Kubernetes</p>
+</div>
+</div>
+</div>
+</section><!-- Mission & Vision Sections -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- Misión -->
+<div class="glass-panel p-8 md:p-12 rounded-xl border border-outline-variant/20">
+<h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">Misión</h2>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Ingeniería de Alto Rendimiento</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+        Empoderar a las empresas globales mediante la ingeniería de infraestructuras digitales robustas, escalables y seguras. Cerramos la brecha entre los sistemas corporativos heredados y la transformación tecnológica de vanguardia, ofreciendo un rendimiento sin compromisos a través de la precisión y la innovación.
+      </p>
+</div>
+<!-- Visión -->
+<div class="glass-panel p-8 md:p-12 rounded-xl border border-outline-variant/20">
+<h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">Visión</h2>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Escala Infinita</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+        Ser la base arquitectónica indiscutible para la próxima generación de empresas digitales. Visualizamos un futuro donde los desafíos técnicos complejos se resuelvan con soluciones elegantes y de escala infinita, estableciendo un centro de mando de eficiencia para empresas de todo el mundo.
+      </p>
+</div>
+</div>
+</section>
+<!-- Vision Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-panel p-12 md:p-24 rounded-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-10 mix-blend-overlay" data-alt="Abstract dark technology background featuring subtle geometric wireframes and glowing data nodes. Extremely dark, minimal, high-tech corporate aesthetic."></div>
+<div class="relative z-10 max-w-3xl">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Construyendo la <br/><span class="text-surface-tint">Infraestructura del Mañana</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">En TechNexus, no solo escribimos código; diseñamos sistemas resilientes que impulsan la transformación digital. Nuestra visión es empoderar a las empresas a través de arquitectura de software robusta, escalable y segura, preparándolas para los desafíos tecnológicos del futuro.</p>
+<button class="border border-surface-container-highest text-primary px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps hover:bg-surface-tint hover:text-on-primary transition-all duration-300">Conoce Nuestra Metodología</button>
+</div>
+</div>
+</section>
+</main>
+<div id="site-footer" style="min-height: 220px;"></div>
+<script>
+        fetch("footer.html")
+                .then(function (response) {
+                        if (!response.ok) {
+                                throw new Error("No se pudo cargar el footer");
+                        }
+                        return response.text();
+                })
+                .then(function (html) {
+                        document.getElementById("site-footer").innerHTML = html;
+                })
+                .catch(function (error) {
+                        console.error(error);
+                });
+</script>
+</body></html>
