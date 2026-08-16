@@ -142,7 +142,7 @@
 <!-- Subtle gradient accent -->
 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-50"></div>
 <h2 class="font-headline-md text-headline-md text-on-background mb-stack-lg">Envíanos un mensaje</h2>
-<form class="space-y-stack-md">
+<form class="space-y-stack-md" id="contact-form">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
 <div>
 <label class="block font-label-caps text-label-caps text-on-surface-variant mb-stack-sm" for="name">Nombre Completo</label>
@@ -174,13 +174,9 @@
 <h3 class="font-headline-sm text-headline-sm text-on-background mb-stack-md">Canales Directos</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">¿Necesitas una respuesta inmediata? Utiliza nuestros canales directos de comunicación.</p>
 <div class="space-y-stack-md">
-<a class="flex items-center justify-center gap-3 w-full border border-surface-variant bg-surface-dim hover:bg-surface-variant/50 text-on-background font-label-caps text-label-caps px-6 py-4 rounded-lg transition-all hover:border-primary-fixed group" href="#">
+<a class="flex items-center justify-center gap-3 w-full border border-surface-variant bg-surface-dim hover:bg-surface-variant/50 text-on-background font-label-caps text-label-caps px-6 py-4 rounded-lg transition-all hover:border-primary-fixed group" href="https://wa.me/593988519822?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">
 <span class="material-symbols-outlined text-[#25D366] group-hover:scale-110 transition-transform">chat</span>
 <span>Escríbenos por WhatsApp</span>
-</a>
-<a class="flex items-center justify-center gap-3 w-full border border-surface-variant bg-surface-dim hover:bg-surface-variant/50 text-on-background font-label-caps text-label-caps px-6 py-4 rounded-lg transition-all hover:border-primary-fixed group" href="#">
-<span class="material-symbols-outlined text-primary-fixed group-hover:scale-110 transition-transform">mail</span>
-<span>Enviar Correo</span>
 </a>
 </div>
 </div>
@@ -204,6 +200,37 @@
 </main>
 <div id="site-footer" style="min-height: 220px;"></div>
 <script>
+    (function () {
+        var form = document.getElementById("contact-form");
+        if (!form) {
+            return;
+        }
+
+        // Reemplaza este numero por tu WhatsApp en formato internacional sin + ni espacios.
+        var whatsappNumber = "593988519822";
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var name = (document.getElementById("name").value || "").trim();
+            var email = (document.getElementById("email").value || "").trim();
+            var company = (document.getElementById("company").value || "").trim();
+            var project = (document.getElementById("project").value || "").trim();
+
+            var message = [
+                "Hola, me gustaría solicitar información:",
+                "",
+                "Nombre: " + (name || "No especificado"),
+                "Correo: " + (email || "No especificado"),
+                "Empresa: " + (company || "No especificado"),
+                "Proyecto: " + (project || "No especificado")
+            ].join("\n");
+
+            var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+        });
+    })();
+
     fetch("footer.html")
         .then(function (response) {
             if (!response.ok) {
