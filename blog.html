@@ -1,19 +1,36 @@
 <!DOCTYPE html>
+<html class="dark" lang="es">
 
-<html class="dark" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blog - TechNexus</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="TechNexus - Blog académico sobre ingeniería de software, herramientas CASE, planificación, desarrollo, pruebas y evaluación de software." />
+
+    <title>Blog - TechNexus</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
+
             theme: {
                 extend: {
-                    "colors": {
+
+                    colors: {
                         "on-primary-fixed-variant": "#3c4d00",
                         "on-error-container": "#ffdad6",
                         "secondary-container": "#4a4949",
@@ -62,13 +79,15 @@
                         "inverse-on-surface": "#2f3131",
                         "tertiary-fixed": "#e5e2e1"
                     },
-                    "borderRadius": {
+
+                    borderRadius: {
                         "DEFAULT": "0.125rem",
                         "lg": "0.25rem",
                         "xl": "0.5rem",
                         "full": "0.75rem"
                     },
-                    "spacing": {
+
+                    spacing: {
                         "stack-sm": "8px",
                         "margin-desktop": "64px",
                         "stack-lg": "32px",
@@ -78,209 +97,853 @@
                         "margin-mobile": "16px",
                         "gutter": "24px"
                     },
-                    "fontFamily": {
+
+                    fontFamily: {
                         "label-caps": ["Inter"],
                         "display-lg-mobile": ["Montserrat"],
-                        "body-md": ["Inter"],
                         "display-lg": ["Montserrat"],
                         "headline-sm": ["Montserrat"],
                         "headline-md": ["Montserrat"],
+                        "body-md": ["Inter"],
                         "body-lg": ["Inter"]
                     },
-                    "fontSize": {
-                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
-                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+
+                    fontSize: {
+                        "label-caps": [
+                            "12px",
+                            {
+                                lineHeight: "1",
+                                letterSpacing: "0.1em",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "display-lg-mobile": [
+                            "40px",
+                            {
+                                lineHeight: "1.2",
+                                letterSpacing: "-0.01em",
+                                fontWeight: "700"
+                            }
+                        ],
+
+                        "body-md": [
+                            "16px",
+                            {
+                                lineHeight: "1.6",
+                                fontWeight: "400"
+                            }
+                        ],
+
+                        "display-lg": [
+                            "64px",
+                            {
+                                lineHeight: "1.1",
+                                letterSpacing: "-0.02em",
+                                fontWeight: "700"
+                            }
+                        ],
+
+                        "headline-sm": [
+                            "24px",
+                            {
+                                lineHeight: "1.4",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "headline-md": [
+                            "32px",
+                            {
+                                lineHeight: "1.3",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "body-lg": [
+                            "18px",
+                            {
+                                lineHeight: "1.6",
+                                fontWeight: "400"
+                            }
+                        ]
                     }
                 }
             }
-        }
+        };
     </script>
-<style>
+
+    <!-- Custom Styles -->
+    <style>
         .glass-panel {
-            background: rgba(18, 20, 20, 0.7);
+            background: rgba(18, 20, 20, 0.72);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(68, 73, 51, 0.2);
         }
+
         .glow-hover:hover {
             box-shadow: 0 0 20px rgba(171, 214, 0, 0.2);
         }
+
         .text-glow {
             text-shadow: 0 0 10px rgba(171, 214, 0, 0.3);
         }
+
+        .card-glow:hover {
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.25),
+                0 0 25px rgba(171, 214, 0, 0.08);
+        }
+
+        .image-overlay {
+            background:
+                linear-gradient(to top,
+                    rgba(18, 20, 20, 0.85),
+                    rgba(18, 20, 20, 0.05));
+        }
+
+        .focus-ring:focus-visible {
+            outline: 2px solid #abd600;
+            outline-offset: 3px;
+        }
     </style>
 </head>
+
+
 <body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+
+    <!-- ============================= -->
+    <!-- HEADER -->
+    <!-- ============================= -->
+
     <div id="site-header" style="min-height: 81px;"></div>
+
     <script>
-        fetch("header.html")
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error("No se pudo cargar el header");
+        fetch( "header.html" )
+            .then( function ( response ) {
+                if ( !response.ok ) {
+                    throw new Error( "No se pudo cargar el header" );
                 }
+
                 return response.text();
-            })
-            .then(function (html) {
-                document.getElementById("site-header").innerHTML = html;
-                var activeLink = document.querySelector('[data-nav-item="blog"]');
-                if (activeLink) {
-                    activeLink.classList.remove("text-on-surface-variant");
-                    activeLink.classList.add("text-surface-tint");
-                    activeLink.classList.remove("border-transparent");
-                    activeLink.classList.add("border-surface-tint");
+            } )
+            .then( function ( html ) {
+
+                document.getElementById( "site-header" ).innerHTML = html;
+
+                const activeLink =
+                    document.querySelector( '[data-nav-item="blog"]' );
+
+                if ( activeLink ) {
+                    activeLink.classList.remove(
+                        "text-on-surface-variant",
+                        "border-transparent"
+                    );
+
+                    activeLink.classList.add(
+                        "text-surface-tint",
+                        "border-surface-tint"
+                    );
+
+                    activeLink.setAttribute( "aria-current", "page" );
                 }
-            })
-            .catch(function (error) {
-                console.error(error);
-            });
+            } )
+            .catch( function ( error ) {
+                console.error( error );
+            } );
     </script>
-<!-- Main Content -->
-<main class="flex-grow pt-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-<!-- Header -->
-<header class="py-stack-lg border-b border-outline-variant/20 mb-stack-lg">
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm text-glow">Tech Insights</h1>
-<p class="text-on-surface-variant text-body-lg max-w-2xl">Explorando la frontera del desarrollo de software, la arquitectura en la nube y la transformación digital empresarial.</p>
-</header>
-<!-- Featured Post -->
-<section class="mb-section-gap">
-<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer border border-outline-variant/20 hover:border-surface-tint/50 transition-colors duration-300 grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
-<div class="h-[300px] lg:h-full w-full relative overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Abstract representation of serverless cloud computing. Glowing neon green data nodes connecting over a deep charcoal and black geometric background. High-tech, futuristic corporate aesthetic. 3D rendering with subtle depth of field and premium dark mode styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnsArvU-9r0f5A3AKmGYxPXNQ83yq9ZEq3qAdgbHGfOhAgQyQ9zHpiUhn9uxXEIyuixtJpJcrahr0q0hvJPz3E9qz-FhjNWp2fpG-Ic2nhuejnS8ju5gOlZhegI1vq7tz7PFiFk6lq8k6b7H5EZfYj6aAznaZ3Q8XXNRCQlI707crDoACjMxoOQhCWIU0a5SvcG6t-wH1-74bMEXBa2QhUMJyJKtgrJMw_KT9aNAXmf_saYthiUwSK3A"/>
-<div class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent lg:hidden"></div>
-</div>
-<div class="p-stack-lg md:p-margin-desktop flex flex-col justify-center bg-surface-container/90 lg:bg-transparent relative z-10">
-<span class="text-surface-tint font-label-caps text-label-caps mb-stack-sm tracking-widest uppercase">Arquitectura Cloud</span>
-<h2 class="font-headline-md text-headline-md text-primary mb-stack-md group-hover:text-surface-tint transition-colors">La Evolución de las Arquitecturas Serverless en Entornos Enterprise</h2>
-<p class="text-on-surface-variant mb-stack-lg">Un análisis profundo sobre cómo las grandes corporaciones están migrando de microservicios tradicionales a funciones serverless para optimizar costos y escalar de manera infinita.</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-surface-tint" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
-<span class="text-on-surface-variant text-sm">24 Oct, 2024</span>
-</div>
-<button class="flex items-center gap-2 text-primary-container font-label-caps text-label-caps group-hover:text-surface-tint">
-                            Leer Artículo <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Blog Grid Layout -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
-<!-- Sidebar: Categories -->
-<aside class="lg:col-span-3 order-2 lg:order-1">
-<div class="sticky top-[120px]">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">Categorías</h3>
-<ul class="flex flex-col gap-2">
-<li><a class="flex justify-between items-center py-2 text-surface-tint font-semibold border-l-2 border-surface-tint pl-3 bg-surface-container/50" href="#"><span>Desarrollo de Software</span> <span class="text-xs bg-surface-container-high px-2 py-1 rounded">12</span></a></li>
-<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>Cloud Migration</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">8</span></a></li>
-<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>System Audits</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">5</span></a></li>
-<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>Ciberseguridad</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">9</span></a></li>
-<li><a class="flex justify-between items-center py-2 text-on-surface-variant hover:text-primary transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3" href="#"><span>DevOps</span> <span class="text-xs bg-surface-container px-2 py-1 rounded">14</span></a></li>
-</ul>
-<div class="mt-stack-lg bg-surface-container-highest p-stack-md rounded-xl border border-outline-variant/10">
-<h4 class="font-headline-sm text-lg text-primary mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-surface-tint">mail</span> Newsletter</h4>
-<p class="text-sm text-on-surface-variant mb-4">Recibe los últimos insights técnicos directamente en tu bandeja.</p>
-<form class="flex flex-col gap-2">
-<input class="bg-background border border-outline-variant/30 text-on-surface rounded-DEFAULT p-2 focus:border-surface-tint focus:ring-1 focus:ring-surface-tint outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="tu@empresa.com" type="email"/>
-<button class="bg-primary-container text-on-primary-container py-2 rounded-DEFAULT font-label-caps text-label-caps glow-hover transition-all w-full mt-2" type="button">Suscribirse</button>
-</form>
-</div>
-</div>
-</aside>
-<!-- Latest Articles Grid -->
-<div class="lg:col-span-9 order-1 lg:order-2">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-md flex items-center gap-2">Últimos Artículos <div class="h-[1px] bg-outline-variant/20 flex-grow ml-4"></div></h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Article 1 -->
-<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
-<div class="h-48 relative overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A glowing blue shield icon overlaid on a dark mesh network background representing cyber security. Minimalist, premium dark mode aesthetic with high contrast neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmAg0dxp1p3hydrxCtLI_oviE9umuuP9gy89UEreWKcDz2f-G2kp2la-ICLk6RVaiM--x0g6LbsqPwcK4oQlUhYhUggfEr2AqS_913AOKXHD4kYu-SFxwkZNSEDjoWN2AivfZjh0BROo-MtGf4PvfXM7TKVLzwdTO7jJsEeHXg37rowzLT_85jrclMP82vVDhGWtD15Sd40peaBKfAioBYWSAyQfI006suF69g_yv38U1ZFVbT-_E-_w"/>
-</div>
-<div class="p-stack-md flex-grow flex flex-col">
-<span class="text-surface-tint font-label-caps text-label-caps mb-2">Seguridad</span>
-<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">Implementando Zero Trust en Redes Híbridas</h4>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Estrategias prácticas para asegurar el perímetro corporativo cuando los empleados y los servidores están distribuidos globalmente.</p>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-<span class="text-xs text-on-surface-variant">18 Oct, 2024</span>
-<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Article 2 -->
-<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
-<div class="h-48 relative overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract representation of continuous integration pipelines. Interlocking geometric glowing lines in neon green and white against a pure black void. High tech professional vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlh-mWnWvw_jlDDg-YOIOfMBJQ5QndLO3l42THWrhV0o6f7w6fHcoWZEVQ96SQtcx_tDix4hyW_ExgmFR1uS4vZp352KejrK4snYumNoQx845VnJaZ28uWicxWfhDNncAglGp9vBcny8LuHorthmqZSLTCcwNcTrMcBVrheKp7CdcyIiOCcXy2vfY-dAKXEgOwX3FAvZZtev7H-hy8CvUji_ZHrQ9TR_DuHQtyKRIkrZdVpTyzwEXXUg"/>
-</div>
-<div class="p-stack-md flex-grow flex flex-col">
-<span class="text-surface-tint font-label-caps text-label-caps mb-2">DevOps</span>
-<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">CI/CD Pipelines: Reduciendo el TTM en un 40%</h4>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Cómo la automatización agresiva del testing y el despliegue puede transformar la velocidad de entrega de valor al cliente.</p>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-<span class="text-xs text-on-surface-variant">12 Oct, 2024</span>
-<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Article 3 -->
-<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
-<div class="h-48 relative overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Code editor interface showing complex modern software development structure, rendered realistically with a dark theme. Subtle neon green syntax highlighting accents on a charcoal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxopWBNsXVg2wdr0nLVGdh9GRqu7LR5hTblqb4TGvhKyzddp7_Jm45ELHu-g3lb-495gQhlrdnEtu-2oYjeayZmJZjrCV2SgiwhLYXv4pc9cikl9GwHu6I_g4mKQCDSVFVaTeYdAJLCZMfsmc-zYS1OOaWeNE9tbU2JWcthQYo4g66-doyZy7FIji25sCmnIHv-pv2TUzk8vCAvbZE7uTsMpbPX66uRJjTO1G0jDPOgwjEfRkRP9QkwQ"/>
-</div>
-<div class="p-stack-md flex-grow flex flex-col">
-<span class="text-surface-tint font-label-caps text-label-caps mb-2">Desarrollo</span>
-<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">Micro-Frontends: Arquitectura para Equipos Escalables</h4>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Desacoplando aplicaciones monolíticas en el cliente para permitir el desarrollo independiente de múltiples squads ágiles.</p>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-<span class="text-xs text-on-surface-variant">05 Oct, 2024</span>
-<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Article 4 -->
-<article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-transform duration-300">
-<div class="h-48 relative overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Visual representation of data auditing. Glowing charts and analytical graphs floating in a dark, sophisticated digital space. Sharp, crisp professional corporate imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkzYvRB3FVtoV7Ifr6kqyi-uEd01cpm-AMxTdgR9DS-ANYOP24J_6WecpmzXuo_yQMmhzdft6zXVH0yPbB1c7F1mVmnvgKF3t3Kfi8ga_1_Q2N-ycBJIJ9Fm_FuTDruxb7EDMBWXO5OXgGoxwOwjcq7C6JNerrvBjpYzNPTIoxKF17uzBjltcQ1S6t_Wvu2w8Ed4jDZKweGwUEEx56_yEDe93faPkElJ38vX-0JirdkAOZYoP9KrJGQ"/>
-</div>
-<div class="p-stack-md flex-grow flex flex-col">
-<span class="text-surface-tint font-label-caps text-label-caps mb-2">Auditoría</span>
-<h4 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">El Costo Oculto de la Deuda Técnica</h4>
-<p class="text-on-surface-variant text-sm mb-4 line-clamp-3">Métricas y metodologías para cuantificar y presentar la deuda técnica a los stakeholders no técnicos de la organización.</p>
-<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-<span class="text-xs text-on-surface-variant">28 Sep, 2024</span>
-<a class="text-primary-container hover:text-surface-tint transition-colors" href="#"><span class="material-symbols-outlined">arrow_outward</span></a>
-</div>
-</div>
-</article>
-</div>
-<!-- Pagination -->
-<div class="flex justify-center mt-stack-lg gap-2">
-<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
-<button class="w-10 h-10 flex items-center justify-center rounded bg-primary-container text-on-primary-container font-bold">1</button>
-<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">2</button>
-<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors">3</button>
-<button class="w-10 h-10 flex items-center justify-center rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
-</div>
-</div>
-</div>
-</main>
-<div id="site-footer" style="min-height: 220px;"></div>
-<script>
-    fetch("footer.html")
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("No se pudo cargar el footer");
-            }
-            return response.text();
-        })
-        .then(function (html) {
-            document.getElementById("site-footer").innerHTML = html;
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-</script>
-</body></html>
+
+
+    <!-- ============================= -->
+    <!-- MAIN -->
+    <!-- ============================= -->
+
+    <main id="blog"
+        class="flex-grow pt-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+
+        <!-- ============================= -->
+        <!-- BLOG HEADER -->
+        <!-- ============================= -->
+
+        <header class="py-stack-lg border-b border-outline-variant/20 mb-stack-lg">
+
+            <span class="text-surface-tint font-label-caps text-label-caps uppercase tracking-widest">
+                Blog académico
+            </span>
+
+            <h1
+                class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mt-stack-sm mb-stack-sm text-glow">
+                Tech Insights
+            </h1>
+
+            <p class="text-on-surface-variant text-body-lg max-w-3xl">
+                Explorando la frontera del desarrollo de software,
+                la ingeniería asistida por computadora, la arquitectura
+                tecnológica y las metodologías utilizadas durante el
+                ciclo de vida del software.
+            </p>
+
+        </header>
+
+
+        <!-- ============================= -->
+        <!-- FEATURED CONTENT -->
+        <!-- ============================= -->
+
+        <section aria-labelledby="featured-title" class="mb-section-gap">
+
+            <div
+                class="glass-panel rounded-xl overflow-hidden group border border-outline-variant/20 hover:border-surface-tint/50 transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 relative card-glow">
+
+                <!-- Featured Image -->
+
+                <div class="h-[300px] lg:h-[460px] w-full relative overflow-hidden">
+
+                    <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        src="https://fr.organilog.com/wp-content/uploads/2024/02/iStock-1428421517-768x459.webp"
+                        alt="Ingeniería de software asistida por computadora con código, diagramas y herramientas de desarrollo"
+                        loading="eager" decoding="async" />
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent lg:hidden">
+                    </div>
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent hidden lg:block">
+                    </div>
+
+                </div>
+
+
+                <!-- Featured Content -->
+
+                <div
+                    class="p-stack-lg md:p-margin-desktop flex flex-col justify-center bg-surface-container/90 lg:bg-transparent relative z-10">
+
+                    <span
+                        class="text-surface-tint font-label-caps text-label-caps mb-stack-sm tracking-widest uppercase">
+                        Desarrollo de Software
+                    </span>
+
+                    <h2 id="featured-title"
+                        class="font-headline-md text-headline-md text-primary mb-stack-md group-hover:text-surface-tint transition-colors">
+
+                        Desarrollo Asistido por Software
+
+                    </h2>
+
+                    <p class="text-on-surface-variant mb-stack-lg">
+
+                        Conoce las herramientas de ingeniería de software
+                        asistida por computadora (CASE) utilizadas para
+                        automatizar y optimizar las diferentes fases del
+                        desarrollo de software, desde la planificación,
+                        análisis y diseño hasta la gestión, documentación,
+                        pruebas y evaluación.
+
+                    </p>
+
+
+                    <!-- Featured Information -->
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined text-surface-tint" aria-hidden="true">
+                                calendar_today
+                            </span>
+
+                            <span class="text-on-surface-variant text-sm">
+                                Julio - Diciembre, 2026
+                            </span>
+
+                        </div>
+
+
+                        <a href="#unidades"
+                            class="focus-ring inline-flex items-center justify-center gap-2 text-primary-container font-label-caps text-label-caps hover:text-surface-tint transition-colors">
+
+                            Explorar contenidos
+
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-2"
+                                aria-hidden="true">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- BLOG CONTENT -->
+        <!-- ============================= -->
+
+        <div id="unidades" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+
+
+            <!-- ============================= -->
+            <!-- SIDEBAR -->
+            <!-- ============================= -->
+
+            <aside class="lg:col-span-3 order-2 lg:order-1" aria-label="Categorías del blog">
+
+                <div class="sticky top-[120px]">
+
+                    <h2
+                        class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">
+
+                        Categorías
+
+                    </h2>
+
+
+                    <nav aria-label="Categorías">
+
+                        <ul class="flex flex-col gap-2">
+
+                            <!-- Active Category -->
+
+                            <li>
+
+                                <a class="focus-ring flex justify-between items-center py-3 text-surface-tint font-semibold border-l-2 border-surface-tint pl-3 bg-surface-container/50 hover:bg-surface-container transition-colors"
+                                    href="#unidades" aria-current="true">
+
+                                    <span>
+                                        Desarrollo de Software
+                                    </span>
+
+                                    <span class="text-xs bg-surface-container-high px-2 py-1 rounded">
+                                        12
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- Category -->
+
+                            <li>
+
+                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
+                                    href="#unidades">
+
+                                    <span>
+                                        Cloud Migration
+                                    </span>
+
+                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
+                                        8
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- Category -->
+
+                            <li>
+
+                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
+                                    href="#unidades">
+
+                                    <span>
+                                        System Audits
+                                    </span>
+
+                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
+                                        5
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- Category -->
+
+                            <li>
+
+                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
+                                    href="#unidades">
+
+                                    <span>
+                                        Ciberseguridad
+                                    </span>
+
+                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
+                                        9
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+
+                            <!-- Category -->
+
+                            <li>
+
+                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
+                                    href="#unidades">
+
+                                    <span>
+                                        DevOps
+                                    </span>
+
+                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
+                                        14
+                                    </span>
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
+
+                    <!-- ============================= -->
+                    <!-- NEWSLETTER -->
+                    <!-- ============================= -->
+
+                    <div
+                        class="mt-stack-lg bg-surface-container-highest p-stack-md rounded-xl border border-outline-variant/10">
+
+                        <h3 class="font-headline-sm text-lg text-primary mb-2 flex items-center gap-2">
+
+                            <span class="material-symbols-outlined text-surface-tint" aria-hidden="true">
+                                mail
+                            </span>
+
+                            Newsletter
+
+                        </h3>
+
+                        <p class="text-sm text-on-surface-variant mb-4">
+
+                            Recibe los últimos contenidos técnicos
+                            directamente en tu bandeja.
+
+                        </p>
+
+
+                        <form class="flex flex-col gap-2" onsubmit="return false;">
+
+                            <label for="newsletter-email" class="sr-only">
+                                Correo electrónico
+                            </label>
+
+                            <input id="newsletter-email" name="email"
+                                class="bg-background border border-outline-variant/30 text-on-surface rounded-DEFAULT p-2 focus:border-surface-tint focus:ring-1 focus:ring-surface-tint outline-none transition-all placeholder:text-on-surface-variant/50"
+                                placeholder="tu@empresa.com" type="email" autocomplete="email" required />
+
+                            <button
+                                class="bg-primary-container text-on-primary-container py-2 rounded-DEFAULT font-label-caps text-label-caps glow-hover transition-all w-full mt-2 hover:brightness-110 focus:ring-2 focus:ring-surface-tint focus:ring-offset-2 focus:ring-offset-background"
+                                type="submit">
+
+                                Suscribirse
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ============================= -->
+            <!-- UNITS -->
+            <!-- ============================= -->
+
+            <section class="lg:col-span-9 order-1 lg:order-2" aria-labelledby="units-title">
+
+                <!-- Section Header -->
+
+                <div class="flex items-center gap-3 mb-stack-md">
+
+                    <h2 id="units-title" class="font-headline-sm text-headline-sm text-primary whitespace-nowrap">
+
+                        Unidades de la Asignatura
+
+                    </h2>
+
+                    <div class="h-[1px] bg-outline-variant/20 flex-grow">
+                    </div>
+
+                </div>
+
+
+                <!-- Units Grid -->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+
+                    <!-- ============================= -->
+                    <!-- UNIT 01 -->
+                    <!-- ============================= -->
+
+                    <article id="unidad-01"
+                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
+
+                        <div class="h-48 relative overflow-hidden">
+
+                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmAg0dxp1p3hydrxCtLI_oviE9umuuP9gy89UEreWKcDz2f-G2kp2la-ICLk6RVaiM--x0g6LbsqPwcK4oQlUhYhUggfEr2AqS_913AOKXHD4kYu-SFxwkZNSEDjoWN2AivfZjh0BROo-MtGf4PvfXM7TKVLzwdTO7jJsEeHXg37rowzLT_85jrclMP82vVDhGWtD15Sd40peaBKfAioBYWSAyQfI006suF69g_yv38U1ZFVbT-_E-_w"
+                                alt="Herramientas CASE y fundamentos de ingeniería de software" loading="lazy"
+                                decoding="async" />
+
+                            <div class="absolute inset-0 image-overlay"></div>
+
+                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
+                                UNIDAD 01
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-stack-md flex-grow flex flex-col">
+
+                            <h3
+                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+
+                                Fundamentos de la Ingeniería Asistida por Computadora
+
+                            </h3>
+
+                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+
+                                Introducción a los fundamentos de la ingeniería
+                                de software asistida por computadora. Se
+                                estudiarán sus conceptos, características y
+                                beneficios dentro del ciclo de vida del software,
+                                comprendiendo el papel de las herramientas CASE
+                                en el desarrollo.
+
+                            </p>
+
+
+                            <div
+                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+
+                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                                        schedule
+                                    </span>
+
+                                    18 horas
+
+                                </span>
+
+
+                                <a href="unidad-01.html"
+                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
+                                    aria-label="Ver Unidad 01">
+
+                                    <span class="text-xs font-semibold">
+                                        Ver unidad
+                                    </span>
+
+                                    <span class="material-symbols-outlined" aria-hidden="true">
+                                        arrow_outward
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ============================= -->
+                    <!-- UNIT 02 -->
+                    <!-- ============================= -->
+
+                    <article id="unidad-02"
+                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
+
+                        <div class="h-48 relative overflow-hidden">
+
+                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlh-mWnWvw_jlDDg-YOIOfMBJQ5QndLO3l42THWrhV0o6f7w6fHcoWZEVQ96SQtcx_tDix4hyW_ExgmFR1uS4vZp352KejrK4snYumNoQx845VnJaZ28uWicxWfhDNncAglGp9vBcny8LuHorthmqZSLTCcwNcTrMcBVrheKp7CdcyIiOCcXy2vfY-dAKXEgOwX3FAvZZtev7H-hy8CvUji_ZHrQ9TR_DuHQtyKRIkrZdVpTyzwEXXUg"
+                                alt="Planificación, análisis y diseño de software mediante modelos y diagramas"
+                                loading="lazy" decoding="async" />
+
+                            <div class="absolute inset-0 image-overlay"></div>
+
+                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
+                                UNIDAD 02
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-stack-md flex-grow flex flex-col">
+
+                            <h3
+                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+
+                                Planificación, Análisis y Diseño de Software
+
+                            </h3>
+
+                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+
+                                Uso de herramientas para la planificación,
+                                análisis y diseño del software, permitiendo
+                                modelar y estructurar soluciones informáticas
+                                de manera eficiente durante las primeras fases
+                                del desarrollo.
+
+                            </p>
+
+
+                            <div
+                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+
+                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                                        schedule
+                                    </span>
+
+                                    30 horas
+
+                                </span>
+
+
+                                <a href="unidad-02.html"
+                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
+                                    aria-label="Ver Unidad 02">
+
+                                    <span class="text-xs font-semibold">
+                                        Ver unidad
+                                    </span>
+
+                                    <span class="material-symbols-outlined" aria-hidden="true">
+                                        arrow_outward
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ============================= -->
+                    <!-- UNIT 03 -->
+                    <!-- ============================= -->
+
+                    <article id="unidad-03"
+                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
+
+                        <div class="h-48 relative overflow-hidden">
+
+                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxopWBNsXVg2wdr0nLVGdh9GRqu7LR5hTblqb4TGvhKyzddp7_Jm45ELHu-g3lb-495gQhlrdnEtu-2oYjeayZmJZjrCV2SgiwhLYXv4pc9cikl9GwHu6I_g4mKQCDSVFVaTeYdAJLCZMfsmc-zYS1OOaWeNE9tbU2JWcthQYo4g66-doyZy7FIji25sCmnIHv-pv2TUzk8vCAvbZE7uTsMpbPX66uRJjTO1G0jDPOgwjEfRkRP9QkwQ"
+                                alt="Gestión del desarrollo de software mediante herramientas de colaboración y seguimiento"
+                                loading="lazy" decoding="async" />
+
+                            <div class="absolute inset-0 image-overlay"></div>
+
+                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
+                                UNIDAD 03
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-stack-md flex-grow flex flex-col">
+
+                            <h3
+                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+
+                                Gestión del Desarrollo de Software
+
+                            </h3>
+
+                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+
+                                Aplicación de herramientas orientadas a la
+                                gestión del desarrollo de software, fortaleciendo
+                                la organización, el control y el seguimiento
+                                de proyectos durante el proceso de construcción
+                                del producto.
+
+                            </p>
+
+
+                            <div
+                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+
+                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                                        schedule
+                                    </span>
+
+                                    24 horas
+
+                                </span>
+
+
+                                <a href="unidad-03.html"
+                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
+                                    aria-label="Ver Unidad 03">
+
+                                    <span class="text-xs font-semibold">
+                                        Ver unidad
+                                    </span>
+
+                                    <span class="material-symbols-outlined" aria-hidden="true">
+                                        arrow_outward
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ============================= -->
+                    <!-- UNIT 04 -->
+                    <!-- ============================= -->
+
+                    <article id="unidad-04"
+                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
+
+                        <div class="h-48 relative overflow-hidden">
+
+                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkzYvRB3FVtoV7Ifr6kqyi-uEd01cpm-AMxTdgR9DS-ANYOP24J_6WecpmzXuo_yQMmhzdft6zXVH0yPbB1c7F1mVmnvgKF3t3Kfi8ga_1_Q2N-ycBJIJ9Fm_FuTDruxb7EDMBWXO5OXgGoxwOwjcq7C6JNerrvBjpYzNPTIoxKF17uzBjltcQ1S6t_Wvu2w8Ed4jDZKweGwUEEx56_yEDe93faPkElJ38vX-0JirdkAOZYoP9KrJGQ"
+                                alt="Documentación, pruebas y evaluación de calidad del software" loading="lazy"
+                                decoding="async" />
+
+                            <div class="absolute inset-0 image-overlay"></div>
+
+                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
+                                UNIDAD 04
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-stack-md flex-grow flex flex-col">
+
+                            <h3
+                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+
+                                Documentación, Pruebas y Evaluación de Software
+
+                            </h3>
+
+                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+
+                                Análisis de herramientas destinadas a la
+                                documentación, pruebas y evaluación del software,
+                                con el propósito de contribuir al aseguramiento
+                                de la calidad del producto antes de su
+                                implementación.
+
+                            </p>
+
+
+                            <div
+                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+
+                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
+
+                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                                        schedule
+                                    </span>
+
+                                    24 horas
+
+                                </span>
+
+
+                                <a href="unidad-04.html"
+                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
+                                    aria-label="Ver Unidad 04">
+
+                                    <span class="text-xs font-semibold">
+                                        Ver unidad
+                                    </span>
+
+                                    <span class="material-symbols-outlined" aria-hidden="true">
+                                        arrow_outward
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <div id="site-footer" style="min-height: 220px;">
+    </div>
+
+
+    <script>
+        fetch( "footer.html" )
+            .then( function ( response ) {
+
+                if ( !response.ok ) {
+                    throw new Error( "No se pudo cargar el footer" );
+                }
+
+                return response.text();
+            } )
+            .then( function ( html ) {
+
+                document.getElementById( "site-footer" ).innerHTML = html;
+
+            } )
+            .catch( function ( error ) {
+
+                console.error( error );
+
+            } );
+    </script>
+
+</body>
+
+</html>
