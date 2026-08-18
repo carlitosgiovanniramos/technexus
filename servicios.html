@@ -156,9 +156,34 @@
           },
         }
       </script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+      <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition:
+            opacity 0.7s ease,
+            transform 0.7s ease;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+<link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet"
+/>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap"
+    rel="stylesheet"
+/>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
 <div id="site-header" style="min-height: 81px;"></div>
@@ -187,26 +212,135 @@
 <main class="flex-grow pt-32 pb-section-gap" id="servicios">
 
     <!-- Hero Section -->
-    <section
-        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap text-center">
-        <h1
-            class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-md">
-            Soluciones de Ingeniería
-            <br />
-            <span class="text-primary-fixed">Premium</span>
-        </h1>
+<section
+    class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
 
-        <p
-            class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-stack-lg">
-            Diseñamos, desarrollamos y mantenemos soluciones de software
-            adaptadas a las necesidades de cada organización, combinando
-            tecnología, escalabilidad y buenas prácticas de ingeniería.
-        </p>
-    </section>
+    <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
+        <!-- Hero Content -->
+        <div class="text-center lg:text-left">
+
+            <span
+                class="inline-flex items-center gap-2 text-primary-fixed font-label-caps text-label-caps mb-5">
+                <span class="material-symbols-outlined text-lg">
+                    terminal
+                </span>
+                Tecnología que impulsa tu negocio
+            </span>
+
+            <h1
+                class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-md">
+
+                Soluciones digitales
+                <span class="text-primary-fixed">
+                    que evolucionan contigo
+                </span>
+
+            </h1>
+
+            <p
+                class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto lg:mx-0 mb-stack-lg">
+
+                Transformamos ideas y necesidades empresariales en soluciones
+                de software modernas, escalables y preparadas para crecer.
+
+            </p>
+
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+                <a
+                    href="#nuestros-servicios"
+                    class="inline-flex justify-center items-center gap-2 bg-primary-fixed text-background font-label-caps text-label-caps px-6 py-4 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+
+                    Explorar servicios
+
+                    <span class="material-symbols-outlined text-lg">
+                        arrow_downward
+                    </span>
+
+                </a>
+
+                <a
+                    href="contactanos.html"
+                    class="inline-flex justify-center items-center gap-2 border border-surface-variant text-primary font-label-caps text-label-caps px-6 py-4 rounded-lg hover:border-primary-fixed hover:text-primary-fixed transition-all duration-300">
+
+                    Hablemos de tu proyecto
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero Image -->
+        <div
+            class="relative group">
+
+            <!-- Decorative glow -->
+            <div
+                class="absolute -inset-4 bg-primary-fixed/10 rounded-xl blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-500">
+            </div>
+
+            <div
+                class="relative h-[420px] md:h-[500px] rounded-xl overflow-hidden border border-surface-variant">
+
+                <img
+                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+                    alt="Tecnología y desarrollo de soluciones digitales"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                <!-- Image overlay -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent">
+                </div>
+
+                <!-- Floating card -->
+                <div
+                    class="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md border border-surface-variant rounded-lg p-5 transition-transform duration-300 group-hover:-translate-y-2">
+
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center shrink-0">
+
+                            <span
+                                class="material-symbols-outlined text-background">
+                                developer_mode
+                            </span>
+
+                        </div>
+
+                        <div>
+                            <p
+                                class="font-headline-sm text-primary text-lg">
+                                Ingeniería + Innovación
+                            </p>
+
+                            <p
+                                class="font-body-md text-on-surface-variant text-sm">
+                                Soluciones pensadas para crecer.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
     <!-- Services Grid -->
     <section
+        id="nuestros-servicios"
         class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
 
         <div class="text-center mb-12">
@@ -222,585 +356,763 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
 
-            <!-- Service 1 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
+    <!-- Service 1 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
 
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80"
+                alt="Mantenimiento de software"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
 
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        build
-                    </span>
-                </div>
+        <div class="p-7">
 
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    build
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
                     Mantenimiento de Software
                 </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Mantenemos sus aplicaciones estables, seguras y actualizadas,
-                    reduciendo riesgos y evitando interrupciones en la operación.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Monitoreo y soporte continuo
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Corrección y prevención de errores
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Optimización del rendimiento
-                    </li>
-                </ul>
             </div>
 
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Mantenemos tus sistemas estables, seguros y actualizados para
+                reducir riesgos y evitar interrupciones.
+            </p>
 
-            <!-- Service 2 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
-
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        code
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
                     </span>
-                </div>
+                    Soporte y monitoreo continuo
+                </li>
 
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
-                    Desarrollo a Medida
-                </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Creamos soluciones de software personalizadas que responden
-                    a los procesos, objetivos y necesidades específicas de cada cliente.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Sistemas empresariales
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Desarrollo de APIs
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Integración entre plataformas
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Service 3 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
-
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        lightbulb
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
                     </span>
-                </div>
-
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
-                    Consultoría Técnica
-                </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Analizamos su entorno tecnológico para identificar oportunidades
-                    de mejora y definir soluciones alineadas con sus objetivos.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Evaluación de arquitectura
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Transformación digital
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Evaluación de seguridad
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Service 4 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
-
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        devices
-                    </span>
-                </div>
-
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
-                    Desarrollo Web y Aplicaciones
-                </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Construimos aplicaciones modernas, intuitivas y adaptables
-                    para optimizar procesos y ofrecer mejores experiencias digitales.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Aplicaciones web empresariales
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Interfaces responsivas
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Sistemas administrativos
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Service 5 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
-
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        database
-                    </span>
-                </div>
-
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
-                    Bases de Datos e Integración
-                </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Diseñamos estructuras de datos eficientes y conectamos diferentes
-                    sistemas para facilitar el acceso y flujo de información.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Diseño de bases de datos
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Optimización de consultas
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Integración de información
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Service 6 -->
-            <div
-                class="md:col-span-4 bg-surface-dim border border-surface-variant/50 rounded-xl p-8 hover:bg-surface-variant/20 transition-all duration-300 group relative overflow-hidden">
-
-                <div
-                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                </div>
-
-                <div class="mb-stack-md text-primary-fixed">
-                    <span
-                        class="material-symbols-outlined text-5xl"
-                        style="font-variation-settings: 'FILL' 1;">
-                        cloud
-                    </span>
-                </div>
-
-                <h3
-                    class="font-headline-sm text-headline-sm text-primary mb-stack-sm group-hover:text-primary-fixed transition-colors">
-                    Cloud y DevOps
-                </h3>
-
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    Implementamos infraestructura y procesos automatizados para
-                    conseguir despliegues más rápidos, confiables y escalables.
-                </p>
-
-                <ul class="space-y-3 font-body-md text-body-md text-on-surface">
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Despliegues en la nube
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Integración y entrega continua
-                    </li>
-
-                    <li class="flex items-center gap-3">
-                        <span
-                            class="material-symbols-outlined text-primary-fixed text-sm">
-                            check_circle
-                        </span>
-                        Monitoreo de aplicaciones
-                    </li>
-                </ul>
-            </div>
+                    Optimización del rendimiento
+                </li>
+            </ul>
 
         </div>
+    </article>
+
+
+    <!-- Service 2 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
+
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80"
+                alt="Desarrollo de software a medida"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
+
+        <div class="p-7">
+
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    code
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
+                    Desarrollo a Medida
+                </h3>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Creamos soluciones personalizadas según los procesos,
+                necesidades y objetivos de cada organización.
+            </p>
+
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Sistemas empresariales
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    APIs e integración de plataformas
+                </li>
+            </ul>
+
+        </div>
+    </article>
+
+
+    <!-- Service 3 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
+
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80"
+                alt="Consultoría tecnológica"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
+
+        <div class="p-7">
+
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    lightbulb
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
+                    Consultoría Técnica
+                </h3>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Analizamos tu entorno tecnológico y proponemos mejoras alineadas
+                con tus objetivos de negocio.
+            </p>
+
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Evaluación de arquitectura
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Transformación digital
+                </li>
+            </ul>
+
+        </div>
+    </article>
+
+
+    <!-- Service 4 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
+
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                alt="Desarrollo web y aplicaciones"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
+
+        <div class="p-7">
+
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    devices
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
+                    Desarrollo Web y Aplicaciones
+                </h3>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Diseñamos experiencias digitales modernas, adaptables y fáciles
+                de usar en distintos dispositivos.
+            </p>
+
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Aplicaciones web empresariales
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Interfaces responsivas
+                </li>
+            </ul>
+
+        </div>
+    </article>
+
+
+    <!-- Service 5 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
+
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80"
+                alt="Bases de datos e integración"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
+
+        <div class="p-7">
+
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    database
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
+                    Bases de Datos e Integración
+                </h3>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Organizamos e integramos la información para mejorar su acceso,
+                rendimiento y confiabilidad.
+            </p>
+
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Diseño y optimización
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Integración de información
+                </li>
+            </ul>
+
+        </div>
+    </article>
+
+
+    <!-- Service 6 -->
+    <article
+        class="reveal group bg-surface-dim border border-surface-variant/50 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-primary-fixed/60 hover:shadow-2xl">
+
+        <div class="h-52 overflow-hidden">
+            <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+                alt="Cloud y DevOps"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+        </div>
+
+        <div class="p-7">
+
+            <div class="flex items-center gap-3 mb-4 text-primary-fixed">
+                <span class="material-symbols-outlined text-3xl">
+                    cloud
+                </span>
+
+                <h3 class="font-headline-sm text-headline-sm text-primary">
+                    Cloud y DevOps
+                </h3>
+            </div>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-5">
+                Automatizamos infraestructura y despliegues para lograr sistemas
+                más rápidos, confiables y escalables.
+            </p>
+
+            <ul class="space-y-3 font-body-md text-body-md text-on-surface">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Despliegues en la nube
+                </li>
+
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-fixed text-sm">
+                        check_circle
+                    </span>
+                    Integración y entrega continua
+                </li>
+            </ul>
+
+        </div>
+    </article>
+
+</div>
     </section>
 
 
     <!-- Work Process -->
 <section
-    class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
-
-    <div class="text-center mb-12">
-        <h2
-            class="font-headline-md text-headline-md text-primary mb-stack-sm">
-            Nuestro proceso de
-            <span class="text-primary-fixed">trabajo</span>
-        </h2>
-
-        <p
-            class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
-            Convertimos una necesidad tecnológica en una solución funcional
-            mediante un proceso estructurado y orientado a resultados.
-        </p>
-    </div>
+    class="bg-white text-gray-900 py-24 mb-section-gap">
 
     <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter lg:gap-x-12 lg:gap-y-8">
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 
-        <!-- Step 1 -->
-        <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7 relative">
-
-            <!-- Connector -->
-            <div
-                class="hidden lg:flex absolute top-1/2 -right-12 w-12 items-center"
-                aria-hidden="true">
-                <div class="h-px flex-1 bg-primary-fixed/50"></div>
-                <span
-                    class="material-symbols-outlined text-primary-fixed text-lg">
-                    chevron_right
-                </span>
-            </div>
+        <div class="text-center mb-14">
 
             <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                01
+                class="inline-block text-[#7ea000] font-label-caps text-label-caps mb-4">
+                Cómo trabajamos
             </span>
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Análisis
-            </h3>
+            <h2
+                class="font-headline-md text-headline-md text-gray-900 mb-stack-sm">
+                Nuestro proceso de
+                <span class="text-[#7ea000]">trabajo</span>
+            </h2>
 
             <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Identificamos las necesidades, objetivos y requerimientos
-                principales del proyecto.
+                class="font-body-md text-body-md text-gray-600 max-w-2xl mx-auto">
+                Convertimos una necesidad tecnológica en una solución funcional
+                mediante un proceso claro, colaborativo y orientado a resultados.
             </p>
+
         </div>
 
 
-        <!-- Step 2 -->
         <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7 relative">
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Connector -->
-            <div
-                class="hidden lg:flex absolute top-1/2 -right-12 w-12 items-center"
-                aria-hidden="true">
-                <div class="h-px flex-1 bg-primary-fixed/50"></div>
-                <span
-                    class="material-symbols-outlined text-primary-fixed text-lg">
-                    chevron_right
-                </span>
-            </div>
+            <!-- Step 1 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
 
-            <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                02
-            </span>
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Diseño
-            </h3>
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
 
-            <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Definimos la arquitectura, tecnologías y experiencia
-                necesarias para construir la solución.
-            </p>
-        </div>
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        search
+                    </span>
 
+                </div>
 
-        <!-- Step 3 -->
-        <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7">
+                <div class="flex items-center justify-between mb-3">
 
-            <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                03
-            </span>
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Análisis
+                    </h3>
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Desarrollo
-            </h3>
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        01
+                    </span>
 
-            <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Construimos la solución de manera progresiva aplicando
-                buenas prácticas de desarrollo.
-            </p>
-        </div>
+                </div>
+
+                <p class="font-body-md text-body-md text-gray-600">
+                    Identificamos necesidades, objetivos y requerimientos para
+                    comprender el problema antes de construir.
+                </p>
+
+            </article>
 
 
-        <!-- Step 4 -->
-        <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7 relative">
+            <!-- Step 2 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
 
-            <!-- Connector -->
-            <div
-                class="hidden lg:flex absolute top-1/2 -right-12 w-12 items-center"
-                aria-hidden="true">
-                <div class="h-px flex-1 bg-primary-fixed/50"></div>
-                <span
-                    class="material-symbols-outlined text-primary-fixed text-lg">
-                    chevron_right
-                </span>
-            </div>
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
 
-            <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                04
-            </span>
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Pruebas
-            </h3>
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        architecture
+                    </span>
 
-            <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Validamos el funcionamiento, rendimiento y calidad antes
-                de la puesta en producción.
-            </p>
-        </div>
+                </div>
 
+                <div class="flex items-center justify-between mb-3">
 
-        <!-- Step 5 -->
-        <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7 relative">
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Diseño
+                    </h3>
 
-            <!-- Connector -->
-            <div
-                class="hidden lg:flex absolute top-1/2 -right-12 w-12 items-center"
-                aria-hidden="true">
-                <div class="h-px flex-1 bg-primary-fixed/50"></div>
-                <span
-                    class="material-symbols-outlined text-primary-fixed text-lg">
-                    chevron_right
-                </span>
-            </div>
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        02
+                    </span>
 
-            <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                05
-            </span>
+                </div>
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Implementación
-            </h3>
+                <p class="font-body-md text-body-md text-gray-600">
+                    Definimos arquitectura, tecnologías y experiencia de usuario
+                    antes de iniciar el desarrollo.
+                </p>
 
-            <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Desplegamos la solución en el entorno correspondiente y
-                verificamos su funcionamiento.
-            </p>
-        </div>
+            </article>
 
 
-        <!-- Step 6 -->
-        <div
-            class="bg-surface-container-low border border-surface-variant/50 rounded-xl p-7">
+            <!-- Step 3 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
 
-            <span
-                class="font-headline-md text-headline-md text-primary-fixed">
-                06
-            </span>
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
 
-            <h3
-                class="font-headline-sm text-headline-sm text-primary mt-4 mb-2">
-                Soporte
-            </h3>
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
 
-            <p
-                class="font-body-md text-body-md text-on-surface-variant">
-                Brindamos acompañamiento para mantener, mejorar y evolucionar
-                la solución tecnológica.
-            </p>
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        code
+                    </span>
+
+                </div>
+
+                <div class="flex items-center justify-between mb-3">
+
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Desarrollo
+                    </h3>
+
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        03
+                    </span>
+
+                </div>
+
+                <p class="font-body-md text-body-md text-gray-600">
+                    Construimos la solución de forma progresiva aplicando buenas
+                    prácticas de ingeniería de software.
+                </p>
+
+            </article>
+
+
+            <!-- Step 4 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
+
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
+
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
+
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        bug_report
+                    </span>
+
+                </div>
+
+                <div class="flex items-center justify-between mb-3">
+
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Pruebas
+                    </h3>
+
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        04
+                    </span>
+
+                </div>
+
+                <p class="font-body-md text-body-md text-gray-600">
+                    Verificamos funcionalidad, calidad y rendimiento antes de
+                    llevar la solución a producción.
+                </p>
+
+            </article>
+
+
+            <!-- Step 5 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
+
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
+
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
+
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        rocket_launch
+                    </span>
+
+                </div>
+
+                <div class="flex items-center justify-between mb-3">
+
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Implementación
+                    </h3>
+
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        05
+                    </span>
+
+                </div>
+
+                <p class="font-body-md text-body-md text-gray-600">
+                    Desplegamos la solución y comprobamos su funcionamiento en
+                    el entorno final.
+                </p>
+
+            </article>
+
+
+            <!-- Step 6 -->
+            <article
+                class="reveal group bg-gray-50 border border-gray-200 rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#abd600]">
+
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-[#abd600] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                </div>
+
+                <div
+                    class="w-14 h-14 rounded-xl bg-[#abd600]/15 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#abd600] group-hover:scale-110">
+
+                    <span
+                        class="material-symbols-outlined text-3xl text-[#7ea000] group-hover:text-gray-900">
+                        support_agent
+                    </span>
+
+                </div>
+
+                <div class="flex items-center justify-between mb-3">
+
+                    <h3
+                        class="font-headline-sm text-headline-sm text-gray-900">
+                        Soporte
+                    </h3>
+
+                    <span
+                        class="font-headline-md text-2xl text-gray-300 group-hover:text-[#7ea000] transition-colors">
+                        06
+                    </span>
+
+                </div>
+
+                <p class="font-body-md text-body-md text-gray-600">
+                    Acompañamos la evolución del sistema mediante mantenimiento,
+                    soporte y mejora continua.
+                </p>
+
+            </article>
+
         </div>
 
     </div>
+
 </section>
 
 
     <!-- Feature Highlight -->
-    <section
-        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<section
+    class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
 
-        <div
-            class="bg-surface-container-low border border-surface-variant rounded-xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+    <div
+    class="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-surface-container-low border border-surface-variant rounded-2xl overflow-hidden">
 
-            <div class="flex-1">
+        <!-- Image -->
+        <div class="relative h-[380px] lg:h-full min-h-[420px] group overflow-hidden">
 
-                <h2
-                    class="font-headline-md text-headline-md text-primary mb-stack-md">
-                    ¿Por qué elegir
-                    <span class="text-primary-fixed">TechNexus?</span>
-                </h2>
+            <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+                alt="Equipo de trabajo de TechNexus"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-                <p
-                    class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
-                    Diseñamos soluciones pensando no solo en las necesidades
-                    actuales de cada organización, sino también en su crecimiento
-                    futuro. Nuestro enfoque combina calidad de software,
-                    escalabilidad, acompañamiento técnico y mejora continua.
-                </p>
-
-                <a
-                    href="contactanos.html"
-                    class="inline-block border border-surface-variant text-primary font-label-caps text-label-caps px-6 py-3 rounded hover:bg-primary-fixed hover:text-background hover:border-primary-fixed transition-all duration-300">
-                    Solicitar Evaluación
-                </a>
-
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-background/30">
             </div>
 
             <div
-                class="flex-1 w-full h-64 md:h-96 rounded-lg relative overflow-hidden">
+                class="absolute bottom-6 left-6 bg-background/80 backdrop-blur-md border border-surface-variant rounded-xl p-5">
 
-                <div
-                    class="bg-cover bg-center w-full h-full absolute inset-0"
-                    data-alt="Infraestructura tecnológica moderna de TechNexus"
-                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5YsFvL4ArxtveKD8R8zW3uE23K8Y23m1--_XKzHuWr57cexQ8LSWJmpD0Nq2OUfXdYaIcS4H9yB5rTixCGGaoWvHV-_6HQfkhDQQUgdDamIb0fXRBmQzIRPm2IhAee2FH6S1mcurSq7W6x0qPb7F-_MsRTZSviKOOl7clUYsVITZZx69XFU4rO3d6UimPTdOUOASvAr-b_dsHmsUIpp3w5UFbGyn-i06iRyIQiNpMyYBrQHUUdScUgw')">
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="w-11 h-11 rounded-lg bg-primary-fixed flex items-center justify-center">
+
+                        <span
+                            class="material-symbols-outlined text-background">
+                            groups
+                        </span>
+
+                    </div>
+
+                    <div>
+                        <p class="text-primary font-semibold">
+                            Trabajo colaborativo
+                        </p>
+
+                        <p class="text-on-surface-variant text-sm">
+                            Tecnología con enfoque humano
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-    </section>
+
+
+        <!-- Content -->
+        <div class="p-8 md:p-12 lg:pr-16">
+
+            <span
+                class="inline-block text-primary-fixed font-label-caps text-label-caps mb-4">
+                Nuestra propuesta
+            </span>
+
+            <h2
+                class="font-headline-md text-headline-md text-primary mb-stack-md">
+
+                ¿Por qué elegir
+                <span class="text-primary-fixed">TechNexus?</span>
+
+            </h2>
+
+            <p
+                class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-xl">
+
+                Combinamos experiencia técnica, soluciones escalables y
+                acompañamiento continuo para convertir cada proyecto en una
+                herramienta real de crecimiento.
+
+            </p>
+
+
+            <!-- Benefits -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+
+                <div class="flex items-start gap-3">
+
+                    <span
+                        class="material-symbols-outlined text-primary-fixed mt-1">
+                        verified
+                    </span>
+
+                    <div>
+                        <h3 class="text-primary font-semibold mb-1">
+                            Calidad
+                        </h3>
+
+                        <p class="text-on-surface-variant text-sm">
+                            Buenas prácticas y soluciones confiables.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="flex items-start gap-3">
+
+                    <span
+                        class="material-symbols-outlined text-primary-fixed mt-1">
+                        trending_up
+                    </span>
+
+                    <div>
+                        <h3 class="text-primary font-semibold mb-1">
+                            Escalabilidad
+                        </h3>
+
+                        <p class="text-on-surface-variant text-sm">
+                            Tecnología preparada para crecer contigo.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="flex items-start gap-3">
+
+                    <span
+                        class="material-symbols-outlined text-primary-fixed mt-1">
+                        handshake
+                    </span>
+
+                    <div>
+                        <h3 class="text-primary font-semibold mb-1">
+                            Acompañamiento
+                        </h3>
+
+                        <p class="text-on-surface-variant text-sm">
+                            Comunicación cercana durante todo el proyecto.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="flex items-start gap-3">
+
+                    <span
+                        class="material-symbols-outlined text-primary-fixed mt-1">
+                        update
+                    </span>
+
+                    <div>
+                        <h3 class="text-primary font-semibold mb-1">
+                            Mejora continua
+                        </h3>
+
+                        <p class="text-on-surface-variant text-sm">
+                            Evolución constante de las soluciones.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="contactanos.html"
+                class="inline-flex items-center gap-2 bg-primary-fixed text-background font-label-caps text-label-caps px-6 py-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                Solicitar evaluación
+
+                <span class="material-symbols-outlined text-lg">
+                    arrow_forward
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 <div id="site-footer" style="min-height: 220px;"></div>
@@ -819,4 +1131,27 @@
                         console.error(error);
                 });
 </script>
+
+<script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15,
+        }
+    );
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
+</script>
+
 </body></html>
