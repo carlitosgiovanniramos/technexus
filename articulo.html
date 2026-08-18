@@ -488,296 +488,1154 @@
                 `;
             }
 
-            // 1. REQUERIMIENTOS FUNCIONALES
-            if (sec.requerimientos_funcionales && sec.requerimientos_funcionales.length > 0) {
-                sectionsHtml += `
-                    <section class="py-2">
-                        <h2 class="font-headline-sm text-2xl text-primary font-semibold mb-2">
-                            Requerimientos Funcionales
-                        </h2>
-                        ${sec.requerimientos_intro ? `<p class="text-sm text-on-surface-variant mb-4 text-justify">${sec.requerimientos_intro}</p>` : ''}
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            ${sec.requerimientos_funcionales.map(item => `
-                                <div class="p-2 flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-surface-tint text-xl">check_circle</span>
-                                    <span class="text-primary font-medium text-sm">${item}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                `;
-            }
+            // 1. FASE 01 — ANÁLISIS DE REQUERIMIENTOS
+if (
+    (sec.requerimientos_funcionales && sec.requerimientos_funcionales.length > 0) ||
+    (sec.requerimientos_no_funcionales && sec.requerimientos_no_funcionales.length > 0)
+) {
+    sectionsHtml += `
+        <section class="reveal bg-white text-gray-900 rounded-2xl p-6 md:p-10 shadow-xl">
 
-            // 2. REQUERIMIENTOS NO FUNCIONALES
-            if (sec.requerimientos_no_funcionales && sec.requerimientos_no_funcionales.length > 0) {
-                sectionsHtml += `
-                    <section class="py-2">
-                        <h2 class="font-headline-sm text-2xl text-primary font-semibold mb-3">
-                            Requerimientos No Funcionales
-                        </h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            ${sec.requerimientos_no_funcionales.map(item => `
-                                <div class="p-2 flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-surface-tint text-xl">check_circle</span>
-                                    <span class="text-primary font-medium text-sm">${item}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                `;
-            }
+            <!-- Encabezado de fase -->
+            <div class="mb-8">
 
-            // 3. PLANIFICACIÓN Y ROLES DEL EQUIPO (Tarjetas visuales limpias sin justificaciones)
-            if (sec.planificacion && sec.planificacion.length > 0) {
-                sectionsHtml += `
-                    <section class="py-4">
-                        <h2 class="font-headline-sm text-2xl text-primary font-semibold mb-6">
-                            Planificación y Roles del Equipo
-                        </h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            ${sec.planificacion.map(persona => `
-                                <div class="team-card bg-surface-container rounded-xl border border-surface-container-highest group">
-                                    <div class="relative aspect-[3/4] overflow-hidden rounded-t-xl">
-                                        <img
-                                            alt="${persona.nombre}"
-                                            class="w-full h-full object-cover team-image"
-                                            src="${persona.foto}"
-                                        >
-                                    </div>
-                                    <div class="card-info">
-                                        <h3 class="font-headline-sm text-base text-primary font-bold mb-1 leading-snug">
-                                            ${persona.nombre}
-                                        </h3>
-                                        <p class="font-label-caps text-xs text-surface-tint font-semibold">
-                                            ${persona.rol}
-                                        </p>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                `;
-            }
+                <span
+                    class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
 
-            // 4. BOCETOS A MANO ALZADA
-            if (sec.bocetos_mano && sec.bocetos_mano.length > 0) {
-                sectionsHtml += `
-                    <section class="py-2">
-                        <h2 class="font-headline-sm text-2xl text-primary font-semibold mb-2">
-                            Bocetos a Mano Alzada
-                        </h2>
-                        ${sec.bocetos_mano_intro ? `<p class="text-sm text-on-surface-variant mb-4 text-justify">${sec.bocetos_mano_intro}</p>` : ''}
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            ${sec.bocetos_mano.map(b => `
-                                <div class="group relative cursor-pointer overflow-hidden rounded-xl aspect-square" onclick="openModal('${b.imagen}')">
-                                    <img src="${b.imagen}" alt="${b.titulo}" 
-                                        class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                                        <p class="text-xs text-white font-medium">${b.titulo}</p>
-                                    </div>
-                                </div>
-                            `).join('')}
+                    <span class="material-symbols-outlined text-lg">
+                        fact_check
+                    </span>
+
+                    Fase 01
+                </span>
+
+                <h2
+                    class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    Análisis de requerimientos
+                </h2>
+
+                <p
+                    class="text-gray-600 leading-relaxed max-w-3xl text-justify">
+                    En esta fase se identificaron las funcionalidades principales
+                    necesarias para la Tiendita de Barrio, considerando tanto las
+                    operaciones del administrador como la experiencia del cliente.
+                    A partir de este análisis se definieron los requerimientos que
+                    guiarían el diseño y desarrollo de las siguientes etapas.
+                </p>
+
+            </div>
+
+
+            <!-- Tarjetas de requerimientos -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                <!-- Funcionales -->
+                <div
+                    class="group bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#abd600]/15 flex items-center justify-center transition-all duration-300 group-hover:bg-[#abd600]">
+
+                            <span
+                                class="material-symbols-outlined text-[#7ea000] group-hover:text-gray-900">
+                                settings
+                            </span>
+
                         </div>
-                    </section>
-                `;
-            }
+
+                        <div>
+                            <span
+                                class="text-xs uppercase tracking-wider text-[#7ea000] font-semibold">
+                                Operación del sistema
+                            </span>
+
+                            <h3
+                                class="font-headline-sm text-xl font-bold text-gray-900">
+                                Requerimientos Funcionales
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    ${
+                        sec.requerimientos_intro
+                            ? `
+                                <p class="text-sm text-gray-600 mb-5 leading-relaxed text-justify">
+                                    ${sec.requerimientos_intro}
+                                </p>
+                              `
+                            : ''
+                    }
+
+                    <div class="space-y-3">
+
+                        ${
+                            (sec.requerimientos_funcionales || []).map(item => `
+                                <div
+                                    class="flex items-start gap-3 p-3 rounded-lg bg-white border border-gray-200">
+
+                                    <span
+                                        class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5">
+                                        check_circle
+                                    </span>
+
+                                    <span
+                                        class="text-gray-800 font-medium text-sm leading-relaxed">
+                                        ${item}
+                                    </span>
+
+                                </div>
+                            `).join('')
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <!-- No funcionales -->
+                <div
+                    class="group bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#abd600]/15 flex items-center justify-center transition-all duration-300 group-hover:bg-[#abd600]">
+
+                            <span
+                                class="material-symbols-outlined text-[#7ea000] group-hover:text-gray-900">
+                                shield
+                            </span>
+
+                        </div>
+
+                        <div>
+                            <span
+                                class="text-xs uppercase tracking-wider text-[#7ea000] font-semibold">
+                                Calidad del sistema
+                            </span>
+
+                            <h3
+                                class="font-headline-sm text-xl font-bold text-gray-900">
+                                Requerimientos No Funcionales
+                            </h3>
+                        </div>
+
+                    </div>
+
+                    <p
+                        class="text-sm text-gray-600 mb-5 leading-relaxed text-justify">
+                        Estos requerimientos establecen las condiciones de calidad
+                        que debe cumplir la solución, como disponibilidad, seguridad,
+                        facilidad de uso y consistencia de la información.
+                    </p>
+
+                    <div class="space-y-3">
+
+                        ${
+                            (sec.requerimientos_no_funcionales || []).map(item => `
+                                <div
+                                    class="flex items-start gap-3 p-3 rounded-lg bg-white border border-gray-200">
+
+                                    <span
+                                        class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5">
+                                        check_circle
+                                    </span>
+
+                                    <span
+                                        class="text-gray-800 font-medium text-sm leading-relaxed">
+                                        ${item}
+                                    </span>
+
+                                </div>
+                            `).join('')
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    `;
+}
+
+            // 2. FASE 02 — PLANIFICACIÓN Y DISTRIBUCIÓN DE ROLES
+if (sec.planificacion && sec.planificacion.length > 0) {
+    sectionsHtml += `
+        <section class="reveal py-6">
+
+            <!-- Encabezado de fase -->
+            <div class="mb-8">
+
+                <span
+                    class="inline-flex items-center gap-2 text-surface-tint text-xs font-bold uppercase tracking-widest mb-3">
+
+                    <span class="material-symbols-outlined text-lg">
+                        groups
+                    </span>
+
+                    Fase 02
+                </span>
+
+                <h2
+                    class="font-headline-md text-2xl md:text-3xl text-primary font-bold mb-3">
+                    Planificación y distribución de roles
+                </h2>
+
+                <p
+                    class="text-on-surface-variant leading-relaxed max-w-3xl text-justify">
+                    En esta fase se organizaron las responsabilidades del equipo
+                    según las necesidades del proyecto. La distribución de roles
+                    permitió dividir el trabajo entre diseño de base de datos,
+                    desarrollo backend y construcción de las interfaces, facilitando
+                    una ejecución coordinada y ordenada.
+                </p>
+
+            </div>
+
+
+            <!-- Roles -->
+            <div class="mb-5">
+
+                <h3
+                    class="font-headline-sm text-xl text-primary font-semibold">
+                    Equipo de desarrollo
+                </h3>
+
+                <p class="text-sm text-on-surface-variant mt-1">
+                    Cada integrante asumió responsabilidades específicas dentro
+                    del desarrollo de la solución.
+                </p>
+
+            </div>
+
+
+            <!-- Team Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                ${sec.planificacion.map(persona => `
+                    <article
+                        class="team-card bg-surface-container rounded-xl border border-surface-container-highest group">
+
+                        <div
+                            class="relative aspect-[3/4] overflow-hidden rounded-t-xl">
+
+                            <img
+                                alt="${persona.nombre}"
+                                class="w-full h-full object-cover team-image"
+                                src="${persona.foto}"
+                            >
+
+                        </div>
+
+                        <div class="card-info">
+
+                            <h3
+                                class="font-headline-sm text-base text-primary font-bold mb-1 leading-snug">
+                                ${persona.nombre}
+                            </h3>
+
+                            <p
+                                class="font-label-caps text-xs text-surface-tint font-semibold">
+                                ${persona.rol}
+                            </p>
+
+                        </div>
+
+                    </article>
+                `).join('')}
+
+            </div>
+
+        </section>
+    `;
+}
+            // 3. FASE 03 — BOCETADO INICIAL
+if (sec.bocetos_mano && sec.bocetos_mano.length > 0) {
+    sectionsHtml += `
+        <section class="reveal bg-white text-gray-900 rounded-2xl p-6 md:p-10 shadow-xl">
+
+            <!-- Encabezado de fase -->
+            <div class="mb-8">
+
+                <span
+                    class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
+
+                    <span class="material-symbols-outlined text-lg">
+                        draw
+                    </span>
+
+                    Fase 03
+                </span>
+
+                <h2
+                    class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    Bocetado inicial
+                </h2>
+
+                <p
+                    class="text-gray-600 leading-relaxed max-w-3xl text-justify">
+                    Antes de construir las interfaces digitales, se elaboraron
+                    bocetos a mano alzada para representar las primeras ideas
+                    visuales del sistema. Esta etapa permitió definir la
+                    distribución de elementos, la organización de la información
+                    y la navegación principal de cada pantalla.
+                </p>
+
+            </div>
+
+
+            <!-- Información adicional -->
+            <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+                <div
+                    class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        dashboard
+                    </span>
+
+                    <h3
+                        class="font-semibold text-gray-900 mb-1">
+                        Distribución
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        Se definió la ubicación inicial de botones,
+                        formularios, productos y promociones.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        account_tree
+                    </span>
+
+                    <h3
+                        class="font-semibold text-gray-900 mb-1">
+                        Navegación
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        Se plantearon los recorridos principales que seguirían
+                        el administrador y el cliente.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        rate_review
+                    </span>
+
+                    <h3
+                        class="font-semibold text-gray-900 mb-1">
+                        Validación temprana
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        Los bocetos permitieron revisar ideas antes de invertir
+                        tiempo en el prototipo digital.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Título de galería -->
+            <div class="mb-5">
+
+                <h3
+                    class="font-headline-sm text-xl font-bold text-gray-900">
+                    Bocetos a mano alzada
+                </h3>
+
+                ${
+                    sec.bocetos_mano_intro
+                        ? `
+                            <p
+                                class="text-sm text-gray-600 mt-2 leading-relaxed text-justify">
+                                ${sec.bocetos_mano_intro}
+                            </p>
+                          `
+                        : ''
+                }
+
+            </div>
+
+
+            <!-- Galería -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+
+                ${sec.bocetos_mano.map(b => `
+                    <div
+                        class="group relative cursor-pointer overflow-hidden rounded-xl aspect-square border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]"
+                        onclick="openModal('${b.imagen}')">
+
+                        <img
+                            src="${b.imagen}"
+                            alt="${b.titulo}"
+                            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                        >
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+
+                            <p
+                                class="text-sm text-white font-semibold">
+                                ${b.titulo}
+                            </p>
+
+                        </div>
+
+                    </div>
+                `).join('')}
+
+            </div>
+
+
+            <!-- Ayuda visual -->
+            <div
+                class="mt-5 flex items-center gap-2 text-sm text-gray-500">
+
+                <span
+                    class="material-symbols-outlined text-[#7ea000] text-lg">
+                    zoom_in
+                </span>
+
+                Selecciona cualquier boceto para visualizarlo en tamaño completo.
+
+            </div>
+
+        </section>
+    `;
+}
 
             // 5. BOCETOS DIGITALIZADOS (PROTOTIPO INTERACTIVO: ADMIN & CLIENTE)
             const adminBocetos = sec.bocetos_digitales_admin || sec.bocetos_digitales || [];
             const clienteBocetos = sec.bocetos_digitales_cliente || [];
 
             if (adminBocetos.length > 0 || clienteBocetos.length > 0) {
-                sectionsHtml += `
-                    <section class="glass-panel p-6 md:p-8 rounded-2xl glow-border">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                            <div>
-                                <h2 class="font-headline-sm text-2xl text-primary font-semibold flex items-center gap-2">
-                                    Bocetos Digitalizados
-                                </h2>
-                                <p class="text-xs md:text-sm text-on-surface-variant mt-1 text-justify">
-                                    ${sec.bocetos_digitales_intro || 'Prototipo interactivo navegable de alta fidelidad para Administrador y Cliente.'}
-                                </p>
+    sectionsHtml += `
+        <section class="reveal py-6">
+
+            <!-- Encabezado de fase -->
+            <div class="mb-8">
+
+                <span
+                    class="inline-flex items-center gap-2 text-surface-tint text-xs font-bold uppercase tracking-widest mb-3">
+
+                    <span class="material-symbols-outlined text-lg">
+                        devices
+                    </span>
+
+                    Fase 04
+                </span>
+
+                <h2
+                    class="font-headline-md text-2xl md:text-3xl text-primary font-bold mb-3">
+                    Prototipado y validación
+                </h2>
+
+                <p
+                    class="text-on-surface-variant leading-relaxed max-w-3xl text-justify">
+                    En esta fase los bocetos iniciales se transformaron en
+                    interfaces digitales de mayor fidelidad. El prototipo permitió
+                    representar el flujo del administrador y del cliente, validar
+                    la navegación entre pantallas y comprobar la organización de
+                    los principales procesos antes de una implementación definitiva.
+                </p>
+
+            </div>
+
+
+            <!-- Resumen de la fase -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+                <div
+                    class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-surface-tint text-3xl mb-3">
+                        phone_iphone
+                    </span>
+
+                    <h3 class="text-primary font-semibold mb-1">
+                        Prototipo interactivo
+                    </h3>
+
+                    <p class="text-sm text-on-surface-variant">
+                        Simulación navegable de las principales funciones
+                        planteadas para el sistema.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-surface-tint text-3xl mb-3">
+                        account_switch
+                    </span>
+
+                    <h3 class="text-primary font-semibold mb-1">
+                        Dos experiencias
+                    </h3>
+
+                    <p class="text-sm text-on-surface-variant">
+                        Se validaron por separado los recorridos del administrador
+                        y del cliente.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-5">
+
+                    <span
+                        class="material-symbols-outlined text-surface-tint text-3xl mb-3">
+                        rule
+                    </span>
+
+                    <h3 class="text-primary font-semibold mb-1">
+                        Validación del flujo
+                    </h3>
+
+                    <p class="text-sm text-on-surface-variant">
+                        Se revisó la secuencia de pantallas y las acciones
+                        principales de cada usuario.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Prototipo -->
+            <div
+                class="glass-panel p-6 md:p-8 rounded-2xl border border-outline-variant/20">
+
+                <div
+                    class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+
+                    <div>
+
+                        <span
+                            class="text-surface-tint text-xs uppercase tracking-widest font-semibold">
+                            Prototipo navegable
+                        </span>
+
+                        <h3
+                            class="font-headline-sm text-2xl text-primary font-semibold mt-1">
+                            Bocetos Digitalizados
+                        </h3>
+
+                        <p
+                            class="text-xs md:text-sm text-on-surface-variant mt-2 text-justify max-w-2xl">
+                            ${
+                                sec.bocetos_digitales_intro ||
+                                'Prototipo interactivo de alta fidelidad construido para visualizar y comprobar los principales flujos del sistema.'
+                            }
+                        </p>
+
+                    </div>
+
+
+                    <div class="flex items-center gap-2 flex-wrap">
+
+                        <a
+                            href="prototipo-tienda.html"
+                            target="_blank"
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-surface-tint border border-outline-variant/30 transition-all duration-300 hover:-translate-y-0.5">
+
+                            <span class="material-symbols-outlined text-sm">
+                                open_in_new
+                            </span>
+
+                            Pantalla Completa
+                        </a>
+
+                        <button
+                            onclick="resetPrototype()"
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface-variant border border-outline-variant/30 transition-all duration-300 hover:-translate-y-0.5">
+
+                            <span class="material-symbols-outlined text-sm">
+                                replay
+                            </span>
+
+                            Reiniciar
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Selector de Rol -->
+                <div class="flex items-center justify-center mb-6">
+
+                    <div
+                        class="inline-flex p-1 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-inner">
+
+                        <button
+                            id="tab-btn-admin"
+                            onclick="switchRoleView('admin')"
+                            class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-primary-container text-on-primary-fixed shadow-sm">
+
+                            <span class="material-symbols-outlined text-base">
+                                admin_panel_settings
+                            </span>
+
+                            Flujo Administrador
+                        </button>
+
+                        <button
+                            id="tab-btn-cliente"
+                            onclick="switchRoleView('cliente')"
+                            class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 text-on-surface-variant hover:text-primary">
+
+                            <span class="material-symbols-outlined text-base">
+                                shopping_bag
+                            </span>
+
+                            Flujo Cliente
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Barra Administrador -->
+                <div id="quick-bar-admin" class="mb-6">
+
+                    <p
+                        class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">
+                        Vistas del Administrador
+                    </p>
+
+                    <div class="flex flex-wrap gap-2">
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-productos')"
+                            data-screen="screen-productos"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-primary-container text-on-primary-fixed border border-surface-tint transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                inventory_2
+                            </span>
+
+                            1. Lista de Productos
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-agregar-producto')"
+                            data-screen="screen-agregar-producto"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                add_box
+                            </span>
+
+                            2. Añadir Producto
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-promociones')"
+                            data-screen="screen-promociones"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                local_offer
+                            </span>
+
+                            3. Lista de Promociones
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-agregar-promocion')"
+                            data-screen="screen-agregar-promocion"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                percent
+                            </span>
+
+                            4. Nueva Promoción
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Barra Cliente -->
+                <div id="quick-bar-cliente" class="mb-6 hidden">
+
+                    <p
+                        class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">
+                        Vistas del Cliente
+                    </p>
+
+                    <div class="flex flex-wrap gap-2">
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-cliente-catalogo')"
+                            data-screen="screen-cliente-catalogo"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                storefront
+                            </span>
+
+                            1. Catálogo
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-cliente-producto-detalle')"
+                            data-screen="screen-cliente-producto-detalle"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                info
+                            </span>
+
+                            2. Detalle del Producto
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-cliente-promociones')"
+                            data-screen="screen-cliente-promociones"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                sell
+                            </span>
+
+                            3. Promociones
+                        </button>
+
+                        <button
+                            onclick="switchPrototypeScreen('screen-cliente-promo-detalle')"
+                            data-screen="screen-cliente-promo-detalle"
+                            class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
+
+                            <span class="material-symbols-outlined text-sm">
+                                loyalty
+                            </span>
+
+                            4. Detalle de Oferta
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Simulador -->
+                <div
+                    class="flex flex-col items-center justify-center p-2 sm:p-5 bg-surface-container-lowest/60 rounded-2xl border border-outline-variant/20 mb-8">
+
+                    <div
+                        class="w-full max-w-[430px] rounded-[36px] bg-slate-900 p-3 shadow-2xl border-4 border-slate-700 relative ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
+
+                        <div
+                            class="w-28 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-center">
+
+                            <div
+                                class="w-3 h-3 rounded-full bg-slate-950/80 mr-2 border border-slate-800">
                             </div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <a href="prototipo-tienda.html" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-surface-tint border border-outline-variant/30 transition-colors">
-                                    <span class="material-symbols-outlined text-sm">open_in_new</span>
-                                    Pantalla Completa
-                                </a>
-                                <button onclick="resetPrototype()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface-variant border border-outline-variant/30 transition-colors">
-                                    <span class="material-symbols-outlined text-sm">replay</span>
-                                    Reiniciar
-                                </button>
+
+                            <div
+                                class="w-10 h-1 bg-slate-800 rounded-full">
                             </div>
+
                         </div>
 
-                        <!-- Selector de Rol (Administrador / Cliente) -->
-                        <div class="flex items-center justify-center mb-6">
-                            <div class="inline-flex p-1 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-inner">
-                                <button id="tab-btn-admin" onclick="switchRoleView('admin')" class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-primary-container text-on-primary-fixed shadow-sm">
-                                    <span class="material-symbols-outlined text-base">admin_panel_settings</span>
-                                    Flujo Administrador (4 Vistas)
-                                </button>
-                                <button id="tab-btn-cliente" onclick="switchRoleView('cliente')" class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 text-on-surface-variant hover:text-primary">
-                                    <span class="material-symbols-outlined text-base">shopping_bag</span>
-                                    Flujo Cliente / Comprador (4 Vistas)
-                                </button>
-                            </div>
+                        <div
+                            class="w-full h-[650px] rounded-[24px] overflow-hidden bg-white relative">
+
+                            <iframe
+                                id="prototype-iframe"
+                                src="prototipo-tienda.html"
+                                class="w-full h-full border-0"
+                                title="Prototipo Interactivo Tiendita de Barrio">
+                            </iframe>
+
                         </div>
 
-                        <!-- Barra de Acceso Rápido a Pantallas del Administrador -->
-                        <div id="quick-bar-admin" class="mb-6">
-                            <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Vistas del Administrador:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="switchPrototypeScreen('screen-productos')" data-screen="screen-productos" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-primary-container text-on-primary-fixed border border-surface-tint transition-all">
-                                    <span class="material-symbols-outlined text-sm">inventory_2</span>
-                                    1. Lista de Productos
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-agregar-producto')" data-screen="screen-agregar-producto" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">add_box</span>
-                                    2. Añadir Producto
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-promociones')" data-screen="screen-promociones" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">local_offer</span>
-                                    3. Lista de Promociones
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-agregar-promocion')" data-screen="screen-agregar-promocion" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">percent</span>
-                                    4. Nueva Promoción
-                                </button>
-                            </div>
+                        <div
+                            class="w-32 h-1 bg-slate-600 rounded-full mx-auto mt-3">
                         </div>
 
-                        <!-- Barra de Acceso Rápido a Pantallas del Cliente -->
-                        <div id="quick-bar-cliente" class="mb-6 hidden">
-                            <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Vistas del Cliente (Comprador):</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="switchPrototypeScreen('screen-cliente-catalogo')" data-screen="screen-cliente-catalogo" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">storefront</span>
-                                    1. Catálogo & Tienda
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-cliente-producto-detalle')" data-screen="screen-cliente-producto-detalle" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">info</span>
-                                    2. Detalle del Producto
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-cliente-promociones')" data-screen="screen-cliente-promociones" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">sell</span>
-                                    3. Promociones Vigentes
-                                </button>
-                                <button onclick="switchPrototypeScreen('screen-cliente-promo-detalle')" data-screen="screen-cliente-promo-detalle" class="proto-tab-btn px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-surface-container text-on-surface-variant hover:text-primary border border-outline-variant/20 transition-all">
-                                    <span class="material-symbols-outlined text-sm">loyalty</span>
-                                    4. Detalle de Oferta
-                                </button>
-                            </div>
-                        </div>
+                    </div>
 
-                        <!-- Contenedor del Simulador Móvil Interactivo -->
-                        <div class="flex flex-col items-center justify-center p-2 sm:p-4 bg-surface-container-lowest/60 rounded-2xl border border-outline-variant/20 mb-8">
-                            <!-- Smartphone Mockup Wrapper -->
-                            <div class="w-full max-w-[430px] rounded-[36px] bg-slate-900 p-3 shadow-2xl border-4 border-slate-700 relative ring-1 ring-white/10">
-                                <!-- Smartphone Speaker / Notch -->
-                                <div class="w-28 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-center">
-                                    <div class="w-3 h-3 rounded-full bg-slate-950/80 mr-2 border border-slate-800"></div>
-                                    <div class="w-10 h-1 bg-slate-800 rounded-full"></div>
+                    <p
+                        class="text-xs text-center text-on-surface-variant mt-4 flex items-center justify-center gap-1.5 max-w-xl">
+
+                        <span
+                            class="material-symbols-outlined text-sm text-surface-tint">
+                            touch_app
+                        </span>
+
+                        <strong class="text-primary">
+                            Prototipo 100% navegable:
+                        </strong>
+
+                        prueba las diferentes pantallas y cambia entre los roles
+                        Administrador y Cliente.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Wireframes Administrador -->
+                <div id="cards-container-admin">
+
+                    <h3
+                        class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+
+                        <span
+                            class="material-symbols-outlined text-surface-tint">
+                            dashboard
+                        </span>
+
+                        Wireframes: Flujo del Administrador
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        ${adminBocetos.map((d, index) => `
+                            <div
+                                class="glass-panel p-4 rounded-xl border border-outline-variant/20 hover:border-surface-tint/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+
+                                <div>
+
+                                    <div
+                                        class="flex items-center justify-between mb-2">
+
+                                        <span
+                                            class="bg-surface-tint/10 text-surface-tint font-mono text-xs px-2 py-0.5 rounded font-semibold">
+                                            ADMIN 0${index + 1}
+                                        </span>
+
+                                        <button
+                                            onclick="switchPrototypeScreen('${d.screen_id}')"
+                                            class="text-xs text-surface-tint hover:underline flex items-center gap-1">
+
+                                            <span>
+                                                Ver en prototipo
+                                            </span>
+
+                                            <span
+                                                class="material-symbols-outlined text-xs">
+                                                arrow_forward
+                                            </span>
+
+                                        </button>
+
+                                    </div>
+
+                                    <h4
+                                        class="font-bold text-primary text-base mb-1">
+                                        ${d.titulo}
+                                    </h4>
+
+                                    <p
+                                        class="text-xs text-on-surface-variant leading-relaxed text-justify">
+                                        ${d.descripcion || ''}
+                                    </p>
+
                                 </div>
-                                
-                                <!-- Screen Frame (Iframe) -->
-                                <div class="w-full h-[650px] rounded-[24px] overflow-hidden bg-white relative">
-                                    <iframe id="prototype-iframe" src="prototipo-tienda.html" class="w-full h-full border-0" title="Prototipo Interactivo Tiendita de Barrio"></iframe>
+
+                                <div
+                                    class="mt-4 pt-3 border-t border-outline-variant/15 flex justify-end">
+
+                                    <button
+                                        onclick="switchPrototypeScreen('${d.screen_id}')"
+                                        class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors">
+
+                                        <span
+                                            class="material-symbols-outlined text-sm">
+                                            play_arrow
+                                        </span>
+
+                                        Probar Pantalla
+                                    </button>
+
                                 </div>
 
-                                <!-- Smartphone Bottom Home Bar -->
-                                <div class="w-32 h-1 bg-slate-600 rounded-full mx-auto mt-3"></div>
+                            </div>
+                        `).join('')}
+
+                    </div>
+
+                </div>
+
+
+                <!-- Wireframes Cliente -->
+                <div id="cards-container-cliente" class="hidden">
+
+                    <h3
+                        class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+
+                        <span
+                            class="material-symbols-outlined text-emerald-400">
+                            shopping_bag
+                        </span>
+
+                        Wireframes: Flujo del Cliente
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                        ${clienteBocetos.map((d, index) => `
+                            <div
+                                class="glass-panel p-4 rounded-xl border border-outline-variant/20 hover:border-emerald-400/40 transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+
+                                <div>
+
+                                    <div
+                                        class="flex items-center justify-between mb-2">
+
+                                        <span
+                                            class="bg-emerald-500/10 text-emerald-400 font-mono text-xs px-2 py-0.5 rounded font-semibold">
+                                            CLIENTE 0${index + 1}
+                                        </span>
+
+                                        <button
+                                            onclick="switchPrototypeScreen('${d.screen_id}')"
+                                            class="text-xs text-emerald-400 hover:underline flex items-center gap-1">
+
+                                            <span>
+                                                Ver en prototipo
+                                            </span>
+
+                                            <span
+                                                class="material-symbols-outlined text-xs">
+                                                arrow_forward
+                                            </span>
+
+                                        </button>
+
+                                    </div>
+
+                                    <h4
+                                        class="font-bold text-primary text-base mb-1">
+                                        ${d.titulo}
+                                    </h4>
+
+                                    <p
+                                        class="text-xs text-on-surface-variant leading-relaxed text-justify">
+                                        ${d.descripcion || ''}
+                                    </p>
+
+                                </div>
+
+                                <div
+                                    class="mt-4 pt-3 border-t border-outline-variant/15 flex justify-end">
+
+                                    <button
+                                        onclick="switchPrototypeScreen('${d.screen_id}')"
+                                        class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors">
+
+                                        <span
+                                            class="material-symbols-outlined text-sm">
+                                            play_arrow
+                                        </span>
+
+                                        Probar Pantalla
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        `).join('')}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    `;
+}
+
+            // 6. RESULTADOS Y CONCLUSIONES
+if (sec.conclusiones) {
+
+    const conclusionesArray = Array.isArray(sec.conclusiones)
+        ? sec.conclusiones
+        : [sec.conclusiones];
+
+    sectionsHtml += `
+        <section class="reveal bg-white text-gray-900 rounded-2xl p-6 md:p-10 shadow-xl">
+
+            <!-- Encabezado -->
+            <div class="mb-8">
+
+                <span
+                    class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
+
+                    <span class="material-symbols-outlined text-lg">
+                        task_alt
+                    </span>
+
+                    Resultados
+                </span>
+
+                <h2
+                    class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    Conclusiones y resultados
+                </h2>
+
+                <p
+                    class="text-gray-600 leading-relaxed max-w-3xl text-justify">
+                    El desarrollo de las diferentes etapas permitió transformar
+                    una necesidad inicial en una propuesta visual y funcional.
+                    El proceso de análisis, planificación, bocetado y prototipado
+                    facilitó la validación progresiva de la solución antes de una
+                    implementación definitiva.
+                </p>
+
+            </div>
+
+
+            <!-- Indicadores principales -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+                <div
+                    class="group bg-gray-50 border border-gray-200 rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        checklist
+                    </span>
+
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                        Requerimientos definidos
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        Se identificaron las necesidades funcionales y de calidad
+                        que orientaron el diseño de la solución.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="group bg-gray-50 border border-gray-200 rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        draw
+                    </span>
+
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                        Diseño validado
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        Los bocetos permitieron revisar la estructura y navegación
+                        antes de avanzar al prototipo digital.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="group bg-gray-50 border border-gray-200 rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+
+                    <span
+                        class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">
+                        devices
+                    </span>
+
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                        Propuesta funcional
+                    </h3>
+
+                    <p class="text-sm text-gray-600">
+                        El prototipo permitió representar los principales flujos
+                        del administrador y del cliente.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Conclusiones del proyecto -->
+            <div
+                class="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8">
+
+                <div class="flex items-center gap-3 mb-5">
+
+                    <div
+                        class="w-11 h-11 rounded-xl bg-[#abd600]/15 flex items-center justify-center">
+
+                        <span
+                            class="material-symbols-outlined text-[#7ea000]">
+                            lightbulb
+                        </span>
+
+                    </div>
+
+                    <h3
+                        class="font-headline-sm text-xl font-bold text-gray-900">
+                        Aprendizajes obtenidos
+                    </h3>
+
+                </div>
+
+                <div class="space-y-4">
+
+                    ${conclusionesArray.map((p, index) => `
+                        <div
+                            class="flex items-start gap-4 bg-white border border-gray-200 rounded-lg p-4">
+
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#abd600] text-gray-900 flex items-center justify-center font-bold text-sm shrink-0">
+                                ${String(index + 1).padStart(2, '0')}
                             </div>
 
-                            <p class="text-xs text-center text-on-surface-variant mt-4 flex items-center justify-center gap-1.5">
-                                <span class="material-symbols-outlined text-sm text-surface-tint">touch_app</span>
-                                <strong>Prototipo 100% Navegable:</strong> Cambia entre pestañas, agrega productos/promociones o prueba la experiencia del cliente con selector de cantidad y carrito.
+                            <p
+                                class="text-gray-700 leading-relaxed text-sm md:text-base text-justify">
+                                ${p}
                             </p>
-                        </div>
 
-                        <!-- Desglose de Wireframes por Rol -->
-                        <div id="cards-container-admin">
-                            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
-                                Wireframes: Flujo del Administrador
-                            </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                ${adminBocetos.map((d, index) => `
-                                    <div class="glass-panel p-4 rounded-xl border border-outline-variant/20 hover:border-surface-tint/40 transition-all group flex flex-col justify-between">
-                                        <div>
-                                            <div class="flex items-center justify-between mb-2">
-                                                <span class="bg-surface-tint/10 text-surface-tint font-mono text-xs px-2 py-0.5 rounded font-semibold">
-                                                    ADMIN 0${index + 1}
-                                                </span>
-                                                <button onclick="switchPrototypeScreen('${d.screen_id}')" class="text-xs text-surface-tint hover:underline flex items-center gap-1">
-                                                    <span>Ver en prototipo</span>
-                                                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
-                                                </button>
-                                            </div>
-                                            <h4 class="font-bold text-primary text-base mb-1">${d.titulo}</h4>
-                                            <p class="text-xs text-on-surface-variant leading-relaxed text-justify">${d.descripcion || ''}</p>
-                                        </div>
-                                        <div class="mt-4 pt-3 border-t border-outline-variant/15 flex justify-end">
-                                            <button onclick="switchPrototypeScreen('${d.screen_id}')" class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors">
-                                                <span class="material-symbols-outlined text-sm">play_arrow</span>
-                                                Probar Pantalla
-                                            </button>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
                         </div>
+                    `).join('')}
 
-                        <div id="cards-container-cliente" class="hidden">
-                            <h3 class="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
-                                Wireframes: Flujo del Cliente (Comprador)
-                            </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                ${clienteBocetos.map((d, index) => `
-                                    <div class="glass-panel p-4 rounded-xl border border-outline-variant/20 hover:border-surface-tint/40 transition-all group flex flex-col justify-between">
-                                        <div>
-                                            <div class="flex items-center justify-between mb-2">
-                                                <span class="bg-emerald-500/10 text-emerald-400 font-mono text-xs px-2 py-0.5 rounded font-semibold">
-                                                    CLIENTE 0${index + 1}
-                                                </span>
-                                                <button onclick="switchPrototypeScreen('${d.screen_id}')" class="text-xs text-emerald-400 hover:underline flex items-center gap-1">
-                                                    <span>Ver en prototipo</span>
-                                                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
-                                                </button>
-                                            </div>
-                                            <h4 class="font-bold text-primary text-base mb-1">${d.titulo}</h4>
-                                            <p class="text-xs text-on-surface-variant leading-relaxed text-justify">${d.descripcion || ''}</p>
-                                        </div>
-                                        <div class="mt-4 pt-3 border-t border-outline-variant/15 flex justify-end">
-                                            <button onclick="switchPrototypeScreen('${d.screen_id}')" class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors">
-                                                <span class="material-symbols-outlined text-sm">play_arrow</span>
-                                                Probar Pantalla
-                                            </button>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </section>
-                `;
-            }
+                </div>
 
-            // 6. CONCLUSIONES Y RESULTADOS
-            if (sec.conclusiones) {
-                const conclusionesContent = Array.isArray(sec.conclusiones)
-                    ? sec.conclusiones.map(p => `<p class="text-body-md leading-relaxed text-on-surface-variant mb-3 text-justify">${p}</p>`).join('')
-                    : `<p class="text-body-md leading-relaxed text-on-surface-variant text-justify">${sec.conclusiones}</p>`;
+            </div>
 
-                sectionsHtml += `
-                    <section class="py-2">
-                        <h2 class="font-headline-sm text-2xl text-primary font-semibold mb-4">
-                            Conclusiones y Resultados
-                        </h2>
-                        <div class="space-y-3">
-                            ${conclusionesContent}
-                        </div>
-                    </section>
-                `;
-            }
+        </section>
+    `;
+}
 
             // Renderizar la página completa con la imagen arriba
             container.innerHTML = `
