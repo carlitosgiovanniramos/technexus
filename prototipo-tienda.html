@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+    <title>Prototipo Interactivo - Tiendita de Barrio</title>
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!-- Font Awesome (usado en la vista de promociones del cliente) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#8b9094",
+                        "primary": "#091426",
+                        "surface-container": "#e6eeff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "primary-fixed-dim": "#bcc7de",
+                        "tertiary-fixed-dim": "#c3c7cb",
+                        "on-secondary-fixed-variant": "#005226",
+                        "primary-container": "#1e293b",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-container": "#8590a6",
+                        "outline-variant": "#c5c6cd",
+                        "on-background": "#0d1c2e",
+                        "surface-variant": "#d5e3fc",
+                        "inverse-surface": "#233144",
+                        "primary-fixed": "#d8e3fb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#101517",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#0d1c2e",
+                        "surface-tint": "#545f73",
+                        "inverse-primary": "#bcc7de",
+                        "on-tertiary-fixed": "#171c1f",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9ff",
+                        "secondary": "#1f6c3a",
+                        "secondary-fixed": "#a6f4b5",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#45474c",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#24292c",
+                        "on-secondary-container": "#24703e",
+                        "on-tertiary-fixed-variant": "#43474b",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed": "#00210b",
+                        "on-primary-fixed": "#111c2d",
+                        "tertiary-fixed": "#dfe3e7",
+                        "outline": "#75777d",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#a4f1b2",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed-dim": "#8bd79b",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface-dim": "#ccdbf3",
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-gap": "0.75rem",
+                        "container-margin": "1rem",
+                        "inline-gap": "0.5rem",
+                        "section-padding": "1.5rem"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-bold": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "display-price": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-price": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.fill,
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Screen transition animations */
+        .screen-view {
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+        }
+
+        .screen-view.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+
+        /* Toast notification */
+        #toast {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #toast.hide {
+            transform: translateY(-20px);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-container">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] hide bg-primary text-on-primary px-4 py-2.5 rounded-full shadow-xl text-xs font-semibold flex items-center gap-2 border border-surface-container max-w-[90%] text-center">
+        <span class="material-symbols-outlined text-secondary-fixed text-base flex-shrink-0">check_circle</span>
+        <span id="toast-message">Acción completada</span>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ROL SWITCHER FLOTANTE / TOP HEADER INTEGRADO                              -->
+    <!-- ========================================================================= -->
+    <div class="sticky top-0 left-0 w-full z-50 bg-slate-900/95 backdrop-blur-md px-3 py-1.5 flex items-center justify-between border-b border-slate-800 text-xs">
+        <div class="flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="current-role-badge" class="font-bold text-white uppercase text-[11px] tracking-wider">Modo: Administrador</span>
+        </div>
+        <div class="flex items-center gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+            <button id="btn-mode-admin" onclick="switchRole('admin')" class="px-2.5 py-1 rounded-md font-semibold text-[11px] bg-secondary text-white shadow-sm transition-all flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">admin_panel_settings</span>
+                Admin
+            </button>
+            <button id="btn-mode-cliente" onclick="switchRole('cliente')" class="px-2.5 py-1 rounded-md font-semibold text-[11px] text-slate-300 hover:text-white transition-all flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">storefront</span>
+                Cliente
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [ADMIN] PANTALLA 1: PRODUCTOS (PANEL DE ADMINISTRACIÓN)                   -->
+    <!-- ========================================================================= -->
+    <div id="screen-productos" class="screen-view active flex-col min-h-[calc(100vh-38px)] pb-24 w-full">
+        <!-- TopAppBar -->
+        <header class="bg-surface border-b border-outline-variant flex justify-between items-center px-container-margin h-14 transition-colors">
+            <div class="flex items-center gap-inline-gap cursor-pointer active:opacity-70 hover:bg-surface-container-low rounded-full p-2 transition-all">
+                <span class="material-symbols-outlined text-primary">storefront</span>
+            </div>
+            <div class="flex-1 text-center font-headline-lg-mobile font-bold text-primary">
+                Tienda de Barrio (Admin)
+            </div>
+            <div class="flex items-center gap-inline-gap cursor-pointer active:opacity-70 hover:bg-surface-container-low rounded-full p-2 transition-all" onclick="showToast('No tienes nuevas notificaciones')">
+                <span class="material-symbols-outlined text-primary">notifications</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-5xl mx-auto px-container-margin pt-2">
+            <!-- Tabs Switcher -->
+            <div class="py-stack-gap">
+                <div class="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant">
+                    <button class="flex-1 py-2 font-label-bold text-label-bold rounded bg-surface shadow-sm text-primary transition-all">
+                        Productos
+                    </button>
+                    <button onclick="navigateTo('screen-promociones')" class="flex-1 py-2 font-label-bold text-label-bold rounded text-on-surface-variant hover:bg-surface-variant transition-all">
+                        Promociones
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product List -->
+            <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-6">
+                <!-- Product Card 1 -->
+                <div class="product-item bg-surface-container-lowest rounded-lg border border-outline-variant p-4 flex gap-4 items-center shadow-[0px_2px_4px_rgba(30,41,59,0.05)] transition-all hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)]">
+                    <img class="w-16 h-16 rounded-md object-cover bg-surface-container-highest flex-shrink-0" alt="Pan Artesanal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN90o97GLpqLmcgn7hiRs5S82_NutiAK-utWR8gAXmOAaPZSAu4aDn3hhSWARlERX7FXcGq4TbR00tQTm_WbnrCtYM06UVS8TY31tvWl7ReZdoepL-jWo4vRD5cfwa66S6BjqPD3Nle2alfwqkJfIbVlw7H1QftswWrq_iykdKxMrVYQWptYWlu89zLZisFtZsP2W0qGuPy_-G9f0-3AkzShH9cyqjZ-weIEKq6JQPzwh7lXRis8Eu">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-headline-lg-mobile text-primary font-semibold truncate">Pan Artesanal</h3>
+                        <p class="font-body-sm text-on-surface-variant">Stock: 24 unidades</p>
+                        <p class="font-display-price text-secondary mt-1 text-lg font-bold">$2.50</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <button onclick="showToast('Modo edición de Pan Artesanal')" class="p-2 border border-outline-variant text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Producto eliminado')" class="p-2 border border-outline-variant text-error hover:bg-error-container transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-item bg-surface-container-lowest rounded-lg border border-outline-variant p-4 flex gap-4 items-center shadow-[0px_2px_4px_rgba(30,41,59,0.05)] transition-all hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)]">
+                    <img class="w-16 h-16 rounded-md object-cover bg-surface-container-highest flex-shrink-0" alt="Tomates Frescos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5bP9kJQk0hlLO8Qv27zhDf6RDmYI3KfVYQiRozn9FlE5deQqE6GnbVFviMYlS_HZdhEn6Iyo1UHoFdgGf7BDlpwFeuqwPZxjYvzP1s3PmwRgk_cDi3mFV8XPQCOOYCfn7txRYxUHcZ9DQk2eS0118oSJbJhcfP-U99EP4RqwMWZGeBr3uR8sriyAssv-rIUUwr1jWss9rTGiGOMvIdS3VK0Ttq05DSiuAeOEJyecOfZlNpHs7c8ni">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-headline-lg-mobile text-primary font-semibold truncate">Tomates Frescos</h3>
+                        <p class="font-body-sm text-on-surface-variant">Stock: 15 kg</p>
+                        <p class="font-display-price text-secondary mt-1 text-lg font-bold">$1.80/kg</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <button onclick="showToast('Modo edición de Tomates Frescos')" class="p-2 border border-outline-variant text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Producto eliminado')" class="p-2 border border-outline-variant text-error hover:bg-error-container transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-item bg-surface-container-lowest rounded-lg border border-outline-variant p-4 flex gap-4 items-center shadow-[0px_2px_4px_rgba(30,41,59,0.05)] transition-all hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)]">
+                    <img class="w-16 h-16 rounded-md object-cover bg-surface-container-highest flex-shrink-0" alt="Leche Local" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkubY9NytXn1vwL7NgziLrVGlkK_27XqNgmTEI3vGUed0NeDUk5WTmbjSQYYtAFeyGV3ycgGsIPn_rYyJtM6nMEqARb2oYjhGK01sv6XflXqCQ1ml-o5dZzEJq1IkkHf4X0cbNcm3PqqfhjL8A1_8DuvXGBVNBJ9bqcu6yOYDFZgDO_00HnSe3Fg-vLSYOsm99gU32LSTQJBYF2fD3IIIWq3F1A29MI5UFlhyhrsFKalRI8ZP03x4I">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-headline-lg-mobile text-primary font-semibold truncate">Leche Local</h3>
+                        <p class="font-body-sm text-on-surface-variant">Stock: 8 litros</p>
+                        <p class="font-display-price text-secondary mt-1 text-lg font-bold">$1.20</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <button onclick="showToast('Modo edición de Leche Local')" class="p-2 border border-outline-variant text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Producto eliminado')" class="p-2 border border-outline-variant text-error hover:bg-error-container transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FAB for adding products -->
+        <div class="fixed bottom-20 right-4 z-40">
+            <button onclick="navigateTo('screen-agregar-producto')" class="bg-secondary text-on-secondary rounded-lg shadow-lg h-14 px-6 flex items-center gap-2 font-label-bold transition-all active:scale-95 hover:bg-secondary-fixed hover:text-on-secondary-fixed text-label-bold font-semibold">
+                <span class="material-symbols-outlined">add</span>
+                <span>Añadir Producto</span>
+            </button>
+        </div>
+
+        <!-- BottomNavBar Admin -->
+        <nav class="bg-surface border-t border-outline-variant shadow-sm fixed bottom-0 left-0 w-full z-40 flex justify-around items-center h-16 px-4">
+            <button class="flex flex-col items-center justify-center gap-1 text-primary">
+                <div class="bg-secondary-container text-on-secondary-container px-6 py-1 rounded-full flex items-center justify-center mb-1">
+                    <span class="material-symbols-outlined fill">inventory_2</span>
+                </div>
+                <span class="text-label-bold text-xs font-semibold">Productos</span>
+            </button>
+            <button onclick="navigateTo('screen-promociones')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-all">
+                <span class="material-symbols-outlined">local_offer</span>
+                <span class="text-label-bold text-xs">Promociones</span>
+            </button>
+            <button onclick="showToast('Perfil de Administrador: Tienda de Barrio')" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-primary transition-all">
+                <span class="material-symbols-outlined">person</span>
+                <span class="text-label-bold text-xs">Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [ADMIN] PANTALLA 2: AGREGAR PRODUCTOS                                     -->
+    <!-- ========================================================================= -->
+    <div id="screen-agregar-producto" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-surface text-on-surface w-full pb-8">
+        <header class="bg-surface shadow-sm flex items-center justify-between px-container-margin h-14 w-full border-b border-outline-variant/30">
+            <button onclick="navigateTo('screen-productos')" aria-label="Volver" class="flex items-center justify-center p-2 -ml-2 active:scale-95 duration-150 rounded-full hover:bg-surface-container-high transition-colors">
+                <span class="material-symbols-outlined text-primary">arrow_back</span>
+            </button>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary truncate px-2">
+                Tiendita de Barrio
+            </h1>
+            <button onclick="showToast('Perfil de Administrador')" aria-label="Profile" class="flex items-center justify-center p-2 -mr-2 active:scale-95 duration-150 rounded-full hover:bg-surface-container-high transition-colors">
+                <span class="material-symbols-outlined text-primary">account_circle</span>
+            </button>
+        </header>
+
+        <main class="flex-1 pt-4 px-container-margin w-full max-w-md mx-auto">
+            <div class="mb-4">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold text-xl">Añadir Nuevo Producto</h2>
+            </div>
+            
+            <form id="form-nuevo-producto" onsubmit="event.preventDefault(); guardarNuevoProducto();" class="flex flex-col gap-stack-gap">
+                <div onclick="document.getElementById('file-prod-input').click()" class="w-full h-48 border border-dashed border-outline-variant rounded-lg bg-surface-container-lowest flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-low transition-all relative overflow-hidden group">
+                    <input type="file" id="file-prod-input" class="hidden" accept="image/*" onchange="previewImage(this)">
+                    <div id="img-placeholder-content" class="flex flex-col items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-[32px] mb-2">add_photo_alternate</span>
+                        <span class="font-body-sm text-body-sm font-medium">Añadir foto del producto</span>
+                    </div>
+                    <img id="img-preview" class="hidden absolute inset-0 w-full h-full object-cover" alt="Preview">
+                </div>
+
+                <div class="flex flex-col gap-stack-gap">
+                    <div class="flex flex-col gap-1">
+                        <label class="font-label-bold text-label-bold text-on-surface font-semibold text-xs" for="product-name">Nombre del Producto</label>
+                        <input required class="w-full bg-surface-container-lowest border border-outline rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all min-h-[48px]" id="product-name" placeholder="Ej. Manzanas Rojas" type="text" />
+                    </div>
+
+                    <div class="flex gap-inline-gap w-full">
+                        <div class="flex flex-col gap-1 flex-1">
+                            <label class="font-label-bold text-label-bold text-on-surface font-semibold text-xs" for="product-price">Precio</label>
+                            <div class="relative flex items-center">
+                                <span class="absolute left-4 font-body-md text-body-md text-on-surface-variant font-bold">$</span>
+                                <input required class="w-full bg-surface-container-lowest border border-outline rounded-lg pl-8 pr-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all min-h-[48px]" id="product-price" min="0" placeholder="0.00" step="0.01" type="number" />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-1 flex-1">
+                            <label class="font-label-bold text-label-bold text-on-surface font-semibold text-xs" for="product-qty">Cantidad</label>
+                            <input required class="w-full bg-surface-container-lowest border border-outline rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all min-h-[48px]" id="product-qty" min="0" placeholder="0" type="number" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label class="font-label-bold text-label-bold text-on-surface font-semibold text-xs" for="product-desc">Descripción</label>
+                        <textarea class="w-full bg-surface-container-lowest border border-outline rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all resize-none" id="product-desc" placeholder="Detalles del producto, marca, peso..." rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 mt-4 mb-section-padding w-full">
+                    <button type="submit" class="w-full bg-secondary text-on-secondary font-label-bold text-label-bold py-3 px-6 min-h-[48px] flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm rounded font-semibold">
+                        Guardar Producto
+                    </button>
+                    <button onclick="navigateTo('screen-productos')" type="button" class="w-full bg-surface-container-lowest border border-outline text-on-surface font-label-bold text-label-bold py-3 px-6 min-h-[48px] flex items-center justify-center hover:bg-surface-container-low active:scale-95 transition-all rounded font-semibold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [ADMIN] PANTALLA 3: LISTA DE PROMOCIONES                                  -->
+    <!-- ========================================================================= -->
+    <div id="screen-promociones" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-background text-on-background font-body-md pb-24 w-full">
+        <header class="flex items-center justify-between px-container-margin h-14 w-full bg-surface shadow-sm border-b border-outline-variant/30">
+            <button onclick="navigateTo('screen-productos')" aria-label="Menu" class="w-11 h-11 flex items-center justify-center text-primary active:scale-95 duration-150 rounded-full hover:bg-surface-container-high transition-colors">
+                <span class="material-symbols-outlined">storefront</span>
+            </button>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary truncate px-2 text-center flex-1">
+                Tiendita de Barrio (Admin)
+            </h1>
+            <button onclick="showToast('Perfil de Administrador')" aria-label="Profile" class="w-11 h-11 flex items-center justify-center text-primary active:scale-95 duration-150 rounded-full hover:bg-surface-container-high transition-colors">
+                <span class="material-symbols-outlined">account_circle</span>
+            </button>
+        </header>
+
+        <main class="flex-1 w-full max-w-lg mx-auto pt-2">
+            <div class="px-container-margin py-stack-gap">
+                <div class="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant">
+                    <button onclick="navigateTo('screen-productos')" class="flex-1 py-2 font-label-bold text-label-bold rounded text-on-surface-variant hover:bg-surface-variant transition-colors">
+                        Productos
+                    </button>
+                    <button class="flex-1 py-2 font-label-bold text-label-bold rounded bg-surface shadow-sm text-primary transition-colors">
+                        Promociones
+                    </button>
+                </div>
+            </div>
+
+            <div id="promotions-list" class="px-container-margin flex flex-col gap-stack-gap pb-6">
+                <!-- Promo 1 -->
+                <div class="promo-item bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-4 flex flex-col gap-3 relative overflow-hidden group">
+                    <div class="flex gap-4">
+                        <div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-variant flex-shrink-0">
+                            <img alt="Dairy Products" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA66wZU1ayfmvmV4NAAGnyPoCYJSAMSKRkXd90Xqw4heuhGynFoFzUvOAYJ2J3ZFNttsBrnn1x2P5VgF99Q-K6uquXa3qQk6b0GcaEI2qMa5COeT6z8ae8xPPdBWlzPwHtXjmWwqYxaJwwJFaHRk89R7BiTSb_bfuzrdrGFZBMgkii-srwGTNMzAl1zCz9-gDHyJ7DhWKcLk2Nidtb0hSxZcZQdr74qwGuDAp7yinTDjllGl60-QwHN">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background line-clamp-1 font-bold">2x1 Lácteos</h3>
+                                    <span class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold px-2 py-0.5 rounded-full whitespace-nowrap text-xs font-semibold">Activo</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Válido: 15 Oct - 31 Oct</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-2 pt-3 border-t border-outline-variant">
+                        <button onclick="showToast('Modo edición de promoción')" class="p-2 border border-outline-variant rounded text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Promoción eliminada')" class="p-2 border border-outline-variant rounded text-error hover:bg-error-container transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="promo-item bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-4 flex flex-col gap-3 relative overflow-hidden">
+                    <div class="flex gap-4">
+                        <div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-variant flex-shrink-0">
+                            <img alt="Artisan Bread" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9rJT3R6Nh0gYfXu2dS3NEJ5Cyb1MHrTJvP7_DqdfLfP06R9JxBKV5s_UhLbzTLKlQBD6hD-RJM4ula7HDRkZsbvjGilw6Wz_c-HNVqQEzeiV6bhVPnhSmSK36KjUWvVxJho7eFHBkP083NjCI8nJ532hRhN_IgAmJvhG_kLl_K1H4vAGjb34O9Tk4-CVRgPHh0-0d2BegOJaReSd2XmTL1Jp8cmWPZno9Wnbk_DGu4U6-WSlkOxgT">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background line-clamp-1 font-bold">-15% Pan Artesanal</h3>
+                                    <span class="bg-surface-container-high text-on-surface font-label-bold text-label-bold px-2 py-0.5 rounded-full whitespace-nowrap text-xs font-semibold">Programado</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Válido: 01 Nov - 15 Nov</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-2 pt-3 border-t border-outline-variant">
+                        <button onclick="showToast('Modo edición de promoción')" class="p-2 border border-outline-variant rounded text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Promoción eliminada')" class="p-2 border border-outline-variant rounded text-error hover:bg-error-container transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Promo 3 -->
+                <div class="promo-item bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-4 flex flex-col gap-3 relative overflow-hidden group">
+                    <div class="flex gap-4">
+                        <div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-variant flex-shrink-0">
+                            <img alt="Fresh Produce" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP0_7tvA8pSoTF3v5bdl0Q-om5mlaF2v3Oa-JwQVZsQIdw5S0WMeoRNw6sMA1Az7PT8ppIDs-744wKdPvbrj2YJlG3gTP3qosY_olHpZ70tS-yj3f5Myx6ilDIofP3uiVghoc7goSETnZhIWQzGQkq3LVrCvIAYFpPsomMsOvIO3WdiYk00mNBp5LbM9VBmqkXcmFidJuEoQTDwHwX6wpx6tbnZX6ncHHHDWVsrdlYLM8JBWpsfmw-">
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background line-clamp-1 font-bold">Envío Gratis</h3>
+                                    <span class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold px-2 py-0.5 rounded-full whitespace-nowrap text-xs font-semibold">Activo</span>
+                                </div>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Válido: Siempre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-2 pt-3 border-t border-outline-variant">
+                        <button onclick="showToast('Modo edición de promoción')" class="p-2 border border-outline-variant rounded text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">edit</span>
+                        </button>
+                        <button onclick="deleteItem(this, 'Promoción eliminada')" class="p-2 border border-outline-variant rounded text-error hover:bg-error-container transition-colors flex items-center justify-center active:scale-90">
+                            <span class="material-symbols-outlined text-[20px]">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="fixed bottom-20 right-4 z-40">
+            <button onclick="navigateTo('screen-agregar-promocion')" aria-label="Añadir Promoción" class="px-4 h-14 bg-secondary text-on-secondary rounded-lg shadow-lg flex items-center justify-center gap-2 active:scale-90 transition-all hover:bg-secondary-fixed hover:text-on-secondary-fixed">
+                <span class="material-symbols-outlined">add</span>
+                <span class="font-label-bold text-label-bold font-semibold">Añadir Promoción</span>
+            </button>
+        </div>
+
+        <nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center h-16 bg-surface border-t border-outline-variant shadow-lg px-4">
+            <button onclick="navigateTo('screen-productos')" class="flex flex-col items-center justify-center text-outline hover:text-primary transition-colors active:scale-90 flex-1">
+                <span class="material-symbols-outlined mb-1">inventory_2</span>
+                <span class="text-label-bold text-xs">Productos</span>
+            </button>
+            <button class="flex flex-col items-center justify-center text-secondary transition-colors active:scale-90 flex-1">
+                <div class="bg-secondary-container text-on-secondary-container px-6 py-1 rounded-full flex items-center justify-center mb-1">
+                    <span class="material-symbols-outlined fill">local_offer</span>
+                </div>
+                <span class="text-label-bold text-xs font-semibold">Promociones</span>
+            </button>
+            <button onclick="showToast('Perfil de Administrador')" class="flex flex-col items-center justify-center text-outline hover:text-primary transition-colors active:scale-90 flex-1">
+                <span class="material-symbols-outlined mb-1">person</span>
+                <span class="text-label-bold text-xs">Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [ADMIN] PANTALLA 4: AGREGAR PROMOCIONES                                   -->
+    <!-- ========================================================================= -->
+    <div id="screen-agregar-promocion" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-background text-on-background font-body-md antialiased pb-12 w-full">
+        <header class="flex items-center justify-between px-container-margin h-14 w-full bg-surface shadow-sm border-b border-outline-variant/30">
+            <button onclick="navigateTo('screen-promociones')" class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-150 p-2 rounded-full -ml-2">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary flex-1 text-center pr-8">
+                Nueva Promoción
+            </div>
+        </header>
+
+        <main class="flex-1 w-full max-w-lg mx-auto p-container-margin space-y-stack-gap">
+            <form id="form-nueva-promo" onsubmit="event.preventDefault(); guardarNuevaPromocion();" class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-4 space-y-4">
+                <div class="space-y-2">
+                    <label class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs" for="product-select">
+                        Producto Principal
+                    </label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-xl">search</span>
+                        <select required class="w-full pl-10 pr-8 py-3 bg-surface-bright border border-outline-variant text-on-surface focus:border-primary focus:ring-1 focus:ring-primary appearance-none outline-none font-body-md text-body-md rounded-lg text-sm" id="product-select">
+                            <option disabled selected value="">Buscar o seleccionar producto...</option>
+                            <option value="Pan de Molde Integral">Pan de Molde Integral</option>
+                            <option value="Leche Entera 1L">Leche Entera 1L</option>
+                            <option value="Huevos Docena">Huevos Docena</option>
+                            <option value="Tomates Frescos 1kg">Tomates Frescos 1kg</option>
+                            <option value="Arroz Grano Largo 1kg">Arroz Grano Largo 1kg</option>
+                        </select>
+                        <span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none text-xl">expand_more</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2 pt-3 border-t border-outline-variant/30">
+                    <label class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs">
+                        Tipo de Promoción
+                    </label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-secondary-container/10 transition-all has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/20 group">
+                            <input checked class="sr-only" name="promo_type" type="radio" value="discount" onchange="handlePromoTypeChange('discount')" />
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center mb-1 group-has-[:checked]:bg-secondary group-has-[:checked]:text-on-secondary transition-colors">
+                                <span class="material-symbols-outlined text-lg">percent</span>
+                            </div>
+                            <span class="font-label-bold text-label-bold text-on-surface text-xs font-medium">Descuento %</span>
+                        </label>
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-secondary-container/10 transition-all has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/20 group">
+                            <input class="sr-only" name="promo_type" type="radio" value="bogo" onchange="handlePromoTypeChange('bogo')" />
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center mb-1 group-has-[:checked]:bg-secondary group-has-[:checked]:text-on-secondary transition-colors">
+                                <span class="material-symbols-outlined text-lg">shopping_bag</span>
+                            </div>
+                            <span class="font-label-bold text-label-bold text-on-surface text-xs font-medium">2x1 / Pack</span>
+                        </label>
+                        <label class="relative flex flex-col items-center justify-center p-3 border border-outline-variant rounded-lg cursor-pointer hover:bg-secondary-container/10 transition-all has-[:checked]:border-secondary has-[:checked]:bg-secondary-container/20 group">
+                            <input class="sr-only" name="promo_type" type="radio" value="bundle" onchange="handlePromoTypeChange('bundle')" />
+                            <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center mb-1 group-has-[:checked]:bg-secondary group-has-[:checked]:text-on-secondary transition-colors">
+                                <span class="material-symbols-outlined text-lg">category</span>
+                            </div>
+                            <span class="font-label-bold text-label-bold text-on-surface text-xs font-medium">Combo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label id="promo-value-label" class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs" for="promo-value">
+                        Valor de Descuento (%)
+                    </label>
+                    <div class="relative">
+                        <input required class="w-full px-4 py-3 bg-surface-bright border border-outline-variant rounded-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none font-body-md text-body-md pr-10 text-sm" id="promo-value" placeholder="Ej. 15" type="number" />
+                        <span id="promo-value-icon" class="material-symbols-outlined absolute right-3 top-3 text-outline text-xl">percent</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-outline-variant/30">
+                    <div class="space-y-1">
+                        <label class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs" for="start-date">
+                            Fecha de Inicio
+                        </label>
+                        <input required class="w-full px-3 py-2.5 bg-surface-bright border border-outline-variant rounded-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none font-body-md text-sm" id="start-date" type="date" />
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs" for="end-date">
+                            Fecha de Fin
+                        </label>
+                        <input required class="w-full px-3 py-2.5 bg-surface-bright border border-outline-variant rounded-lg text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none font-body-md text-sm" id="end-date" type="date" />
+                    </div>
+                </div>
+
+                <div class="space-y-2 pt-3 border-t border-outline-variant/30 hidden" id="bundle-section">
+                    <label class="block font-label-bold text-label-bold text-on-surface-variant font-semibold text-xs">
+                        Productos Adicionales (Combo)
+                    </label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-xl">add_circle</span>
+                        <select class="w-full pl-10 pr-4 py-3 bg-surface-bright border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-1 focus:ring-primary appearance-none outline-none font-body-md text-sm">
+                            <option disabled selected value="">Agregar producto al combo...</option>
+                            <option value="5">Mermelada de Fresa</option>
+                            <option value="6">Mantequilla 250g</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2 pt-4">
+                    <button type="submit" class="h-12 w-full px-8 bg-secondary text-on-secondary rounded-lg font-label-bold text-label-bold flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-sm font-semibold">
+                        Guardar Promoción
+                    </button>
+                    <button onclick="navigateTo('screen-promociones')" type="button" class="h-12 w-full px-8 bg-transparent text-on-surface-variant border border-outline-variant rounded-lg font-label-bold text-label-bold flex items-center justify-center hover:bg-surface-container-low active:scale-95 transition-all font-semibold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [CLIENTE] PANTALLA 5: CATÁLOGO DE PRODUCTOS (VISTA CLIENTE)              -->
+    <!-- ========================================================================= -->
+    <div id="screen-cliente-catalogo" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-surface text-on-surface font-body-md pb-24 w-full">
+        <!-- TopAppBar -->
+        <header class="flex items-center justify-between px-container-margin h-14 w-full bg-surface shadow-sm">
+            <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-primary">
+                <span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+            </button>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary truncate">Tiendita de Barrio</h1>
+            <button onclick="showToast('Perfil de Usuario')" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-primary">
+                <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+            </button>
+        </header>
+
+        <main class="flex-1 w-full max-w-3xl mx-auto px-container-margin mt-stack-gap">
+            <!-- Search Bar -->
+            <div class="relative w-full mb-section-padding">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="material-symbols-outlined text-outline">search</span>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-full focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-on-surface shadow-sm transition-colors text-sm" placeholder="Buscar productos..." type="text">
+            </div>
+
+            <!-- Promociones Vigentes (Horizontal Scroll) -->
+            <section class="mb-section-padding">
+                <div class="flex items-center justify-between mb-stack-gap">
+                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Promociones Vigentes</h2>
+                    <button onclick="navigateTo('screen-cliente-promociones')" class="text-xs text-secondary font-semibold hover:underline">Ver todas</button>
+                </div>
+                <div class="flex overflow-x-auto gap-inline-gap hide-scrollbar pb-2 -mx-container-margin px-container-margin">
+                    <!-- Promo Card 1 -->
+                    <div class="min-w-[260px] h-32 rounded-xl bg-secondary-container relative overflow-hidden flex-shrink-0 shadow-sm cursor-pointer" onclick="navigateTo('screen-cliente-promo-detalle')">
+                        <img class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Lácteos Promo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxxnY87bB4QXCOs-pBXmudqyQTLW0q5jXA-CRiEYWY_jy0Fqr7kjZTjJ1lAHg6l-KUnC9Lw8rLiebNcGLT9c8uvurXp999A52Qco81wnyF2Gm1ERb_bExMbmzIzJQCX935g9HTtPp-BPkAGAYiKDbIuLTwQyIoNpl-FGjllZxhfkt3iXz77pbZvImCZaVI3poEVdr9hBqjXJpa9Kns-0869hzkwghCy6uNeJ2ouGyON6rqnQq-93a2">
+                        <div class="absolute inset-0 bg-gradient-to-r from-on-secondary-fixed to-transparent p-4 flex flex-col justify-center">
+                            <span class="font-label-bold text-label-bold text-on-secondary uppercase tracking-wider mb-1 text-[10px]">Oferta Lácteos</span>
+                            <span class="font-headline-lg-mobile text-headline-lg-mobile text-on-secondary mb-2 text-sm font-bold">2x1 en Quesos Frescos</span>
+                            <button class="bg-surface text-primary font-label-bold text-label-bold px-3 py-1 rounded-full w-max shadow-sm active:scale-95 transition-transform text-xs">Ver Promo</button>
+                        </div>
+                    </div>
+                    <!-- Promo Card 2 -->
+                    <div class="min-w-[260px] h-32 rounded-xl bg-primary-container relative overflow-hidden flex-shrink-0 shadow-sm cursor-pointer" onclick="navigateTo('screen-cliente-promo-detalle')">
+                        <img class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Abarrotes Promo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxIpRxZvTbXb2N7w6ZRP5BRym_B-XkEBAM_HjGj01mesJ2rC_ZXS6gm9YY73v03tVvUxqX-wxgmww3MxVBG8DA_Rn_gPxjX5YNDVjWYqbN-UHpozBhchXfhCqJROq61y_jqTk7_GLtSof0t_yaD7B_17ON2Pv1k2qTSh8XKSjaH4m7hMDB1aJZ0T5ZlRpj6zxekqCWbrzT5vY_2rai-GGBwAgMQUbbLjy4Gx8cJlmN0eNjJDfF_RBX">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent p-4 flex flex-col justify-center">
+                            <span class="font-label-bold text-label-bold text-on-primary uppercase tracking-wider mb-1 text-[10px]">Descuento Básico</span>
+                            <span class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary mb-2 text-sm font-bold">-15% Abarrotes</span>
+                            <button class="bg-surface text-primary font-label-bold text-label-bold px-3 py-1 rounded-full w-max shadow-sm active:scale-95 transition-transform text-xs">Ver Promo</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Chips -->
+            <div class="flex overflow-x-auto gap-2 hide-scrollbar mb-section-padding -mx-container-margin px-container-margin">
+                <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-bold text-xs whitespace-nowrap shadow-sm font-semibold">Todos</button>
+                <button class="px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-bold text-xs whitespace-nowrap border border-outline-variant hover:bg-surface-dim transition-colors font-medium">Bebidas</button>
+                <button class="px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-bold text-xs whitespace-nowrap border border-outline-variant hover:bg-surface-dim transition-colors font-medium">Snacks</button>
+                <button class="px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-bold text-xs whitespace-nowrap border border-outline-variant hover:bg-surface-dim transition-colors font-medium">Lácteos</button>
+                <button class="px-4 py-2 rounded-full bg-surface-container-highest text-on-surface-variant font-label-bold text-xs whitespace-nowrap border border-outline-variant hover:bg-surface-dim transition-colors font-medium">Panadería</button>
+            </div>
+
+            <!-- Productos Disponibles -->
+            <section class="pb-6">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-stack-gap text-on-surface font-bold">Productos Disponibles</h2>
+                <div class="grid grid-cols-2 gap-stack-gap">
+                    <!-- Product 1 (Clickable to detail) -->
+                    <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hover:shadow-md transition-all cursor-pointer" onclick="navigateTo('screen-cliente-producto-detalle')">
+                        <div class="h-32 w-full relative bg-surface-container">
+                            <img class="w-full h-full object-cover" alt="Pan Artesanal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb1lz8FysISzu9ceB2iJVitGtnvOeG2zmU_QBqLdNsyUVrFd0tqRw-7J-bKqAtH6t8VIIhnQ2gjetBPvvjl8514NpKA1ol_hjkSWPbJRkYa1W7EG094g6aXLSs6eh3ThvHUO6yQQxSODwZqqbLSGuCi351BgMBMNfhCZDs3bRTv4a_JMpvJVK9iQqbucJGMO7rAcZMPw3blFgofUDEUAPRn0ikye07U-_rjDXgJOYM8mTPON7IAHUQ">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-body-sm text-xs font-semibold text-on-surface line-clamp-2 mb-1 flex-1">Pan Artesanal Masa Madre</h3>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="font-headline-lg-mobile text-primary font-bold text-base">$4.50</span>
+                                <button onclick="event.stopPropagation(); addToCart('Pan Artesanal Masa Madre');" class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hover:shadow-md transition-all">
+                        <div class="h-32 w-full relative bg-surface-container">
+                            <img class="w-full h-full object-cover" alt="Refresco Cola" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACq71NNEyjrfWxtuYPdO9mFhKYziopri5W2LEem-D7p70cD6RxB0hGOSvt87icH1uGrNSX56taNAwceNQwyOsCxOKaPcTaOgCoZ1BBnhKB3Ecrfece22X2NFUDLA1Jrm0JuZxIn7eytcatdtFOFxSYVwoHgZHDmoYhsHcE9iBMVFnFwQYj4TwiMteIVpYUvuQiffbPQ1E-WBEBtPLos6eO5nDwPWQKb1oOzCn_t2pj9O105ygwbqF_">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-body-sm text-xs font-semibold text-on-surface line-clamp-2 mb-1 flex-1">Refresco Cola 600ml</h3>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="font-headline-lg-mobile text-primary font-bold text-base">$1.80</span>
+                                <button onclick="addToCart('Refresco Cola 600ml');" class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hover:shadow-md transition-all">
+                        <div class="h-32 w-full relative bg-surface-container">
+                            <img class="w-full h-full object-cover" alt="Papas Saladas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkDpH2zo7ARzrmM5Nl6Afhw6YM_Qi4hUWEF_kSPIBLQGwaDTaoWuIqw3CT2NH6pOnWkm5ZE2q5HV1pU1039K1ZAF66XXQ_F0wWefBmnOg44XpYjNA6SAqonovJXU0fkK6dTL7D4Qac3kORJXbCHZZ0U3_7QbAmNDkDdS7aOSOP6BOtos7uYseCUywMzNsFCCIRvBz-oEx6Ey5Uzrzndqd9dEHuLi5w7cf3fo5aRJSjYgM9eD5S4W86">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-body-sm text-xs font-semibold text-on-surface line-clamp-2 mb-1 flex-1">Papas Saladas 170g</h3>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="font-headline-lg-mobile text-primary font-bold text-base">$2.10</span>
+                                <button onclick="addToCart('Papas Saladas 170g');" class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hover:shadow-md transition-all">
+                        <div class="h-32 w-full relative bg-surface-container">
+                            <img class="w-full h-full object-cover" alt="Leche Entera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNwwmGj2BYPkIeZKqCvgK3Sx7F4RjLUuAJQ0htEtUCCDKAW_aJvDroaHCpLh7gH6JelfdLm6PtNs6Kom9ZC__Ht11r5BLwEbTy-msNNvgCREoGiDGPkNP_atuyLTrj9ArBolqz3nKOXgkkiRmkvh3Pc06nzP3mN0qNNJu4e0EiXzp8GnCfbNUsj9mDe0CG4CH6iwhxAU2ceeBP2nkJQjjnZFY7E30Uvv6tKbWY6b1vr0HcGX6BVJa_">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1">
+                            <h3 class="font-body-sm text-xs font-semibold text-on-surface line-clamp-2 mb-1 flex-1">Leche Entera 1L</h3>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="font-headline-lg-mobile text-primary font-bold text-base">$1.20</span>
+                                <button onclick="addToCart('Leche Entera 1L');" class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-90 transition-transform shadow-sm">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- BottomNavBar Cliente -->
+        <nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-2 py-3 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] border-t border-outline-variant">
+            <button onclick="navigateTo('screen-cliente-catalogo')" class="flex flex-col items-center justify-center text-secondary bg-secondary-container/30 rounded-full px-4 py-1 active:scale-90 duration-200 min-w-[64px]">
+                <span class="material-symbols-outlined mb-1 fill" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                <span class="font-label-bold text-xs font-bold">Catálogo</span>
+            </button>
+            <button onclick="navigateTo('screen-cliente-promociones')" class="flex flex-col items-center justify-center text-outline hover:opacity-80 transition-opacity active:scale-90 duration-200 min-w-[64px]">
+                <span class="material-symbols-outlined mb-1">sell</span>
+                <span class="font-label-bold text-xs">Promos</span>
+            </button>
+            <button onclick="openCartModal()" class="flex flex-col items-center justify-center text-outline hover:opacity-80 transition-opacity active:scale-90 duration-200 min-w-[64px] relative">
+                <span class="material-symbols-outlined mb-1">shopping_cart</span>
+                <span class="font-label-bold text-xs">Carrito</span>
+                <span id="cart-counter-badge" class="absolute top-0 right-3 w-4 h-4 bg-error text-white text-[10px] font-bold rounded-full flex items-center justify-center">1</span>
+            </button>
+            <button onclick="showToast('Perfil del Cliente')" class="flex flex-col items-center justify-center text-outline hover:opacity-80 transition-opacity active:scale-90 duration-200 min-w-[64px]">
+                <span class="material-symbols-outlined mb-1">person</span>
+                <span class="font-label-bold text-xs">Perfil</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [CLIENTE] PANTALLA 6: DETALLE DEL PRODUCTO (VISTA CLIENTE)                -->
+    <!-- ========================================================================= -->
+    <div id="screen-cliente-producto-detalle" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-background text-on-background pb-28 font-body-md w-full">
+        <!-- Top App Bar -->
+        <header class="bg-surface shadow-sm flex items-center justify-between px-container-margin h-14 w-full border-b border-outline-variant/30">
+            <button onclick="navigateTo('screen-cliente-catalogo')" class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150 flex items-center justify-center">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">
+                Tiendita de Barrio
+            </div>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="pt-3 px-container-margin pb-section-padding max-w-2xl mx-auto w-full">
+            <!-- Product Image Section -->
+            <section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+                <div class="aspect-[4/3] w-full relative">
+                    <img class="w-full h-full object-cover" alt="Pan Artesanal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb1lz8FysISzu9ceB2iJVitGtnvOeG2zmU_QBqLdNsyUVrFd0tqRw-7J-bKqAtH6t8VIIhnQ2gjetBPvvjl8514NpKA1ol_hjkSWPbJRkYa1W7EG094g6aXLSs6eh3ThvHUO6yQQxSODwZqqbLSGuCi351BgMBMNfhCZDs3bRTv4a_JMpvJVK9iQqbucJGMO7rAcZMPw3blFgofUDEUAPRn0ikye07U-_rjDXgJOYM8mTPON7IAHUQ">
+                    <div class="absolute top-4 right-4">
+                        <button onclick="showToast('Guardado en favoritos')" class="bg-surface-container-lowest/80 backdrop-blur-sm p-2 rounded-full shadow-sm text-outline hover:text-error transition-colors">
+                            <span class="material-symbols-outlined">favorite_border</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Info -->
+                <div class="p-4 flex flex-col gap-stack-gap">
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold text-lg">Pan Artesanal de Masa Madre</h1>
+                            <p class="font-body-sm text-body-sm text-outline mt-1">Panadería "El Horno" • 500g</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="font-display-price text-display-price text-primary block font-bold text-xl">$4.50</span>
+                            <span class="inline-flex items-center gap-1 bg-secondary-container/50 text-secondary text-xs px-2 py-0.5 rounded-full mt-1 font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                En Stock (12)
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Quantity Selector -->
+                    <div class="flex items-center justify-between border-t border-b border-outline-variant/30 py-3 mt-2">
+                        <span class="font-body-md text-body-md text-on-surface-variant font-medium text-sm">Cantidad:</span>
+                        <div class="flex items-center bg-surface-container rounded-full border border-outline-variant/50">
+                            <button onclick="updateQty(-1)" aria-label="Disminuir cantidad" class="w-10 h-10 flex items-center justify-center text-primary active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined">remove</span>
+                            </button>
+                            <span id="detail-qty-counter" class="font-headline-lg-mobile text-headline-lg-mobile w-8 text-center font-bold">1</span>
+                            <button onclick="updateQty(1)" aria-label="Aumentar cantidad" class="w-10 h-10 flex items-center justify-center text-primary active:scale-95 transition-transform">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="mt-2">
+                        <h2 class="font-body-md text-body-md font-semibold mb-1 text-sm">Descripción</h2>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-xs">
+                            Pan rústico elaborado diariamente con masa madre natural. Corteza crujiente y miga alveolada, perfecto para acompañar tus desayunos o preparar deliciosas tapas. Sin conservantes ni aditivos artificiales.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Products -->
+            <section class="mt-section-padding">
+                <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-stack-gap font-bold text-base">Más opciones para ti</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-surface-container-lowest rounded-lg border border-outline-variant/40 shadow-sm overflow-hidden flex flex-col p-2">
+                        <img class="w-full h-24 object-cover rounded-md mb-2" alt="Miel de Abeja" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG7KD4hlbuWeHvfnkCrvYWsfj7hO2kfhlO7npxHrDpd8RZP_9DFaW8f9-GB3H2FunieBQUjEfy8M0g60LZhgMi5ucLKVZFLxoQqsE5Nn1_CorDngki8yKxWxNBvvA2zWreE9vGbVeEAaGwnR0ZrtlWFEslFtwLNEJwBNrZd1xmIiS49gmnwWkZ5lmHQiea3CGh2VY6npNoHAJH0fUjPZ3UsT2q7MKM4xiH9V1W67ysvMAu2UwKdi_j">
+                        <h3 class="font-label-bold text-xs text-on-surface line-clamp-1">Miel de Abeja 250g</h3>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="font-bold text-sm text-primary">$3.80</span>
+                            <button onclick="addToCart('Miel de Abeja');" class="bg-surface-container-low text-primary p-1.5 rounded-full hover:bg-surface-container">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface-container-lowest rounded-lg border border-outline-variant/40 shadow-sm overflow-hidden flex flex-col p-2">
+                        <img class="w-full h-24 object-cover rounded-md mb-2" alt="Aguacate Hass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5X8QQ-NV7s4uIcQbMdj_p3gYmeyfimS_GMbfwx40GTJGfeW2sdWgPbUAc0WUKia4l2b9w35nxAH-8TXleSZ45O2XdhrSROUhJlVlEiZtWiXscsHdaMPqYnyG9jZVP0WFWnr5IiI5lEsvsCRc7_jzbx184pV8hGbOEA2JILuZ7OuYAPaeuZRfLKnYs0w26Ic3cSHbKkDB0S_UHC-_bsgI8Nq5fr0XsTxR4ZBn1qJJzIRzb4jT6AKyD">
+                        <h3 class="font-label-bold text-xs text-on-surface line-clamp-1">Aguacate Hass</h3>
+                        <div class="mt-2 flex justify-between items-center">
+                            <span class="font-bold text-sm text-primary">$1.20</span>
+                            <button onclick="addToCart('Aguacate Hass');" class="bg-surface-container-low text-primary p-1.5 rounded-full hover:bg-surface-container">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Fixed Bottom Action Bar -->
+        <div class="fixed bottom-0 left-0 w-full z-40 bg-surface border-t border-outline-variant/30 px-container-margin py-3 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+            <div class="max-w-2xl mx-auto flex gap-4 items-center">
+                <div class="flex flex-col flex-1">
+                    <span class="font-label-bold text-outline uppercase tracking-wider text-[10px]">Total estimado</span>
+                    <span id="detail-total-price" class="font-display-price text-display-price text-primary leading-none font-bold text-xl">$4.50</span>
+                </div>
+                <button onclick="addToCart('Pan Artesanal Masa Madre', currentDetailQty); navigateTo('screen-cliente-catalogo');" class="bg-secondary text-on-secondary h-12 px-6 rounded-lg font-headline-lg-mobile text-sm flex-grow max-w-[200px] flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-sm font-semibold">
+                    <span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                    Añadir al Carrito
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [CLIENTE] PANTALLA 7: PROMOCIONES VIGENTES (VISTA CLIENTE)                -->
+    <!-- ========================================================================= -->
+    <div id="screen-cliente-promociones" class="screen-view flex-col min-h-[calc(100vh-38px)] text-slate-800 antialiased pb-24 w-full bg-slate-50">
+        <!-- TopAppBar -->
+        <header class="bg-white px-4 py-3 flex items-center justify-between shadow-sm border-b border-slate-100">
+            <button onclick="navigateTo('screen-cliente-catalogo')" class="text-slate-600 hover:text-slate-900">
+                <i class="fa-solid fa-arrow-left text-lg"></i>
+            </button>
+            <h1 class="text-base font-bold text-slate-900">Tiendita de Barrio</h1>
+            <button onclick="showToast('Perfil de Usuario')" class="text-slate-600 hover:text-slate-900">
+                <i class="fa-regular fa-circle-user text-xl"></i>
+            </button>
+        </header>
+
+        <!-- MainContent -->
+        <main class="p-4 max-w-md mx-auto w-full flex-1">
+            <div class="mb-4">
+                <h2 class="text-lg font-bold text-slate-900 mb-3">Promociones Vigentes</h2>
+                <div class="space-y-3">
+                    <!-- Promotion Card 1 (Clickable to detail) -->
+                    <article onclick="navigateTo('screen-cliente-promo-detalle')" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden flex flex-row cursor-pointer hover:shadow-md transition-all">
+                        <div class="w-1/3 bg-slate-100 flex-shrink-0">
+                            <img alt="Lácteos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0OBCvI7WTtODlDpDFAVOL6FojhXNM_T5o-lFN2SFy4eik52DUcs8RyUIEICsFkvV9urXsecUn73y9LslR1tF_J61rz93Hgi_jpVpY2vdBkM4pTQtCKIkeJTg7ukzXD7OBw5HmmmVeUxxp--dgjs6SfxmZUtH4B5ToqWo1lX4_l5pTb1T79TknrZFNdHET2qe88EF-vFVcn0iShgaT9SIZENQ22f_UMj8laRmaGCq8pTqxS-MSAxsy" />
+                        </div>
+                        <div class="p-3 flex flex-col justify-between flex-grow">
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-bold text-slate-900 text-sm">2×1 Lácteos</h3>
+                                    <span class="bg-brand-100 text-brand-700 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
+                                        2x1
+                                    </span>
+                                </div>
+                                <p class="text-xs text-slate-500 mb-1">Válido: 15 Oct - 31 Oct</p>
+                            </div>
+                            <p class="text-xs text-slate-600">Lleva dos productos seleccionados pagando solo uno.</p>
+                        </div>
+                    </article>
+
+                    <!-- Promotion Card 2 -->
+                    <article onclick="navigateTo('screen-cliente-promo-detalle')" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden flex flex-row cursor-pointer hover:shadow-md transition-all">
+                        <div class="w-1/3 bg-slate-100 flex-shrink-0">
+                            <img alt="Panadería" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ5DGpXp6_cHJY1wijXF1Wdqpy2eqvgVrsAqTPrilDshMNIN20tQUrQ6RJ3EcvBdg79vt9w6nFafciYVa0_jdMr0rd8vx-GJ3O82yIVWcOGXn93fahc-9zoVNt_QMAlPm0-Ffuw5HINdc34het5p7xeOI33Q1DtcmmcVzPvLi7yyKChijYLdqeN7mqAZ-P8ugbxmPzpyFcet1sKFSZ1nJ3JtFok0G72gPHp9h6zJmco_peyp3lsy7w" />
+                        </div>
+                        <div class="p-3 flex flex-col justify-between flex-grow">
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-bold text-slate-900 text-sm">-15% Panadería</h3>
+                                    <span class="bg-brand-100 text-brand-700 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
+                                        -15%
+                                    </span>
+                                </div>
+                                <p class="text-xs text-slate-500 mb-1">Válido: 01 Nov - 15 Nov</p>
+                            </div>
+                            <p class="text-xs text-slate-600">Descuento en toda la sección de panadería artesanal.</p>
+                        </div>
+                    </article>
+
+                    <!-- Promotion Card 3 -->
+                    <article onclick="navigateTo('screen-cliente-promo-detalle')" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden flex flex-row cursor-pointer hover:shadow-md transition-all">
+                        <div class="w-1/3 bg-slate-100 flex-shrink-0">
+                            <img alt="Frutas y Verduras" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo1xxyl9zoCQFhTEZPXO91XkeaZdHmz9tSvjN4ZhwS6jVCJudNkhJREIUDr1OXdMzfxuahUfOpw4kdVzHQ3yT6dDbWKcr1JhFZBG4RNR74-1iNqg2_zfa_es7-h1NlYbqyQVBjPiifAOxCsH5w5mDWzs2HbIV09tKzOYHzCtVHkjN4uee27d_2F1D31KRa3H5PR9d1Iq2NAGT4Z3FZ-rYJmSv3_Gn16-wlgWD0TwPoVbJ-QBlH-end" />
+                        </div>
+                        <div class="p-3 flex flex-col justify-between flex-grow">
+                            <div>
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="font-bold text-slate-900 text-sm">Envío Gratis</h3>
+                                    <span class="bg-brand-100 text-brand-700 text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
+                                        Gratis
+                                    </span>
+                                </div>
+                                <p class="text-xs text-slate-500 mb-1">Válido: Siempre</p>
+                            </div>
+                            <p class="text-xs text-slate-600">En compras mayores a $20 el envío corre por nuestra cuenta.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+        <!-- BottomNavBar Cliente -->
+        <nav class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 pb-safe z-40">
+            <div class="flex justify-around items-center h-16 max-w-md mx-auto px-2">
+                <button onclick="navigateTo('screen-cliente-catalogo')" class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-slate-900 transition-colors">
+                    <i class="fa-solid fa-box text-base mb-1"></i>
+                    <span class="text-[10px] font-medium">Catálogo</span>
+                </button>
+                <!-- Active State -->
+                <button class="flex flex-col items-center justify-center w-full h-full relative">
+                    <div class="absolute inset-0 bg-brand-100/50 rounded-2xl mx-2 my-1 z-0"></div>
+                    <div class="relative z-10 flex flex-col items-center text-brand-700">
+                        <i class="fa-solid fa-tags text-base mb-1"></i>
+                        <span class="text-[10px] font-bold">Promos</span>
+                    </div>
+                </button>
+                <button onclick="openCartModal()" class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-slate-900 transition-colors relative">
+                    <div class="relative">
+                        <i class="fa-solid fa-cart-shopping text-base mb-1"></i>
+                        <span class="absolute -top-1 -right-2 bg-red-500 w-2 h-2 rounded-full"></span>
+                    </div>
+                    <span class="text-[10px] font-medium">Carrito</span>
+                </button>
+                <button onclick="showToast('Perfil del Cliente')" class="flex flex-col items-center justify-center w-full h-full text-slate-500 hover:text-slate-900 transition-colors">
+                    <i class="fa-regular fa-user text-base mb-1"></i>
+                    <span class="text-[10px] font-medium">Perfil</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- [CLIENTE] PANTALLA 8: DETALLE DE PROMOCIONES (VISTA CLIENTE)              -->
+    <!-- ========================================================================= -->
+    <div id="screen-cliente-promo-detalle" class="screen-view flex-col min-h-[calc(100vh-38px)] bg-background text-on-background antialiased pb-28 w-full">
+        <!-- TopAppBar -->
+        <header class="flex items-center justify-between px-container-margin h-14 w-full bg-surface shadow-sm transition-colors border-b border-outline-variant/30">
+            <button onclick="navigateTo('screen-cliente-promociones')" aria-label="Volver" class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-150 text-primary">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary truncate flex-1 text-center">
+                Tiendita de Barrio
+            </h1>
+            <div class="w-10"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col">
+            <!-- Hero Section -->
+            <div class="relative w-full aspect-[16/9] overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSgp2qrhS3MHqeCyz51kzz5ovlyaVHJeIbT4pbeHZqIxw1_RRsrUkgA7rhwd4cSKriSFKDQAgtk3BH80uvVs7XeuP_Fl6OiYphsNmz5IleK5yFZDKvr9U_-Gpxy4o-wK3ekhaL-qt7h9EVoh-wg8GTzD6--_OeKaOJUxmpaCDOsmwOFCizqdq3Xujfl5kqy5i3JlgEJ0wOVZK-XTmOYRRYB_4T2LJc9g1ui7Nt7HNLDvKt7j2v2pFT')"></div>
+                <!-- Floating Badge -->
+                <div class="absolute top-3 left-4 bg-error text-on-error px-3 py-1.5 rounded-full shadow-lg transform -rotate-3 z-10 flex flex-col items-center justify-center border border-white">
+                    <span class="font-display-price text-sm leading-none font-bold text-white">2x1</span>
+                    <span class="font-label-bold text-[9px] uppercase tracking-wider text-white">En Lácteos</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="px-container-margin py-4 bg-surface rounded-t-xl -mt-4 relative z-20 flex-1 flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                    <h2 class="font-headline-lg-mobile text-on-surface font-bold text-base">Especial Fin de Semana: Lácteos y Panadería</h2>
+                    <div class="flex items-center gap-1.5 text-secondary text-xs">
+                        <span class="material-symbols-outlined text-sm">sell</span>
+                        <span class="font-label-bold font-semibold">Tipo: 2x1 (Lácteos Seleccionados)</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 bg-surface-container-low p-3 rounded-lg text-xs">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase tracking-wider text-outline font-semibold">Desde</span>
+                        <span class="font-medium text-on-surface">15 de Octubre, 2026</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase tracking-wider text-outline font-semibold">Hasta</span>
+                        <span class="font-medium text-on-surface">31 de Octubre, 2026</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <h3 class="font-label-bold text-on-surface uppercase tracking-wide text-xs font-semibold">Producto Principal</h3>
+                    <div class="flex items-center gap-3 p-2.5 border border-outline-variant rounded-lg">
+                        <div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">egg_alt</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-medium text-on-surface text-xs">Canasta de Lácteos Premium</span>
+                            <span class="text-[11px] text-outline">Categoría: Lácteos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <h3 class="font-label-bold text-on-surface uppercase tracking-wide text-xs font-semibold">Detalles del Beneficio</h3>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">
+                        Lleva dos productos de la misma categoría de lácteos seleccionados y paga solo uno. El descuento aplica sobre el producto de menor o igual valor.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sticky CTA Area -->
+        <div class="fixed bottom-0 left-0 w-full px-container-margin py-3 bg-surface border-t border-outline-variant shadow-lg z-40 pb-safe">
+            <button onclick="showToast('¡Oferta 2x1 aplicada a tu pedido!'); addToCart('Canasta Lácteos (2x1)', 2); navigateTo('screen-cliente-catalogo');" class="w-full h-12 bg-secondary text-on-secondary rounded-lg font-label-bold text-sm flex items-center justify-center gap-2 hover:bg-secondary/90 transition-colors active:scale-95 duration-200 font-semibold shadow-sm">
+                <span class="material-symbols-outlined">local_mall</span>
+                Aplicar Oferta
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE NAVEGACIÓN Y COMPORTAMIENTO INTERACTIVO -->
+    <script>
+        let currentRole = 'admin'; // 'admin' | 'cliente'
+        let currentDetailQty = 1;
+        let cartCount = 1;
+
+        // Router de Pantallas
+        function navigateTo(screenId) {
+            document.querySelectorAll('.screen-view').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            const target = document.getElementById(screenId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Determinar el rol según la pantalla actual
+                if (screenId.startsWith('screen-cliente')) {
+                    updateRoleUI('cliente');
+                } else {
+                    updateRoleUI('admin');
+                }
+
+                // Enviar mensaje al contenedor padre (articulo.html)
+                try {
+                    window.parent.postMessage({ type: 'SCREEN_CHANGED', screenId: screenId }, '*');
+                } catch(e) {}
+            }
+        }
+
+        // Cambio de Rol Administrador / Cliente
+        function switchRole(role) {
+            currentRole = role;
+            updateRoleUI(role);
+            if (role === 'admin') {
+                navigateTo('screen-productos');
+                showToast('Cambiado a Modo Administrador');
+            } else {
+                navigateTo('screen-cliente-catalogo');
+                showToast('Cambiado a Modo Cliente (Comprador)');
+            }
+        }
+
+        function updateRoleUI(role) {
+            const badge = document.getElementById('current-role-badge');
+            const btnAdmin = document.getElementById('btn-mode-admin');
+            const btnCliente = document.getElementById('btn-mode-cliente');
+
+            if (role === 'admin') {
+                badge.textContent = 'Modo: Administrador';
+                btnAdmin.className = 'px-2.5 py-1 rounded-md font-semibold text-[11px] bg-secondary text-white shadow-sm transition-all flex items-center gap-1';
+                btnCliente.className = 'px-2.5 py-1 rounded-md font-semibold text-[11px] text-slate-300 hover:text-white transition-all flex items-center gap-1';
+            } else {
+                badge.textContent = 'Modo: Cliente';
+                btnCliente.className = 'px-2.5 py-1 rounded-md font-semibold text-[11px] bg-secondary text-white shadow-sm transition-all flex items-center gap-1';
+                btnAdmin.className = 'px-2.5 py-1 rounded-md font-semibold text-[11px] text-slate-300 hover:text-white transition-all flex items-center gap-1';
+            }
+        }
+
+        // Detalle de Producto: Selector de cantidad y precio
+        function updateQty(delta) {
+            currentDetailQty = Math.max(1, currentDetailQty + delta);
+            const counter = document.getElementById('detail-qty-counter');
+            const total = document.getElementById('detail-total-price');
+            if (counter) counter.textContent = currentDetailQty;
+            if (total) total.textContent = `$${(4.50 * currentDetailQty).toFixed(2)}`;
+        }
+
+        // Agregar producto al carrito
+        function addToCart(productName, qty = 1) {
+            cartCount += qty;
+            const badge = document.getElementById('cart-counter-badge');
+            if (badge) badge.textContent = cartCount;
+            showToast(`+${qty} "${productName}" añadido al carrito 🛒`);
+        }
+
+        function openCartModal() {
+            showToast(`Tienes ${cartCount} producto(s) en tu carrito • Total: $${(cartCount * 3.50).toFixed(2)}`);
+        }
+
+        // Manejador de tipo de promociones
+        function handlePromoTypeChange(type) {
+            const bundleSection = document.getElementById('bundle-section');
+            const valueLabel = document.getElementById('promo-value-label');
+            const valueInput = document.getElementById('promo-value');
+            const valueIcon = document.getElementById('promo-value-icon');
+
+            if (type === 'bundle') {
+                bundleSection.classList.remove('hidden');
+                valueLabel.textContent = 'Precio del Combo ($)';
+                valueInput.placeholder = 'Ej. 15.00';
+                valueIcon.textContent = 'payments';
+            } else if (type === 'bogo') {
+                bundleSection.classList.add('hidden');
+                valueLabel.textContent = 'Llevas (Cantidad de unidades)';
+                valueInput.placeholder = 'Ej. 2';
+                valueIcon.textContent = 'shopping_basket';
+            } else {
+                bundleSection.classList.add('hidden');
+                valueLabel.textContent = 'Valor de Descuento (%)';
+                valueInput.placeholder = 'Ej. 15';
+                valueIcon.textContent = 'percent';
+            }
+        }
+
+        // Preview de imagen al subir foto
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('img-preview');
+                    const content = document.getElementById('img-placeholder-content');
+                    img.src = e.target.result;
+                    img.classList.remove('hidden');
+                    content.classList.add('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Toast feedback
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('hide');
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+            }, 2500);
+        }
+
+        // Eliminar elemento de la lista
+        function deleteItem(btn, msg) {
+            const card = btn.closest('.product-item') || btn.closest('.promo-item');
+            if (card) {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    card.remove();
+                    showToast(msg || 'Elemento eliminado');
+                }, 300);
+            }
+        }
+
+        // Guardar nuevo producto
+        function guardarNuevoProducto() {
+            const name = document.getElementById('product-name').value;
+            const price = parseFloat(document.getElementById('product-price').value || 0).toFixed(2);
+            const qty = document.getElementById('product-qty').value;
+            const imgPreview = document.getElementById('img-preview');
+            const imgSrc = (!imgPreview.classList.contains('hidden') && imgPreview.src) ? imgPreview.src : 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=300&q=80';
+
+            const list = document.getElementById('product-list');
+            const newCard = document.createElement('div');
+            newCard.className = 'product-item bg-surface-container-lowest rounded-lg border border-outline-variant p-4 flex gap-4 items-center shadow-[0px_2px_4px_rgba(30,41,59,0.05)] transition-all hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)]';
+            newCard.innerHTML = `
+                <img class="w-16 h-16 rounded-md object-cover bg-surface-container-highest flex-shrink-0" alt="${name}" src="${imgSrc}">
+                <div class="flex-1 min-w-0">
+                    <h3 class="font-headline-lg-mobile text-primary font-semibold truncate">${name}</h3>
+                    <p class="font-body-sm text-on-surface-variant">Stock: ${qty} unidades</p>
+                    <p class="font-display-price text-secondary mt-1 text-lg font-bold">$${price}</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <button onclick="showToast('Modo edición activado')" class="p-2 border border-outline-variant text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                    </button>
+                    <button onclick="deleteItem(this, 'Producto eliminado')" class="p-2 border border-outline-variant text-error hover:bg-error-container transition-colors flex items-center justify-center rounded-lg active:scale-90">
+                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                    </button>
+                </div>
+            `;
+            list.prepend(newCard);
+
+            document.getElementById('form-nuevo-producto').reset();
+            document.getElementById('img-preview').classList.add('hidden');
+            document.getElementById('img-placeholder-content').classList.remove('hidden');
+            
+            showToast(`¡Producto "${name}" agregado con éxito!`);
+            navigateTo('screen-productos');
+        }
+
+        // Guardar nueva promoción
+        function guardarNuevaPromocion() {
+            const product = document.getElementById('product-select').value;
+            const promoType = document.querySelector('input[name="promo_type"]:checked').value;
+            const val = document.getElementById('promo-value').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+
+            let title = `${val}% de Descuento en ${product}`;
+            if (promoType === 'bogo') title = `2x1 Pack en ${product}`;
+            if (promoType === 'bundle') title = `Combo Especial ${product}`;
+
+            const list = document.getElementById('promotions-list');
+            const newPromo = document.createElement('div');
+            newPromo.className = 'promo-item bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-4 flex flex-col gap-3 relative overflow-hidden group';
+            newPromo.innerHTML = `
+                <div class="flex gap-4">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-variant flex-shrink-0 flex items-center justify-center bg-secondary-container text-secondary">
+                        <span class="material-symbols-outlined text-3xl">local_offer</span>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background line-clamp-1 font-bold">${title}</h3>
+                                <span class="bg-secondary-container text-on-secondary-container font-label-bold text-label-bold px-2 py-0.5 rounded-full whitespace-nowrap text-xs font-semibold">Activo</span>
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Válido: ${startDate || 'Hoy'} - ${endDate || 'Pronto'}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-2 mt-2 pt-3 border-t border-outline-variant">
+                    <button onclick="showToast('Modo edición de promoción')" class="p-2 border border-outline-variant rounded text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-colors flex items-center justify-center active:scale-90">
+                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                    </button>
+                    <button onclick="deleteItem(this, 'Promoción eliminada')" class="p-2 border border-outline-variant rounded text-error hover:bg-error-container transition-colors flex items-center justify-center active:scale-90">
+                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                    </button>
+                </div>
+            `;
+            list.prepend(newPromo);
+
+            document.getElementById('form-nueva-promo').reset();
+            showToast('¡Promoción guardada y activada!');
+            navigateTo('screen-promociones');
+        }
+
+        // Escuchar mensajes desde la ventana contenedora (articulo.html)
+        window.addEventListener('message', (e) => {
+            if (e.data && e.data.action === 'NAVIGATE') {
+                navigateTo(e.data.screenId);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -220,22 +220,22 @@
     <div id="site-header" style="min-height: 81px;"></div>
 
     <script>
-        fetch( "header.html" )
-            .then( function ( response ) {
-                if ( !response.ok ) {
-                    throw new Error( "No se pudo cargar el header" );
+        fetch("header.html")
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el header");
                 }
 
                 return response.text();
-            } )
-            .then( function ( html ) {
+            })
+            .then(function (html) {
 
-                document.getElementById( "site-header" ).innerHTML = html;
+                document.getElementById("site-header").innerHTML = html;
 
                 const activeLink =
-                    document.querySelector( '[data-nav-item="blog"]' );
+                    document.querySelector('[data-nav-item="blog"]');
 
-                if ( activeLink ) {
+                if (activeLink) {
                     activeLink.classList.remove(
                         "text-on-surface-variant",
                         "border-transparent"
@@ -246,12 +246,12 @@
                         "border-surface-tint"
                     );
 
-                    activeLink.setAttribute( "aria-current", "page" );
+                    activeLink.setAttribute("aria-current", "page");
                 }
-            } )
-            .catch( function ( error ) {
-                console.error( error );
-            } );
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     </script>
 
 
@@ -288,278 +288,57 @@
 
 
         <!-- ============================= -->
-        <!-- FEATURED CONTENT -->
-        <!-- ============================= -->
-
-        <section aria-labelledby="featured-title" class="mb-section-gap">
-
-            <div
-                class="glass-panel rounded-xl overflow-hidden group border border-outline-variant/20 hover:border-surface-tint/50 transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 relative card-glow">
-
-                <!-- Featured Image -->
-
-                <div class="h-[300px] lg:h-[460px] w-full relative overflow-hidden">
-
-                    <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        src="https://fr.organilog.com/wp-content/uploads/2024/02/iStock-1428421517-768x459.webp"
-                        alt="Ingeniería de software asistida por computadora con código, diagramas y herramientas de desarrollo"
-                        loading="eager" decoding="async" />
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent lg:hidden">
-                    </div>
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent hidden lg:block">
-                    </div>
-
-                </div>
-
-
-                <!-- Featured Content -->
-
-                <div
-                    class="p-stack-lg md:p-margin-desktop flex flex-col justify-center bg-surface-container/90 lg:bg-transparent relative z-10">
-
-                    <span
-                        class="text-surface-tint font-label-caps text-label-caps mb-stack-sm tracking-widest uppercase">
-                        Desarrollo de Software
-                    </span>
-
-                    <h2 id="featured-title"
-                        class="font-headline-md text-headline-md text-primary mb-stack-md group-hover:text-surface-tint transition-colors">
-
-                        Desarrollo Asistido por Software
-
-                    </h2>
-
-                    <p class="text-on-surface-variant mb-stack-lg">
-
-                        Conoce las herramientas de ingeniería de software
-                        asistida por computadora (CASE) utilizadas para
-                        automatizar y optimizar las diferentes fases del
-                        desarrollo de software, desde la planificación,
-                        análisis y diseño hasta la gestión, documentación,
-                        pruebas y evaluación.
-
-                    </p>
-
-
-                    <!-- Featured Information -->
-
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-auto">
-
-                        <div class="flex items-center gap-2">
-
-                            <span class="material-symbols-outlined text-surface-tint" aria-hidden="true">
-                                calendar_today
-                            </span>
-
-                            <span class="text-on-surface-variant text-sm">
-                                Julio - Diciembre, 2026
-                            </span>
-
-                        </div>
-
-
-                        <a href="#unidades"
-                            class="focus-ring inline-flex items-center justify-center gap-2 text-primary-container font-label-caps text-label-caps hover:text-surface-tint transition-colors">
-
-                            Explorar contenidos
-
-                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-2"
-                                aria-hidden="true">
-                                arrow_forward
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ============================= -->
         <!-- BLOG CONTENT -->
         <!-- ============================= -->
 
         <div id="unidades" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
 
-
             <!-- ============================= -->
-            <!-- SIDEBAR -->
+            <!-- SIDEBAR CATEGORÍAS -->
             <!-- ============================= -->
 
             <aside class="lg:col-span-3 order-2 lg:order-1" aria-label="Categorías del blog">
 
                 <div class="sticky top-[120px]">
 
-                    <h2
-                        class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">
-
+                    <h2 class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">
                         Categorías
-
                     </h2>
 
-
                     <nav aria-label="Categorías">
-
-                        <ul class="flex flex-col gap-2">
-
-                            <!-- Active Category -->
-
+                        <ul id="lista-categorias" class="flex flex-col gap-2">
                             <li>
-
-                                <a class="focus-ring flex justify-between items-center py-3 text-surface-tint font-semibold border-l-2 border-surface-tint pl-3 bg-surface-container/50 hover:bg-surface-container transition-colors"
-                                    href="#unidades" aria-current="true">
-
-                                    <span>
-                                        Desarrollo de Software
-                                    </span>
-
-                                    <span class="text-xs bg-surface-container-high px-2 py-1 rounded">
-                                        12
-                                    </span>
-
-                                </a>
-
+                                <button type="button" class="btn-categoria w-full focus-ring flex justify-between items-center py-3 text-surface-tint font-semibold border-l-2 border-surface-tint pl-3 bg-surface-container/50 hover:bg-surface-container transition-all duration-300 text-left"
+                                    data-category="todas">
+                                    <span>Todas</span>
+                                </button>
                             </li>
-
-
-                            <!-- Category -->
-
                             <li>
-
-                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
-                                    href="#unidades">
-
-                                    <span>
-                                        Cloud Migration
-                                    </span>
-
-                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
-                                        8
-                                    </span>
-
-                                </a>
-
+                                <button type="button" class="btn-categoria w-full focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-all duration-300 border-l-2 border-transparent hover:border-outline-variant pl-3 text-left"
+                                    data-category="UNIDAD 1">
+                                    <span>UNIDAD 1</span>
+                                </button>
                             </li>
-
-
-                            <!-- Category -->
-
                             <li>
-
-                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
-                                    href="#unidades">
-
-                                    <span>
-                                        System Audits
-                                    </span>
-
-                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
-                                        5
-                                    </span>
-
-                                </a>
-
+                                <button type="button" class="btn-categoria w-full focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-all duration-300 border-l-2 border-transparent hover:border-outline-variant pl-3 text-left"
+                                    data-category="UNIDAD 2">
+                                    <span>UNIDAD 2</span>
+                                </button>
                             </li>
-
-
-                            <!-- Category -->
-
                             <li>
-
-                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
-                                    href="#unidades">
-
-                                    <span>
-                                        Ciberseguridad
-                                    </span>
-
-                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
-                                        9
-                                    </span>
-
-                                </a>
-
+                                <button type="button" class="btn-categoria w-full focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-all duration-300 border-l-2 border-transparent hover:border-outline-variant pl-3 text-left"
+                                    data-category="UNIDAD 3">
+                                    <span>UNIDAD 3</span>
+                                </button>
                             </li>
-
-
-                            <!-- Category -->
-
                             <li>
-
-                                <a class="focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-colors border-l-2 border-transparent hover:border-outline-variant pl-3"
-                                    href="#unidades">
-
-                                    <span>
-                                        DevOps
-                                    </span>
-
-                                    <span class="text-xs bg-surface-container px-2 py-1 rounded">
-                                        14
-                                    </span>
-
-                                </a>
-
+                                <button type="button" class="btn-categoria w-full focus-ring flex justify-between items-center py-3 text-on-surface-variant hover:text-primary hover:bg-surface-container/50 transition-all duration-300 border-l-2 border-transparent hover:border-outline-variant pl-3 text-left"
+                                    data-category="UNIDAD 4">
+                                    <span>UNIDAD 4</span>
+                                </button>
                             </li>
-
                         </ul>
-
                     </nav>
-
-
-                    <!-- ============================= -->
-                    <!-- NEWSLETTER -->
-                    <!-- ============================= -->
-
-                    <div
-                        class="mt-stack-lg bg-surface-container-highest p-stack-md rounded-xl border border-outline-variant/10">
-
-                        <h3 class="font-headline-sm text-lg text-primary mb-2 flex items-center gap-2">
-
-                            <span class="material-symbols-outlined text-surface-tint" aria-hidden="true">
-                                mail
-                            </span>
-
-                            Newsletter
-
-                        </h3>
-
-                        <p class="text-sm text-on-surface-variant mb-4">
-
-                            Recibe los últimos contenidos técnicos
-                            directamente en tu bandeja.
-
-                        </p>
-
-
-                        <form class="flex flex-col gap-2" onsubmit="return false;">
-
-                            <label for="newsletter-email" class="sr-only">
-                                Correo electrónico
-                            </label>
-
-                            <input id="newsletter-email" name="email"
-                                class="bg-background border border-outline-variant/30 text-on-surface rounded-DEFAULT p-2 focus:border-surface-tint focus:ring-1 focus:ring-surface-tint outline-none transition-all placeholder:text-on-surface-variant/50"
-                                placeholder="tu@empresa.com" type="email" autocomplete="email" required />
-
-                            <button
-                                class="bg-primary-container text-on-primary-container py-2 rounded-DEFAULT font-label-caps text-label-caps glow-hover transition-all w-full mt-2 hover:brightness-110 focus:ring-2 focus:ring-surface-tint focus:ring-offset-2 focus:ring-offset-background"
-                                type="submit">
-
-                                Suscribirse
-
-                            </button>
-
-                        </form>
-
-                    </div>
 
                 </div>
 
@@ -567,344 +346,29 @@
 
 
             <!-- ============================= -->
-            <!-- UNITS -->
+            <!-- LISTADO DE PUBLICACIONES -->
             <!-- ============================= -->
 
             <section class="lg:col-span-9 order-1 lg:order-2" aria-labelledby="units-title">
 
                 <!-- Section Header -->
-
                 <div class="flex items-center gap-3 mb-stack-md">
-
                     <h2 id="units-title" class="font-headline-sm text-headline-sm text-primary whitespace-nowrap">
-
-                        Unidades de la Asignatura
-
+                        Publicaciones
                     </h2>
-
-                    <div class="h-[1px] bg-outline-variant/20 flex-grow">
-                    </div>
-
+                    <div class="h-[1px] bg-outline-variant/20 flex-grow"></div>
                 </div>
 
-
-                <!-- Units Grid -->
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-
-
-                    <!-- ============================= -->
-                    <!-- UNIT 01 -->
-                    <!-- ============================= -->
-
-                    <article id="unidad-01"
-                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
-
-                        <div class="h-48 relative overflow-hidden">
-
-                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmAg0dxp1p3hydrxCtLI_oviE9umuuP9gy89UEreWKcDz2f-G2kp2la-ICLk6RVaiM--x0g6LbsqPwcK4oQlUhYhUggfEr2AqS_913AOKXHD4kYu-SFxwkZNSEDjoWN2AivfZjh0BROo-MtGf4PvfXM7TKVLzwdTO7jJsEeHXg37rowzLT_85jrclMP82vVDhGWtD15Sd40peaBKfAioBYWSAyQfI006suF69g_yv38U1ZFVbT-_E-_w"
-                                alt="Herramientas CASE y fundamentos de ingeniería de software" loading="lazy"
-                                decoding="async" />
-
-                            <div class="absolute inset-0 image-overlay"></div>
-
-                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
-                                UNIDAD 01
-                            </span>
-
-                        </div>
-
-
-                        <div class="p-stack-md flex-grow flex flex-col">
-
-                            <h3
-                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
-
-                                Fundamentos de la Ingeniería Asistida por Computadora
-
-                            </h3>
-
-                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
-
-                                Introducción a los fundamentos de la ingeniería
-                                de software asistida por computadora. Se
-                                estudiarán sus conceptos, características y
-                                beneficios dentro del ciclo de vida del software,
-                                comprendiendo el papel de las herramientas CASE
-                                en el desarrollo.
-
-                            </p>
-
-
-                            <div
-                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-
-                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
-
-                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
-                                        schedule
-                                    </span>
-
-                                    18 horas
-
-                                </span>
-
-
-                                <a href="unidad-01.html"
-                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
-                                    aria-label="Ver Unidad 01">
-
-                                    <span class="text-xs font-semibold">
-                                        Ver unidad
-                                    </span>
-
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        arrow_outward
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ============================= -->
-                    <!-- UNIT 02 -->
-                    <!-- ============================= -->
-
-                    <article id="unidad-02"
-                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
-
-                        <div class="h-48 relative overflow-hidden">
-
-                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlh-mWnWvw_jlDDg-YOIOfMBJQ5QndLO3l42THWrhV0o6f7w6fHcoWZEVQ96SQtcx_tDix4hyW_ExgmFR1uS4vZp352KejrK4snYumNoQx845VnJaZ28uWicxWfhDNncAglGp9vBcny8LuHorthmqZSLTCcwNcTrMcBVrheKp7CdcyIiOCcXy2vfY-dAKXEgOwX3FAvZZtev7H-hy8CvUji_ZHrQ9TR_DuHQtyKRIkrZdVpTyzwEXXUg"
-                                alt="Planificación, análisis y diseño de software mediante modelos y diagramas"
-                                loading="lazy" decoding="async" />
-
-                            <div class="absolute inset-0 image-overlay"></div>
-
-                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
-                                UNIDAD 02
-                            </span>
-
-                        </div>
-
-
-                        <div class="p-stack-md flex-grow flex flex-col">
-
-                            <h3
-                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
-
-                                Planificación, Análisis y Diseño de Software
-
-                            </h3>
-
-                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
-
-                                Uso de herramientas para la planificación,
-                                análisis y diseño del software, permitiendo
-                                modelar y estructurar soluciones informáticas
-                                de manera eficiente durante las primeras fases
-                                del desarrollo.
-
-                            </p>
-
-
-                            <div
-                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-
-                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
-
-                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
-                                        schedule
-                                    </span>
-
-                                    30 horas
-
-                                </span>
-
-
-                                <a href="unidad-02.html"
-                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
-                                    aria-label="Ver Unidad 02">
-
-                                    <span class="text-xs font-semibold">
-                                        Ver unidad
-                                    </span>
-
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        arrow_outward
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ============================= -->
-                    <!-- UNIT 03 -->
-                    <!-- ============================= -->
-
-                    <article id="unidad-03"
-                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
-
-                        <div class="h-48 relative overflow-hidden">
-
-                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxopWBNsXVg2wdr0nLVGdh9GRqu7LR5hTblqb4TGvhKyzddp7_Jm45ELHu-g3lb-495gQhlrdnEtu-2oYjeayZmJZjrCV2SgiwhLYXv4pc9cikl9GwHu6I_g4mKQCDSVFVaTeYdAJLCZMfsmc-zYS1OOaWeNE9tbU2JWcthQYo4g66-doyZy7FIji25sCmnIHv-pv2TUzk8vCAvbZE7uTsMpbPX66uRJjTO1G0jDPOgwjEfRkRP9QkwQ"
-                                alt="Gestión del desarrollo de software mediante herramientas de colaboración y seguimiento"
-                                loading="lazy" decoding="async" />
-
-                            <div class="absolute inset-0 image-overlay"></div>
-
-                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
-                                UNIDAD 03
-                            </span>
-
-                        </div>
-
-
-                        <div class="p-stack-md flex-grow flex flex-col">
-
-                            <h3
-                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
-
-                                Gestión del Desarrollo de Software
-
-                            </h3>
-
-                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
-
-                                Aplicación de herramientas orientadas a la
-                                gestión del desarrollo de software, fortaleciendo
-                                la organización, el control y el seguimiento
-                                de proyectos durante el proceso de construcción
-                                del producto.
-
-                            </p>
-
-
-                            <div
-                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-
-                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
-
-                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
-                                        schedule
-                                    </span>
-
-                                    24 horas
-
-                                </span>
-
-
-                                <a href="unidad-03.html"
-                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
-                                    aria-label="Ver Unidad 03">
-
-                                    <span class="text-xs font-semibold">
-                                        Ver unidad
-                                    </span>
-
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        arrow_outward
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ============================= -->
-                    <!-- UNIT 04 -->
-                    <!-- ============================= -->
-
-                    <article id="unidad-04"
-                        class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
-
-                        <div class="h-48 relative overflow-hidden">
-
-                            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkzYvRB3FVtoV7Ifr6kqyi-uEd01cpm-AMxTdgR9DS-ANYOP24J_6WecpmzXuo_yQMmhzdft6zXVH0yPbB1c7F1mVmnvgKF3t3Kfi8ga_1_Q2N-ycBJIJ9Fm_FuTDruxb7EDMBWXO5OXgGoxwOwjcq7C6JNerrvBjpYzNPTIoxKF17uzBjltcQ1S6t_Wvu2w8Ed4jDZKweGwUEEx56_yEDe93faPkElJ38vX-0JirdkAOZYoP9KrJGQ"
-                                alt="Documentación, pruebas y evaluación de calidad del software" loading="lazy"
-                                decoding="async" />
-
-                            <div class="absolute inset-0 image-overlay"></div>
-
-                            <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps">
-                                UNIDAD 04
-                            </span>
-
-                        </div>
-
-
-                        <div class="p-stack-md flex-grow flex flex-col">
-
-                            <h3
-                                class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
-
-                                Documentación, Pruebas y Evaluación de Software
-
-                            </h3>
-
-                            <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
-
-                                Análisis de herramientas destinadas a la
-                                documentación, pruebas y evaluación del software,
-                                con el propósito de contribuir al aseguramiento
-                                de la calidad del producto antes de su
-                                implementación.
-
-                            </p>
-
-
-                            <div
-                                class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
-
-                                <span class="text-xs text-on-surface-variant flex items-center gap-1">
-
-                                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
-                                        schedule
-                                    </span>
-
-                                    24 horas
-
-                                </span>
-
-
-                                <a href="unidad-04.html"
-                                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
-                                    aria-label="Ver Unidad 04">
-
-                                    <span class="text-xs font-semibold">
-                                        Ver unidad
-                                    </span>
-
-                                    <span class="material-symbols-outlined" aria-hidden="true">
-                                        arrow_outward
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
+                <!-- Contenedor dinámico de publicaciones -->
+                <div id="grid-unidades" class="grid grid-cols-1 md:grid-cols-2 gap-gutter min-h-[250px]">
+                    <!-- Aquí se cargará la información real -->
+                    <div class="col-span-full flex flex-col items-center justify-center p-12 text-center border border-dashed border-outline-variant/30 rounded-xl">
+                        <span class="material-symbols-outlined text-4xl text-surface-tint mb-3" aria-hidden="true">
+                            article
+                        </span>
+                        <p class="text-primary font-semibold text-lg mb-1">Sin publicaciones por el momento</p>
+                        <p class="text-on-surface-variant text-sm max-w-md">La información se irá agregando dinámicamente.</p>
+                    </div>
                 </div>
 
             </section>
@@ -922,26 +386,147 @@
     </div>
 
 
-    <script>
-        fetch( "footer.html" )
-            .then( function ( response ) {
+    <!-- Datos Locales de Publicaciones -->
+    <script src="posts-data.js"></script>
 
-                if ( !response.ok ) {
-                    throw new Error( "No se pudo cargar el footer" );
+    <!-- ============================= -->
+    <!-- SCRIPT DE PUBLICACIONES Y FILTRADO -->
+    <!-- ============================= -->
+    <script>
+        // Cargar desde PUBLICACIONES_DATA de posts-data.js
+        let publicaciones = (typeof PUBLICACIONES_DATA !== 'undefined') ? PUBLICACIONES_DATA : [];
+
+        let categoriaActual = "todas";
+
+        function renderPublicaciones(categoriaSeleccionada = "todas") {
+            categoriaActual = categoriaSeleccionada;
+            const grid = document.getElementById("grid-unidades");
+            const tituloSeccion = document.getElementById("units-title");
+
+            // Actualizar título de la sección
+            if (categoriaSeleccionada === "todas") {
+                tituloSeccion.textContent = "Todas las Publicaciones";
+            } else {
+                tituloSeccion.textContent = `Publicaciones - ${categoriaSeleccionada}`;
+            }
+
+            // Filtrar publicaciones
+            const filtradas = categoriaSeleccionada === "todas"
+                ? publicaciones
+                : publicaciones.filter(p => p.category.trim().toUpperCase() === categoriaSeleccionada.trim().toUpperCase());
+
+            // Si no hay publicaciones en esa categoría
+            if (filtradas.length === 0) {
+                const mensaje = categoriaSeleccionada === "todas"
+                    ? "Sin publicaciones por el momento. La información se irá agregando dinámicamente."
+                    : `No hay publicaciones registradas aún en ${categoriaSeleccionada}.`;
+
+                grid.innerHTML = `
+                    <div class="col-span-full flex flex-col items-center justify-center p-12 text-center border border-dashed border-outline-variant/30 rounded-xl transition-all duration-300">
+                        <span class="material-symbols-outlined text-4xl text-surface-tint mb-3" aria-hidden="true">
+                            article
+                        </span>
+                        <p class="text-primary font-semibold text-lg mb-1">Sin contenido en esta sección</p>
+                        <p class="text-on-surface-variant text-sm max-w-md">${mensaje}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Si hay publicaciones, pintarlas con el diseño de tarjetas
+            grid.innerHTML = filtradas.map(post => `
+                <article class="glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow">
+                    <div class="h-52 relative overflow-hidden bg-surface-container-lowest/60 flex items-center justify-center">
+                        <img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                            src="${post.image_url || 'img/tienda.png'}"
+                            alt="${post.title}" loading="lazy" decoding="async" />
+                        <div class="absolute inset-0 image-overlay pointer-events-none"></div>
+                        <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps uppercase font-semibold z-10">
+                            ${post.unit_tag || post.category}
+                        </span>
+                    </div>
+
+                    <div class="p-stack-md flex-grow flex flex-col">
+                        <h3 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+                            ${post.title}
+                        </h3>
+                        <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+                            ${post.summary}
+                        </p>
+
+                        <div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+                            <span class="text-xs text-on-surface-variant flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span>
+                                ${post.duration || 'Tarea Formativa'}
+                            </span>
+                            <a href="articulo.html?slug=${post.slug || post.id}"
+                                class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1">
+                                <span class="text-xs font-semibold">Ver detalles</span>
+                                <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_outward</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `).join("");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const categoryButtons = document.querySelectorAll(".btn-categoria");
+
+            const activeClasses = [
+                "text-surface-tint",
+                "font-semibold",
+                "border-surface-tint",
+                "bg-surface-container/50"
+            ];
+
+            const inactiveClasses = [
+                "text-on-surface-variant",
+                "border-transparent"
+            ];
+
+            categoryButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Desactivar todos los botones
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove(...activeClasses);
+                        btn.classList.add(...inactiveClasses);
+                    });
+
+                    // Activar el botón clickeado
+                    this.classList.remove(...inactiveClasses);
+                    this.classList.add(...activeClasses);
+
+                    const selectedCategory = this.getAttribute("data-category");
+                    renderPublicaciones(selectedCategory);
+                });
+            });
+
+            // Carga inicial
+            renderPublicaciones("todas");
+        });
+    </script>
+
+    <script>
+        fetch("footer.html")
+            .then(function (response) {
+
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el footer");
                 }
 
                 return response.text();
-            } )
-            .then( function ( html ) {
+            })
+            .then(function (html) {
 
-                document.getElementById( "site-footer" ).innerHTML = html;
+                document.getElementById("site-footer").innerHTML = html;
 
-            } )
-            .catch( function ( error ) {
+            })
+            .catch(function (error) {
 
-                console.error( error );
+                console.error(error);
 
-            } );
+            });
     </script>
 
 </body>
