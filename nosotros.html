@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
     <title>TechNexus - Nosotros</title>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
+
             theme: {
                 extend: {
+
                     colors: {
                         "on-primary-container": "#556d00",
                         "inverse-surface": "#e2e2e2",
@@ -88,6 +92,7 @@
                     },
 
                     "fontSize": {
+
                         "display-lg": [
                             "64px",
                             {
@@ -152,11 +157,14 @@
         }
     </script>
 
+
     <style>
+
         body {
             background-color: #000000;
             color: #ffffff;
         }
+
 
         /* =========================
            TARJETAS DEL EQUIPO
@@ -173,6 +181,7 @@
             content: '';
             position: absolute;
             inset: 0;
+
             background: linear-gradient(
                 to top,
                 rgba(18, 20, 20, 1) 0%,
@@ -180,6 +189,7 @@
                 rgba(18, 20, 20, 0.55) 48%,
                 rgba(18, 20, 20, 0) 70%
             );
+
             z-index: 10;
             pointer-events: none;
         }
@@ -206,6 +216,7 @@
             padding: 24px;
             margin-top: -125px;
             min-height: 250px;
+
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -214,6 +225,56 @@
         .team-card .card-description {
             line-height: 1.6;
         }
+
+
+        /* =========================
+           TARJETAS DE PROYECTOS
+           ========================= */
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(171, 214, 0, 0.35);
+            box-shadow: 0 18px 35px -10px rgba(171, 214, 0, 0.10);
+        }
+
+
+        /* =========================
+           MISION Y VISION
+           ========================= */
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .about-panel:hover .about-image {
+            transform: scale(1.04);
+        }
+
+        .about-panel {
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           OTROS ESTILOS
+           ========================= */
 
         .neon-accent {
             color: #abd600;
@@ -225,48 +286,88 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(68, 73, 51, 0.2);
         }
+
     </style>
+
 </head>
+
 
 <body class="antialiased min-h-screen flex flex-col font-body-md">
 
-    <!-- HEADER -->
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
     <div id="site-header" style="min-height: 81px;"></div>
 
+
     <script>
+
         fetch("header.html")
+
             .then(function (response) {
+
                 if (!response.ok) {
                     throw new Error("No se pudo cargar el header");
                 }
+
                 return response.text();
+
             })
+
             .then(function (html) {
+
                 document.getElementById("site-header").innerHTML = html;
 
-                var activeLink = document.querySelector('[data-nav-item="nosotros"]');
+                var activeLink =
+                    document.querySelector('[data-nav-item="nosotros"]');
 
                 if (activeLink) {
-                    activeLink.classList.remove("text-on-surface-variant");
-                    activeLink.classList.add("text-surface-tint");
 
-                    activeLink.classList.remove("border-transparent");
-                    activeLink.classList.add("border-surface-tint");
+                    activeLink.classList.remove(
+                        "text-on-surface-variant"
+                    );
+
+                    activeLink.classList.add(
+                        "text-surface-tint"
+                    );
+
+                    activeLink.classList.remove(
+                        "border-transparent"
+                    );
+
+                    activeLink.classList.add(
+                        "border-surface-tint"
+                    );
                 }
+
             })
+
             .catch(function (error) {
+
                 console.error(error);
+
             });
+
     </script>
 
 
-    <!-- MAIN -->
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+         ========================= -->
+
     <main class="flex-grow pt-32 pb-section-gap">
 
-        <!-- HEADER SECTION -->
+
+        <!-- =========================
+             ENCABEZADO
+             ========================= -->
+
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
 
             <div class="flex flex-col md:flex-row justify-between items-end gap-stack-lg border-b border-outline-variant/20 pb-8">
+
 
                 <div class="max-w-2xl">
 
@@ -280,33 +381,38 @@
 
                 </div>
 
+
                 <div class="max-w-md text-right md:text-left">
 
-    <p class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
-        Quiénes somos
-    </p>
+                    <p class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
+                        Quiénes somos
+                    </p>
 
-    <p class="font-body-lg text-body-lg text-on-surface-variant">
-        En TechNexus desarrollamos soluciones de software modernas, escalables y seguras,
-        combinando ingeniería, innovación y tecnología para transformar las necesidades
-        de nuestros clientes en soluciones digitales eficientes.
-    </p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">
+                        En TechNexus desarrollamos soluciones de software modernas,
+                        escalables y seguras, combinando ingeniería, innovación y
+                        tecnología para transformar las necesidades de nuestros
+                        clientes en soluciones digitales eficientes.
+                    </p>
 
-</div>
+                </div>
 
             </div>
+
         </section>
 
 
-        <!-- TEAM GRID -->
+
+        <!-- =========================
+             EQUIPO
+             ========================= -->
+
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
 
 
-                <!-- =========================
-                     MEMBER 1
-                     ========================= -->
+                <!-- EVELYN -->
 
                 <div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
 
@@ -315,11 +421,11 @@
                         <img
                             alt="Evelyn Cárdenas"
                             class="w-full h-full object-cover team-image"
-                            data-alt="Retrato profesional de Evelyn Cárdenas, desarrolladora backend."
                             src="img/evelyn.jpeg"
                         >
 
                     </div>
+
 
                     <div class="card-info">
 
@@ -332,7 +438,10 @@
                         </p>
 
                         <p class="font-body-md text-[14px] text-on-surface-variant card-description">
-                            Estudiante de Ingeniería de Software con experiencia en desarrollo backend y web (.NET y Spring Boot). Especializado en arquitectura de software, bases de datos SQL y soluciones integrales de negocio.
+                            Estudiante de Ingeniería de Software con experiencia
+                            en desarrollo backend y web (.NET y Spring Boot).
+                            Especializado en arquitectura de software, bases de
+                            datos SQL y soluciones integrales de negocio.
                         </p>
 
                     </div>
@@ -340,9 +449,8 @@
                 </div>
 
 
-                <!-- =========================
-                     MEMBER 2
-                     ========================= -->
+
+                <!-- EDUARDO -->
 
                 <div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
 
@@ -351,34 +459,36 @@
                         <img
                             alt="Eduardo Punina"
                             class="w-full h-full object-cover team-image"
-                            data-alt="Retrato profesional de Eduardo Punina, desarrollador backend."
                             src="img/eduardo.jpeg"
                         >
 
                     </div>
 
+
                     <div class="card-info">
 
                         <h3 class="font-headline-sm text-headline-sm text-primary mb-1">
-    Eduardo Punina
-</h3>
+                            Eduardo Punina
+                        </h3>
 
-<p class="font-label-caps text-label-caps text-surface-tint mb-3">
-    Frontend
-</p>
+                        <p class="font-label-caps text-label-caps text-surface-tint mb-3">
+                            Frontend
+                        </p>
 
-<p class="font-body-md text-[14px] text-on-surface-variant card-description">
-    Estudiante de Ingeniería de Software con experiencia en desarrollo frontend utilizando tecnologías web modernas. Especializado en la creación de interfaces atractivas, funcionales y responsivas, enfocadas en ofrecer una experiencia de usuario intuitiva.
-</p>
+                        <p class="font-body-md text-[14px] text-on-surface-variant card-description">
+                            Estudiante de Ingeniería de Software con experiencia
+                            en desarrollo frontend utilizando tecnologías web
+                            modernas. Especializado en la creación de interfaces
+                            atractivas, funcionales y responsivas.
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <!-- =========================
-                     MEMBER 3
-                     ========================= -->
+
+                <!-- CARLOS -->
 
                 <div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
 
@@ -387,11 +497,11 @@
                         <img
                             alt="Carlos Ramos"
                             class="w-full h-full object-cover team-image"
-                            data-alt="Retrato profesional de Carlos Ramos, desarrollador Full Stack."
                             src="img/carlos.jpeg"
                         >
 
                     </div>
+
 
                     <div class="card-info">
 
@@ -404,7 +514,10 @@
                         </p>
 
                         <p class="font-body-md text-[14px] text-on-surface-variant card-description">
-                            Estudiante de Ingeniería de Software con experiencia en desarrollo Full Stack y aplicaciones móviles utilizando Flutter y Swift. Enfocado en crear soluciones funcionales, modernas y adaptadas a diferentes plataformas.
+                            Estudiante de Ingeniería de Software con experiencia
+                            en desarrollo Full Stack y aplicaciones móviles
+                            utilizando Flutter y Swift. Enfocado en crear
+                            soluciones funcionales y modernas.
                         </p>
 
                     </div>
@@ -412,9 +525,8 @@
                 </div>
 
 
-                <!-- =========================
-                     MEMBER 4
-                     ========================= -->
+
+                <!-- VIVIANA -->
 
                 <div class="team-card bg-surface-container rounded-lg border border-surface-container-highest group">
 
@@ -423,11 +535,11 @@
                         <img
                             alt="Viviana Sarco"
                             class="w-full h-full object-cover team-image"
-                            data-alt="Retrato profesional de Viviana Sarco, desarrolladora backend y especialista en datos."
                             src="img/viviana.jpeg"
                         >
 
                     </div>
+
 
                     <div class="card-info">
 
@@ -440,8 +552,11 @@
                         </p>
 
                         <p class="font-body-md text-[14px] text-on-surface-variant card-description">
-    Estudiante de Ingeniería de Software con experiencia en desarrollo web utilizando PHP, Java y C#. Especializada en programación backend, diseño de aplicaciones y desarrollo de soluciones eficientes para diferentes necesidades de negocio.
-</p>
+                            Estudiante de Ingeniería de Software con experiencia
+                            en desarrollo web utilizando PHP, Java y C#.
+                            Especializada en programación backend, diseño de
+                            aplicaciones y desarrollo de soluciones eficientes.
+                        </p>
 
                     </div>
 
@@ -452,44 +567,251 @@
         </section>
 
 
-        <!-- MISSION & VISION -->
+
+        <!-- =========================
+             PROYECTOS
+             ========================= -->
+
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+
+
+            <!-- TITULO -->
+
+            <div class="flex flex-col md:flex-row justify-between items-end gap-stack-lg border-b border-outline-variant/20 pb-8 mb-10">
+
+                <div>
+
+                    <p class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
+                        Proyectos
+                    </p>
+
+                    <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
+                        Proyectos Destacados
+                    </h2>
+
+                </div>
+
+
+                <p class="max-w-md font-body-lg text-body-lg text-on-surface-variant">
+                    Soluciones digitales creadas para resolver necesidades
+                    reales mediante tecnología, innovación y diseño.
+                </p>
+
+            </div>
+
+
+
+            <!-- TARJETAS -->
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+
+                <!-- PROYECTO 1 -->
+
+                <div class="project-card bg-surface-container rounded-xl border border-surface-container-highest">
+
+                    <div class="h-56 overflow-hidden">
+
+                        <img
+                            src="img/proyecto-1.jpg"
+                            alt="Sistema de Gestión Empresarial"
+                            class="w-full h-full object-cover"
+                        >
+
+                    </div>
+
+
+                    <div class="p-6">
+
+                        <p class="font-label-caps text-label-caps text-surface-tint mb-3">
+                            Desarrollo Web
+                        </p>
+
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-3">
+                            Sistema de Gestión Empresarial
+                        </h3>
+
+                        <p class="font-body-md text-[14px] text-on-surface-variant">
+                            Plataforma diseñada para facilitar la gestión
+                            de procesos, información y recursos de una empresa
+                            desde un solo sistema.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROYECTO 2 -->
+
+                <div class="project-card bg-surface-container rounded-xl border border-surface-container-highest">
+
+                    <div class="h-56 overflow-hidden">
+
+                        <img
+                            src="img/proyecto-2.jpg"
+                            alt="Plataforma de Comercio Digital"
+                            class="w-full h-full object-cover"
+                        >
+
+                    </div>
+
+
+                    <div class="p-6">
+
+                        <p class="font-label-caps text-label-caps text-surface-tint mb-3">
+                            E-Commerce
+                        </p>
+
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-3">
+                            Plataforma de Comercio Digital
+                        </h3>
+
+                        <p class="font-body-md text-[14px] text-on-surface-variant">
+                            Solución digital para administrar productos,
+                            clientes y ventas, ofreciendo una experiencia
+                            sencilla y moderna para los usuarios.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROYECTO 3 -->
+
+                <div class="project-card bg-surface-container rounded-xl border border-surface-container-highest">
+
+                    <div class="h-56 overflow-hidden">
+
+                        <img
+                            src="img/proyecto-3.png"
+                            alt="Aplicación Móvil de Servicios"
+                            class="w-full h-full object-cover"
+                        >
+
+                    </div>
+
+
+                    <div class="p-6">
+
+                        <p class="font-label-caps text-label-caps text-surface-tint mb-3">
+                            Aplicación Móvil
+                        </p>
+
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-3">
+                            Aplicación Móvil de Servicios
+                        </h3>
+
+                        <p class="font-body-md text-[14px] text-on-surface-variant">
+                            Aplicación móvil creada para facilitar el acceso
+                            a servicios y funcionalidades desde cualquier
+                            dispositivo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             MISIÓN Y VISIÓN
+             ========================= -->
+
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
 
 
-                <!-- MISIÓN -->
-                <div class="glass-panel p-8 md:p-12 rounded-xl border border-outline-variant/20">
+                <!-- =========================
+                     MISIÓN
+                     ========================= -->
 
-                    <h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
-                        Misión
-                    </h2>
+                <div class="glass-panel about-panel rounded-xl border border-outline-variant/20 overflow-hidden">
 
-                    <h3 class="font-headline-md text-headline-md text-primary mb-6">
-                        Ingeniería de Alto Rendimiento
-                    </h3>
 
-                    <p class="font-body-lg text-body-lg text-on-surface-variant">
-                        Empoderar a las empresas globales mediante la ingeniería de infraestructuras digitales robustas, escalables y seguras. Cerramos la brecha entre los sistemas corporativos heredados y la transformación tecnológica de vanguardia, ofreciendo un rendimiento sin compromisos a través de la precisión y la innovación.
-                    </p>
+                    <div class="h-64 overflow-hidden">
+
+                        <img
+                            src="img/mision.jpg"
+                            alt="Misión de TechNexus"
+                            class="about-image"
+                        >
+
+                    </div>
+
+
+                    <div class="p-8 md:p-10">
+
+                        <h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
+                            Misión
+                        </h2>
+
+                        <h3 class="font-headline-md text-headline-md text-primary mb-6">
+                            Ingeniería de Alto Rendimiento
+                        </h3>
+
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Empoderar a las empresas globales mediante la
+                            ingeniería de infraestructuras digitales robustas,
+                            escalables y seguras. Cerramos la brecha entre los
+                            sistemas corporativos heredados y la transformación
+                            tecnológica de vanguardia, ofreciendo un rendimiento
+                            sin compromisos a través de la precisión y la innovación.
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <!-- VISIÓN -->
-                <div class="glass-panel p-8 md:p-12 rounded-xl border border-outline-variant/20">
 
-                    <h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
-                        Visión
-                    </h2>
+                <!-- =========================
+                     VISIÓN
+                     ========================= -->
 
-                    <h3 class="font-headline-md text-headline-md text-primary mb-6">
-                        Escala Infinita
-                    </h3>
+                <div class="glass-panel about-panel rounded-xl border border-outline-variant/20 overflow-hidden">
 
-                    <p class="font-body-lg text-body-lg text-on-surface-variant">
-                        Ser la base arquitectónica indiscutible para la próxima generación de empresas digitales. Visualizamos un futuro donde los desafíos técnicos complejos se resuelvan con soluciones elegantes y de escala infinita, estableciendo un centro de mando de eficiencia para empresas de todo el mundo.
-                    </p>
+
+                    <div class="h-64 overflow-hidden">
+
+                        <img
+                            src="img/vision.jpg"
+                            alt="Visión de TechNexus"
+                            class="about-image"
+                        >
+
+                    </div>
+
+
+                    <div class="p-8 md:p-10">
+
+                        <h2 class="font-label-caps text-label-caps text-surface-tint mb-4 uppercase tracking-widest">
+                            Visión
+                        </h2>
+
+                        <h3 class="font-headline-md text-headline-md text-primary mb-6">
+                            Escala Infinita
+                        </h3>
+
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Ser la base arquitectónica indiscutible para la
+                            próxima generación de empresas digitales.
+                            Visualizamos un futuro donde los desafíos técnicos
+                            complejos se resuelvan con soluciones elegantes y
+                            de escala infinita, estableciendo un centro de
+                            mando de eficiencia para empresas de todo el mundo.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -498,44 +820,72 @@
         </section>
 
 
-        <!-- VISION SECTION -->
+
+        <!-- =========================
+             CIERRE
+             ========================= -->
+
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+
 
             <div class="glass-panel p-12 md:p-24 rounded-xl relative overflow-hidden">
 
+
                 <div
-                    class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-10 mix-blend-overlay"
-                    data-alt="Abstract dark technology background featuring subtle geometric wireframes and glowing data nodes. Extremely dark, minimal, high-tech corporate aesthetic."
+                    class="absolute inset-0 bg-[url('img/tecnologia.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay"
+                    data-alt="Fondo tecnológico de TechNexus"
                 ></div>
+
 
                 <div class="relative z-10 max-w-3xl">
 
+
                     <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+
                         Construyendo la
                         <br/>
+
                         <span class="text-surface-tint">
                             Infraestructura del Mañana
                         </span>
+
                     </h2>
 
+
                     <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                        En TechNexus, no solo escribimos código; diseñamos sistemas resilientes que impulsan la transformación digital. Nuestra visión es empoderar a las empresas a través de arquitectura de software robusta, escalable y segura, preparándolas para los desafíos tecnológicos del futuro.
+
+                        En TechNexus, no solo escribimos código; diseñamos
+                        sistemas resilientes que impulsan la transformación
+                        digital. Nuestra visión es empoderar a las empresas
+                        a través de arquitectura de software robusta,
+                        escalable y segura, preparándolas para los desafíos
+                        tecnológicos del futuro.
+
                     </p>
+
 
                 </div>
 
             </div>
 
         </section>
+
 
     </main>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
     <div id="site-footer" style="min-height: 220px;"></div>
 
+
     <script>
+
         fetch("footer.html")
+
             .then(function (response) {
 
                 if (!response.ok) {
@@ -543,18 +893,23 @@
                 }
 
                 return response.text();
+
             })
+
             .then(function (html) {
 
                 document.getElementById("site-footer").innerHTML = html;
 
             })
+
             .catch(function (error) {
 
                 console.error(error);
 
             });
+
     </script>
+
 
 </body>
 </html>
