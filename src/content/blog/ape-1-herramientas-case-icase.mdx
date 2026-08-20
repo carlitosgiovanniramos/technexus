@@ -97,29 +97,44 @@ Las herramientas CASE se clasifican según el rol que desempeñan y la fase del 
 
 ## 3. EL REPOSITORIO CASE: EL CEREBRO DEL PROYECTO
 
-El núcleo central de cualquier entorno asistido es su repositorio o diccionario de datos unificado. No se trata simplemente de un almacenamiento de archivos, sino de una base de conocimiento viva que mantiene la coherencia de todo el sistema.
+El **repositorio CASE** constituye uno de los elementos centrales dentro de un entorno de Ingeniería de Software Asistida por Computadora. Más que un simple espacio de almacenamiento, funciona como una **base de datos del proyecto** en la que se concentra la información generada durante las diferentes etapas del desarrollo de software. En un entorno I-CASE, el repositorio integra tanto los datos como las herramientas, permitiendo que la información pueda ser compartida y utilizada de manera consistente a lo largo del proceso.
 
-Su función principal es centralizar y conectar cada elemento del proyecto: requisitos funcionales, diagramas de arquitectura, esquemas de bases de datos, componentes de código y trazas de pruebas. Esto permite una **trazabilidad completa de extremo a extremo**, asegurando que cualquier cambio en un requisito se propague de forma consistente en los modelos y en el código.
+Su principal función es mantener relacionados los distintos elementos del proyecto, como **requisitos, modelos, documentos, componentes, versiones y otros objetos de configuración**. Esta relación facilita que las herramientas CASE puedan acceder a información común y que los cambios realizados en un elemento puedan reflejarse o rastrearse en otros elementos relacionados. Por esta razón, el repositorio favorece la **trazabilidad, consistencia y control de la información** durante todo el ciclo de vida del software.
 
-Asimismo, el repositorio facilita el trabajo simultáneo de equipos multidisciplinarios, evitando inconsistencias, resolviendo conflictos de dependencias y asegurando que todos trabajen bajo una única fuente de verdad validada.
+Además, el repositorio incorpora funciones propias de los sistemas de gestión de bases de datos, entre ellas el **control de transacciones, la protección de la integridad de los datos y el manejo del acceso concurrente** de varios usuarios. Estas características permiten que diferentes miembros del equipo trabajen simultáneamente sin comprometer la coherencia de la información almacenada.
+
+Otro aspecto que se debe resaltar es que el modelo de información del repositorio contiene reglas y políticas que permiten validar la información incorporada al sistema, esto quiere decir que no solo se almacena información, sino que también se controla que los datos cumplan las restricciones y relaciones definidas para el proyecto.
+
+Por estas razones, puede considerarse al repositorio CASE como **“el cerebro del proyecto”**, ya que centraliza el conocimiento generado, conecta las diferentes herramientas utilizadas por el equipo y permite mantener una visión coherente del sistema mientras este evoluciona.
 
 <div id="tema-4" class="scroll-mt-28"></div>
 
 ## 4. I-CASE: LA INTEGRACIÓN DE LA INTELIGENCIA ARTIFICIAL
 
-La evolución de las herramientas CASE hacia entornos I-CASE modernos ha alcanzado un salto cualitativo decisivo mediante la incorporación de modelos avanzados de Inteligencia Artificial y Machine Learning.
+La evolución de las herramientas CASE ha buscado incrementar progresivamente el nivel de automatización dentro del proceso de desarrollo de software. Mientras las herramientas CASE tradicionales permiten apoyar diferentes actividades de ingeniería, la propuesta de **Intelligent Computer Aided Software Engineering (I-CASE)** incorpora técnicas de Inteligencia Artificial con el propósito de asistir también en actividades que requieren **análisis, razonamiento, predicción y toma de decisiones**.
 
-En estos entornos avanzados, la IA deja de ser un simple autocompletador para convertirse en un asistente de ingeniería integral:
-- **Generación contextual de código:** Comprensión profunda de la arquitectura del proyecto para sugerir bloques funcionales completos y patrones de diseño óptimos.
-- **Refactorización y detección predictiva de errores:** Análisis estático potenciado para identificar fallos lógicos, cuellos de botella de rendimiento y vulnerabilidades de seguridad antes del despliegue.
-- **Síntesis inteligente de casos de prueba:** Creación automatizada de pruebas unitarias y de integración basadas en las especificaciones funcionales registradas en el repositorio.
+La Inteligencia Artificial puede aplicarse en diferentes etapas del ciclo de vida del software. Entre las técnicas estudiadas se encuentran los **sistemas basados en conocimiento (KBS), sistemas expertos, razonamiento basado en casos (CBR), algoritmos genéticos, redes neuronales artificiales y razonamiento probabilístico**. Estas técnicas pueden apoyar actividades relacionadas con la planificación, ingeniería de requisitos, codificación, pruebas, gestión de riesgos y mantenimiento del software.
+
+Un ejemplo importante se encuentra en la **ingeniería de requisitos**. Los requisitos suelen expresarse inicialmente mediante lenguaje natural, lo que puede producir problemas de ambigüedad, contradicción o información incompleta. Técnicas de IA como el **Procesamiento del Lenguaje Natural (NLP)** y los sistemas basados en conocimiento pueden contribuir al análisis y tratamiento de estos problemas, apoyando tareas de obtención, análisis, especificación y validación de requisitos.
+
+La IA también puede intervenir en otras actividades del desarrollo. En la **codificación** puede apoyar la generación automática de código; en las **pruebas** pueden emplearse técnicas inteligentes para aumentar el grado de automatización; y durante la **evolución y mantenimiento** del software pueden utilizarse técnicas orientadas a la predicción y resolución de determinados problemas.
+
+De esta manera, I-CASE amplía el concepto de asistencia al desarrollador hacia actividades cada vez más complejas. Sin embargo, la incorporación de Inteligencia Artificial **no significa eliminar completamente la participación humana**. Existen actividades del desarrollo, especialmente aquellas relacionadas con creatividad, comprensión del problema y decisiones de diseño, donde las capacidades humanas continúan siendo necesarias.
+
+El objetivo de I-CASE es utilizar técnicas inteligentes para **facilitar y acelerar el esfuerzo de desarrollo**, complementando el trabajo de los profesionales del software.
 
 <div id="tema-5" class="scroll-mt-28"></div>
 
 ## 5. EL IMPACTO REAL DE LA IA EN LA PRODUCTIVIDAD
 
-La adopción de tecnologías asistidas por IA en el ciclo de vida del software ha demostrado un impacto directo y medible en el rendimiento de los equipos de desarrollo.
+La incorporación de herramientas de **Inteligencia Artificial en el desarrollo de software** está transformando la manera en que los programadores realizan sus actividades. Su principal aporte se encuentra en la automatización y asistencia de tareas, permitiendo reducir el tiempo dedicado a trabajos repetitivos y concentrar mayor esfuerzo en actividades que requieren análisis, diseño y resolución de problemas.
 
-La automatización de tareas repetitivas —como la generación de código base (*boilerplate*), la redacción de documentación técnica y la configuración de esquemas— permite a los desarrolladores concentrarse en la lógica de negocio y en la resolución de problemas de alto valor arquitectónico.
+Dentro del proceso de desarrollo, la IA puede apoyar actividades como la **generación de código repetitivo, refactorización y elaboración inicial de pruebas**. La automatización de estas tareas puede representar un ahorro de tiempo para el desarrollador y contribuir a agilizar determinadas etapas del ciclo de desarrollo.
 
-No obstante, el factor humano permanece en el centro del proceso. La IA actúa como un **acelerador y multiplicador de capacidades**, donde el criterio técnico, la verificación rigurosa y el diseño de la arquitectura siguen dependiendo del conocimiento y la experiencia de los ingenieros a cargo.
+Sin embargo, hablar de productividad no significa únicamente producir una mayor cantidad de código en menos tiempo. La productividad del desarrollador es un concepto complejo que también debe considerar la **calidad del software y el contexto en el que se realiza el trabajo**. Estudios recientes sobre herramientas de IA han encontrado una relación positiva entre un uso más amplio de estas tecnologías y la productividad percibida por los desarrolladores, aunque estas percepciones no deben confundirse directamente con mediciones objetivas de productividad.
+
+El uso de IA también introduce nuevos desafíos. Las soluciones generadas automáticamente deben ser **revisadas y validadas** antes de incorporarse a un sistema, ya que pueden presentar errores, respuestas incorrectas o problemas que posteriormente generen retrabajo. Entre los desafíos estudiados actualmente se encuentran las alucinaciones de los modelos, los riesgos de seguridad y las dificultades relacionadas con las pruebas y la confiabilidad del software.
+
+Por esta razón, la IA debe entenderse como un **apoyo que amplía las capacidades del desarrollador y no como un reemplazo de su conocimiento**. La supervisión humana continúa siendo fundamental para evaluar las soluciones propuestas, tomar decisiones de diseño y garantizar que el resultado cumpla con los requisitos y estándares de calidad del proyecto.
+
+En consecuencia, el verdadero impacto de la Inteligencia Artificial en la productividad depende de utilizarla de manera responsable. Al combinar la **automatización con el criterio técnico, la experiencia y la capacidad de decisión del profesional**, el tiempo ahorrado puede aprovecharse en actividades de mayor valor dentro del proyecto sin descuidar la calidad del producto final.
