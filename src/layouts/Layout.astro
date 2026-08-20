@@ -1,0 +1,44 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  activeNav?: string;
+  hideFooter?: boolean;
+}
+
+const {
+  title = 'TechNexus',
+  description = 'Soluciones empresariales de alto rendimiento.',
+  image = '/img/tienda.png',
+  activeNav = '',
+  hideFooter = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md bg-background text-on-surface">
+  <Header activeNav={activeNav} />
+  <slot />
+  {!hideFooter && <Footer />}
+</body>
+</html>

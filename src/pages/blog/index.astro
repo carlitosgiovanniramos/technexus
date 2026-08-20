@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+// Sort by created_at or default
+const posts = allPosts.sort((a, b) => (b.data.created_at || '').localeCompare(a.data.created_at || ''));
+
+const categories = [
+  { label: 'Todas', val: 'todas' },
+  { label: 'UNIDAD 1', val: 'UNIDAD 1' },
+  { label: 'UNIDAD 2', val: 'UNIDAD 2' },
+  { label: 'UNIDAD 3', val: 'UNIDAD 3' },
+  { label: 'UNIDAD 4', val: 'UNIDAD 4' },
+];
+---
+
+<Layout
+  title="TechNexus - Blog"
+  description="Explorando la frontera del desarrollo de software, la ingeniería asistida por computadora y la arquitectura tecnológica."
+  activeNav="blog"
+>
+  <main id="blog" class="flex-grow pt-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+    <!-- ============================= -->
+    <!-- BLOG HEADER -->
+    <!-- ============================= -->
+    <header class="py-stack-lg border-b border-outline-variant/20 mb-stack-lg">
+      <span class="text-surface-tint font-label-caps text-label-caps uppercase tracking-widest">
+        Blog académico
+      </span>
+      <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mt-stack-sm mb-stack-sm text-glow">
+        Tech Insights
+      </h1>
+      <p class="text-on-surface-variant text-body-lg max-w-3xl">
+        Explorando la frontera del desarrollo de software, la ingeniería asistida por computadora, la arquitectura tecnológica y las metodologías utilizadas durante el ciclo de vida del software.
+      </p>
+    </header>
+
+    <!-- ============================= -->
+    <!-- BLOG CONTENT -->
+    <!-- ============================= -->
+    <div id="unidades" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+      <!-- ============================= -->
+      <!-- SIDEBAR CATEGORÍAS -->
+      <!-- ============================= -->
+      <aside class="lg:col-span-3 order-2 lg:order-1" aria-label="Categorías del blog">
+        <div class="sticky top-[120px]">
+          <h2 class="font-headline-sm text-headline-sm text-primary mb-stack-md border-b border-outline-variant/20 pb-stack-sm">
+            Categorías
+          </h2>
+
+          <nav aria-label="Categorías">
+            <ul id="lista-categorias" class="flex flex-col gap-2">
+              {categories.map((cat, idx) => (
+                <li>
+                  <button
+                    type="button"
+                    class={`btn-categoria w-full focus-ring flex justify-between items-center py-3 pl-3 text-left transition-all duration-300 ${
+                      idx === 0
+                        ? 'text-surface-tint font-semibold border-l-2 border-surface-tint bg-surface-container/50'
+                        : 'text-on-surface-variant hover:text-primary hover:bg-surface-container/50 border-l-2 border-transparent hover:border-outline-variant'
+                    }`}
+                    data-category={cat.val}
+                  >
+                    <span>{cat.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- ============================= -->
+      <!-- LISTADO DE PUBLICACIONES -->
+      <!-- ============================= -->
+      <section class="lg:col-span-9 order-1 lg:order-2" aria-labelledby="units-title">
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-stack-md">
+          <h2 id="units-title" class="font-headline-sm text-headline-sm text-primary whitespace-nowrap">
+            Todas las Publicaciones
+          </h2>
+          <div class="h-[1px] bg-outline-variant/20 flex-grow"></div>
+        </div>
+
+        <!-- Contenedor de publicaciones -->
+        <div id="grid-unidades" class="grid grid-cols-1 md:grid-cols-2 gap-gutter min-h-[250px]">
+          {posts.map((post) => (
+            <article
+              class="post-card glass-panel rounded-lg overflow-hidden group flex flex-col hover:-translate-y-1 transition-all duration-300 card-glow"
+              data-category={post.data.category}
+            >
+              <div class="h-52 relative overflow-hidden bg-surface-container-lowest/60 flex items-center justify-center">
+                <img
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  src={post.data.image_url || '/img/tienda.png'}
+                  alt={post.data.title}
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 image-overlay pointer-events-none"></div>
+                <span class="absolute bottom-3 left-4 text-surface-tint font-label-caps text-label-caps uppercase font-semibold z-10">
+                  {post.data.unit_tag || post.data.category}
+                </span>
+              </div>
+
+              <div class="p-stack-md flex-grow flex flex-col">
+                <h3 class="font-headline-sm text-xl text-primary mb-2 group-hover:text-surface-tint transition-colors">
+                  {post.data.title}
+                </h3>
+                <p class="text-on-surface-variant text-sm mb-4 line-clamp-3">
+                  {post.data.summary}
+                </p>
+
+                <div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+                  <span class="text-xs text-on-surface-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span>
+                    {post.data.duration || 'Tarea Formativa'}
+                  </span>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="focus-ring text-primary-container hover:text-surface-tint transition-colors flex items-center gap-1"
+                  >
+                    <span class="text-xs font-semibold">Ver detalles</span>
+                    <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_outward</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- No results message -->
+        <div id="no-results" class="hidden col-span-full flex flex-col items-center justify-center p-12 text-center border border-dashed border-outline-variant/30 rounded-xl transition-all duration-300">
+          <span class="material-symbols-outlined text-4xl text-surface-tint mb-3" aria-hidden="true">article</span>
+          <p class="text-primary font-semibold text-lg mb-1">Sin contenido en esta sección</p>
+          <p class="text-on-surface-variant text-sm max-w-md" id="no-results-text">No hay publicaciones registradas aún.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .glass-panel {
+    background: rgba(18, 20, 20, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(68, 73, 51, 0.2);
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 20px rgba(171, 214, 0, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(171, 214, 0, 0.3);
+  }
+
+  .card-glow:hover {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.25),
+      0 0 25px rgba(171, 214, 0, 0.08);
+  }
+
+  .image-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(18, 20, 20, 0.85),
+      rgba(18, 20, 20, 0.05)
+    );
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid #abd600;
+    outline-offset: 3px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const categoryButtons = document.querySelectorAll('.btn-categoria');
+    const postCards = document.querySelectorAll('.post-card') as NodeListOf<HTMLElement>;
+    const noResults = document.getElementById('no-results');
+    const noResultsText = document.getElementById('no-results-text');
+    const titleSeccion = document.getElementById('units-title');
+
+    const activeClasses = [
+      'text-surface-tint',
+      'font-semibold',
+      'border-surface-tint',
+      'bg-surface-container/50',
+    ];
+
+    const inactiveClasses = ['text-on-surface-variant', 'border-transparent'];
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        categoryButtons.forEach((btn) => {
+          btn.classList.remove(...activeClasses);
+          btn.classList.add(...inactiveClasses);
+        });
+
+        this.classList.remove(...inactiveClasses);
+        this.classList.add(...activeClasses);
+
+        const selectedCategory = this.getAttribute('data-category') || 'todas';
+
+        if (titleSeccion) {
+          titleSeccion.textContent =
+            selectedCategory === 'todas'
+              ? 'Todas las Publicaciones'
+              : `Publicaciones - ${selectedCategory}`;
+        }
+
+        let visibleCount = 0;
+        postCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          if (
+            selectedCategory === 'todas' ||
+            (cardCategory && cardCategory.trim().toUpperCase() === selectedCategory.trim().toUpperCase())
+          ) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            noResults.style.display = 'flex';
+            if (noResultsText) {
+              noResultsText.textContent = `No hay publicaciones registradas aún en ${selectedCategory}.`;
+            }
+          } else {
+            noResults.classList.add('hidden');
+            noResults.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+</script>

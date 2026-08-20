@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="TechNexus | Transformamos ideas en software de alto impacto"
+  description="Impulsamos el futuro digital de las empresas mediante soluciones tecnológicas robustas, escalables y diseñadas para el éxito en entornos corporativos exigentes."
+  activeNav="inicio"
+  hideFooter={true}
+>
+  <!-- Hero Section -->
+  <section class="relative flex-1 flex items-center justify-center overflow-hidden min-h-[calc(100vh-68px)]">
+    <!-- Abstract Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-surface-container-lowest via-surface to-surface-container z-0"></div>
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-surface-tint opacity-[0.03] rounded-full blur-[100px] z-0"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary opacity-[0.02] rounded-full blur-[100px] z-0"></div>
+
+    <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center gap-stack-md">
+      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
+        Transformamos ideas en software de <span class="text-surface-tint">alto impacto</span>
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Impulsamos el futuro digital de las empresas mediante soluciones tecnológicas robustas, escalables y diseñadas para el éxito en entornos corporativos exigentes.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-stack-md mt-4">
+        <a class="bg-surface-tint text-on-primary font-body-md font-medium px-8 py-4 rounded glow-button text-center" href="/servicios#servicios">
+          Explorar Servicios
+        </a>
+        <a class="border border-secondary-container hover:border-primary text-primary font-body-md font-medium px-8 py-4 rounded transition-colors duration-300 text-center" href="/contacto">
+          Hablar con un Experto
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .glow-button:hover {
+    box-shadow: 0 0 30px rgba(171, 214, 0, 0.4);
+    transform: translateY(-2px);
+  }
+</style>

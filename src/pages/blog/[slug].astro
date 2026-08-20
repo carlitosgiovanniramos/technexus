@@ -1,0 +1,639 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await entry.render();
+
+const isLight = data.theme === 'light';
+const isBanner = data.hero_style === 'banner' || data.hero_style === 'wide';
+const sec = data.sections || {};
+const adminBocetos = sec.bocetos_digitales_admin || [];
+const clienteBocetos = sec.bocetos_digitales_cliente || [];
+const conclusionesArray = sec.conclusiones || [];
+---
+
+<Layout
+  title={`${data.title} - TechNexus`}
+  description={data.summary}
+  image={data.image_url}
+  activeNav="blog"
+>
+  <div class={isLight ? 'bg-white text-gray-900 w-full min-h-screen pt-20 pb-section-gap' : 'w-full pt-20 pb-section-gap'}>
+    <!-- Top Breadcrumbs & Tags (Centered in max-w-5xl) -->
+    <div class="px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto w-full mb-6">
+      <div class={`flex items-center justify-between py-4 mb-4 border-b ${
+        isLight ? 'border-gray-200' : 'border-outline-variant/15'
+      }`}>
+        <a
+          href="/blog"
+          class={`inline-flex items-center gap-2 hover:underline font-semibold text-sm transition-colors ${
+            isLight ? 'text-[#7ea000]' : 'text-surface-tint'
+          }`}
+        >
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Volver a Publicaciones
+        </a>
+
+        <div class={`flex items-center gap-2 text-xs ${
+          isLight ? 'text-gray-500' : 'text-on-surface-variant'
+        }`}>
+          <span>Blog</span>
+          <span>/</span>
+          <span class={`font-semibold ${isLight ? 'text-gray-900' : 'text-primary'}`}>
+            {data.category || 'UNIDAD 1'}
+          </span>
+        </div>
+      </div>
+
+      <!-- Badges / Tags (Unidad 1 y Trabajo Práctico APE) ARRIBA DE LA IMAGEN -->
+      <div class="flex flex-wrap items-center gap-3">
+        <span class={`font-label-caps text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold border ${
+          isLight
+            ? 'bg-lime-50 text-[#7ea000] border-lime-300'
+            : 'bg-surface-container-high text-surface-tint border-surface-tint/30'
+        }`}>
+          {data.unit_tag || data.category}
+        </span>
+        <span class={`text-xs flex items-center gap-1 ${
+          isLight ? 'text-gray-500' : 'text-on-surface-variant'
+        }`}>
+          <span class="material-symbols-outlined text-sm">schedule</span>
+          {data.duration || 'Tarea Formativa'}
+        </span>
+      </div>
+    </div>
+
+    <!-- Wide Panoramic Banner (Ancho amplio, menor altura panorámica) -->
+    {isBanner && (
+      <div class="w-full max-w-7xl mx-auto px-2 sm:px-6 mb-8">
+        <div class="relative w-full h-56 sm:h-72 md:h-[350px] overflow-hidden shadow-lg">
+          <img
+            src={data.image_url}
+            alt={data.title}
+            class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      </div>
+    )}
+
+    <!-- Main Content Container (Las letras y textos se mantienen exactamente en su sitio max-w-5xl) -->
+    <main class={`px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto w-full ${
+      isLight ? 'text-gray-900' : 'text-on-surface'
+    }`}>
+      <article id="article-detail" class="space-y-8">
+        <!-- Contained image (Only for non-banner posts) -->
+        {!isBanner && (
+          <div class="flex items-center justify-center p-2 mb-6">
+            <img
+              src={data.image_url}
+              alt={data.title}
+              class="w-full max-h-[480px] object-contain transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02] cursor-pointer rounded-xl"
+            />
+          </div>
+        )}
+
+        <!-- Article Header (Texto centrado en su posición) -->
+        <header class="space-y-4">
+          <!-- Línea con autor y fecha ARRIBA de las letras grandes -->
+          <div class={`flex items-center gap-4 pb-2 text-xs border-b ${
+            isLight ? 'border-gray-200 text-gray-500' : 'border-outline-variant/15 text-on-surface-variant'
+          }`}>
+            <span>Autor: <strong class={isLight ? 'text-gray-900' : 'text-primary'}>{data.author_name || 'Equipo TechNexus'}</strong></span>
+            <span>•</span>
+            <span>Fecha: <strong class={isLight ? 'text-gray-900' : 'text-primary'}>{data.created_at || 'Agosto 2026'}</strong></span>
+          </div>
+
+          <h1 class={`font-display-lg text-2xl md:text-3xl font-bold uppercase tracking-wide leading-tight ${
+            isLight ? 'text-gray-900' : 'text-primary text-glow'
+          }`}>
+            {data.title}
+          </h1>
+
+          <p class={`text-base md:text-[17px] leading-relaxed text-justify ${
+            isLight ? 'text-gray-500 font-normal' : 'text-on-surface-variant'
+          }`}>
+            {data.summary || ''}
+          </p>
+        </header>
+
+        <!-- Sections -->
+        <div class="space-y-10 pt-6">
+          <!-- 0. INTRODUCCIÓN -->
+          {data.introduccion && (
+            <section class="py-2">
+              <p class={`text-body-md leading-relaxed text-base md:text-lg font-normal text-justify ${
+                isLight ? 'text-gray-700' : 'text-on-surface-variant'
+              }`}>
+                {data.introduccion}
+              </p>
+            </section>
+          )}
+
+          <!-- 1. FASE 01 — ANÁLISIS DE REQUERIMIENTOS -->
+          {((sec.requerimientos_funcionales && sec.requerimientos_funcionales.length > 0) || (sec.requerimientos_no_funcionales && sec.requerimientos_no_funcionales.length > 0)) && (
+            <section class={`rounded-2xl p-6 md:p-10 shadow-xl border ${
+              isLight ? 'bg-gray-50 border-gray-200 text-gray-900' : 'bg-white text-gray-900 border-transparent'
+            }`}>
+              <div class="mb-8">
+                <span class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
+                  <span class="material-symbols-outlined text-lg">fact_check</span>
+                  Fase 01
+                </span>
+                <h2 class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Análisis de requerimientos
+                </h2>
+                <p class="text-gray-600 leading-relaxed max-w-3xl text-justify">
+                  En esta fase se identificaron las funcionalidades principales necesarias para el sistema, considerando tanto las operaciones del administrador como la experiencia del cliente.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Funcionales -->
+                {sec.requerimientos_funcionales && (
+                  <div class="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="w-12 h-12 rounded-xl bg-[#abd600]/15 flex items-center justify-center transition-all duration-300 group-hover:bg-[#abd600]">
+                        <span class="material-symbols-outlined text-[#7ea000] group-hover:text-gray-900">settings</span>
+                      </div>
+                      <div>
+                        <span class="text-xs uppercase tracking-wider text-[#7ea000] font-semibold">Operación del sistema</span>
+                        <h3 class="font-headline-sm text-xl font-bold text-gray-900">Requerimientos Funcionales</h3>
+                      </div>
+                    </div>
+                    {sec.requerimientos_intro && (
+                      <p class="text-sm text-gray-600 mb-5 leading-relaxed text-justify">{sec.requerimientos_intro}</p>
+                    )}
+                    <div class="space-y-3">
+                      {sec.requerimientos_funcionales.map((item) => (
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                          <span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5">check_circle</span>
+                          <span class="text-gray-800 font-medium text-sm leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <!-- No funcionales -->
+                {sec.requerimientos_no_funcionales && (
+                  <div class="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="w-12 h-12 rounded-xl bg-[#abd600]/15 flex items-center justify-center transition-all duration-300 group-hover:bg-[#abd600]">
+                        <span class="material-symbols-outlined text-[#7ea000] group-hover:text-gray-900">shield</span>
+                      </div>
+                      <div>
+                        <span class="text-xs uppercase tracking-wider text-[#7ea000] font-semibold">Calidad del sistema</span>
+                        <h3 class="font-headline-sm text-xl font-bold text-gray-900">Requerimientos No Funcionales</h3>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-5 leading-relaxed text-justify">
+                      Estos requerimientos establecen las condiciones de calidad que debe cumplir la solución, como disponibilidad, seguridad y facilidad de uso.
+                    </p>
+                    <div class="space-y-3">
+                      {sec.requerimientos_no_funcionales.map((item) => (
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                          <span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5">check_circle</span>
+                          <span class="text-gray-800 font-medium text-sm leading-relaxed">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+
+          <!-- 2. FASE 02 — PLANIFICACIÓN Y DISTRIBUCIÓN DE ROLES -->
+          {sec.planificacion && sec.planificacion.length > 0 && (
+            <section class="py-6">
+              <div class="mb-8">
+                <span class={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3 ${
+                  isLight ? 'text-[#7ea000]' : 'text-surface-tint'
+                }`}>
+                  <span class="material-symbols-outlined text-lg">groups</span>
+                  Fase 02
+                </span>
+                <h2 class={`font-headline-md text-2xl md:text-3xl font-bold mb-3 ${
+                  isLight ? 'text-gray-900' : 'text-primary'
+                }`}>
+                  Planificación y distribución de roles
+                </h2>
+                <p class={`leading-relaxed max-w-3xl text-justify ${
+                  isLight ? 'text-gray-600' : 'text-on-surface-variant'
+                }`}>
+                  En esta fase se organizaron las responsabilidades del equipo según las necesidades del proyecto para una ejecución coordinada y ordenada.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {sec.planificacion.map((persona) => (
+                  <article class={`team-card rounded-xl border group overflow-hidden ${
+                    isLight ? 'bg-white border-gray-200 shadow-md' : 'bg-surface-container border-surface-container-highest'
+                  }`}>
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-t-xl">
+                      <img alt={persona.nombre} class="w-full h-full object-cover team-image" src={persona.foto} />
+                    </div>
+                    <div class="card-info">
+                      <h3 class="font-headline-sm text-base text-white font-bold mb-1 leading-snug">{persona.nombre}</h3>
+                      <p class="font-label-caps text-xs text-surface-tint font-semibold">{persona.rol}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <!-- 3. FASE 03 — BOCETADO INICIAL -->
+          {sec.bocetos_mano && sec.bocetos_mano.length > 0 && (
+            <section class="bg-white text-gray-900 rounded-2xl p-6 md:p-10 shadow-xl border border-gray-200">
+              <div class="mb-8">
+                <span class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
+                  <span class="material-symbols-outlined text-lg">draw</span>
+                  Fase 03
+                </span>
+                <h2 class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Bocetado inicial
+                </h2>
+                <p class="text-gray-600 leading-relaxed max-w-3xl text-justify">
+                  Antes de construir las interfaces digitales, se elaboraron bocetos a mano alzada para representar las primeras ideas visuales del sistema.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                  <span class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">dashboard</span>
+                  <h3 class="font-semibold text-gray-900 mb-1">Distribución</h3>
+                  <p class="text-sm text-gray-600">Se definió la ubicación inicial de componentes y formularios.</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                  <span class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">account_tree</span>
+                  <h3 class="font-semibold text-gray-900 mb-1">Navegación</h3>
+                  <p class="text-sm text-gray-600">Se plantearon los recorridos principales del usuario.</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                  <span class="material-symbols-outlined text-[#7ea000] text-3xl mb-3">rate_review</span>
+                  <h3 class="font-semibold text-gray-900 mb-1">Validación temprana</h3>
+                  <p class="text-sm text-gray-600">Revisión ágil antes de avanzar al prototipo digital.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {sec.bocetos_mano.map((b) => (
+                  <div
+                    class="sketch-item group relative cursor-pointer overflow-hidden rounded-xl aspect-square border border-gray-200 bg-gray-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#abd600]"
+                    data-src={b.imagen}
+                  >
+                    <img src={b.imagen} alt={b.titulo} class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                      <p class="text-sm text-white font-semibold">{b.titulo}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <!-- 4. FASE 04 — PROTOTIPADO Y VALIDACIÓN -->
+          {(adminBocetos.length > 0 || clienteBocetos.length > 0) && (
+            <section class="py-6">
+              <div class="mb-8">
+                <span class={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3 ${
+                  isLight ? 'text-[#7ea000]' : 'text-surface-tint'
+                }`}>
+                  <span class="material-symbols-outlined text-lg">devices</span>
+                  Fase 04
+                </span>
+                <h2 class={`font-headline-md text-2xl md:text-3xl font-bold mb-3 ${
+                  isLight ? 'text-gray-900' : 'text-primary'
+                }`}>
+                  Prototipado y validación
+                </h2>
+                <p class={`leading-relaxed max-w-3xl text-justify ${
+                  isLight ? 'text-gray-600' : 'text-on-surface-variant'
+                }`}>
+                  Interfaces digitales de alta fidelidad para representar los flujos de interacción del sistema.
+                </p>
+              </div>
+
+              <!-- Prototipo Box -->
+              <div class={`p-6 md:p-8 rounded-2xl border ${
+                isLight ? 'bg-gray-50 border-gray-200' : 'glass-panel border-outline-variant/20'
+              }`}>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                  <div>
+                    <span class={`text-xs uppercase tracking-widest font-semibold ${
+                      isLight ? 'text-[#7ea000]' : 'text-surface-tint'
+                    }`}>Prototipo navegable</span>
+                    <h3 class={`font-headline-sm text-2xl font-semibold mt-1 ${
+                      isLight ? 'text-gray-900' : 'text-primary'
+                    }`}>Bocetos Digitalizados</h3>
+                  </div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <a
+                      href="/prototipo-tienda.html"
+                      target="_blank"
+                      class={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold border transition-all duration-300 hover:-translate-y-0.5 ${
+                        isLight
+                          ? 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100 shadow-sm'
+                          : 'bg-surface-container hover:bg-surface-container-high text-surface-tint border-outline-variant/30'
+                      }`}
+                    >
+                      <span class="material-symbols-outlined text-sm">open_in_new</span>
+                      Pantalla Completa
+                    </a>
+                    <button
+                      id="btn-reset-proto"
+                      class={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold border transition-all duration-300 hover:-translate-y-0.5 ${
+                        isLight
+                          ? 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100 shadow-sm'
+                          : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant border-outline-variant/30'
+                      }`}
+                    >
+                      <span class="material-symbols-outlined text-sm">replay</span>
+                      Reiniciar
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Selector de Rol -->
+                <div class="flex items-center justify-center mb-6">
+                  <div class={`inline-flex p-1 rounded-2xl border shadow-inner ${
+                    isLight ? 'bg-gray-200 border-gray-300' : 'bg-surface-container-lowest border-outline-variant/30'
+                  }`}>
+                    <button
+                      id="tab-btn-admin"
+                      class="px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-primary-container text-on-primary-fixed shadow-sm"
+                    >
+                      <span class="material-symbols-outlined text-base">admin_panel_settings</span>
+                      Flujo Administrador
+                    </button>
+                    <button
+                      id="tab-btn-cliente"
+                      class={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                        isLight ? 'text-gray-700 hover:text-gray-900' : 'text-on-surface-variant hover:text-primary'
+                      }`}
+                    >
+                      <span class="material-symbols-outlined text-base">shopping_bag</span>
+                      Flujo Cliente
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Simulador Teléfono -->
+                <div class={`flex flex-col items-center justify-center p-2 sm:p-5 rounded-2xl border mb-8 ${
+                  isLight ? 'bg-white border-gray-200 shadow-sm' : 'bg-surface-container-lowest/60 border-outline-variant/20'
+                }`}>
+                  <div class="w-full max-w-[430px] rounded-[36px] bg-slate-900 p-3 shadow-2xl border-4 border-slate-700 relative ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
+                    <div class="w-28 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-center">
+                      <div class="w-3 h-3 rounded-full bg-slate-950/80 mr-2 border border-slate-800"></div>
+                      <div class="w-10 h-1 bg-slate-800 rounded-full"></div>
+                    </div>
+                    <div class="w-full h-[650px] rounded-[24px] overflow-hidden bg-white relative">
+                      <iframe id="prototype-iframe" src="/prototipo-tienda.html" class="w-full h-full border-0" title="Prototipo Interactivo"></iframe>
+                    </div>
+                    <div class="w-32 h-1 bg-slate-600 rounded-full mx-auto mt-3"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <!-- 5. RESULTADOS Y CONCLUSIONES -->
+          {conclusionesArray.length > 0 && (
+            <section class="bg-white text-gray-900 rounded-2xl p-6 md:p-10 shadow-xl border border-gray-200">
+              <div class="mb-8">
+                <span class="inline-flex items-center gap-2 text-[#7ea000] text-xs font-bold uppercase tracking-widest mb-3">
+                  <span class="material-symbols-outlined text-lg">task_alt</span>
+                  Resultados
+                </span>
+                <h2 class="font-headline-md text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Conclusiones y resultados
+                </h2>
+              </div>
+
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-5">
+                  <div class="w-11 h-11 rounded-xl bg-[#abd600]/15 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#7ea000]">lightbulb</span>
+                  </div>
+                  <h3 class="font-headline-sm text-xl font-bold text-gray-900">Aprendizajes obtenidos</h3>
+                </div>
+                <div class="space-y-4">
+                  {conclusionesArray.map((p, index) => (
+                    <div class="flex items-start gap-4 bg-white border border-gray-200 rounded-lg p-4">
+                      <div class="w-8 h-8 rounded-full bg-[#abd600] text-gray-900 flex items-center justify-center font-bold text-sm shrink-0">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <p class="text-gray-700 leading-relaxed text-sm md:text-base text-justify">{p}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          <!-- MDX Content Slot for additional rich markdown text -->
+          <div class={`prose max-w-none ${
+            isLight
+              ? 'prose-neutral text-gray-900 prose-headings:text-gray-900 prose-h2:text-lg md:prose-h2:text-xl prose-h2:font-extrabold prose-h2:uppercase prose-h2:tracking-wide prose-h2:mt-8 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-gray-200 prose-p:text-gray-900 prose-p:leading-relaxed prose-p:text-justify prose-p:text-base md:prose-p:text-[17px]'
+              : 'prose-invert prose-headings:text-white prose-h2:uppercase prose-h2:tracking-wide prose-h2:font-extrabold prose-p:text-justify'
+          }`}>
+            <Content />
+          </div>
+        </div>
+
+        <!-- Footer Navigation inside Article -->
+        <div class={`pt-8 border-t flex justify-between items-center ${
+          isLight ? 'border-gray-200' : 'border-outline-variant/20'
+        }`}>
+          <a href="/blog" class={`inline-flex items-center gap-2 hover:underline font-semibold text-sm ${
+            isLight ? 'text-[#7ea000]' : 'text-surface-tint'
+          }`}>
+            <span class="material-symbols-outlined text-base">arrow_back</span>
+            Volver a Publicaciones
+          </a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Image Modal -->
+  <div
+    id="image-modal"
+    class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4 backdrop-blur-sm cursor-pointer"
+  >
+    <img
+      id="modal-img"
+      src=""
+      alt="Vista ampliada"
+      class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg border border-outline-variant/30"
+    />
+  </div>
+</Layout>
+
+<style>
+  .glass-panel {
+    background: rgba(18, 20, 20, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(68, 73, 51, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(171, 214, 0, 0.3);
+  }
+
+  .team-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(18, 20, 20, 1) 0%,
+      rgba(18, 20, 20, 0.95) 24%,
+      rgba(18, 20, 20, 0.4) 50%,
+      rgba(18, 20, 20, 0.75) 75%
+    );
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .team-image {
+    filter: grayscale(100%) contrast(1.2);
+    transition: all 0.5s ease;
+  }
+
+  .team-card:hover .team-image {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.05);
+  }
+
+  .team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -10px rgba(171, 214, 0, 0.15);
+    border-color: rgba(171, 214, 0, 0.35);
+  }
+
+  .team-card .card-info {
+    position: relative;
+    z-index: 20;
+    padding: 16px;
+    margin-top: -65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .text-justify,
+  :global(.prose p),
+  :global(article p) {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+  }
+
+  :global(.prose h2),
+  :global(.prose h3) {
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: #111827 !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    scroll-margin-top: 6rem;
+  }
+
+  :global(.prose ul) {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  :global(.prose li) {
+    margin-bottom: 0.75rem !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
+  }
+
+  :global([id]),
+  :global(.prose h2),
+  :global(.prose h3) {
+    scroll-margin-top: 7rem !important;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  // Image Modal
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const sketchItems = document.querySelectorAll('.sketch-item');
+
+  sketchItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src') || '';
+      if (modal && modalImg) {
+        modalImg.src = src;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    });
+  });
+
+  if (modal) {
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
+  }
+
+  // Switch Role View (Admin vs Cliente)
+  const tabAdmin = document.getElementById('tab-btn-admin');
+  const tabCliente = document.getElementById('tab-btn-cliente');
+  const iframe = document.getElementById('prototype-iframe') as HTMLIFrameElement;
+  const resetBtn = document.getElementById('btn-reset-proto');
+
+  tabAdmin?.addEventListener('click', () => {
+    tabAdmin.classList.add('bg-primary-container', 'text-on-primary-fixed', 'shadow-sm');
+    tabCliente?.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ action: 'NAVIGATE', screenId: 'screen-productos' }, '*');
+    }
+  });
+
+  tabCliente?.addEventListener('click', () => {
+    tabCliente.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+    tabAdmin?.classList.remove('bg-primary-container', 'text-on-primary-fixed', 'shadow-sm');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ action: 'NAVIGATE', screenId: 'screen-cliente-catalogo' }, '*');
+    }
+  });
+
+  // Reset prototype
+  if (resetBtn && iframe) {
+    resetBtn.addEventListener('click', () => {
+      iframe.src = iframe.src;
+    });
+  }
+</script>

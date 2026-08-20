@@ -1,0 +1,125 @@
+---
+title: "APE 1: Fundamentos de la Ingeniería Asistida por Computadora"
+summary: "Análisis, evaluación y taxonomía de las herramientas CASE y su evolución hacia entornos integrados (I-CASE) en el desarrollo de software."
+unit_tag: "UNIDAD 01 • APE 1"
+category: "UNIDAD 1"
+theme: "light"
+hero_style: "banner"
+duration: "Trabajo Práctico / APE"
+author_name: "Equipo de Desarrollo TechNexus"
+created_at: "Agosto 2026"
+image_url: "/img/fundamentos.png"
+---
+
+<div id="tema-1" class="scroll-mt-28"></div>
+
+## 1. EL ESPACIO DE TRABAJO EN EL DESARROLLO ASISTIDO POR SOFTWARE
+
+¿Planeas iniciar un proyecto de software y te abruma la gestión de requisitos o el orden del código? El desarrollo moderno exige mucho más que programar: demanda metodología, control de errores y calidad desde el primer momento.
+
+Construir soluciones sólidas requiere un espacio estructurado con tres pilares clave: herramientas adecuadas para el producto, flujos organizados para emplearlas con eficacia y profesionales cualificados que las dominen.
+
+Aquí entra la Ingeniería de Software Asistida por Computadora (CASE), cuyo objetivo es automatizar y respaldar las fases de análisis, diseño y codificación, agilizando el trabajo diario tanto en proyectos pequeños como empresariales.
+
+A continuación, exploraremos cómo se aplica esto en la práctica mediante herramientas esenciales del entorno de trabajo: editores de texto (Notepad++), control de versiones (Git), consolas de comandos y gestores de bases de datos.
+
+<div class="mt-6 mb-2 py-0">
+  <h3 class="text-base md:text-lg font-bold uppercase tracking-wider text-gray-900 mb-3 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000] text-xl">format_list_bulleted</span>
+    Tabla de Contenidos
+  </h3>
+  <ul class="space-y-2.5 !list-none !p-0 !m-0">
+    <li class="!mb-1">
+      <a href="#tema-1" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">01.</span>
+        <span>El Espacio de Trabajo en el Desarrollo Asistido por Software</span>
+      </a>
+    </li>
+    <li class="!mb-1">
+      <a href="#tema-2" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">02.</span>
+        <span>Taxonomía de las Herramientas CASE</span>
+      </a>
+    </li>
+    <li class="!mb-1">
+      <a href="#tema-3" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">03.</span>
+        <span>El Repositorio CASE: El cerebro del proyecto</span>
+      </a>
+    </li>
+    <li class="!mb-1">
+      <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">04.</span>
+        <span>I-CASE: La Integración de la Inteligencia Artificial</span>
+      </a>
+    </li>
+    <li class="!mb-1">
+      <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">05.</span>
+        <span>El impacto real de la IA en la Productividad</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="mt-1 mb-16 max-w-xl mx-auto bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
+  <div class="bg-gray-100/90 px-3.5 py-2 border-b border-gray-200 flex items-center justify-between">
+    <div class="flex items-center gap-1.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+      <span class="text-xs font-semibold text-gray-600 ml-2">Video Demostrativo</span>
+    </div>
+    <span class="material-symbols-outlined text-gray-500 text-base">smart_display</span>
+  </div>
+  <div class="relative w-full aspect-video bg-black">
+    <iframe
+      class="w-full h-full border-0"
+      src="https://www.youtube.com/embed/BnKVNhEUn_M"
+      title="Video Demostración CASE"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+<div id="tema-2" class="scroll-mt-28"></div>
+
+## 2. TAXONOMÍA DE LAS HERRAMIENTAS CASE
+
+Las herramientas CASE se clasifican según el rol que desempeñan y la fase del ciclo de vida del software en la que intervienen. Esta división metodológica permite estructurar el desarrollo desde la conceptualización hasta el despliegue final:
+
+- **Upper CASE (Front-End CASE):** Orientadas a las etapas iniciales del proyecto. Automatizan la planificación, el levantamiento de requisitos, el modelado conceptual y los diagramas estructurales (como UML o diagramas de flujo de datos), garantizando que las especificaciones del cliente queden formalizadas.
+- **Lower CASE (Back-End CASE):** Enfocadas en las etapas técnicas y operativas finales. Incluyen generadores automáticos de código fuente, compiladores, depuradores y suites de pruebas automatizadas que transforman los diseños en software ejecutable.
+- **Cross-Life Cycle / Integrated CASE (I-CASE):** Abarcan transversalmente todo el ciclo de vida, integrando gestión de configuración, control de versiones, monitoreo de métricas y sincronización bidireccional entre diseño y código fuente.
+
+<div id="tema-3" class="scroll-mt-28"></div>
+
+## 3. EL REPOSITORIO CASE: EL CEREBRO DEL PROYECTO
+
+El núcleo central de cualquier entorno asistido es su repositorio o diccionario de datos unificado. No se trata simplemente de un almacenamiento de archivos, sino de una base de conocimiento viva que mantiene la coherencia de todo el sistema.
+
+Su función principal es centralizar y conectar cada elemento del proyecto: requisitos funcionales, diagramas de arquitectura, esquemas de bases de datos, componentes de código y trazas de pruebas. Esto permite una **trazabilidad completa de extremo a extremo**, asegurando que cualquier cambio en un requisito se propague de forma consistente en los modelos y en el código.
+
+Asimismo, el repositorio facilita el trabajo simultáneo de equipos multidisciplinarios, evitando inconsistencias, resolviendo conflictos de dependencias y asegurando que todos trabajen bajo una única fuente de verdad validada.
+
+<div id="tema-4" class="scroll-mt-28"></div>
+
+## 4. I-CASE: LA INTEGRACIÓN DE LA INTELIGENCIA ARTIFICIAL
+
+La evolución de las herramientas CASE hacia entornos I-CASE modernos ha alcanzado un salto cualitativo decisivo mediante la incorporación de modelos avanzados de Inteligencia Artificial y Machine Learning.
+
+En estos entornos avanzados, la IA deja de ser un simple autocompletador para convertirse en un asistente de ingeniería integral:
+- **Generación contextual de código:** Comprensión profunda de la arquitectura del proyecto para sugerir bloques funcionales completos y patrones de diseño óptimos.
+- **Refactorización y detección predictiva de errores:** Análisis estático potenciado para identificar fallos lógicos, cuellos de botella de rendimiento y vulnerabilidades de seguridad antes del despliegue.
+- **Síntesis inteligente de casos de prueba:** Creación automatizada de pruebas unitarias y de integración basadas en las especificaciones funcionales registradas en el repositorio.
+
+<div id="tema-5" class="scroll-mt-28"></div>
+
+## 5. EL IMPACTO REAL DE LA IA EN LA PRODUCTIVIDAD
+
+La adopción de tecnologías asistidas por IA en el ciclo de vida del software ha demostrado un impacto directo y medible en el rendimiento de los equipos de desarrollo.
+
+La automatización de tareas repetitivas —como la generación de código base (*boilerplate*), la redacción de documentación técnica y la configuración de esquemas— permite a los desarrolladores concentrarse en la lógica de negocio y en la resolución de problemas de alto valor arquitectónico.
+
+No obstante, el factor humano permanece en el centro del proceso. La IA actúa como un **acelerador y multiplicador de capacidades**, donde el criterio técnico, la verificación rigurosa y el diseño de la arquitectura siguen dependiendo del conocimiento y la experiencia de los ingenieros a cargo.
