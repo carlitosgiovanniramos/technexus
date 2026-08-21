@@ -11,6 +11,7 @@ created_at: "Agosto 2026"
 image_url: "/img/fundamentos.png"
 ---
 
+<section class="blog-reveal">
 <div id="tema-1" class="scroll-mt-28"></div>
 
 ## 1. EL ESPACIO DE TRABAJO EN EL DESARROLLO ASISTIDO POR SOFTWARE
@@ -38,24 +39,30 @@ A continuación, exploraremos cómo se aplica esto en la práctica mediante herr
     <li class="!mb-1">
       <a href="#tema-2" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
         <span class="text-xs font-bold text-gray-400">02.</span>
-        <span>Taxonomía de las Herramientas CASE</span>
+        <span>¿Qué es CASE?</span>
       </a>
     </li>
     <li class="!mb-1">
       <a href="#tema-3" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
         <span class="text-xs font-bold text-gray-400">03.</span>
-        <span>El Repositorio CASE: El cerebro del proyecto</span>
+        <span>Taxonomía de las Herramientas CASE</span>
       </a>
     </li>
     <li class="!mb-1">
       <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
         <span class="text-xs font-bold text-gray-400">04.</span>
-        <span>I-CASE: La Integración de la Inteligencia Artificial</span>
+        <span>El Repositorio CASE: El cerebro del proyecto</span>
       </a>
     </li>
     <li class="!mb-1">
       <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
         <span class="text-xs font-bold text-gray-400">05.</span>
+        <span>I-CASE: La Integración de la Inteligencia Artificial</span>
+      </a>
+    </li>
+    <li class="!mb-1">
+      <a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">06.</span>
         <span>El impacto real de la IA en la Productividad</span>
       </a>
     </li>
@@ -82,25 +89,81 @@ A continuación, exploraremos cómo se aplica esto en la práctica mediante herr
     ></iframe>
   </div>
 </div>
-
-<div id="tema-2" class="scroll-mt-28"></div>
-
-## 2. TAXONOMÍA DE LAS HERRAMIENTAS CASE
-
-Las herramientas CASE se clasifican según el rol que desempeñan y la fase del ciclo de vida del software en la que intervienen. Esta división metodológica permite estructurar el desarrollo desde la conceptualización hasta el despliegue final:
-
-- **Upper CASE (Front-End CASE):** Orientadas a las etapas iniciales del proyecto. Automatizan la planificación, el levantamiento de requisitos, el modelado conceptual y los diagramas estructurales (como UML o diagramas de flujo de datos), garantizando que las especificaciones del cliente queden formalizadas.
-- **Lower CASE (Back-End CASE):** Enfocadas en las etapas técnicas y operativas finales. Incluyen generadores automáticos de código fuente, compiladores, depuradores y suites de pruebas automatizadas que transforman los diseños en software ejecutable.
-- **Cross-Life Cycle / Integrated CASE (I-CASE):** Abarcan transversalmente todo el ciclo de vida, integrando gestión de configuración, control de versiones, monitoreo de métricas y sincronización bidireccional entre diseño y código fuente.
-
-
+</section>
 
 <section class="blog-reveal">
+<div id="tema-2" class="scroll-mt-28"></div>
 
-## 3. EL REPOSITORIO CASE: EL CEREBRO DEL PROYECTO
+## 2. ¿QUÉ ES CASE?
+
+Para que el espacio de trabajo que vimos en la sección anterior funcione realmente como un entorno fluido y no como un caos de herramientas desconectadas, surge un concepto fundamental: **CASE**.
+
+**CASE (Computer Aided Software Engineering)** o "Ingeniería de Software Asistida por Computadora" es un conjunto de herramientas y métodos que buscan automatizar, gestionar y mejorar la calidad del ciclo de vida del desarrollo de software. Imagina a CASE como el "director de orquesta" de tu entorno de trabajo: en lugar de tener un editor de texto por un lado, una consola por otro y diagramas en papel, CASE engloba este ecosistema para que todas las fases del desarrollo se comuniquen entre sí, reduciendo errores humanos y acelerando la entrega.
+
+Ahora bien, no existe una única herramienta CASE que resuelva todos los problemas. Así como en un taller mecánico hay herramientas específicas para el motor y otras para la pintura, en el software tenemos distintas soluciones para diferentes etapas. Es aquí donde entra la **taxonomía**, que nos ayuda a entender cómo organizar y elegir las herramientas adecuadas.
+
+</section>
+
+<section class="blog-reveal">
+<div id="tema-3" class="scroll-mt-28"></div>
+
+## 3. TAXONOMÍA DE LAS HERRAMIENTAS CASE: ¿CÓMO SE CLASIFICAN?
+
+Ya vimos qué es CASE y por qué existe, pero es vital entender que no hay una "herramienta mágica" que lo haga todo. Existen decenas de categorías, cada una enfocada en una parte específica del desarrollo.
+
+Aunque pueden clasificarse por arquitectura, costo o usuario, el criterio principal es la función que cumplen. Sin embargo, una lista plana de funciones puede ser aburrida y no muestra cómo interactúan. Por eso, la mejor forma de entender esta taxonomía es agrupando las herramientas según la fase del ciclo de vida del software en la que intervienen.
+
+Podemos dividir todo este ecosistema en tres grandes bloques:
+
+### 3.1 Upper CASE (Front-End CASE): Estrategia, Planificación y Diseño
+
+Estas herramientas están orientadas a las etapas iniciales del proyecto. Su misión es garantizar que las especificaciones del cliente queden formalizadas antes de escribir una sola línea de código.
+
+- **Gestión y Planificación:** Incluyen la ingeniería de procesos de negocio, la estimación de costos, el análisis de riesgos y el seguimiento de requisitos.
+- **Análisis y Diseño:** Crean los modelos conceptuales (datos, funciones y comportamiento).
+
+### 3.2 Lower CASE (Back-End CASE): Construcción y Pruebas
+
+Están enfocadas en las etapas técnicas y operativas finales. Transforman los diseños de la fase anterior en software ejecutable y aseguran su funcionamiento.
+
+- **Producción y Desarrollo:** Abarcan los editores, compiladores, constructores de interfaces y herramientas de desarrollo web. En un entorno moderno, esto incluye desde la creación de APIs backend hasta la gestión de bases de datos utilizando ORMs robustos como Prisma interactuando con PostgreSQL.
+- **Pruebas y Reingeniería:** Incluyen herramientas de análisis estático y dinámico, además de simuladores cliente/servidor. También entran aquí las herramientas de ingeniería inversa para sistemas heredados. Gran parte de esta validación operativa suele apoyarse hoy en entornos aislados mediante contenedores como Docker o distribuciones Linux virtualizadas.
+
+### 3.3 Cross-Life Cycle (I-CASE): Soporte e Integración Total
+
+Son las herramientas transversales que acompañan al software de principio a fin, sosteniendo todo el ecosistema.
+
+- **Gestión de Configuración (GCS):** Es el núcleo absoluto, vital para el control de versiones, cambios y auditorías.  
+- **Monitoreo y Documentación:** Llevan el control de métricas de calidad y automatizan la generación de documentos donde suele invertirse hasta el 30% del esfuerzo.
+
+<div class="my-8">
+  <img 
+    src="/img/case-taxonomia.jpg" 
+    alt="Fases y Taxonomía de las Herramientas CASE en el Ciclo de Vida del Software" 
+    class="w-full rounded-none border-0 shadow-none object-cover"
+  />
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000]">swap_horiz</span>
+    El Espectro de Integración
+  </h3>
+  <p class="text-gray-700 m-0 leading-relaxed">
+    Una herramienta CASE puede operar de forma aislada, limitarse a intercambiar datos, o unificarse en un <strong>Entorno de Apoyo Integrado a Proyectos (EAIP)</strong>. La verdadera potencia no radica en usar 20 herramientas desconectadas, sino en lograr una sincronización bidireccional perfecta entre el diseño inicial y el código fuente final.
+  </p>
+</div>
+</section>
+
+<section class="blog-reveal">
+<div id="tema-4" class="scroll-mt-28"></div>
+
+## 4. EL REPOSITORIO CASE: EL CEREBRO DEL PROYECTO
 
 
-El **repositorio CASE** constituye uno de los elementos centrales dentro de un entorno de Ingeniería de Software Asistida por Computadora. Más que un simple espacio de almacenamiento, funciona como una **base de datos del proyecto** en la que se concentra la información generada durante las diferentes etapas del desarrollo de software. En un entorno I-CASE, el repositorio integra tanto los datos como las herramientas, permitiendo que la información pueda ser compartida y utilizada de manera consistente a lo largo del proceso.
+Para lograr esa sincronización perfecta y unificar todas las herramientas que vimos en la taxonomía, se necesita un núcleo central. Ese núcleo es el **repositorio CASE**, que constituye el elemento integrador definitivo dentro de un entorno de Ingeniería de Software Asistida por Computadora. 
+
+Más que un simple espacio de almacenamiento, funciona como una **base de datos maestra del proyecto** en la que se concentra toda la información generada durante las diferentes etapas. En un entorno I-CASE, el repositorio es el puente que conecta los datos con las distintas herramientas, permitiendo que la información fluya, se comparta y se utilice de manera consistente a lo largo de todo el proceso.
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
 
@@ -172,9 +235,13 @@ Por estas razones, puede considerarse al repositorio CASE como **“el cerebro d
 
 
 <section class="blog-reveal">
-## 4. I-CASE: LA INTEGRACIÓN DE LA INTELIGENCIA ARTIFICIAL
+<div id="tema-5" class="scroll-mt-28"></div>
 
-La evolución de las herramientas CASE ha buscado incrementar progresivamente el nivel de automatización dentro del proceso de desarrollo de software. Mientras las herramientas CASE tradicionales permiten apoyar diferentes actividades de ingeniería, la propuesta de **Intelligent Computer Aided Software Engineering (I-CASE)** incorpora técnicas de Inteligencia Artificial con el propósito de asistir también en actividades que requieren **análisis, razonamiento, predicción y toma de decisiones**.
+## 5. I-CASE: LA INTEGRACIÓN DE LA INTELIGENCIA ARTIFICIAL
+
+Si el repositorio es el "cerebro" que centraliza y conecta la información de todo el proyecto, el siguiente paso lógico en la evolución de las herramientas CASE es dotar a ese cerebro de capacidad de razonamiento. 
+
+Mientras las herramientas tradicionales se limitaban a automatizar y almacenar, la propuesta de **Intelligent Computer Aided Software Engineering (I-CASE)** da un salto cualitativo incorporando técnicas de Inteligencia Artificial. Su propósito ya no es solo guardar datos o ejecutar comandos, sino asistir de forma activa en tareas que requieren **análisis, razonamiento, predicción y toma de decisiones complejas**.
 
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-7">
 
@@ -301,10 +368,11 @@ El objetivo de I-CASE es utilizar técnicas inteligentes para **facilitar y acel
 </section>
 
 <section class="blog-reveal">
+<div id="tema-6" class="scroll-mt-28"></div>
 
-## 5. EL IMPACTO REAL DE LA IA EN LA PRODUCTIVIDAD
+## 6. EL IMPACTO REAL DE LA IA EN LA PRODUCTIVIDAD
 
-La incorporación de herramientas de **Inteligencia Artificial en el desarrollo de software** está transformando la manera en que los programadores realizan sus actividades. Su principal aporte se encuentra en la automatización y asistencia de tareas, permitiendo reducir el tiempo dedicado a trabajos repetitivos y concentrar mayor esfuerzo en actividades que requieren análisis, diseño y resolución de problemas.
+Pero, ¿cómo se traduce toda esta asistencia inteligente de I-CASE en el día a día? La incorporación de estas herramientas de **Inteligencia Artificial en el desarrollo de software** está transformando radicalmente la manera en que los programadores operan. Su principal aporte va más allá de escribir código rápido: radica en la automatización profunda de tareas repetitivas, permitiendo que el equipo humano concentre su energía y tiempo en lo que realmente importa, como el análisis arquitectónico, el diseño de soluciones y la resolución de problemas críticos.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
 
