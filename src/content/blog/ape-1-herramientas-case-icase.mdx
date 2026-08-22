@@ -16,13 +16,13 @@ image_url: "/img/fundamentos.png"
 
 ## 1. EL ESPACIO DE TRABAJO EN EL DESARROLLO ASISTIDO POR SOFTWARE
 
-¿Planeas iniciar un proyecto de software y te abruma la gestión de requisitos o el orden del código? El desarrollo moderno exige mucho más que programar: demanda metodología, control de errores y calidad desde el primer momento.
+El desarrollo de software moderno exige mucho más que la escritura de código: requiere metodología, control de errores y criterios de calidad desde las primeras etapas del proyecto. La gestión de requisitos y la organización del trabajo suelen representar, de hecho, un desafío mayor que la programación en sí misma.
 
-Construir soluciones sólidas requiere un espacio estructurado con tres pilares clave: herramientas adecuadas para el producto, flujos organizados para emplearlas con eficacia y profesionales cualificados que las dominen.
+Construir soluciones sólidas requiere un espacio de trabajo estructurado sobre tres pilares: herramientas adecuadas para el producto que se desea construir, flujos de trabajo organizados para emplearlas con eficacia, y profesionales capacitados para dominarlas.
 
-Aquí entra la Ingeniería de Software Asistida por Computadora (CASE), cuyo objetivo es automatizar y respaldar las fases de análisis, diseño y codificación, agilizando el trabajo diario tanto en proyectos pequeños como empresariales.
+En este contexto surge la Ingeniería de Software Asistida por Computadora, conocida como CASE, cuyo objetivo es automatizar y respaldar las fases de análisis, diseño y codificación, agilizando el trabajo diario tanto en proyectos pequeños como en desarrollos de escala empresarial.
 
-A continuación, exploraremos cómo se aplica esto en la práctica mediante herramientas esenciales del entorno de trabajo: editores de texto (Notepad++), control de versiones (Git), consolas de comandos y gestores de bases de datos.
+A continuación se explora cómo se aplica este concepto en la práctica, a través de herramientas propias del entorno de trabajo diario: editores de texto como Notepad++, sistemas de control de versiones como Git, consolas de comandos y gestores de bases de datos.
 
 <div class="mt-6 mb-2 py-0">
   <h3 class="text-base md:text-lg font-bold uppercase tracking-wider text-gray-900 mb-3 flex items-center gap-2">
@@ -71,7 +71,7 @@ A continuación, exploraremos cómo se aplica esto en la práctica mediante herr
   </ul>
 </div>
 
-<div class="mt-1 mb-16 max-w-xl mx-auto bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden">
+<div class="mt-1 mb-16 max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
   <div class="bg-gray-100/90 px-3.5 py-2 border-b border-gray-200 flex items-center justify-between">
     <div class="flex items-center gap-1.5">
       <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
@@ -98,11 +98,21 @@ A continuación, exploraremos cómo se aplica esto en la práctica mediante herr
 
 ## 2. ¿QUÉ ES CASE?
 
-Para que el espacio de trabajo que vimos en la sección anterior funcione realmente como un entorno fluido y no como un caos de herramientas desconectadas, surge un concepto fundamental: **CASE**.
+Para que el espacio de trabajo funcione como un entorno integrado y no como un conjunto de herramientas aisladas, es necesario comprender el concepto de CASE.
 
-**CASE (Computer Aided Software Engineering)** o "Ingeniería de Software Asistida por Computadora" es un conjunto de herramientas y métodos que buscan automatizar, gestionar y mejorar la calidad del ciclo de vida del desarrollo de software. Imagina a CASE como el "director de orquesta" de tu entorno de trabajo: en lugar de tener un editor de texto por un lado, una consola por otro y diagramas en papel, CASE engloba este ecosistema para que todas las fases del desarrollo se comuniquen entre sí, reduciendo errores humanos y acelerando la entrega.
+CASE, sigla de *Computer Aided Software Engineering* (Ingeniería de Software Asistida por Computadora), es una categoría que agrupa las herramientas utilizadas para automatizar, gestionar o apoyar actividades del ciclo de vida del desarrollo de software. Estas pueden intervenir en tareas como el análisis, diseño, programación, pruebas y documentación.
 
-Ahora bien, no existe una única herramienta CASE que resuelva todos los problemas. Así como en un taller mecánico hay herramientas específicas para el motor y otras para la pintura, en el software tenemos distintas soluciones para diferentes etapas. Es aquí donde entra la **taxonomía**, que nos ayuda a entender cómo organizar y elegir las herramientas adecuadas.
+En la práctica, algunas herramientas de uso cotidiano ya pueden considerarse herramientas CASE. Por ejemplo, Notepad++ facilita la escritura de código, Git permite gestionar versiones y cambios, y los gestores de bases de datos apoyan la administración de la información del sistema.
+
+El uso de herramientas CASE busca principalmente:
+
+* Aplicar metodologías estructuradas y agilizar el desarrollo.
+* Facilitar la creación de prototipos.
+* Simplificar el mantenimiento del software.
+* Mejorar y estandarizar la documentación.
+* Favorecer la reutilización de componentes.
+
+CASE no se limita a una sola herramienta, sino que comprende diferentes soluciones destinadas a distintas etapas del desarrollo. Por ello, es necesario clasificarlas según la función que desempeñan.
 
 </section>
 
@@ -111,37 +121,55 @@ Ahora bien, no existe una única herramienta CASE que resuelva todos los problem
 
 ## 3. TAXONOMÍA DE LAS HERRAMIENTAS CASE: ¿CÓMO SE CLASIFICAN?
 
-Ya vimos qué es CASE y por qué existe, pero es vital entender que no hay una "herramienta mágica" que lo haga todo. Existen decenas de categorías, cada una enfocada en una parte específica del desarrollo.
+Las herramientas CASE pueden clasificarse mediante diferentes criterios, como su arquitectura, costo o tipo de usuario. Sin embargo, el criterio más utilizado es la función que cumplen dentro del ciclo de vida del software.
 
-Aunque pueden clasificarse por arquitectura, costo o usuario, el criterio principal es la función que cumplen. Sin embargo, una lista plana de funciones puede ser aburrida y no muestra cómo interactúan. Por eso, la mejor forma de entender esta taxonomía es agrupando las herramientas según la fase del ciclo de vida del software en la que intervienen.
+Para facilitar su comprensión, pueden agruparse en tres grandes categorías: Upper CASE, Lower CASE y Cross-Life Cycle.
 
-Podemos dividir todo este ecosistema en tres grandes bloques:
+Los términos *Upper* y *Lower* hacen referencia a la posición de las actividades dentro de la representación tradicional del ciclo de vida del software. Upper CASE se relaciona con las etapas iniciales, mientras que Lower CASE se enfoca en las actividades de construcción y pruebas. Por su parte, Cross-Life Cycle comprende herramientas que acompañan todo el proceso.
 
 ### 3.1 Upper CASE (Front-End CASE): Estrategia, Planificación y Diseño
 
-Estas herramientas están orientadas a las etapas iniciales del proyecto. Su misión es garantizar que las especificaciones del cliente queden formalizadas antes de escribir una sola línea de código.
+Las herramientas Upper CASE se utilizan principalmente en las primeras etapas del proyecto. Su objetivo es definir y organizar los requerimientos y diseños antes de comenzar la programación.
 
-- **Gestión y Planificación:** Incluyen la ingeniería de procesos de negocio, la estimación de costos, el análisis de riesgos y el seguimiento de requisitos.
-- **Análisis y Diseño:** Crean los modelos conceptuales (datos, funciones y comportamiento).
+Entre sus principales funciones se encuentran:
+
+* Ingeniería de procesos de negocio: permite modelar los procesos y flujos de información de una organización.
+* Planificación y gestión de proyectos: facilita la estimación de costos, esfuerzos, tareas y avances.
+* Análisis de riesgos: ayuda a identificar, evaluar y controlar posibles riesgos.
+* Gestión de requisitos: permite organizar los requisitos y verificar que sean considerados en el sistema final.
+* Análisis y diseño: permite crear modelos del sistema y detectar inconsistencias antes de programar.
+
+Un ejemplo de esta categoría es PowerDesigner, utilizado para elaborar diagramas y modelos conceptuales.
 
 ### 3.2 Lower CASE (Back-End CASE): Construcción y Pruebas
 
-Están enfocadas en las etapas técnicas y operativas finales. Transforman los diseños de la fase anterior en software ejecutable y aseguran su funcionamiento.
+Las herramientas Lower CASE se concentran en las etapas de construcción, implementación y pruebas del software. Su función principal es transformar los diseños en sistemas funcionales y comprobar su correcto funcionamiento.
 
-- **Producción y Desarrollo:** Abarcan los editores, compiladores, constructores de interfaces y herramientas de desarrollo web. En un entorno moderno, esto incluye desde la creación de APIs backend hasta la gestión de bases de datos utilizando ORMs robustos como Prisma interactuando con PostgreSQL.
-- **Pruebas y Reingeniería:** Incluyen herramientas de análisis estático y dinámico, además de simuladores cliente/servidor. También entran aquí las herramientas de ingeniería inversa para sistemas heredados. Gran parte de esta validación operativa suele apoyarse hoy en entornos aislados mediante contenedores como Docker o distribuciones Linux virtualizadas.
+Entre ellas se incluyen:
 
-### 3.3 Cross-Life Cycle (I-CASE): Soporte e Integración Total
+* Prototipos y diseño de interfaces: permiten crear representaciones del sistema y de su interfaz.
+* Programación y desarrollo web: incluyen editores, compiladores y entornos de desarrollo, además de herramientas para APIs y bases de datos.
+* Integración y pruebas: permiten analizar el código, ejecutar pruebas y verificar el funcionamiento del sistema.
+* Reingeniería: facilita la modernización y mantenimiento de sistemas existentes mediante técnicas como la ingeniería inversa y la reestructuración del código.
 
-Son las herramientas transversales que acompañan al software de principio a fin, sosteniendo todo el ecosistema.
+### 3.3 Cross-Life Cycle: Herramientas Transversales
 
-- **Gestión de Configuración (GCS):** Es el núcleo absoluto, vital para el control de versiones, cambios y auditorías.  
-- **Monitoreo y Documentación:** Llevan el control de métricas de calidad y automatizan la generación de documentos donde suele invertirse hasta el 30% del esfuerzo.
+Las herramientas Cross-Life Cycle no pertenecen a una etapa específica, sino que apoyan el proyecto durante todo su ciclo de vida.
+
+Entre las principales se encuentran:
+
+* Gestión de configuración: permite controlar versiones, cambios y estados del proyecto. Un ejemplo es Git.
+* Métricas y control de calidad: ayudan a evaluar la calidad del software y del proceso de desarrollo.
+* Documentación: facilitan la elaboración y mantenimiento de la documentación del proyecto.
+
+Estas herramientas permiten mantener el control y la organización durante las diferentes etapas del desarrollo.
+
+En conclusión, las herramientas CASE pueden agruparse según el momento y la función en la que intervienen. Sin embargo, contar con diferentes herramientas no garantiza por sí solo un entorno eficiente. Lo fundamental es que puedan integrarse y comunicarse entre sí, permitiendo un proceso de desarrollo más organizado y coherente.
 
 <div class="my-8">
-  <img 
-    src="/img/case-taxonomia.jpg" 
-    alt="Fases y Taxonomía de las Herramientas CASE en el Ciclo de Vida del Software" 
+  <img
+    src="/img/case-taxonomia.jpg"
+    alt="Fases y Taxonomía de las Herramientas CASE en el Ciclo de Vida del Software"
     class="w-full rounded-none border-0 shadow-none object-cover"
   />
 </div>
@@ -152,23 +180,25 @@ Son las herramientas transversales que acompañan al software de principio a fin
     El Espectro de Integración
   </h3>
   <p class="text-gray-700 m-0 leading-relaxed">
-    Una herramienta CASE puede operar de forma aislada, limitarse a intercambiar datos, o unificarse en un <strong>Entorno de Apoyo Integrado a Proyectos (EAIP)</strong>. La verdadera potencia no radica en usar 20 herramientas desconectadas, sino en lograr una sincronización bidireccional perfecta entre el diseño inicial y el código fuente final.
+    Una herramienta CASE puede operar de forma aislada, limitarse a intercambiar datos puntualmente, o formar parte de un Entorno de Apoyo Integrado a Proyectos, también llamado EAIP. Este último caso es el más completo, y es precisamente el que se conoce como I-CASE, desarrollado en la siguiente sección. La eficacia de un entorno CASE no depende del número de herramientas empleadas, sino del grado de sincronización que existe entre el diseño inicial y el código fuente final.
   </p>
 </div>
 </section>
 
 <section id="tema-4" class="blog-reveal">
 
-## 4. I-CASE 
+## 4. I-CASE
 
-Las herramientas **I-CASE (Integrated Computer-Aided Software Engineering)** representan un entorno en el que diferentes herramientas CASE trabajan de forma integrada durante el desarrollo de software. Su propósito es evitar que cada herramienta funcione de manera aislada y permitir que la información generada en una etapa pueda ser utilizada por otras herramientas en las siguientes actividades del proyecto.
+Antes de continuar, conviene precisar un punto: I-CASE no constituye una cuarta categoría que se suma a Upper CASE, Lower CASE y Cross-Life Cycle. Se trata de un concepto distinto, que no clasifica herramientas según la fase en la que actúan, sino que describe el grado de integración con el que todas ellas, independientemente de su categoría, trabajan de manera conjunta.
+
+I-CASE, sigla de Integrated Computer-Aided Software Engineering, representa un entorno en el que distintas herramientas CASE, de planificación, de construcción y transversales, funcionan de forma integrada durante el desarrollo del software. Su propósito es evitar que cada herramienta opere de manera aislada, permitiendo que la información generada en una etapa pueda ser reutilizada por otras herramientas en las actividades siguientes del proyecto.
 
 <div class="my-8">
 
 <img
   src="/img/icase-integracion.png"
   alt="Esquema de integración de herramientas I-CASE"
-  class="w-full max-w-4xl mx-auto rounded-2xl shadow-md border border-gray-200"
+  class="w-full max-w-4xl mx-auto rounded-none border-0 shadow-none"
 />
 
 <p class="text-center text-sm text-gray-500 mt-3">
@@ -177,7 +207,7 @@ Las herramientas **I-CASE (Integrated Computer-Aided Software Engineering)** rep
 
 </div>
 
-La verdadera potencia de un entorno CASE aparece cuando existe un alto nivel de **integración**. Esto permite intercambiar regularmente elementos como **modelos, programas, documentos y datos**, reduciendo tareas repetitivas y facilitando que los diferentes integrantes del equipo trabajen con información relacionada y consistente.
+La verdadera capacidad de un entorno CASE se manifiesta cuando existe un nivel adecuado de integración. Esta condición permite intercambiar de forma regular elementos como modelos, programas, documentos y datos, reduciendo tareas repetitivas y permitiendo que los integrantes del equipo trabajen sobre información relacionada y consistente.
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
 
@@ -189,7 +219,7 @@ La verdadera potencia de un entorno CASE aparece cuando existe un alto nivel de 
 
 ### Integración de herramientas
 
-Las diferentes herramientas CASE pueden intercambiar información y colaborar dentro de un mismo entorno de desarrollo.
+Las distintas herramientas CASE pueden intercambiar información y colaborar dentro de un mismo entorno de desarrollo.
 
 </div>
 
@@ -213,7 +243,7 @@ Los modelos, documentos, programas y datos generados durante el proyecto pueden 
 
 ### Trabajo coordinado
 
-La integración facilita la coordinación entre los integrantes del equipo y ayuda a mantener una visión común del proyecto.
+La integración facilita la coordinación entre los integrantes del equipo y contribuye a mantener una visión común del proyecto.
 
 </div>
 
@@ -221,78 +251,20 @@ La integración facilita la coordinación entre los integrantes del equipo y ayu
 
 ### 4.1 Características de un entorno I-CASE
 
-Para conseguir una integración efectiva, las herramientas deben compartir información y mantener relaciones entre los distintos elementos producidos durante el desarrollo. De esta manera, cuando un elemento cambia, es posible identificar los demás elementos relacionados y analizar cómo podrían verse afectados.
+Para lograr una integración efectiva, las herramientas deben compartir información y mantener relaciones entre los distintos elementos producidos durante el desarrollo. De esta manera, cuando un elemento cambia, resulta posible identificar los demás elementos relacionados y evaluar cómo podrían verse afectados.
 
-Entre las capacidades importantes de un entorno I-CASE se encuentran el **intercambio de información entre herramientas, seguimiento de relaciones entre elementos, control de versiones y gestión de la configuración**. Estas funciones permiten administrar de manera más organizada la evolución del software.
+Entre las capacidades más relevantes de un entorno I-CASE se encuentran el intercambio de información entre herramientas, el seguimiento de relaciones entre elementos, el control de versiones y la gestión de la configuración. Estas funciones permiten administrar de manera más ordenada la evolución del software, y son las mismas capacidades que sostienen la coordinación de equipo descrita en el bloque anterior.
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-7">
+La integración de herramientas también puede reducir el esfuerzo requerido en actividades como la gestión de configuración, el control de calidad y la producción de documentación. Al mismo tiempo, proporciona mayor control sobre el proyecto y mejora la coordinación entre las personas involucradas en el desarrollo.
 
-<div class="blog-feature-card">
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">swap_horiz</span>
-</div>
-
-### Intercambio
-
-Transferencia de información entre las diferentes herramientas CASE.
-
-</div>
-
-<div class="blog-feature-card">
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">account_tree</span>
-</div>
-
-### Relaciones
-
-Seguimiento de las dependencias existentes entre los elementos del proyecto.
-
-</div>
-
-<div class="blog-feature-card">
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">history</span>
-</div>
-
-### Versiones
-
-Control de las diferentes versiones producidas durante la evolución del software.
-
-</div>
-
-<div class="blog-feature-card">
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">settings_suggest</span>
-</div>
-
-### Configuración
-
-Gestión organizada de los componentes y cambios que forman parte del proyecto.
-
-</div>
-
-</div>
-
-La integración de herramientas también puede disminuir el esfuerzo necesario en actividades como **gestión de configuración, control de calidad y producción de documentación**. Al mismo tiempo, proporciona mayor control sobre el proyecto y mejora la coordinación entre las personas involucradas en el desarrollo.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">hub</span>
-</div>
-
-<div>
-
-### La idea central de I-CASE
-
-I-CASE no consiste simplemente en utilizar muchas herramientas CASE al mismo tiempo. Su característica principal es que estas herramientas estén **integradas**, compartan información y permitan mantener relacionados los diferentes productos generados durante el ciclo de vida del software.
-
-</div>
-
-</div>
-
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000]">hub</span>
+    La idea central de I-CASE
+  </h3>
+  <p class="text-gray-700 m-0 leading-relaxed">
+    I-CASE no consiste simplemente en emplear varias herramientas CASE de manera simultánea. Su característica distintiva es que estas herramientas se encuentren integradas, compartan información y permitan mantener relacionados los distintos productos generados a lo largo del ciclo de vida del software.
+  </p>
 </div>
 
 </section>
@@ -302,16 +274,16 @@ I-CASE no consiste simplemente en utilizar muchas herramientas CASE al mismo tie
 
 ## 5. Repositorio CASE
 
-El **repositorio CASE** es uno de los elementos fundamentales dentro de un entorno CASE integrado. Puede entenderse como una **base de datos central del proyecto**, donde se almacena y organiza la información generada durante las diferentes etapas del desarrollo de software.
+El repositorio CASE constituye uno de los elementos fundamentales dentro de un entorno CASE integrado. Puede entenderse como una base de datos central del proyecto, en la que se almacena y organiza la información generada a lo largo de las distintas etapas del desarrollo de software.
 
-Su importancia no se limita al almacenamiento. El repositorio permite que las distintas herramientas CASE trabajen con información común y mantengan relaciones entre los diferentes elementos del proyecto, como requisitos, modelos, documentos, componentes, versiones y elementos de configuración.
+Su relevancia no se limita al almacenamiento de información. El repositorio permite que las distintas herramientas CASE trabajen sobre información común y mantengan relaciones entre los distintos elementos del proyecto, entre ellos requisitos, modelos, documentos, componentes, versiones y elementos de configuración.
 
 <div class="my-8">
 
 <img
   src="/img/repositorio-case.jpg"
   alt="Representación conceptual de un repositorio CASE"
-  class="w-full max-w-4xl mx-auto rounded-2xl shadow-md border border-gray-200"
+  class="w-full max-w-4xl mx-auto rounded-none border-0 shadow-none"
 />
 
 <p class="text-center text-sm text-gray-500 mt-3">
@@ -330,7 +302,7 @@ Su importancia no se limita al almacenamiento. El repositorio permite que las di
 
 ### Almacenamiento central
 
-Concentra la información generada durante el desarrollo para evitar que los datos del proyecto se encuentren dispersos.
+Concentra la información generada durante el desarrollo, evitando que los datos del proyecto queden dispersos.
 
 </div>
 
@@ -354,7 +326,7 @@ Permite relacionar los datos almacenados con las herramientas CASE que los produ
 
 ### Consistencia
 
-Ayuda a mantener reglas, relaciones y restricciones sobre la información utilizada dentro del proyecto.
+Contribuye a mantener reglas, relaciones y restricciones sobre la información utilizada dentro del proyecto.
 
 </div>
 
@@ -362,79 +334,25 @@ Ayuda a mantener reglas, relaciones y restricciones sobre la información utiliz
 
 ### 5.1 Funciones principales del repositorio
 
-Una de sus funciones principales es la **integración datos-datos**, mediante la cual los objetos almacenados mantienen relaciones entre sí. Esto permite que la información no sea tratada como elementos aislados, sino como partes relacionadas de un mismo sistema.
+Una de sus funciones principales es la integración datos-datos, mediante la cual los objetos almacenados mantienen relaciones entre sí. Esto permite que la información no sea tratada como elementos aislados, sino como partes relacionadas de un mismo sistema.
 
-El repositorio también favorece la **integración herramienta-datos**, ya que las herramientas CASE pueden acceder a la información almacenada e interpretarla de acuerdo con un modelo de información común.
+El repositorio favorece asimismo la integración herramienta-datos, dado que las herramientas CASE pueden acceder a la información almacenada e interpretarla conforme a un modelo de información común. Estas dos formas de integración constituyen, en definitiva, la base técnica que sostiene la tarjeta de Integración presentada anteriormente.
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
+Además, el repositorio incorpora características propias de un Sistema de Gestión de Bases de Datos, entre ellas el control de transacciones, los mecanismos de recuperación y la protección de la integridad cuando varios usuarios trabajan de manera simultánea sobre la información del proyecto.
 
-<div class="blog-feature-card">
+El modelo de información del repositorio puede contener también reglas y políticas que permiten comprobar que los datos incorporados cumplan determinadas restricciones. De este modo, el repositorio no solo conserva información, sino que contribuye a mantener su validez y coherencia.
 
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">link</span>
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000]">psychology</span>
+    El repositorio como centro del entorno CASE
+  </h3>
+  <p class="text-gray-700 m-0 leading-relaxed">
+    El ingeniero de software interactúa con el repositorio a través de las herramientas CASE integradas. El repositorio actúa, en consecuencia, como un punto central donde se conserva el conocimiento del proyecto y desde el cual las distintas herramientas pueden compartir e interpretar la información.
+  </p>
 </div>
 
-<div>
-
-### Integración de información
-
-Los elementos almacenados pueden relacionarse entre sí, facilitando la trazabilidad y permitiendo identificar dependencias dentro del proyecto.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">extension</span>
-</div>
-
-<div>
-
-### Integración con herramientas
-
-Las herramientas CASE utilizan el repositorio como una fuente común de información, evitando duplicidad y favoreciendo el intercambio de datos.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-Además, el repositorio incorpora características propias de un **Sistema de Gestión de Bases de Datos (SGBD)**. Entre ellas se encuentran el control de transacciones, mecanismos de recuperación y protección de la integridad cuando varios usuarios trabajan simultáneamente sobre la información del proyecto.
-
-El modelo de información del repositorio también puede contener **reglas y políticas** que permiten comprobar que los datos incorporados cumplan determinadas restricciones. De esta manera, el repositorio no solo conserva información, sino que ayuda a mantener su validez y coherencia.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">psychology</span>
-</div>
-
-<div>
-
-### El repositorio como centro del entorno CASE
-
-El ingeniero de software interactúa con el repositorio mediante las herramientas CASE integradas. Por ello, el repositorio actúa como un punto central donde se conserva el conocimiento del proyecto y desde el cual las distintas herramientas pueden compartir e interpretar la información.
-
-</div>
-
-</div>
-
-</div>
-
-En consecuencia, un repositorio CASE facilita la **centralización, integración, trazabilidad y control de la información** durante el ciclo de vida del software. Estas características resultan especialmente importantes en proyectos donde intervienen múltiples herramientas, personas y versiones de un mismo sistema.
+En consecuencia, un repositorio CASE facilita la centralización, la integración, la trazabilidad y el control de la información a lo largo del ciclo de vida del software. Estas características resultan especialmente relevantes en proyectos donde intervienen múltiples herramientas, personas y versiones de un mismo sistema.
 
 </section>
 
@@ -442,9 +360,9 @@ En consecuencia, un repositorio CASE facilita la **centralización, integración
 
 ## 6. Ejemplos o casos breves de CASE e I-CASE
 
-Las herramientas CASE pueden utilizarse en diferentes actividades del desarrollo de software, desde el modelado y diseño hasta la gestión de versiones y documentación. Por su parte, un entorno **I-CASE** busca integrar estas herramientas y la información que producen, permitiendo que diferentes actividades del ciclo de vida se encuentren relacionadas.
+Las herramientas CASE pueden emplearse en distintas actividades del desarrollo de software, desde el modelado y diseño hasta la gestión de versiones y la documentación. Un entorno I-CASE, en cambio, busca integrar estas herramientas y la información que producen, de modo que las distintas actividades del ciclo de vida se mantengan relacionadas entre sí.
 
-Los siguientes casos permiten observar de forma sencilla la diferencia entre utilizar una herramienta CASE para una actividad específica y trabajar dentro de un entorno integrado.
+Ya se presentaron algunos ejemplos a lo largo del texto: Git como herramienta Cross-Life Cycle en la sección 1, y Prisma, PostgreSQL y Docker como herramientas Lower CASE en la sección 3.2. Los siguientes casos retoman esa misma taxonomía y la organizan de manera completa, mostrando la diferencia entre emplear una herramienta CASE para una actividad puntual y trabajar dentro de un entorno integrado.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
 
@@ -456,9 +374,11 @@ Los siguientes casos permiten observar de forma sencilla la diferencia entre uti
 
 ### Caso 1 — Modelado con una herramienta CASE
 
-Un equipo necesita representar la estructura y comportamiento de un sistema antes de comenzar su implementación. Para ello puede utilizar una herramienta CASE orientada al **modelado y diseño**, creando diagramas y representaciones que ayuden a comprender el sistema.
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Upper CASE</span>
 
-**Ejemplo:** PowerDesigner puede utilizarse para apoyar actividades de modelado y diseño dentro del proceso de desarrollo.
+Un equipo necesita representar la estructura y el comportamiento de un sistema antes de iniciar su implementación. Para ello puede emplear una herramienta CASE orientada al modelado y diseño, mediante la cual se generan diagramas y representaciones que facilitan la comprensión del sistema.
+
+Ejemplo: PowerDesigner puede utilizarse para respaldar actividades de modelado y diseño dentro del proceso de desarrollo.
 
 </div>
 
@@ -470,9 +390,11 @@ Un equipo necesita representar la estructura y comportamiento de un sistema ante
 
 ### Caso 2 — Gestión de configuración
 
-Durante el desarrollo participan varios integrantes y se producen diferentes versiones de los componentes del sistema. Una herramienta CASE orientada a la **gestión de configuración** permite controlar estos cambios y mantener organizada la evolución del proyecto.
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Cross-Life Cycle</span>
 
-**Ejemplo:** Rational ClearCase proporciona capacidades relacionadas con el control y gestión de los elementos de configuración.
+Durante el desarrollo participan varios integrantes y se generan distintas versiones de los componentes del sistema. Una herramienta CASE orientada a la gestión de configuración permite controlar estos cambios y mantener organizada la evolución del proyecto, el mismo rol que cumple Git, mencionado al inicio de este documento.
+
+Ejemplo: Rational ClearCase, o Git en su versión más difundida en la actualidad, proporciona capacidades relacionadas con el control y la gestión de los elementos de configuración.
 
 </div>
 
@@ -488,9 +410,11 @@ Durante el desarrollo participan varios integrantes y se producen diferentes ver
 
 ### Caso 3 — Apoyo al desarrollo
 
-Un desarrollador puede trabajar con herramientas que faciliten diferentes tareas relacionadas con la construcción del software. Estas herramientas proporcionan un entorno de apoyo para trabajar con los componentes y recursos necesarios durante la implementación.
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Lower CASE</span>
 
-**Ejemplo:** Eclipse constituye un entorno utilizado para apoyar actividades relacionadas con el desarrollo de software.
+Un desarrollador puede trabajar con herramientas que faciliten distintas tareas relacionadas con la construcción del software. Estas herramientas ofrecen un entorno de apoyo para trabajar con los componentes y recursos necesarios durante la implementación, el mismo grupo al que pertenecen Prisma, PostgreSQL y Docker, presentados en la sección 3.2.
+
+Ejemplo: Eclipse constituye un entorno empleado para respaldar actividades relacionadas con el desarrollo de software.
 
 </div>
 
@@ -502,9 +426,11 @@ Un desarrollador puede trabajar con herramientas que faciliten diferentes tareas
 
 ### Caso 4 — Entorno I-CASE
 
-Supongamos que un equipo utiliza herramientas para requisitos, diseño, desarrollo, pruebas y documentación. Si cada una trabaja de manera independiente, la información debe transferirse y mantenerse manualmente.
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">No es una categoría: es integración entre todas</span>
 
-En un entorno **I-CASE**, estas herramientas pueden compartir información mediante mecanismos de integración, permitiendo mantener relacionados los diferentes productos generados durante el proyecto.
+Supóngase que un equipo emplea herramientas para requisitos (Upper), desarrollo (Lower) y control de versiones (Cross-Life Cycle), como en los tres casos anteriores. Si cada una funciona de manera independiente, la información debe transferirse y mantenerse de forma manual.
+
+En un entorno I-CASE, esas mismas herramientas, sin importar su categoría, comparten información mediante un repositorio común, lo que permite mantener relacionados los distintos productos generados a lo largo del proyecto.
 
 </div>
 
@@ -512,9 +438,9 @@ En un entorno **I-CASE**, estas herramientas pueden compartir información media
 
 ### 6.1 ¿Cómo funcionaría un caso I-CASE?
 
-Por ejemplo, un equipo podría comenzar definiendo los **requisitos** del sistema y posteriormente generar modelos durante la etapa de **diseño**. Estos elementos se relacionan con los componentes desarrollados y con la documentación correspondiente.
+Un equipo podría comenzar definiendo los requisitos del sistema y, posteriormente, generar los modelos correspondientes durante la etapa de diseño. Estos elementos se relacionan con los componentes desarrollados y con la documentación correspondiente.
 
-En un entorno integrado, la información puede mantenerse relacionada durante estas actividades:
+En un entorno integrado, la información puede mantenerse relacionada a lo largo de las siguientes actividades:
 
 <div class="blog-feature-card my-7">
 
@@ -584,28 +510,17 @@ arrow_forward
 
 </div>
 
-La diferencia fundamental es que **CASE puede proporcionar herramientas especializadas para determinadas actividades**, mientras que I-CASE busca que esas herramientas formen parte de un **entorno integrado**, compartiendo información y manteniendo relaciones entre los elementos generados durante el desarrollo.
+La diferencia fundamental radica en que CASE proporciona herramientas especializadas para actividades determinadas, mientras que I-CASE busca que esas herramientas formen parte de un entorno integrado, compartiendo información y manteniendo relaciones entre los elementos generados durante el desarrollo.
 
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">compare_arrows</span>
-</div>
-
-<div>
-
-### CASE e I-CASE en pocas palabras
-
-**CASE:** una herramienta puede apoyar una actividad concreta del desarrollo, como modelado, documentación o gestión de configuración.
-
-**I-CASE:** diferentes herramientas CASE trabajan de manera integrada, comparten información y permiten mantener relacionados los productos generados durante distintas etapas del proyecto.
-
-</div>
-
-</div>
-
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000]">compare_arrows</span>
+    CASE e I-CASE: síntesis
+  </h3>
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>CASE:</strong> una herramienta respalda una actividad concreta del desarrollo, como el modelado, la documentación o la gestión de configuración.<br /><br />
+    <strong>I-CASE:</strong> distintas herramientas CASE trabajan de manera integrada, comparten información y permiten mantener relacionados los productos generados durante las distintas etapas del proyecto.
+  </p>
 </div>
 
 </section>
