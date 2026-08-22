@@ -49,23 +49,25 @@ A continuación, exploraremos cómo se aplica esto en la práctica mediante herr
       </a>
     </li>
     <li class="!mb-1">
-      <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">04.</span>
-        <span>El Repositorio CASE: El cerebro del proyecto</span>
-      </a>
-    </li>
-    <li class="!mb-1">
-      <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">05.</span>
-        <span>I-CASE: La Integración de la Inteligencia Artificial</span>
-      </a>
-    </li>
-    <li class="!mb-1">
-      <a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">06.</span>
-        <span>El impacto real de la IA en la Productividad</span>
-      </a>
-    </li>
+  <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+    <span class="text-xs font-bold text-gray-400">04.</span>
+    <span>I-CASE</span>
+  </a>
+</li>
+
+<li class="!mb-1">
+  <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+    <span class="text-xs font-bold text-gray-400">05.</span>
+    <span>Repositorio CASE</span>
+  </a>
+</li>
+
+<li class="!mb-1">
+  <a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+    <span class="text-xs font-bold text-gray-400">06.</span>
+    <span>Ejemplos o casos breves de CASE e I-CASE</span>
+  </a>
+</li>
   </ul>
 </div>
 
@@ -155,17 +157,182 @@ Son las herramientas transversales que acompañan al software de principio a fin
 </div>
 </section>
 
-<section class="blog-reveal">
-<div id="tema-4" class="scroll-mt-28"></div>
+<section id="tema-4" class="blog-reveal">
 
-## 4. EL REPOSITORIO CASE: EL CEREBRO DEL PROYECTO
+## 4. I-CASE 
 
+Las herramientas **I-CASE (Integrated Computer-Aided Software Engineering)** representan un entorno en el que diferentes herramientas CASE trabajan de forma integrada durante el desarrollo de software. Su propósito es evitar que cada herramienta funcione de manera aislada y permitir que la información generada en una etapa pueda ser utilizada por otras herramientas en las siguientes actividades del proyecto.
 
-Para lograr esa sincronización perfecta y unificar todas las herramientas que vimos en la taxonomía, se necesita un núcleo central. Ese núcleo es el **repositorio CASE**, que constituye el elemento integrador definitivo dentro de un entorno de Ingeniería de Software Asistida por Computadora. 
+<div class="my-8">
 
-Más que un simple espacio de almacenamiento, funciona como una **base de datos maestra del proyecto** en la que se concentra toda la información generada durante las diferentes etapas. En un entorno I-CASE, el repositorio es el puente que conecta los datos con las distintas herramientas, permitiendo que la información fluya, se comparta y se utilice de manera consistente a lo largo de todo el proceso.
+<img
+  src="/img/icase-integracion.png"
+  alt="Esquema de integración de herramientas I-CASE"
+  class="w-full max-w-4xl mx-auto rounded-2xl shadow-md border border-gray-200"
+/>
+
+<p class="text-center text-sm text-gray-500 mt-3">
+  Integración de diferentes herramientas CASE dentro de un entorno común de desarrollo.
+</p>
+
+</div>
+
+La verdadera potencia de un entorno CASE aparece cuando existe un alto nivel de **integración**. Esto permite intercambiar regularmente elementos como **modelos, programas, documentos y datos**, reduciendo tareas repetitivas y facilitando que los diferentes integrantes del equipo trabajen con información relacionada y consistente.
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
+
+<div class="blog-feature-card">
+
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">sync_alt</span>
+</div>
+
+### Integración de herramientas
+
+Las diferentes herramientas CASE pueden intercambiar información y colaborar dentro de un mismo entorno de desarrollo.
+
+</div>
+
+<div class="blog-feature-card">
+
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">share</span>
+</div>
+
+### Información compartida
+
+Los modelos, documentos, programas y datos generados durante el proyecto pueden ser utilizados por distintas herramientas.
+
+</div>
+
+<div class="blog-feature-card">
+
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">groups</span>
+</div>
+
+### Trabajo coordinado
+
+La integración facilita la coordinación entre los integrantes del equipo y ayuda a mantener una visión común del proyecto.
+
+</div>
+
+</div>
+
+### 4.1 Características de un entorno I-CASE
+
+Para conseguir una integración efectiva, las herramientas deben compartir información y mantener relaciones entre los distintos elementos producidos durante el desarrollo. De esta manera, cuando un elemento cambia, es posible identificar los demás elementos relacionados y analizar cómo podrían verse afectados.
+
+Entre las capacidades importantes de un entorno I-CASE se encuentran el **intercambio de información entre herramientas, seguimiento de relaciones entre elementos, control de versiones y gestión de la configuración**. Estas funciones permiten administrar de manera más organizada la evolución del software.
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-7">
+
+<div class="blog-feature-card">
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">swap_horiz</span>
+</div>
+
+### Intercambio
+
+Transferencia de información entre las diferentes herramientas CASE.
+
+</div>
+
+<div class="blog-feature-card">
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+
+### Relaciones
+
+Seguimiento de las dependencias existentes entre los elementos del proyecto.
+
+</div>
+
+<div class="blog-feature-card">
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">history</span>
+</div>
+
+### Versiones
+
+Control de las diferentes versiones producidas durante la evolución del software.
+
+</div>
+
+<div class="blog-feature-card">
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+
+### Configuración
+
+Gestión organizada de los componentes y cambios que forman parte del proyecto.
+
+</div>
+
+</div>
+
+La integración de herramientas también puede disminuir el esfuerzo necesario en actividades como **gestión de configuración, control de calidad y producción de documentación**. Al mismo tiempo, proporciona mayor control sobre el proyecto y mejora la coordinación entre las personas involucradas en el desarrollo.
+
+<div class="blog-feature-card my-7">
+
+<div class="flex items-start gap-4">
+
+<div class="blog-feature-icon shrink-0">
+<span class="material-symbols-outlined">hub</span>
+</div>
+
+<div>
+
+### La idea central de I-CASE
+
+I-CASE no consiste simplemente en utilizar muchas herramientas CASE al mismo tiempo. Su característica principal es que estas herramientas estén **integradas**, compartan información y permitan mantener relacionados los diferentes productos generados durante el ciclo de vida del software.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="tema-5" class="blog-reveal">
+
+## 5. Repositorio CASE
+
+El **repositorio CASE** es uno de los elementos fundamentales dentro de un entorno CASE integrado. Puede entenderse como una **base de datos central del proyecto**, donde se almacena y organiza la información generada durante las diferentes etapas del desarrollo de software.
+
+Su importancia no se limita al almacenamiento. El repositorio permite que las distintas herramientas CASE trabajen con información común y mantengan relaciones entre los diferentes elementos del proyecto, como requisitos, modelos, documentos, componentes, versiones y elementos de configuración.
+
+<div class="my-8">
+
+<img
+  src="/img/repositorio-case.jpg"
+  alt="Representación conceptual de un repositorio CASE"
+  class="w-full max-w-4xl mx-auto rounded-2xl shadow-md border border-gray-200"
+/>
+
+<p class="text-center text-sm text-gray-500 mt-3">
+  El repositorio CASE centraliza la información y permite que distintas herramientas trabajen sobre datos relacionados.
+</p>
+
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
+
+<div class="blog-feature-card">
+
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">database</span>
+</div>
+
+### Almacenamiento central
+
+Concentra la información generada durante el desarrollo para evitar que los datos del proyecto se encuentren dispersos.
+
+</div>
 
 <div class="blog-feature-card">
 
@@ -175,19 +342,123 @@ Más que un simple espacio de almacenamiento, funciona como una **base de datos 
 
 ### Integración
 
-Conecta los datos del proyecto con las distintas herramientas CASE para que trabajen sobre una fuente de información común.
+Permite relacionar los datos almacenados con las herramientas CASE que los producen, modifican o utilizan.
 
 </div>
 
 <div class="blog-feature-card">
 
 <div class="blog-feature-icon">
-<span class="material-symbols-outlined">verified</span>
+<span class="material-symbols-outlined">rule</span>
 </div>
 
 ### Consistencia
 
-Ayuda a mantener relaciones coherentes entre requisitos, modelos, documentos, versiones y elementos de configuración.
+Ayuda a mantener reglas, relaciones y restricciones sobre la información utilizada dentro del proyecto.
+
+</div>
+
+</div>
+
+### 5.1 Funciones principales del repositorio
+
+Una de sus funciones principales es la **integración datos-datos**, mediante la cual los objetos almacenados mantienen relaciones entre sí. Esto permite que la información no sea tratada como elementos aislados, sino como partes relacionadas de un mismo sistema.
+
+El repositorio también favorece la **integración herramienta-datos**, ya que las herramientas CASE pueden acceder a la información almacenada e interpretarla de acuerdo con un modelo de información común.
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
+
+<div class="blog-feature-card">
+
+<div class="flex items-start gap-4">
+
+<div class="blog-feature-icon shrink-0">
+<span class="material-symbols-outlined">link</span>
+</div>
+
+<div>
+
+### Integración de información
+
+Los elementos almacenados pueden relacionarse entre sí, facilitando la trazabilidad y permitiendo identificar dependencias dentro del proyecto.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="blog-feature-card">
+
+<div class="flex items-start gap-4">
+
+<div class="blog-feature-icon shrink-0">
+<span class="material-symbols-outlined">extension</span>
+</div>
+
+<div>
+
+### Integración con herramientas
+
+Las herramientas CASE utilizan el repositorio como una fuente común de información, evitando duplicidad y favoreciendo el intercambio de datos.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+Además, el repositorio incorpora características propias de un **Sistema de Gestión de Bases de Datos (SGBD)**. Entre ellas se encuentran el control de transacciones, mecanismos de recuperación y protección de la integridad cuando varios usuarios trabajan simultáneamente sobre la información del proyecto.
+
+El modelo de información del repositorio también puede contener **reglas y políticas** que permiten comprobar que los datos incorporados cumplan determinadas restricciones. De esta manera, el repositorio no solo conserva información, sino que ayuda a mantener su validez y coherencia.
+
+<div class="blog-feature-card my-7">
+
+<div class="flex items-start gap-4">
+
+<div class="blog-feature-icon shrink-0">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+
+<div>
+
+### El repositorio como centro del entorno CASE
+
+El ingeniero de software interactúa con el repositorio mediante las herramientas CASE integradas. Por ello, el repositorio actúa como un punto central donde se conserva el conocimiento del proyecto y desde el cual las distintas herramientas pueden compartir e interpretar la información.
+
+</div>
+
+</div>
+
+</div>
+
+En consecuencia, un repositorio CASE facilita la **centralización, integración, trazabilidad y control de la información** durante el ciclo de vida del software. Estas características resultan especialmente importantes en proyectos donde intervienen múltiples herramientas, personas y versiones de un mismo sistema.
+
+</section>
+
+<section id="tema-6" class="blog-reveal">
+
+## 6. Ejemplos o casos breves de CASE e I-CASE
+
+Las herramientas CASE pueden utilizarse en diferentes actividades del desarrollo de software, desde el modelado y diseño hasta la gestión de versiones y documentación. Por su parte, un entorno **I-CASE** busca integrar estas herramientas y la información que producen, permitiendo que diferentes actividades del ciclo de vida se encuentren relacionadas.
+
+Los siguientes casos permiten observar de forma sencilla la diferencia entre utilizar una herramienta CASE para una actividad específica y trabajar dentro de un entorno integrado.
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
+
+<div class="blog-feature-card">
+
+<div class="blog-feature-icon">
+<span class="material-symbols-outlined">schema</span>
+</div>
+
+### Caso 1 — Modelado con una herramienta CASE
+
+Un equipo necesita representar la estructura y comportamiento de un sistema antes de comenzar su implementación. Para ello puede utilizar una herramienta CASE orientada al **modelado y diseño**, creando diagramas y representaciones que ayuden a comprender el sistema.
+
+**Ejemplo:** PowerDesigner puede utilizarse para apoyar actividades de modelado y diseño dentro del proceso de desarrollo.
 
 </div>
 
@@ -197,293 +468,144 @@ Ayuda a mantener relaciones coherentes entre requisitos, modelos, documentos, ve
 <span class="material-symbols-outlined">account_tree</span>
 </div>
 
-### Trazabilidad
+### Caso 2 — Gestión de configuración
 
-Permite seguir los cambios realizados en un elemento y comprender cómo pueden afectar a otros componentes relacionados.
+Durante el desarrollo participan varios integrantes y se producen diferentes versiones de los componentes del sistema. Una herramienta CASE orientada a la **gestión de configuración** permite controlar estos cambios y mantener organizada la evolución del proyecto.
 
-</div>
-
-</div>
-
-Su principal función es mantener relacionados los distintos elementos del proyecto, como **requisitos, modelos, documentos, componentes, versiones y otros objetos de configuración**. Esta relación facilita que las herramientas CASE puedan acceder a información común y que los cambios realizados en un elemento puedan reflejarse o rastrearse en otros elementos relacionados. Por esta razón, el repositorio favorece la **trazabilidad, consistencia y control de la información** durante todo el ciclo de vida del software.
-
-Además, el repositorio incorpora funciones propias de los sistemas de gestión de bases de datos, entre ellas el **control de transacciones, la protección de la integridad de los datos y el manejo del acceso concurrente** de varios usuarios. Estas características permiten que diferentes miembros del equipo trabajen simultáneamente sin comprometer la coherencia de la información almacenada.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">database</span>
-</div>
-
-<div>
-
-### Más que almacenamiento
-
-El modelo de información del repositorio contiene reglas y políticas que permiten validar la información incorporada al sistema. De esta manera, no solo almacena datos, sino que también ayuda a controlar que estos cumplan las restricciones y relaciones definidas para el proyecto.
+**Ejemplo:** Rational ClearCase proporciona capacidades relacionadas con el control y gestión de los elementos de configuración.
 
 </div>
 
 </div>
-
-</div>
-
-Por estas razones, puede considerarse al repositorio CASE como **“el cerebro del proyecto”**, ya que centraliza el conocimiento generado, conecta las diferentes herramientas utilizadas por el equipo y permite mantener una visión coherente del sistema mientras este evoluciona.
-
-</section>
-
-
-<section class="blog-reveal">
-<div id="tema-5" class="scroll-mt-28"></div>
-
-## 5. I-CASE: LA INTEGRACIÓN DE LA INTELIGENCIA ARTIFICIAL
-
-Si el repositorio es el "cerebro" que centraliza y conecta la información de todo el proyecto, el siguiente paso lógico en la evolución de las herramientas CASE es dotar a ese cerebro de capacidad de razonamiento. 
-
-Mientras las herramientas tradicionales se limitaban a automatizar y almacenar, la propuesta de **Intelligent Computer Aided Software Engineering (I-CASE)** da un salto cualitativo incorporando técnicas de Inteligencia Artificial. Su propósito ya no es solo guardar datos o ejecutar comandos, sino asistir de forma activa en tareas que requieren **análisis, razonamiento, predicción y toma de decisiones complejas**.
-
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-7">
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">psychology</span>
-</div>
-
-### KBS
-
-Sistemas basados en conocimiento que utilizan información estructurada para apoyar decisiones y resolver problemas.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">history</span>
-</div>
-
-### CBR
-
-El razonamiento basado en casos reutiliza experiencias previas para apoyar la solución de nuevos problemas.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">translate</span>
-</div>
-
-### NLP
-
-El Procesamiento del Lenguaje Natural permite analizar requisitos escritos en lenguaje humano.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">genetics</span>
-</div>
-
-### Algoritmos Genéticos
-
-Se utilizan en tareas de optimización, búsqueda y resolución de problemas complejos.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">neurology</span>
-</div>
-
-### Redes Neuronales
-
-Apoyan actividades relacionadas con aprendizaje, clasificación, predicción y mantenimiento.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">query_stats</span>
-</div>
-
-### Razonamiento Probabilístico
-
-Permite trabajar con información incompleta, incierta o variable dentro del proceso de desarrollo.
-
-</div>
-
-</div>
-
-La Inteligencia Artificial puede aplicarse en diferentes etapas del ciclo de vida del software. Estas técnicas pueden apoyar actividades relacionadas con la **planificación, ingeniería de requisitos, codificación, pruebas, gestión de riesgos y mantenimiento del software**.
-
-Un ejemplo importante se encuentra en la **ingeniería de requisitos**. Los requisitos suelen expresarse inicialmente mediante lenguaje natural, lo que puede producir problemas de ambigüedad, contradicción o información incompleta. Técnicas de IA como el **Procesamiento del Lenguaje Natural (NLP)** y los sistemas basados en conocimiento pueden contribuir al análisis y tratamiento de estos problemas, apoyando tareas de obtención, análisis, especificación y validación de requisitos.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">code_blocks</span>
-</div>
-
-<div>
-
-### IA a lo largo del desarrollo
-
-La IA puede apoyar la **generación automática de código**, aumentar el grado de automatización de las **pruebas** y utilizar técnicas de predicción durante la **evolución y mantenimiento** del software. Esto amplía el concepto de asistencia CASE hacia actividades cada vez más complejas.
-
-</div>
-
-</div>
-
-</div>
-
-Sin embargo, la incorporación de Inteligencia Artificial **no significa eliminar completamente la participación humana**. Existen actividades del desarrollo, especialmente aquellas relacionadas con creatividad, comprensión del problema y decisiones de diseño, donde las capacidades humanas continúan siendo necesarias.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">handshake</span>
-</div>
-
-<div>
-
-### IA + criterio humano
-
-El objetivo de I-CASE es utilizar técnicas inteligentes para **facilitar y acelerar el esfuerzo de desarrollo**, complementando el conocimiento, la experiencia y la capacidad de decisión de los profesionales del software.
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="blog-reveal">
-<div id="tema-6" class="scroll-mt-28"></div>
-
-## 6. EL IMPACTO REAL DE LA IA EN LA PRODUCTIVIDAD
-
-Pero, ¿cómo se traduce toda esta asistencia inteligente de I-CASE en el día a día? La incorporación de estas herramientas de **Inteligencia Artificial en el desarrollo de software** está transformando radicalmente la manera en que los programadores operan. Su principal aporte va más allá de escribir código rápido: radica en la automatización profunda de tareas repetitivas, permitiendo que el equipo humano concentre su energía y tiempo en lo que realmente importa, como el análisis arquitectónico, el diseño de soluciones y la resolución de problemas críticos.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
 
 <div class="blog-feature-card">
 
 <div class="blog-feature-icon">
-<span class="material-symbols-outlined">bolt</span>
+<span class="material-symbols-outlined">developer_mode</span>
 </div>
 
-### Productividad y automatización
+### Caso 3 — Apoyo al desarrollo
 
-La IA puede apoyar tareas como la **generación de código repetitivo, refactorización y elaboración inicial de pruebas**, reduciendo parte del trabajo manual y agilizando determinadas etapas del desarrollo.
+Un desarrollador puede trabajar con herramientas que faciliten diferentes tareas relacionadas con la construcción del software. Estas herramientas proporcionan un entorno de apoyo para trabajar con los componentes y recursos necesarios durante la implementación.
 
-<div class="mt-4 space-y-2">
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">check_circle</span>
-<span>Reducción de tareas repetitivas</span>
-</div>
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">check_circle</span>
-<span>Apoyo en generación y refactorización de código</span>
-</div>
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">check_circle</span>
-<span>Asistencia en creación inicial de pruebas</span>
-</div>
-
-</div>
+**Ejemplo:** Eclipse constituye un entorno utilizado para apoyar actividades relacionadas con el desarrollo de software.
 
 </div>
 
 <div class="blog-feature-card">
 
 <div class="blog-feature-icon">
-<span class="material-symbols-outlined">shield_person</span>
+<span class="material-symbols-outlined">hub</span>
 </div>
 
-### Calidad y supervisión
+### Caso 4 — Entorno I-CASE
 
-El uso de IA también introduce nuevos desafíos. Las soluciones generadas automáticamente deben ser **revisadas y validadas** antes de incorporarse a un sistema.
+Supongamos que un equipo utiliza herramientas para requisitos, diseño, desarrollo, pruebas y documentación. Si cada una trabaja de manera independiente, la información debe transferirse y mantenerse manualmente.
 
-<div class="mt-4 space-y-2">
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">warning</span>
-<span>Posibles errores o respuestas incorrectas</span>
-</div>
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">security</span>
-<span>Riesgos relacionados con seguridad</span>
-</div>
-
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[#7ea000] text-lg">bug_report</span>
-<span>Dificultades en pruebas y confiabilidad</span>
-</div>
+En un entorno **I-CASE**, estas herramientas pueden compartir información mediante mecanismos de integración, permitiendo mantener relacionados los diferentes productos generados durante el proyecto.
 
 </div>
 
 </div>
 
+### 6.1 ¿Cómo funcionaría un caso I-CASE?
+
+Por ejemplo, un equipo podría comenzar definiendo los **requisitos** del sistema y posteriormente generar modelos durante la etapa de **diseño**. Estos elementos se relacionan con los componentes desarrollados y con la documentación correspondiente.
+
+En un entorno integrado, la información puede mantenerse relacionada durante estas actividades:
+
+<div class="blog-feature-card my-7">
+
+<div class="flex flex-col md:flex-row items-stretch justify-between gap-4">
+
+<div class="flex-1 text-center">
+  <div class="blog-feature-icon mx-auto">
+    <span class="material-symbols-outlined">description</span>
+  </div>
+
+### Requisitos
+
+  <p class="!text-center !leading-relaxed !mt-3">
+    Necesidades y características que debe cumplir el sistema.
+  </p>
 </div>
 
-Sin embargo, hablar de productividad no significa únicamente producir una mayor cantidad de código en menos tiempo. La productividad del desarrollador es un concepto complejo que también debe considerar la **calidad del software y el contexto en el que se realiza el trabajo**. Estudios recientes sobre herramientas de IA han encontrado una relación positiva entre un uso más amplio de estas tecnologías y la productividad percibida por los desarrolladores, aunque estas percepciones no deben confundirse directamente con mediciones objetivas de productividad.
+<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
+arrow_forward
+</span>
+
+<div class="flex-1 text-center">
+  <div class="blog-feature-icon mx-auto">
+    <span class="material-symbols-outlined">architecture</span>
+  </div>
+
+### Diseño
+
+  <p class="!text-center !leading-relaxed !mt-3">
+    Modelos que representan la estructura de la solución.
+  </p>
+</div>
+
+<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
+arrow_forward
+</span>
+
+<div class="flex-1 text-center">
+  <div class="blog-feature-icon mx-auto">
+    <span class="material-symbols-outlined">code</span>
+  </div>
+
+### Desarrollo
+
+  <p class="!text-center !leading-relaxed !mt-3">
+    Construcción de los componentes del software.
+  </p>
+</div>
+
+<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
+arrow_forward
+</span>
+
+<div class="flex-1 text-center">
+  <div class="blog-feature-icon mx-auto">
+    <span class="material-symbols-outlined">fact_check</span>
+  </div>
+
+### Pruebas
+
+  <p class="!text-center !leading-relaxed !mt-3">
+    Verificación del comportamiento del sistema.
+  </p>
+</div>
+
+</div>
+
+</div>
+
+La diferencia fundamental es que **CASE puede proporcionar herramientas especializadas para determinadas actividades**, mientras que I-CASE busca que esas herramientas formen parte de un **entorno integrado**, compartiendo información y manteniendo relaciones entre los elementos generados durante el desarrollo.
 
 <div class="blog-feature-card my-7">
 
 <div class="flex items-start gap-4">
 
 <div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">balance</span>
+<span class="material-symbols-outlined">compare_arrows</span>
 </div>
 
 <div>
 
-### Productividad no es solo velocidad
+### CASE e I-CASE en pocas palabras
 
-Una herramienta puede acelerar una tarea, pero eso no garantiza por sí solo una mejora global del proyecto. También deben considerarse la **calidad del resultado, el tiempo de revisión, el posible retrabajo y la confiabilidad del software producido**.
+**CASE:** una herramienta puede apoyar una actividad concreta del desarrollo, como modelado, documentación o gestión de configuración.
 
-</div>
-
-</div>
-
-</div>
-
-La supervisión humana continúa siendo fundamental para evaluar las soluciones propuestas, tomar decisiones de diseño y garantizar que el resultado cumpla con los requisitos y estándares de calidad del proyecto.
-
-<div class="blog-feature-card my-7">
-
-<div class="flex items-start gap-4">
-
-<div class="blog-feature-icon shrink-0">
-<span class="material-symbols-outlined">psychology_alt</span>
-</div>
-
-<div>
-
-### El desarrollador sigue en el centro
-
-La IA debe entenderse como un **apoyo que amplía las capacidades del desarrollador y no como un reemplazo de su conocimiento**. El criterio técnico, la experiencia y la capacidad de decisión siguen siendo esenciales para utilizar correctamente estas herramientas.
+**I-CASE:** diferentes herramientas CASE trabajan de manera integrada, comparten información y permiten mantener relacionados los productos generados durante distintas etapas del proyecto.
 
 </div>
 
 </div>
 
 </div>
-
-En consecuencia, el verdadero impacto de la Inteligencia Artificial en la productividad depende de utilizarla de manera responsable. Al combinar la **automatización con el criterio técnico, la experiencia y la capacidad de decisión del profesional**, el tiempo ahorrado puede aprovecharse en actividades de mayor valor dentro del proyecto sin descuidar la calidad del producto final.
 
 </section>
