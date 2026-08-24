@@ -1,6 +1,6 @@
 ---
 title: "APE 1: Fundamentos de la Ingeniería Asistida por Computadora"
-summary: "Análisis, evaluación y taxonomía de las herramientas CASE y su evolución hacia entornos integrados (I-CASE) en el desarrollo de software."
+summary: "Fundamentos de CASE vistos en clase y en la lectura, análisis crítico de la taxonomía funcional de Pressman, y una taxonomía propuesta organizada por el ciclo de vida del software, con ejemplos y referencias."
 unit_tag: "UNIDAD 01 • APE 1"
 category: "UNIDAD 1"
 theme: "light"
@@ -14,15 +14,51 @@ image_url: "/img/fundamentos.png"
 <section class="blog-reveal">
 <div id="tema-1" class="scroll-mt-28"></div>
 
-## 1. EL ESPACIO DE TRABAJO EN EL DESARROLLO ASISTIDO POR SOFTWARE
+## 1. ¿QUÉ ES CASE?
 
-El desarrollo de software moderno exige mucho más que la escritura de código: requiere metodología, control de errores y criterios de calidad desde las primeras etapas del proyecto. La gestión de requisitos y la organización del trabajo suelen representar, de hecho, un desafío mayor que la programación en sí misma.
+Antes de escribir una sola línea de código, un equipo necesita metodología, control de errores y criterios de calidad. Programar es solo una parte del desarrollo; organizar bien el trabajo suele ser lo más difícil.
 
-Construir soluciones sólidas requiere un espacio de trabajo estructurado sobre tres pilares: herramientas adecuadas para el producto que se desea construir, flujos de trabajo organizados para emplearlas con eficacia, y profesionales capacitados para dominarlas.
+**CASE** (*Computer Aided Software Engineering* — Ingeniería de Software Asistida por Computadora) es el conjunto de herramientas de software que se usan en las fases de análisis, diseño y programación de un sistema. Su objetivo fundamental es proveer un lenguaje para describir el sistema completo, lo suficientemente explícito como para generar todos los programas necesarios. En otras palabras: CASE aplica principios científicos, a través de una metodología, para producir software de mayor calidad en menos tiempo.
 
-En este contexto surge la Ingeniería de Software Asistida por Computadora, conocida como CASE, cuyo objetivo es automatizar y respaldar las fases de análisis, diseño y codificación, agilizando el trabajo diario tanto en proyectos pequeños como en desarrollos de escala empresarial.
+Herramientas de uso diario —un editor de código, Git, una consola, un gestor de base de datos— son ejemplos reales de herramientas CASE, aunque no lo parezcan a simple vista.
 
-A continuación se explora cómo se aplica este concepto en la práctica, a través de herramientas propias del entorno de trabajo diario: editores de texto como Notepad++, sistemas de control de versiones como Git, consolas de comandos y gestores de bases de datos.
+<div class="flex items-start gap-3 bg-surface/80 backdrop-blur-xl border border-outline-variant/10 p-6 my-6 not-prose">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">history_edu</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-[#7ea000]">¿Por qué surgió CASE?</strong> Durante años los ingenieros de software fueron "los hijos del zapatero": automatizaban el trabajo de otros sin aplicar esas mismas técnicas a su propio proceso. Recién en la década de 1970, al incorporarse fórmulas y algoritmos a la computadora, nació el vínculo entre CAD, CAM y, más tarde, CASE.</p>
+</div>
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">01</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Agiliza el desarrollo</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Aplica metodologías estructuradas en vez de trabajar "a mano".</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">02</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Facilita prototipos</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Permite desarrollo conjunto de aplicaciones.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">03</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Simplifica el mantenimiento</p>
+        <p class="text-gray-500 text-sm leading-relaxed">El código y los modelos quedan organizados.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">04</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Estandariza la documentación</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Favorece la reutilización de componentes.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="mt-6 mb-2 py-0">
   <h3 class="text-base md:text-lg font-bold uppercase tracking-wider text-gray-900 mb-3 flex items-center gap-2">
@@ -30,44 +66,13 @@ A continuación se explora cómo se aplica este concepto en la práctica, a trav
     Tabla de Contenidos
   </h3>
   <ul class="space-y-2.5 !list-none !p-0 !m-0">
-    <li class="!mb-1">
-      <a href="#tema-1" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">01.</span>
-        <span>El Espacio de Trabajo en el Desarrollo Asistido por Software</span>
-      </a>
-    </li>
-    <li class="!mb-1">
-      <a href="#tema-2" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">02.</span>
-        <span>¿Qué es CASE?</span>
-      </a>
-    </li>
-    <li class="!mb-1">
-      <a href="#tema-3" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-        <span class="text-xs font-bold text-gray-400">03.</span>
-        <span>Taxonomía de las Herramientas CASE</span>
-      </a>
-    </li>
-    <li class="!mb-1">
-  <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-    <span class="text-xs font-bold text-gray-400">04.</span>
-    <span>I-CASE</span>
-  </a>
-</li>
-
-<li class="!mb-1">
-  <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-    <span class="text-xs font-bold text-gray-400">05.</span>
-    <span>Repositorio CASE</span>
-  </a>
-</li>
-
-<li class="!mb-1">
-  <a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
-    <span class="text-xs font-bold text-gray-400">06.</span>
-    <span>Ejemplos o casos breves de CASE e I-CASE</span>
-  </a>
-</li>
+    <li class="!mb-1"><a href="#tema-1" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">01.</span><span>¿Qué es CASE?</span></a></li>
+    <li class="!mb-1"><a href="#tema-2" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">02.</span><span>Bloques constitutivos y niveles de integración</span></a></li>
+    <li class="!mb-1"><a href="#tema-3" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">03.</span><span>I-CASE y arquitectura de integración</span></a></li>
+    <li class="!mb-1"><a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">04.</span><span>El Repositorio CASE</span></a></li>
+    <li class="!mb-1"><a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">05.</span><span>Análisis de la taxonomía de la lectura (Pressman)</span></a></li>
+    <li class="!mb-1"><a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">06.</span><span>Taxonomía propuesta, con ejemplos y casos breves</span></a></li>
+    <li class="!mb-1"><a href="#tema-7" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline"><span class="text-xs font-bold text-gray-400">07.</span><span>Referencias</span></a></li>
   </ul>
 </div>
 
@@ -82,13 +87,7 @@ A continuación se explora cómo se aplica este concepto en la práctica, a trav
     <span class="material-symbols-outlined text-gray-500 text-base">smart_display</span>
   </div>
   <div class="relative w-full aspect-video bg-black">
-    <iframe
-      class="w-full h-full border-0"
-      src="https://www.youtube.com/embed/BnKVNhEUn_M"
-      title="Video Demostración CASE"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+    <iframe class="w-full h-full border-0" src="https://www.youtube.com/embed/BnKVNhEUn_M" title="Video Demostración CASE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>
 </section>
@@ -96,431 +95,408 @@ A continuación se explora cómo se aplica este concepto en la práctica, a trav
 <section class="blog-reveal">
 <div id="tema-2" class="scroll-mt-28"></div>
 
-## 2. ¿QUÉ ES CASE?
+## 2. BLOQUES CONSTITUTIVOS Y NIVELES DE INTEGRACIÓN
 
-Para que el espacio de trabajo funcione como un entorno integrado y no como un conjunto de herramientas aisladas, es necesario comprender el concepto de CASE.
+Una herramienta CASE puede ser tan simple como un editor de código, o tan compleja como un entorno completo que integra bases de datos, hardware, red, sistemas operativos y estándares. Para entender cómo se arma ese entorno, la lectura describe una estructura en capas: cada bloque es la base del siguiente.
 
-CASE, sigla de *Computer Aided Software Engineering* (Ingeniería de Software Asistida por Computadora), es una categoría que agrupa las herramientas utilizadas para automatizar, gestionar o apoyar actividades del ciclo de vida del desarrollo de software. Estas pueden intervenir en tareas como el análisis, diseño, programación, pruebas y documentación.
+<div class="flex flex-col items-center gap-2 my-8 not-prose">
+<div class="w-full sm:w-[44%] flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000]/25 rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/25 text-gray-900 text-xs font-bold flex items-center justify-center">6</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Herramientas CASE</p><p class="text-gray-500 text-xs leading-relaxed">La cima de la pirámide: las herramientas específicas que usa el ingeniero.</p></div>
+</div>
+<div class="w-full sm:w-[56%] flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000]/40 rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/40 text-gray-900 text-xs font-bold flex items-center justify-center">5</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Marco de integración</p><p class="text-gray-500 text-xs leading-relaxed">Programas que permiten que las herramientas se comuniquen, compartan una base de datos y tengan un mismo aspecto para el usuario.</p></div>
+</div>
+<div class="w-full sm:w-[68%] flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000]/55 rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/55 text-white text-xs font-bold flex items-center justify-center">4</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Servicios de portabilidad</p><p class="text-gray-500 text-xs leading-relaxed">Puente entre herramientas, marco de integración y arquitectura de entorno; permite migrar entre plataformas de hardware y SO sin adaptarlas.</p></div>
+</div>
+<div class="w-full sm:w-[80%] flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000]/70 rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/70 text-white text-xs font-bold flex items-center justify-center">3</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Sistema operativo</p><p class="text-gray-500 text-xs leading-relaxed">Gestiona el hardware, la red y las herramientas; mantiene el entorno unido.</p></div>
+</div>
+<div class="w-full sm:w-[90%] flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000]/85 rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/85 text-white text-xs font-bold flex items-center justify-center">2</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Plataforma hardware</p><p class="text-gray-500 text-xs leading-relaxed">Estaciones de trabajo individuales interconectadas por red.</p></div>
+</div>
+<div class="w-full flex items-start gap-3 bg-white border border-gray-200 border-l-4 border-l-[#7ea000] rounded-lg p-4">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000] text-white text-xs font-bold flex items-center justify-center">1</span>
+<div><p class="font-bold text-gray-900 text-sm mb-0.5">Arquitectura de entorno</p><p class="text-gray-500 text-xs leading-relaxed">La base de todo: engloba sistemas de software y hardware, y considera los patrones de trabajo humano del proceso de ingeniería.</p></div>
+</div>
+</div>
 
-En la práctica, algunas herramientas de uso cotidiano ya pueden considerarse herramientas CASE. Por ejemplo, Notepad++ facilita la escritura de código, Git permite gestionar versiones y cambios, y los gestores de bases de datos apoyan la administración de la información del sistema.
+>El fundamento de un CASE efectivo tiene, curiosamente, poco que ver con las herramientas de ingeniería en sí mismas: depende de que estas capas base encajen bien entre ellas.
 
-El uso de herramientas CASE busca principalmente:
+### 2.1 Niveles de integración entre herramientas
 
-* Aplicar metodologías estructuradas y agilizar el desarrollo.
-* Facilitar la creación de prototipos.
-* Simplificar el mantenimiento del software.
-* Mejorar y estandarizar la documentación.
-* Favorecer la reutilización de componentes.
+No todas las herramientas CASE se comunican igual de bien entre sí. La lectura describe un espectro con cuatro niveles:
 
-CASE no se limita a una sola herramienta, sino que comprende diferentes soluciones destinadas a distintas etapas del desarrollo. Por ello, es necesario clasificarlas según la función que desempeñan.
+<div class="my-9 not-prose">
+
+<div class="hidden sm:block relative">
+<div class="absolute top-4 left-0 right-0 h-0.5 bg-[#7ea000]/20"></div>
+<div class="relative flex justify-between gap-3">
+<div class="flex flex-col items-center text-center w-1/4">
+<span class="relative z-10 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/40 text-[#7ea000] text-xs font-bold flex items-center justify-center mb-3">1</span>
+<p class="font-bold text-gray-900 text-sm mb-1">Herramienta individual</p>
+<p class="text-gray-500 text-xs leading-relaxed">Trabaja sola, sin comunicarse con otras.</p>
+</div>
+<div class="flex flex-col items-center text-center w-1/4">
+<span class="relative z-10 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/60 text-[#7ea000] text-xs font-bold flex items-center justify-center mb-3">2</span>
+<p class="font-bold text-gray-900 text-sm mb-1">Intercambio de datos</p>
+<p class="text-gray-500 text-xs leading-relaxed">Salida en un formato estándar que otras herramientas pueden leer.</p>
+</div>
+<div class="flex flex-col items-center text-center w-1/4">
+<span class="relative z-10 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/80 text-[#7ea000] text-xs font-bold flex items-center justify-center mb-3">3</span>
+<p class="font-bold text-gray-900 text-sm mb-1">Integración por fuente única</p>
+<p class="text-gray-500 text-xs leading-relaxed">Un fabricante integra varias herramientas como paquete cerrado.</p>
+</div>
+<div class="flex flex-col items-center text-center w-1/4">
+<span class="relative z-10 w-8 h-8 rounded-full bg-[#7ea000] text-white text-xs font-bold flex items-center justify-center mb-3">4</span>
+<p class="font-bold text-gray-900 text-sm mb-1">EAIP / IPSE</p>
+<p class="text-gray-500 text-xs leading-relaxed">Entorno de apoyo integrado a proyectos: el nivel más alto.</p>
+</div>
+</div>
+</div>
+
+<div class="sm:hidden relative">
+<div class="absolute left-4 top-4 bottom-4 w-0.5 bg-[#7ea000]/20"></div>
+<div class="relative flex gap-4 pb-6">
+<span class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/40 text-[#7ea000] text-xs font-bold flex items-center justify-center">1</span>
+<div class="pt-1"><p class="font-bold text-gray-900 text-sm mb-1">Herramienta individual (solución puntual)</p><p class="text-gray-500 text-sm leading-relaxed">Nivel más bajo: la herramienta trabaja sola, sin comunicarse con otras.</p></div>
+</div>
+<div class="relative flex gap-4 pb-6">
+<span class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/60 text-[#7ea000] text-xs font-bold flex items-center justify-center">2</span>
+<div class="pt-1"><p class="font-bold text-gray-900 text-sm mb-1">Intercambio de datos</p><p class="text-gray-500 text-sm leading-relaxed">La herramienta produce salida en un formato estándar que otras pueden leer (p. ej. un análisis que se une a un generador de código).</p></div>
+</div>
+<div class="relative flex gap-4 pb-6">
+<span class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-white border-2 border-[#7ea000]/80 text-[#7ea000] text-xs font-bold flex items-center justify-center">3</span>
+<div class="pt-1"><p class="font-bold text-gray-900 text-sm mb-1">Integración por fuente única</p><p class="text-gray-500 text-sm leading-relaxed">Un mismo fabricante integra varias herramientas y las vende como paquete. Eficiente, pero de arquitectura cerrada.</p></div>
+</div>
+<div class="relative flex gap-4">
+<span class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-[#7ea000] text-white text-xs font-bold flex items-center justify-center">4</span>
+<div class="pt-1"><p class="font-bold text-gray-900 text-sm mb-1">EAIP / IPSE</p><p class="text-gray-500 text-sm leading-relaxed">Nivel más alto: <em>entorno de apoyo integrado a proyectos</em>. El material de clase lo llama IPSE (sigla en inglés) y Pressman lo llama EAIP — ambos términos se refieren al mismo concepto.</p></div>
+</div>
+</div>
+
+</div>
 
 </section>
 
 <section class="blog-reveal">
 <div id="tema-3" class="scroll-mt-28"></div>
 
-## 3. TAXONOMÍA DE LAS HERRAMIENTAS CASE: ¿CÓMO SE CLASIFICAN?
+## 3. I-CASE Y ARQUITECTURA DE INTEGRACIÓN
 
-Las herramientas CASE pueden clasificarse mediante diferentes criterios, como su arquitectura, costo o tipo de usuario. Sin embargo, el criterio más utilizado es la función que cumplen dentro del ciclo de vida del software.
+**I-CASE** (*Integrated CASE*) no es una herramienta ni una categoría más: es el grado de integración con el que trabajan las herramientas CASE entre sí. La verdadera potencia de CASE solo se logra cuando la información fluye de una herramienta a otra sin intervención manual.
 
-Para facilitar su comprensión, pueden agruparse en tres grandes categorías: Upper CASE, Lower CASE y Cross-Life Cycle.
-
-Los términos *Upper* y *Lower* hacen referencia a la posición de las actividades dentro de la representación tradicional del ciclo de vida del software. Upper CASE se relaciona con las etapas iniciales, mientras que Lower CASE se enfoca en las actividades de construcción y pruebas. Por su parte, Cross-Life Cycle comprende herramientas que acompañan todo el proceso.
-
-### 3.1 Upper CASE (Front-End CASE): Estrategia, Planificación y Diseño
-
-Las herramientas Upper CASE se utilizan principalmente en las primeras etapas del proyecto. Su objetivo es definir y organizar los requerimientos y diseños antes de comenzar la programación.
-
-Entre sus principales funciones se encuentran:
-
-* Ingeniería de procesos de negocio: permite modelar los procesos y flujos de información de una organización.
-* Planificación y gestión de proyectos: facilita la estimación de costos, esfuerzos, tareas y avances.
-* Análisis de riesgos: ayuda a identificar, evaluar y controlar posibles riesgos.
-* Gestión de requisitos: permite organizar los requisitos y verificar que sean considerados en el sistema final.
-* Análisis y diseño: permite crear modelos del sistema y detectar inconsistencias antes de programar.
-
-Un ejemplo de esta categoría es PowerDesigner, utilizado para elaborar diagramas y modelos conceptuales.
-
-### 3.2 Lower CASE (Back-End CASE): Construcción y Pruebas
-
-Las herramientas Lower CASE se concentran en las etapas de construcción, implementación y pruebas del software. Su función principal es transformar los diseños en sistemas funcionales y comprobar su correcto funcionamiento.
-
-Entre ellas se incluyen:
-
-* Prototipos y diseño de interfaces: permiten crear representaciones del sistema y de su interfaz.
-* Programación y desarrollo web: incluyen editores, compiladores y entornos de desarrollo, además de herramientas para APIs y bases de datos.
-* Integración y pruebas: permiten analizar el código, ejecutar pruebas y verificar el funcionamiento del sistema.
-* Reingeniería: facilita la modernización y mantenimiento de sistemas existentes mediante técnicas como la ingeniería inversa y la reestructuración del código.
-
-### 3.3 Cross-Life Cycle: Herramientas Transversales
-
-Las herramientas Cross-Life Cycle no pertenecen a una etapa específica, sino que apoyan el proyecto durante todo su ciclo de vida.
-
-Entre las principales se encuentran:
-
-* Gestión de configuración: permite controlar versiones, cambios y estados del proyecto. Un ejemplo es Git.
-* Métricas y control de calidad: ayudan a evaluar la calidad del software y del proceso de desarrollo.
-* Documentación: facilitan la elaboración y mantenimiento de la documentación del proyecto.
-
-Estas herramientas permiten mantener el control y la organización durante las diferentes etapas del desarrollo.
-
-En conclusión, las herramientas CASE pueden agruparse según el momento y la función en la que intervienen. Sin embargo, contar con diferentes herramientas no garantiza por sí solo un entorno eficiente. Lo fundamental es que puedan integrarse y comunicarse entre sí, permitiendo un proceso de desarrollo más organizado y coherente.
-
-<div class="my-8">
-  <img
-    src="/img/case-taxonomia.jpg"
-    alt="Fases y Taxonomía de las Herramientas CASE en el Ciclo de Vida del Software"
-    class="w-full rounded-none border-0 shadow-none object-cover"
-  />
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6 not-prose">
+<div class="flex items-start gap-3 p-4 bg-surface/80 backdrop-blur-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">sync_alt</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-white">Transferencia regular de información</strong> entre herramientas y entre pasos de ingeniería.</p>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface/80 backdrop-blur-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">trending_down</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-white">Menos esfuerzo</strong> en gestión de configuración, control de calidad y documentación.</p>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface/80 backdrop-blur-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">insights</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-white">Más control del proyecto</strong>, gracias a mejor planificación, monitorización y comunicación.</p>
+</div>
+<div class="flex items-start gap-3 p-4 bg-surface/80 backdrop-blur-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">groups</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-white">Mejor coordinación</strong> entre los miembros del equipo en proyectos grandes.</p>
+</div>
 </div>
 
-<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
-  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-    <span class="material-symbols-outlined text-[#7ea000]">swap_horiz</span>
-    El Espectro de Integración
-  </h3>
-  <p class="text-gray-700 m-0 leading-relaxed">
-    Una herramienta CASE puede operar de forma aislada, limitarse a intercambiar datos puntualmente, o formar parte de un Entorno de Apoyo Integrado a Proyectos, también llamado EAIP. Este último caso es el más completo, y es precisamente el que se conoce como I-CASE, desarrollado en la siguiente sección. La eficacia de un entorno CASE no depende del número de herramientas empleadas, sino del grado de sincronización que existe entre el diseño inicial y el código fuente final.
-  </p>
+**Desafíos:** lograr esto exige representaciones consistentes de la información, interfaces estandarizadas entre herramientas, un mecanismo homogéneo de comunicación, y la capacidad de moverse entre distintas plataformas de hardware y sistemas operativos. Por eso los entornos I-CASE generales han surgido más lentamente de lo esperado — aunque sí existen y son cada año más poderosos.
+
+### 3.1 Arquitectura de integración: 4 capas
+
+Un entorno I-CASE necesita cuatro componentes: una base de datos, un sistema de gestión de objetos, un mecanismo de control de herramientas, y una interfaz de usuario consistente. En la práctica, esto se organiza en capas:
+
+<div class="hidden sm:flex my-8 not-prose border border-gray-200 h-[22rem] overflow-hidden">
+<label class="relative flex flex-col justify-start p-4 cursor-pointer flex-1 basis-0 min-w-[140px] has-[:checked]:flex-[3] transition-[flex-grow] duration-300 ease-in-out overflow-hidden border-r border-gray-200 bg-[#7ea000]/5">
+<input type="radio" name="capas-h" class="hidden peer" checked />
+<span class="flex items-start gap-2"><span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/20 text-gray-900 text-xs font-bold flex items-center justify-center">4</span><span class="font-bold text-gray-900 text-sm leading-snug">Capa de interfaz de usuario</span></span>
+<span class="hidden peer-checked:block text-gray-500 text-xs leading-relaxed mt-3">Da un aspecto y comportamiento consistente a todas las herramientas: mismos menús, íconos, teclado y mouse (protocolo de presentación).</span>
+</label>
+<label class="relative flex flex-col justify-start p-4 cursor-pointer flex-1 basis-0 min-w-[140px] has-[:checked]:flex-[3] transition-[flex-grow] duration-300 ease-in-out overflow-hidden border-r border-gray-200 bg-[#7ea000]/12">
+<input type="radio" name="capas-h" class="hidden peer" />
+<span class="flex items-start gap-2"><span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/35 text-gray-900 text-xs font-bold flex items-center justify-center">3</span><span class="font-bold text-gray-900 text-sm leading-snug">Capa de herramientas (SGH)</span></span>
+<span class="hidden peer-checked:block text-gray-500 text-xs leading-relaxed mt-3">Los servicios de gestión de herramientas sincronizan tareas, coordinan el flujo de información y recogen métricas de uso.</span>
+</label>
+<label class="relative flex flex-col justify-start p-4 cursor-pointer flex-1 basis-0 min-w-[140px] has-[:checked]:flex-[3] transition-[flex-grow] duration-300 ease-in-out overflow-hidden border-r border-gray-200 bg-[#7ea000]/20">
+<input type="radio" name="capas-h" class="hidden peer" />
+<span class="flex items-start gap-2"><span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/55 text-white text-xs font-bold flex items-center justify-center">2</span><span class="font-bold text-gray-900 text-sm leading-snug">Capa de gestión de objetos (CGO)</span></span>
+<span class="hidden peer-checked:block text-gray-500 text-xs leading-relaxed mt-3">Aquí "se enchufa" cada herramienta CASE. Junto con el repositorio, ofrece los servicios de integración y de gestión de configuración.</span>
+</label>
+<label class="relative flex flex-col justify-start p-4 cursor-pointer flex-1 basis-0 min-w-[140px] has-[:checked]:flex-[3] transition-[flex-grow] duration-300 ease-in-out overflow-hidden bg-[#7ea000]">
+<input type="radio" name="capas-h" class="hidden peer" />
+<span class="flex items-start gap-2"><span class="shrink-0 w-6 h-6 rounded-full bg-white text-[#7ea000] text-xs font-bold flex items-center justify-center">1</span><span class="font-bold text-white text-sm leading-snug">Capa de repositorio compartido</span></span>
+<span class="hidden peer-checked:block text-white/80 text-xs leading-relaxed mt-3">La Base de Datos CASE y las funciones de control de acceso. Aquí ocurre la integración real de los datos.</span>
+</label>
 </div>
+
+<div class="sm:hidden my-8 not-prose">
+
+<div class="border border-b-0 border-gray-200 bg-[#7ea000]/5 p-4">
+<div class="flex items-center gap-3">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/20 text-gray-900 text-xs font-bold flex items-center justify-center">4</span>
+<p class="font-bold text-gray-900 text-sm m-0">Capa de interfaz de usuario</p>
+</div>
+<p class="text-gray-500 text-xs leading-relaxed mt-2 mb-0 pl-9">Da un aspecto y comportamiento consistente a todas las herramientas: mismos menús, íconos, teclado y mouse (protocolo de presentación).</p>
+</div>
+
+<div class="flex justify-center border-x border-gray-200 bg-[#7ea000]/5"><span class="material-symbols-outlined text-[#7ea000]/50 text-lg leading-none py-1">expand_more</span></div>
+
+<div class="border border-b-0 border-gray-200 bg-[#7ea000]/12 p-4">
+<div class="flex items-center gap-3">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/35 text-gray-900 text-xs font-bold flex items-center justify-center">3</span>
+<p class="font-bold text-gray-900 text-sm m-0">Capa de herramientas (SGH)</p>
+</div>
+<p class="text-gray-500 text-xs leading-relaxed mt-2 mb-0 pl-9">Los <em>servicios de gestión de herramientas</em> sincronizan tareas, coordinan el flujo de información y recogen métricas de uso.</p>
+</div>
+
+<div class="flex justify-center border-x border-gray-200 bg-[#7ea000]/12"><span class="material-symbols-outlined text-[#7ea000]/50 text-lg leading-none py-1">expand_more</span></div>
+
+<div class="border border-b-0 border-gray-200 bg-[#7ea000]/20 p-4">
+<div class="flex items-center gap-3">
+<span class="shrink-0 w-6 h-6 rounded-full bg-[#7ea000]/55 text-white text-xs font-bold flex items-center justify-center">2</span>
+<p class="font-bold text-gray-900 text-sm m-0">Capa de gestión de objetos (CGO)</p>
+</div>
+<p class="text-gray-500 text-xs leading-relaxed mt-2 mb-0 pl-9">Aquí "se enchufa" cada herramienta CASE. Junto con el repositorio, ofrece los servicios de integración y de gestión de configuración.</p>
+</div>
+
+<div class="flex justify-center border-x border-gray-200 bg-[#7ea000]/20"><span class="material-symbols-outlined text-[#7ea000]/50 text-lg leading-none py-1">expand_more</span></div>
+
+<div class="border border-gray-200 bg-[#7ea000] p-4">
+<div class="flex items-center gap-3">
+<span class="shrink-0 w-6 h-6 rounded-full bg-white text-[#7ea000] text-xs font-bold flex items-center justify-center">1</span>
+<p class="font-bold text-white text-sm m-0">Capa de repositorio compartido</p>
+</div>
+<p class="text-white/80 text-xs leading-relaxed mt-2 mb-0 pl-9">La Base de Datos CASE y las funciones de control de acceso. Aquí ocurre la integración real de los datos.</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="tema-4" class="blog-reveal">
+<section class="blog-reveal">
+<div id="tema-4" class="scroll-mt-28"></div>
 
-## 4. I-CASE
+## 4. EL REPOSITORIO CASE
 
-Antes de continuar, conviene precisar un punto: I-CASE no constituye una cuarta categoría que se suma a Upper CASE, Lower CASE y Cross-Life Cycle. Se trata de un concepto distinto, que no clasifica herramientas según la fase en la que actúan, sino que describe el grado de integración con el que todas ellas, independientemente de su categoría, trabajan de manera conjunta.
+El repositorio es la pieza que hace posible toda la integración descrita arriba. Durante las primeras décadas del desarrollo de software, el repositorio era en realidad una persona: el programador que debía recordar la ubicación de toda la información del proyecto. Hoy el repositorio es "una cosa": una base de datos que centraliza y almacena la información de ingeniería del software, con la que el ingeniero interactúa a través de las herramientas CASE.
 
-I-CASE, sigla de Integrated Computer-Aided Software Engineering, representa un entorno en el que distintas herramientas CASE, de planificación, de construcción y transversales, funcionan de forma integrada durante el desarrollo del software. Su propósito es evitar que cada herramienta opere de manera aislada, permitiendo que la información generada en una etapa pueda ser reutilizada por otras herramientas en las actividades siguientes del proyecto.
+**¿Qué almacena?** El problema a resolver, información del dominio del problema, la solución del sistema mientras se desarrolla, las reglas/metodología del proceso, el plan del proyecto y su historia, e información del contexto organizativo.
 
-<div class="my-8">
+**¿Qué servicios ofrece?** Un repositorio CASE robusto combina tres grupos de funciones:
 
-<img
-  src="/img/icase-integracion.png"
-  alt="Esquema de integración de herramientas I-CASE"
-  class="w-full max-w-4xl mx-auto rounded-none border-0 shadow-none"
-/>
-
-<p class="text-center text-sm text-gray-500 mt-3">
-  Integración de diferentes herramientas CASE dentro de un entorno común de desarrollo.
-</p>
-
+<div class="border border-gray-200 overflow-hidden my-6 bg-white divide-y divide-gray-200 not-prose">
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Funciones de SGBD</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Almacenamiento no redundante, acceso de alto nivel, independencia de datos, control de transacciones, seguridad, consultas ad hoc y soporte multiusuario — lo que cualquier sistema gestor de bases de datos sofisticado ofrece.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Funciones específicas de CASE</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Almacenamiento de estructuras sofisticadas (diagramas, documentos), imposición de integridad mediante reglas o disparadores, e interfaz de herramientas rica en semántica gracias a un metamodelo compartido.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Funciones de GCS (configuración)</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Versiones, rastreo de dependencias y gestión de cambios, seguimiento de requisitos (progresivo y regresivo), y auditoría (quién, cuándo y por qué se hizo cada cambio).</span>
+  </div>
 </div>
-
-La verdadera capacidad de un entorno CASE se manifiesta cuando existe un nivel adecuado de integración. Esta condición permite intercambiar de forma regular elementos como modelos, programas, documentos y datos, reduciendo tareas repetitivas y permitiendo que los integrantes del equipo trabajen sobre información relacionada y consistente.
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">sync_alt</span>
-</div>
-
-### Integración de herramientas
-
-Las distintas herramientas CASE pueden intercambiar información y colaborar dentro de un mismo entorno de desarrollo.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">share</span>
-</div>
-
-### Información compartida
-
-Los modelos, documentos, programas y datos generados durante el proyecto pueden ser utilizados por distintas herramientas.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">groups</span>
-</div>
-
-### Trabajo coordinado
-
-La integración facilita la coordinación entre los integrantes del equipo y contribuye a mantener una visión común del proyecto.
-
-</div>
-
-</div>
-
-### 4.1 Características de un entorno I-CASE
-
-Para lograr una integración efectiva, las herramientas deben compartir información y mantener relaciones entre los distintos elementos producidos durante el desarrollo. De esta manera, cuando un elemento cambia, resulta posible identificar los demás elementos relacionados y evaluar cómo podrían verse afectados.
-
-Entre las capacidades más relevantes de un entorno I-CASE se encuentran el intercambio de información entre herramientas, el seguimiento de relaciones entre elementos, el control de versiones y la gestión de la configuración. Estas funciones permiten administrar de manera más ordenada la evolución del software, y son las mismas capacidades que sostienen la coordinación de equipo descrita en el bloque anterior.
-
-La integración de herramientas también puede reducir el esfuerzo requerido en actividades como la gestión de configuración, el control de calidad y la producción de documentación. Al mismo tiempo, proporciona mayor control sobre el proyecto y mejora la coordinación entre las personas involucradas en el desarrollo.
 
 <div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
-  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-    <span class="material-symbols-outlined text-[#7ea000]">hub</span>
-    La idea central de I-CASE
-  </h3>
   <p class="text-gray-700 m-0 leading-relaxed">
-    I-CASE no consiste simplemente en emplear varias herramientas CASE de manera simultánea. Su característica distintiva es que estas herramientas se encuentren integradas, compartan información y permitan mantener relacionados los distintos productos generados a lo largo del ciclo de vida del software.
+    El repositorio se define, en el fondo, mediante un <strong>metamodelo</strong>: una descripción de cómo se almacena, accede, visualiza, asegura e integra la información del proyecto.
   </p>
 </div>
 
 </section>
 
+<section class="blog-reveal">
+<div id="tema-5" class="scroll-mt-28"></div>
 
-<section id="tema-5" class="blog-reveal">
+## 5. ANÁLISIS DE LA TAXONOMÍA DE LA LECTURA (PRESSMAN, CAP. 31.3)
 
-## 5. Repositorio CASE
+Antes de proponer cualquier clasificación de herramientas CASE, Pressman advierte de sus propios riesgos: suponer que un entorno CASE efectivo necesita **todas** las categorías es falso; ubicar una herramienta específica en una categoría puede generar confusión, porque muchas herramientas encajan en más de una a la vez; y una clasificación simple tiende a ser **plana** — no muestra jerarquía ni relaciones entre las herramientas. Aun con esos riesgos, el autor considera necesaria una taxonomía para comprender la amplitud de CASE.
 
-El repositorio CASE constituye uno de los elementos fundamentales dentro de un entorno CASE integrado. Puede entenderse como una base de datos central del proyecto, en la que se almacena y organiza la información generada a lo largo de las distintas etapas del desarrollo de software.
+Pressman señala cuatro criterios posibles para clasificar (función; papel para personal técnico o directivo; arquitectura del entorno de hardware y software; origen o costo) y elige la **función** como criterio principal. El resultado es una lista extensa y plana de categorías. Para facilitar su lectura las agrupamos aquí en tres bloques según el momento aproximado del proceso en que se ubican — aclarando que esta agrupación es nuestra: la lectura no las subdivide así, las presenta todas al mismo nivel.
 
-Su relevancia no se limita al almacenamiento de información. El repositorio permite que las distintas herramientas CASE trabajen sobre información común y mantengan relaciones entre los distintos elementos del proyecto, entre ellos requisitos, modelos, documentos, componentes, versiones y elementos de configuración.
+<div class="space-y-3 my-6 not-prose">
 
-<div class="my-8">
+<details open class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">event_note</span><span class="font-bold text-gray-900 text-sm">Planificación y gestión</span><span class="text-xs text-gray-400 font-semibold">7 categorías</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Ingeniería de procesos de negocio</span><span class="text-sm text-gray-600 leading-relaxed">Modela cómo fluye la información de negocio entre las áreas de la compañía.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Modelado de procesos y gestión</span><span class="text-sm text-gray-600 leading-relaxed">Representan los elementos clave de un proceso para comprenderlo mejor.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Planificación de proyectos</span><span class="text-sm text-gray-600 leading-relaxed">Estiman costo, esfuerzo y duración; arman la red de tareas del proyecto.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Análisis de riesgos</span><span class="text-sm text-gray-600 leading-relaxed">Construyen tablas de riesgo para identificarlos, mitigarlos y monitorizarlos.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Gestión de proyectos</span><span class="text-sm text-gray-600 leading-relaxed">Rastrean y monitorizan el plan del proyecto de forma continua.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Seguimiento de requisitos</span><span class="text-sm text-gray-600 leading-relaxed">Aíslan y categorizan los requisitos desde la RFP o especificación del cliente.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Métricas y gestión</span><span class="text-sm text-gray-600 leading-relaxed">Miden productividad y calidad a partir de datos del proceso y del producto.</span></div>
+</div>
+</details>
 
-<img
-  src="/img/repositorio-case.jpg"
-  alt="Representación conceptual de un repositorio CASE"
-  class="w-full max-w-4xl mx-auto rounded-none border-0 shadow-none"
-/>
+<details class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">construction</span><span class="font-bold text-gray-900 text-sm">Construcción</span><span class="text-xs text-gray-400 font-semibold">6 categorías</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Análisis y diseño (incl. PRO/SIM)</span><span class="text-sm text-gray-600 leading-relaxed">Crean modelos del sistema (datos, función, comportamiento) y permiten predecir su comportamiento antes de construirlo.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Desarrollo y diseño de interfaz</span><span class="text-sm text-gray-600 leading-relaxed">Componentes de programa (menús, botones, ventanas, íconos) para interfaces de usuario.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Construcción de prototipos</span><span class="text-sm text-gray-600 leading-relaxed">Desde generadores de pantalla hasta herramientas que generan código real a partir del prototipo.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Programación</span><span class="text-sm text-gray-600 leading-relaxed">Compiladores, editores, depuradores y entornos orientados a objetos (C++, Java, etc.).</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Desarrollo de Webs</span><span class="text-sm text-gray-600 leading-relaxed">Apoyan la generación de texto, gráficos, formularios y applets de una aplicación web.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Documentación</span><span class="text-sm text-gray-600 leading-relaxed">Producción y autoedición de documentos técnicos, vinculadas a otras herramientas CASE.</span></div>
+</div>
+</details>
 
-<p class="text-center text-sm text-gray-500 mt-3">
-  El repositorio CASE centraliza la información y permite que distintas herramientas trabajen sobre datos relacionados.
-</p>
+<details class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">support_agent</span><span class="font-bold text-gray-900 text-sm">Soporte, prueba y mantenimiento</span><span class="text-xs text-gray-400 font-semibold">7 categorías</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Software de sistema</span><span class="text-sm text-gray-600 leading-relaxed">Soporte de red, correo electrónico y comunicación entre estaciones de trabajo CASE.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Control de calidad</span><span class="text-sm text-gray-600 leading-relaxed">En la práctica suelen ser herramientas de métricas: auditan el código frente a estándares del lenguaje.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Gestión de bases de datos</span><span class="text-sm text-gray-600 leading-relaxed">Sostienen el repositorio CASE; evolucionan de modelos relacionales a orientados a objetos.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Gestión de configuración (GCS)</span><span class="text-sm text-gray-600 leading-relaxed">Identificación y control de versiones, control de cambios, auditoría.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Integración y pruebas</span><span class="text-sm text-gray-600 leading-relaxed">Adquisición de datos, medida estática y dinámica, simulación, gestión de pruebas y herramientas de funcionalidad cruzada.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Pruebas cliente/servidor</span><span class="text-sm text-gray-600 leading-relaxed">Ejercitan la interfaz gráfica y las comunicaciones en red entre cliente y servidor.</span></div>
+<div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-3.5"><span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Reingeniería</span><span class="text-sm text-gray-600 leading-relaxed">Se subdivide en ingeniería inversa para especificaciones, reestructuración de código y reingeniería de sistemas on-line.</span></div>
+</div>
+</details>
 
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-7">
+### 5.1 Nuestra valoración crítica
 
-<div class="blog-feature-card">
+**A favor:** es la taxonomía más completa que existe sobre CASE. Cubre todo el ciclo de vida —desde procesos de negocio hasta reingeniería de sistemas heredados— y sirve como una lista de verificación útil para auditar qué tan completo es el entorno CASE de un equipo real.
 
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">database</span>
-</div>
-
-### Almacenamiento central
-
-Concentra la información generada durante el desarrollo, evitando que los datos del proyecto queden dispersos.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">hub</span>
-</div>
-
-### Integración
-
-Permite relacionar los datos almacenados con las herramientas CASE que los producen, modifican o utilizan.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">rule</span>
-</div>
-
-### Consistencia
-
-Contribuye a mantener reglas, relaciones y restricciones sobre la información utilizada dentro del proyecto.
-
-</div>
-
-</div>
-
-### 5.1 Funciones principales del repositorio
-
-Una de sus funciones principales es la integración datos-datos, mediante la cual los objetos almacenados mantienen relaciones entre sí. Esto permite que la información no sea tratada como elementos aislados, sino como partes relacionadas de un mismo sistema.
-
-El repositorio favorece asimismo la integración herramienta-datos, dado que las herramientas CASE pueden acceder a la información almacenada e interpretarla conforme a un modelo de información común. Estas dos formas de integración constituyen, en definitiva, la base técnica que sostiene la tarjeta de Integración presentada anteriormente.
-
-Además, el repositorio incorpora características propias de un Sistema de Gestión de Bases de Datos, entre ellas el control de transacciones, los mecanismos de recuperación y la protección de la integridad cuando varios usuarios trabajan de manera simultánea sobre la información del proyecto.
-
-El modelo de información del repositorio puede contener también reglas y políticas que permiten comprobar que los datos incorporados cumplan determinadas restricciones. De este modo, el repositorio no solo conserva información, sino que contribuye a mantener su validez y coherencia.
-
-<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
-  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-    <span class="material-symbols-outlined text-[#7ea000]">psychology</span>
-    El repositorio como centro del entorno CASE
-  </h3>
-  <p class="text-gray-700 m-0 leading-relaxed">
-    El ingeniero de software interactúa con el repositorio a través de las herramientas CASE integradas. El repositorio actúa, en consecuencia, como un punto central donde se conserva el conocimiento del proyecto y desde el cual las distintas herramientas pueden compartir e interpretar la información.
-  </p>
-</div>
-
-En consecuencia, un repositorio CASE facilita la centralización, la integración, la trazabilidad y el control de la información a lo largo del ciclo de vida del software. Estas características resultan especialmente relevantes en proyectos donde intervienen múltiples herramientas, personas y versiones de un mismo sistema.
+**En contra:** su propia granularidad (unas veinte categorías) la vuelve difícil de memorizar o de aplicar rápido en un proyecto pequeño. El propio autor reconoce que muchas herramientas de prueba "abarcan dos categorías o más" de las que él mismo definió, lo cual confirma el riesgo de solapamiento que advirtió al inicio. Y, como es una lista plana, no deja ver en qué momento del ciclo de vida se usa cada categoría — algo que sí resulta útil para un equipo que apenas está armando su flujo de trabajo, como el nuestro. Por eso, en la siguiente sección proponemos una taxonomía organizada por esa dimensión temporal.
 
 </section>
 
-<section id="tema-6" class="blog-reveal">
+<section class="blog-reveal">
+<div id="tema-6" class="scroll-mt-28"></div>
 
-## 6. Ejemplos o casos breves de CASE e I-CASE
+## 6. TAXONOMÍA PROPUESTA, CON EJEMPLOS Y CASOS BREVES
 
-Las herramientas CASE pueden emplearse en distintas actividades del desarrollo de software, desde el modelado y diseño hasta la gestión de versiones y la documentación. Un entorno I-CASE, en cambio, busca integrar estas herramientas y la información que producen, de modo que las distintas actividades del ciclo de vida se mantengan relacionadas entre sí.
+En vez de clasificar por función específica (como hace Pressman), proponemos organizar las herramientas CASE según **cuándo** se usan dentro del ciclo de vida del proyecto. Esto reduce veinte categorías a tres grupos fáciles de recordar, sin perder de vista la integración entre ellos.
 
-Ya se presentaron algunos ejemplos a lo largo del texto: Git como herramienta Cross-Life Cycle en la sección 1, y Prisma, PostgreSQL y Docker como herramientas Lower CASE en la sección 3.2. Los siguientes casos retoman esa misma taxonomía y la organizan de manera completa, mostrando la diferencia entre emplear una herramienta CASE para una actividad puntual y trabajar dentro de un entorno integrado.
+<div class="flex flex-col sm:flex-row gap-3 my-6 not-prose">
+  <div class="flex-1 text-center p-4 rounded-lg bg-gray-50 border border-gray-200">
+    <span class="block text-xs font-bold uppercase tracking-wider text-[#7ea000] mb-1">Upper CASE</span>
+    <span class="block text-sm text-gray-600">Antes de programar</span>
+  </div>
+  <div class="flex-1 text-center p-4 rounded-lg bg-gray-50 border border-gray-200">
+    <span class="block text-xs font-bold uppercase tracking-wider text-[#7ea000] mb-1">Lower CASE</span>
+    <span class="block text-sm text-gray-600">Durante la construcción</span>
+  </div>
+  <div class="flex-1 text-center p-4 rounded-lg bg-gray-50 border border-gray-200">
+    <span class="block text-xs font-bold uppercase tracking-wider text-[#7ea000] mb-1">Cross-Life Cycle</span>
+    <span class="block text-sm text-gray-600">Durante todo el proyecto</span>
+  </div>
+</div>
+
+<div class="space-y-3 my-6 not-prose">
+
+<details open class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">architecture</span><span class="font-bold text-gray-900 text-sm">6.1 Upper CASE — Estrategia, planificación y diseño</span><span class="text-xs text-gray-400 font-semibold hidden sm:inline">4 herramientas</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Planificación de proyectos</span><span class="sm:w-1/3 text-sm text-gray-600">Estima costos, esfuerzo y tareas</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Microsoft Project</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Análisis de riesgos</span><span class="sm:w-1/3 text-sm text-gray-600">Identifica qué puede salir mal y cómo prevenirlo</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">RiskyProject</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Gestión de requisitos</span><span class="sm:w-1/3 text-sm text-gray-600">Verifica que lo pedido por el cliente quede en el sistema final</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Jira / Azure DevOps</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Análisis y diseño</span><span class="sm:w-1/3 text-sm text-gray-600">Crea modelos del sistema antes de programar, citada en el apunte de clase como herramienta CASE de análisis y diseño</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 bg-[#7ea000] text-white">PowerDesigner</span></span></div>
+</div>
+</details>
+
+<details class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">code</span><span class="font-bold text-gray-900 text-sm">6.2 Lower CASE — Construcción y pruebas</span><span class="text-xs text-gray-400 font-semibold hidden sm:inline">4 herramientas</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Prototipos y diseño de interfaces</span><span class="sm:w-1/3 text-sm text-gray-600">Crea pantallas de prueba antes del sistema final</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Figma</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Programación y desarrollo web</span><span class="sm:w-1/3 text-sm text-gray-600">Editores, ORM y frameworks para construir el sistema</span><span class="sm:w-1/3 sm:text-right flex flex-wrap gap-1.5 sm:justify-end"><span class="inline-block text-xs font-semibold px-2 py-1 bg-[#7ea000] text-white">Prisma</span><span class="inline-block text-xs font-semibold px-2 py-1 bg-[#7ea000] text-white">PostgreSQL</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Integración y pruebas</span><span class="sm:w-1/3 text-sm text-gray-600">Verifica que el código funcione como debería</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Postman / Jest</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Reingeniería</span><span class="sm:w-1/3 text-sm text-gray-600">Modernización de sistemas antiguos mediante ingeniería inversa</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Understand</span></span></div>
+</div>
+</details>
+
+<details class="group border border-gray-200 bg-white overflow-hidden">
+<summary class="marker:hidden [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 p-4 select-none">
+<span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#7ea000]">sync_alt</span><span class="font-bold text-gray-900 text-sm">6.3 Cross-Life Cycle — Herramientas transversales</span><span class="text-xs text-gray-400 font-semibold hidden sm:inline">3 herramientas</span></span>
+<span class="material-symbols-outlined text-gray-400 transition-transform duration-300 group-open:rotate-180 shrink-0">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 divide-y divide-gray-100">
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Gestión de configuración</span><span class="sm:w-1/3 text-sm text-gray-600">Controla versiones, cambios y estados del proyecto</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 bg-[#7ea000] text-white">Git</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Métricas y control de calidad</span><span class="sm:w-1/3 text-sm text-gray-600">Mide qué tan bueno es el software y el proceso</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">SonarQube</span></span></div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 p-4"><span class="sm:w-1/3 font-bold text-gray-900 text-sm">Documentación</span><span class="sm:w-1/3 text-sm text-gray-600">Mantiene actualizada la documentación del proyecto</span><span class="sm:w-1/3 sm:text-right"><span class="inline-block text-xs font-semibold px-2 py-1 border-l-2 border-[#7ea000] bg-[#7ea000]/5 text-gray-700">Confluence</span></span></div>
+</div>
+</details>
+
+</div>
+
+### 6.4 Casos breves
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
 
 <div class="blog-feature-card">
+<div class="blog-feature-icon"><span class="material-symbols-outlined">schema</span></div>
 
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">schema</span>
-</div>
+### Caso 1 — Herramienta CASE aislada
 
-### Caso 1 — Modelado con una herramienta CASE
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Upper CASE</span>
 
-<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Upper CASE</span>
-
-Un equipo necesita representar la estructura y el comportamiento de un sistema antes de iniciar su implementación. Para ello puede emplear una herramienta CASE orientada al modelado y diseño, mediante la cual se generan diagramas y representaciones que facilitan la comprensión del sistema.
-
-Ejemplo: PowerDesigner puede utilizarse para respaldar actividades de modelado y diseño dentro del proceso de desarrollo.
+Antes de programar, el equipo usa **PowerDesigner** para generar diagramas y modelos conceptuales que guíen la construcción. Es un uso puntual: un modelo que queda como referencia, no conectado automáticamente a nada más.
 
 </div>
 
 <div class="blog-feature-card">
+<div class="blog-feature-icon"><span class="material-symbols-outlined">account_tree</span></div>
 
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">account_tree</span>
-</div>
+### Caso 2 — Herramienta transversal
 
-### Caso 2 — Gestión de configuración
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Cross-Life Cycle</span>
 
-<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Cross-Life Cycle</span>
-
-Durante el desarrollo participan varios integrantes y se generan distintas versiones de los componentes del sistema. Una herramienta CASE orientada a la gestión de configuración permite controlar estos cambios y mantener organizada la evolución del proyecto, el mismo rol que cumple Git, mencionado al inicio de este documento.
-
-Ejemplo: Rational ClearCase, o Git en su versión más difundida en la actualidad, proporciona capacidades relacionadas con el control y la gestión de los elementos de configuración.
+Varios integrantes generan versiones distintas del código en paralelo. **Git** permite controlar esos cambios: quién modificó qué, cuándo, y cómo volver a una versión anterior si algo falla.
 
 </div>
 
 </div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-7">
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">developer_mode</span>
-</div>
-
-### Caso 3 — Apoyo al desarrollo
-
-<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Categoría: Lower CASE</span>
-
-Un desarrollador puede trabajar con herramientas que faciliten distintas tareas relacionadas con la construcción del software. Estas herramientas ofrecen un entorno de apoyo para trabajar con los componentes y recursos necesarios durante la implementación, el mismo grupo al que pertenecen Prisma, PostgreSQL y Docker, presentados en la sección 3.2.
-
-Ejemplo: Eclipse constituye un entorno empleado para respaldar actividades relacionadas con el desarrollo de software.
-
-</div>
-
-<div class="blog-feature-card">
-
-<div class="blog-feature-icon">
-<span class="material-symbols-outlined">hub</span>
-</div>
-
-### Caso 4 — Entorno I-CASE
-
-<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">No es una categoría: es integración entre todas</span>
-
-Supóngase que un equipo emplea herramientas para requisitos (Upper), desarrollo (Lower) y control de versiones (Cross-Life Cycle), como en los tres casos anteriores. Si cada una funciona de manera independiente, la información debe transferirse y mantenerse de forma manual.
-
-En un entorno I-CASE, esas mismas herramientas, sin importar su categoría, comparten información mediante un repositorio común, lo que permite mantener relacionados los distintos productos generados a lo largo del proyecto.
-
-</div>
-
-</div>
-
-### 6.1 ¿Cómo funcionaría un caso I-CASE?
-
-Un equipo podría comenzar definiendo los requisitos del sistema y, posteriormente, generar los modelos correspondientes durante la etapa de diseño. Estos elementos se relacionan con los componentes desarrollados y con la documentación correspondiente.
-
-En un entorno integrado, la información puede mantenerse relacionada a lo largo de las siguientes actividades:
 
 <div class="blog-feature-card my-7">
+<div class="blog-feature-icon"><span class="material-symbols-outlined">hub</span></div>
 
-<div class="flex flex-col md:flex-row items-stretch justify-between gap-4">
+### Caso 3 — Entorno I-CASE
 
-<div class="flex-1 text-center">
-  <div class="blog-feature-icon mx-auto">
-    <span class="material-symbols-outlined">description</span>
-  </div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#7ea000]">Integración de varias categorías</span>
 
-### Requisitos
-
-  <p class="!text-center !leading-relaxed !mt-3">
-    Necesidades y características que debe cumplir el sistema.
-  </p>
-</div>
-
-<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
-arrow_forward
-</span>
-
-<div class="flex-1 text-center">
-  <div class="blog-feature-icon mx-auto">
-    <span class="material-symbols-outlined">architecture</span>
-  </div>
-
-### Diseño
-
-  <p class="!text-center !leading-relaxed !mt-3">
-    Modelos que representan la estructura de la solución.
-  </p>
-</div>
-
-<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
-arrow_forward
-</span>
-
-<div class="flex-1 text-center">
-  <div class="blog-feature-icon mx-auto">
-    <span class="material-symbols-outlined">code</span>
-  </div>
-
-### Desarrollo
-
-  <p class="!text-center !leading-relaxed !mt-3">
-    Construcción de los componentes del software.
-  </p>
-</div>
-
-<span class="material-symbols-outlined text-[#7ea000] text-3xl self-center rotate-90 md:rotate-0">
-arrow_forward
-</span>
-
-<div class="flex-1 text-center">
-  <div class="blog-feature-icon mx-auto">
-    <span class="material-symbols-outlined">fact_check</span>
-  </div>
-
-### Pruebas
-
-  <p class="!text-center !leading-relaxed !mt-3">
-    Verificación del comportamiento del sistema.
-  </p>
-</div>
+El equipo usa PowerDesigner (Upper CASE), Prisma/PostgreSQL (Lower CASE) y Git (Cross-Life Cycle) **al mismo tiempo**, pero cada una por separado: alguien tiene que copiar manualmente el modelo del diseño hacia el código. Si en cambio las tres compartieran un repositorio común —como describe la sección 4—, un cambio en el diseño se reflejaría automáticamente en lo ya construido. Esa diferencia, entre usar varias herramientas CASE y tener un entorno realmente integrado, es exactamente lo que distingue a I-CASE.
 
 </div>
 
-</div>
+</section>
 
-La diferencia fundamental radica en que CASE proporciona herramientas especializadas para actividades determinadas, mientras que I-CASE busca que esas herramientas formen parte de un entorno integrado, compartiendo información y manteniendo relaciones entre los elementos generados durante el desarrollo.
+<section class="blog-reveal">
+<div id="tema-7" class="scroll-mt-28"></div>
 
-<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
-  <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-    <span class="material-symbols-outlined text-[#7ea000]">compare_arrows</span>
-    CASE e I-CASE: síntesis
-  </h3>
-  <p class="text-gray-700 m-0 leading-relaxed">
-    <strong>CASE:</strong> una herramienta respalda una actividad concreta del desarrollo, como el modelado, la documentación o la gestión de configuración.<br /><br />
-    <strong>I-CASE:</strong> distintas herramientas CASE trabajan de manera integrada, comparten información y permiten mantener relacionados los productos generados durante las distintas etapas del proyecto.
-  </p>
-</div>
+## 7. REFERENCIAS
+
+Pressman, R. S. (2002). *Ingeniería del software: Un enfoque práctico* (5.ª ed.; D. Ince, Adapt.). McGraw-Hill. Capítulo 31: Ingeniería del software asistida por computadora.
+
+Universidad Técnica de Ambato, Facultad de Ingeniería en Sistemas, Electrónica e Industrial, Carrera de Software. (2025). *Unidad 1: Ingeniería de Software Asistida por Computadora (CASE)* [Apunte de clase, asignatura Desarrollo Asistido por Software].
 
 </section>
