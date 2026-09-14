@@ -1,0 +1,309 @@
+---
+title: "APE 2: Herramientas para Análisis y Diseño de Software"
+summary: "Investigación breve de herramientas de análisis y diseño de software, selección individual por integrante y justificación según facilidad de uso, funcionalidades, entorno colaborativo e integración"
+unit_tag: "UNIDAD 01 • APE 2"
+category: "UNIDAD 1"
+theme: "light"
+hero_style: "banner"
+duration: "Trabajo Práctico / APE"
+author_name: "Equipo de Desarrollo TechNexus"
+created_at: "Septiembre 2026"
+image_url: "/img/herramientas.jpg"
+---
+
+<section class="blog-reveal">
+<div id="tema-1" class="scroll-mt-28"></div>
+
+## 1. INTRODUCCIÓN
+
+Toda herramienta CASE de **análisis y diseño** existe para resolver el mismo problema: convertir una idea todavía difusa en un modelo que el equipo pueda discutir, corregir e implementar. Como parte de la investigación breve solicitada, cada integrante del grupo seleccionó una herramienta —de análisis o de diseño— y la justificó frente a cuatro criterios comunes.
+
+En esta publicación presentamos las dos primeras herramientas evaluadas: **Miro**, un pizarrón visual colaborativo, y **Mermaid**, diagramas generados a partir de texto. Ambas encajan en la categoría *Análisis y diseño* de la taxonomía de Pressman revisada en la UNIDAD 1, pero resuelven el problema desde ángulos opuestos.
+
+<div class="flex items-start gap-3 bg-surface/80 backdrop-blur-xl border border-outline-variant/10 p-6 my-6 not-prose">
+<span class="material-symbols-outlined text-[#7ea000] text-xl mt-0.5 shrink-0">rule</span>
+<p class="text-white text-sm leading-relaxed m-0"><strong class="text-[#7ea000]">Criterios de evaluación:</strong> facilidad de uso, funcionalidades, entorno colaborativo e integración — los mismos cuatro ejes se aplican a cada herramienta para poder compararlas de forma justa al final del artículo.</p>
+</div>
+
+<div class="mt-6 mb-2 py-0">
+  <h3 class="text-base md:text-lg font-bold uppercase tracking-wider text-gray-900 mb-3 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[#7ea000] text-xl">format_list_bulleted</span>
+    Tabla de Contenidos
+  </h3>
+
+  <ul class="space-y-2.5 !list-none !p-0 !m-0">
+
+    <li class="!mb-1">
+      <a href="#tema-1" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">01.</span>
+        <span>Introducción</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-2" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">02.</span>
+        <span>Miro</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-3" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">03.</span>
+        <span>Mermaid</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-4" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">04.</span>
+        <span>Eraser.io</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-5" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">05.</span>
+        <span>Figma</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-6" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">06.</span>
+        <span>Comparación entre las herramientas</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-7" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">07.</span>
+        <span>Conclusión</span>
+      </a>
+    </li>
+
+    <li class="!mb-1">
+      <a href="#tema-8" class="inline-flex items-center gap-2.5 text-[#7ea000] hover:text-[#5c7500] font-semibold text-sm md:text-base transition-colors no-underline hover:underline">
+        <span class="text-xs font-bold text-gray-400">08.</span>
+        <span>Referencias</span>
+      </a>
+    </li>
+
+  </ul>
+</div>
+</section>
+
+<section class="blog-reveal">
+<div id="tema-2" class="scroll-mt-28"></div>
+
+## 2. MIRO: EL PIZARRÓN INFINITO
+
+Cuando un equipo se sienta a **analizar un problema** o a **diseñar la arquitectura** de un sistema, lo primero que necesita no es código: necesita un lugar donde pensar en voz alta, juntos. Miro es un pizarrón digital colaborativo e infinito, pensado para que equipos distribuidos trabajen como si estuvieran frente al mismo tablero físico, sin límites de espacio ni ubicación.
+
+<div class="my-8 not-prose grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <figure class="m-0">
+    <img src="/img/pizarra.png" alt="Pizarrón colaborativo de Miro con post-its y diagramas de flujo" class="w-full rounded-lg border border-gray-200 object-cover aspect-video" />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">Pizarrón colaborativo con notas y flujos de proceso.</figcaption>
+  </figure>
+  <figure class="m-0">
+    <img src="/img/miro-uml-template.png" alt="Plantilla de diagrama UML dentro de Miro" class="w-full rounded-lg border border-gray-200 object-cover aspect-video" />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">Plantilla de diagrama UML lista para usar.</figcaption>
+  </figure>
+</div>
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">01</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Facilidad de uso</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Arrastrar y soltar, sin instalación ni curva de aprendizaje; corre entero en el navegador.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">02</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Funcionalidades</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Plantillas de historias de usuario, mapas de empatía, UML y arquitecturas; frameworks Kanban y Lean Canvas integrados.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">03</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Entorno colaborativo</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Edición simultánea con cursores en vivo, comentarios, videollamada y modo presentación desde el mismo tablero.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">04</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Integración</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Conecta de forma nativa con Jira, Trello, Asana, Slack, Google Drive y Figma; exporta a PDF, PNG o CSV.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="my-8 not-prose">
+  <img src="/img/miro-jira-integration.png" alt="Integración de Miro con Jira mostrando una tarjeta enlazada al tablero" class="w-full rounded-lg border border-gray-200 object-cover aspect-[21/9]" />
+  <p class="text-xs text-gray-500 mt-2 text-center">Un tablero de Miro conectado a Jira: la idea nace en el pizarrón y termina en el backlog.</p>
+</div>
+
+### 2.1 ¿Cuándo usarla en el ciclo de vida del software?
+
+<div class="border border-gray-200 overflow-hidden my-6 bg-white divide-y divide-gray-200 not-prose">
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Levantamiento de requisitos</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Mapas mentales y entrevistas visuales con el cliente.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Análisis</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Diagramas de procesos, actores y casos de uso.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Diseño</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Wireframes rápidos, arquitecturas y flujos de datos.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Retrospectivas</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Tableros Kanban, votaciones y feedback del sprint.</span>
+  </div>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">🔗 Pruébala en <a href="https://miro.com" class="text-[#7ea000] font-semibold hover:underline">miro.com</a></p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="tema-3" class="scroll-mt-28"></div>
+
+## 3. MERMAID: EL DIAGRAMA COMO CÓDIGO
+
+No todos los equipos quieren "dibujar" un diagrama con el mouse. Algunos prefieren **escribirlo**, igual que escriben código. Para ese perfil de equipo —técnico, orientado a Git, minimalista— existe Mermaid: una herramienta que convierte texto plano en diagramas de análisis y diseño de software.
+
+<div class="my-8 not-prose grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <figure class="m-0">
+    <img src="/img/mermaid-flowchart.png" alt="Diagrama de flujo generado con sintaxis Mermaid" class="w-full rounded-lg border border-gray-200 object-cover aspect-video" />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">Diagrama de flujo renderizado a partir de texto plano.</figcaption>
+  </figure>
+  <figure class="m-0">
+    <img src="/img/mermaid-live-editor.png" alt="Mermaid Live Editor con código a la izquierda y diagrama de clases a la derecha" class="w-full rounded-lg border border-gray-200 object-cover aspect-video" />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">Mermaid Live Editor: código a la izquierda, diagrama en vivo a la derecha.</figcaption>
+  </figure>
+</div>
+
+<div class="mt-1 mb-16 max-w-xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+  <div class="bg-gray-100/90 px-3.5 py-2 border-b border-gray-200 flex items-center justify-between">
+    <div class="flex items-center gap-1.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span>
+      <span class="text-xs font-semibold text-gray-600 ml-2">flowchart.mmd</span>
+    </div>
+    <span class="material-symbols-outlined text-gray-500 text-base">code</span>
+  </div>
+  <div class="p-4 bg-[#0d1117]">
+
+```mermaid
+flowchart TD
+    A[Usuario ingresa datos] --> B{¿Datos válidos?}
+    B -- Sí --> C[Guardar en base de datos]
+    B -- No --> D[Mostrar error]
+```
+
+  </div>
+</div>
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">01</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Facilidad de uso</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Sintaxis simple, similar a Markdown; el layout se genera automáticamente, sin alinear cajas a mano.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">02</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Funcionalidades</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Diagramas de flujo, clases, entidad-relación, secuencia, estado y Gantt, todo desde el mismo lenguaje.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">03</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Entorno colaborativo</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Colaboración vía Git: los diagramas se versionan y se revisan en Pull Requests, comentario por línea.</p>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25 leading-none select-none">04</span>
+      <div class="pt-0.5">
+        <p class="text-gray-900 font-bold text-sm mb-1">Integración</p>
+        <p class="text-gray-500 text-sm leading-relaxed">Renderiza nativo en GitHub, GitLab y Notion; vista previa en vivo en VS Code; compatible con Astro, Docusaurus y MkDocs.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="my-8 not-prose">
+  <img src="/img/mermaid-github-render.jpg" alt="Diagrama Mermaid renderizado dentro de un README de GitHub" class="w-full rounded-lg border border-gray-200 object-cover aspect-[21/9]" />
+  <p class="text-xs text-gray-500 mt-2 text-center">Bloque de código se renderiza automáticamente dentro de un README de GitHub.</p>
+</div>
+
+### 3.1 ¿Cuándo usarla en el ciclo de vida del software?
+
+<div class="border border-gray-200 overflow-hidden my-6 bg-white divide-y divide-gray-200 not-prose">
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Análisis</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Diagramas de casos de uso y de flujo de procesos.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Diseño</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Diagramas de clases, entidad-relación y secuencia.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Documentación técnica</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Diagramas embebidos directamente en el README o la wiki del repositorio.</span>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-5 p-4">
+    <span class="sm:w-1/3 font-bold text-gray-900 text-sm shrink-0">Planificación</span>
+    <span class="text-sm text-gray-600 leading-relaxed">Diagramas de Gantt para cronogramas del proyecto.</span>
+  </div>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">🔗 Pruébala en <a href="https://mermaid.js.org" class="text-[#7ea000] font-semibold hover:underline">mermaid.js.org</a> o en el <a href="https://mermaid.live" class="text-[#7ea000] font-semibold hover:underline">Mermaid Live Editor</a></p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="tema-4" class="scroll-mt-28"></div>
+
+## 4. COMPARACIÓN ENTRE  HERRAMIENTAS
+
+
+## 5. CONCLUSIÓN
+
+Miro y Mermaid no compiten entre sí: **se complementan**. Miro es el espacio ideal para las sesiones grupales de análisis, donde el equipo necesita pensar y discutir en tiempo real sobre el mismo lienzo, con la ventaja de que cualquier integrante —sin importar su nivel técnico— puede participar de inmediato. Mermaid, en cambio, es la herramienta correcta cuando el diagrama debe **vivir junto al proyecto**: versionarse con cada commit, revisarse en Pull Requests y mantenerse siempre actualizado sin depender de licencias externas.
+
+Para un equipo que recién está definiendo su flujo de trabajo con herramientas CASE, la combinación de ambas cubre los dos extremos del proceso: **la exploración visual de ideas** al inicio del análisis, y **la documentación técnica reproducible** durante el diseño y la construcción.
+
+</section>
+
+<section class="blog-reveal">
+<div id="tema-6" class="scroll-mt-28"></div>
+
+## 6. REFERENCIAS
+
+Miro. (2026). *Miro: A Collaborative Digital Whiteboard for Teams*. Recuperado de https://miro.com
+
+Mermaid.js Contributors. (2026). *Mermaid — Diagramming and charting tool*. Recuperado de https://mermaid.js.org
+
+Universidad Técnica de Ambato, Facultad de Ingeniería en Sistemas, Electrónica e Industrial, Carrera de Software. (2025). *Unidad 1: Ingeniería de Software Asistida por Computadora (CASE)* [Apunte de clase, asignatura Desarrollo Asistido por Software].
+
+</section>
