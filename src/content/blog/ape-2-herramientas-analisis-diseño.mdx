@@ -1,8 +1,8 @@
 ---
 title: "APE 2: Herramientas para Análisis y Diseño de Software"
 summary: "Investigación breve de herramientas de análisis y diseño de software, selección individual por integrante y justificación según facilidad de uso, funcionalidades, entorno colaborativo e integración"
-unit_tag: "UNIDAD 01 • APE 2"
-category: "UNIDAD 1"
+unit_tag: "UNIDAD 02 • APE 2"
+category: "UNIDAD 2"
 theme: "light"
 hero_style: "banner"
 duration: "Trabajo Práctico / APE"
@@ -286,6 +286,398 @@ flowchart TD
 
 ## 4. COMPARACIÓN ENTRE  HERRAMIENTAS
 
+</section>
+
+<section class="blog-reveal">
+<div id="aplicacion-practica" class="scroll-mt-28"></div>
+
+## APLICACIÓN DE LAS HERRAMIENTAS AL CASO DE ESTUDIO
+
+Una vez analizadas las herramientas de apoyo para las actividades de análisis y diseño de software, se procedió a aplicarlas en la resolución de un caso práctico: el desarrollo de una propuesta para un **Sistema Web de Gestión de Tutorías Académicas**.
+
+La institución educativa del caso realiza actualmente el registro de tutorías de forma manual, situación que genera dificultades en la organización de horarios, duplicidad de registros, problemas para controlar la asistencia y poca trazabilidad de las observaciones realizadas por los docentes tutores.
+
+A partir de esta problemática se desarrollaron diferentes productos de análisis y diseño, utilizando las herramientas seleccionadas de acuerdo con las características y necesidades de cada actividad.
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+    <div class="border border-gray-200 bg-white p-4 text-center">
+      <span class="material-symbols-outlined text-[#7ea000] text-2xl">groups</span>
+      <p class="text-2xl font-bold text-gray-900 mt-2 mb-0">3</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">Actores</p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-4 text-center">
+      <span class="material-symbols-outlined text-[#7ea000] text-2xl">checklist</span>
+      <p class="text-2xl font-bold text-gray-900 mt-2 mb-0">10</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">Req. funcionales</p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-4 text-center">
+      <span class="material-symbols-outlined text-[#7ea000] text-2xl">verified</span>
+      <p class="text-2xl font-bold text-gray-900 mt-2 mb-0">7</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">Req. no funcionales</p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-4 text-center">
+      <span class="material-symbols-outlined text-[#7ea000] text-2xl">account_tree</span>
+      <p class="text-2xl font-bold text-gray-900 mt-2 mb-0">11</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">Casos de uso</p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-4 text-center col-span-2 md:col-span-1">
+      <span class="material-symbols-outlined text-[#7ea000] text-2xl">dashboard</span>
+      <p class="text-2xl font-bold text-gray-900 mt-2 mb-0">6</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">Prototipos</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="ejercicio-actores" class="scroll-mt-28"></div>
+
+## IDENTIFICACIÓN DE ACTORES
+
+La primera actividad del análisis consistió en identificar los actores que intervienen en el Sistema Web de Gestión de Tutorías Académicas. Para este proceso se utilizó **Miro**, aprovechando su entorno de trabajo visual para organizar las responsabilidades y establecer la relación de cada participante con el sistema.
+
+A partir del análisis del escenario se identificaron tres actores principales:
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">01</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Administrador</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Responsable de administrar la información general necesaria para el funcionamiento y control del sistema.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">02</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Docente Tutor</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Participa directamente en la gestión de las tutorías, disponibilidad, asistencia y seguimiento académico.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">03</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Estudiante</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Interactúa con el sistema para consultar la disponibilidad y gestionar su participación en las tutorías académicas.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+El tablero permitió representar visualmente los actores y organizar las funciones asociadas a cada uno antes de continuar con la definición detallada de los requisitos del sistema.
+
+<div class="my-8 not-prose">
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-actores.jpeg"
+      alt="Identificación de actores del Sistema de Gestión de Tutorías Académicas realizada en Miro"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">
+      Identificación de actores principales del sistema realizada mediante Miro.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>Herramienta aplicada:</strong> Miro permitió organizar de manera visual los participantes involucrados y establecer una base para la posterior definición de requisitos y casos de uso.
+  </p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="ejercicio-requisitos" class="scroll-mt-28"></div>
+
+## DEFINICIÓN DE REQUISITOS DEL SISTEMA
+
+Después de identificar a los actores, se realizó el levantamiento y organización de los requisitos necesarios para responder a la problemática planteada. Nuevamente se utilizó **Miro** como espacio visual de análisis, permitiendo clasificar las necesidades detectadas en requisitos funcionales y no funcionales.
+
+<div class="my-8 not-prose grid grid-cols-1 md:grid-cols-2 gap-5">
+
+  <div class="border border-gray-200 bg-white p-6">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="material-symbols-outlined text-[#7ea000]">task_alt</span>
+      <h4 class="font-bold text-gray-900 m-0">Requisitos funcionales</h4>
+    </div>
+    <p class="text-gray-500 text-sm leading-relaxed m-0">
+      Se definieron <strong class="text-gray-900">10 requisitos funcionales</strong> orientados a las operaciones que deberá proporcionar el sistema para administrar usuarios, horarios, tutorías, asistencia y seguimiento académico.
+    </p>
+  </div>
+
+  <div class="border border-gray-200 bg-white p-6">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="material-symbols-outlined text-[#7ea000]">security</span>
+      <h4 class="font-bold text-gray-900 m-0">Requisitos no funcionales</h4>
+    </div>
+    <p class="text-gray-500 text-sm leading-relaxed m-0">
+      Se establecieron <strong class="text-gray-900">7 requisitos no funcionales</strong> relacionados con las características de calidad y condiciones bajo las cuales deberá operar la solución.
+    </p>
+  </div>
+
+</div>
+
+La clasificación permitió diferenciar claramente **qué funciones debe realizar el sistema** de las **condiciones de calidad que deberá cumplir**, proporcionando una base organizada para las siguientes actividades de diseño.
+
+<div class="my-8 not-prose">
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-requisitos.jpeg"
+      alt="Requisitos funcionales y no funcionales del Sistema de Gestión de Tutorías Académicas organizados en Miro"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">
+      Organización de los requisitos funcionales y no funcionales mediante un tablero de Miro.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>Resultado del análisis:</strong> 10 requisitos funcionales y 7 requisitos no funcionales que servirán como base para modelar el comportamiento y la estructura general de la solución.
+  </p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="ejercicio-casos-uso" class="scroll-mt-28"></div>
+
+## DIAGRAMA DE CASOS DE USO
+
+Una vez identificados los actores y definidos los requisitos del sistema, se procedió a representar las principales interacciones que existirán dentro del **Sistema Web de Gestión de Tutorías Académicas**.
+
+Para esta actividad se utilizó **Mermaid**, herramienta que permite construir diagramas mediante una sintaxis basada en texto. Su utilización facilitó la organización de las funcionalidades previamente identificadas y su relación con los actores del sistema.
+
+<div class="my-9 not-prose">
+  <div class="flex gap-4 items-start border-l-2 border-[#7ea000] pl-5">
+    <span class="font-mono text-4xl font-bold text-[#7ea000]/25 leading-none">11</span>
+    <div>
+      <p class="font-bold text-gray-900 text-sm mb-1">Casos de uso identificados</p>
+      <p class="text-gray-500 text-sm leading-relaxed m-0">
+        El modelado permitió representar las principales funcionalidades del sistema y visualizar de forma estructurada cómo interactúan el Administrador, el Docente Tutor y el Estudiante con la solución propuesta.
+      </p>
+    </div>
+  </div>
+</div>
+
+El diagrama constituye una representación del comportamiento esperado del sistema desde la perspectiva de sus usuarios. De esta manera, los requisitos definidos durante la etapa anterior se transforman en interacciones concretas que sirven como referencia para las posteriores decisiones de diseño.
+
+<div class="my-8 not-prose">
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-casos-uso.jpeg"
+      alt="Diagrama de casos de uso del Sistema Web de Gestión de Tutorías Académicas"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">
+      Diagrama de casos de uso elaborado a partir de los actores y requisitos identificados.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>Herramienta aplicada:</strong> Mermaid permitió trasladar los requisitos previamente analizados a una representación visual de las interacciones entre los actores y las funcionalidades del sistema.
+  </p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="ejercicio-arquitectura" class="scroll-mt-28"></div>
+
+## DIAGRAMA DE ARQUITECTURA GENERAL
+
+Después de definir las funcionalidades y las interacciones entre los actores, el siguiente paso consistió en establecer una visión general de cómo se organizará técnicamente el **Sistema Web de Gestión de Tutorías Académicas**.
+
+Para representar esta estructura se utilizó **Eraser.io**, herramienta orientada a la creación de diagramas técnicos y de arquitectura. Su aplicación permitió organizar visualmente los principales componentes de la solución y mostrar la comunicación existente entre ellos.
+
+<div class="my-9 not-prose">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">01</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Capa de presentación</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Representa la interfaz mediante la cual los usuarios interactúan con las funcionalidades disponibles en el sistema web.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">02</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Capa de aplicación</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Centraliza el procesamiento de las solicitudes y la lógica necesaria para gestionar las operaciones del sistema.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 bg-white p-6">
+      <span class="font-mono text-3xl font-bold text-[#7ea000]/25">03</span>
+      <h4 class="font-bold text-gray-900 mt-3 mb-2">Capa de datos</h4>
+      <p class="text-sm text-gray-500 leading-relaxed m-0">
+        Se encarga del almacenamiento y recuperación de la información requerida para la gestión de las tutorías académicas.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+La organización en **tres capas** permite separar las responsabilidades principales de la solución y facilita la comprensión de la relación entre la interfaz, el procesamiento de las funcionalidades y la persistencia de la información.
+
+<div class="my-8 not-prose">
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-arquitectura.jpeg"
+      alt="Diagrama de arquitectura general del Sistema Web de Gestión de Tutorías Académicas elaborado en Eraser.io"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="text-xs text-gray-500 mt-2 text-center">
+      Arquitectura general propuesta para el Sistema Web de Gestión de Tutorías Académicas.
+    </figcaption>
+  </figure>
+</div>
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>Herramienta aplicada:</strong> Eraser.io permitió representar de forma visual la estructura técnica de la solución y la relación entre los principales componentes que conforman su arquitectura.
+  </p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="ejercicio-prototipos" class="scroll-mt-28"></div>
+
+## DISEÑO DE PROTOTIPOS
+
+Finalmente, una vez establecidas las funcionalidades y la arquitectura general de la solución, se trabajó en la representación visual de las principales interfaces del sistema.
+
+Para esta etapa se utilizó **Figma**, herramienta de diseño y prototipado que permitió transformar los requisitos previamente definidos en una propuesta visual de las pantallas con las que interactuarán los usuarios.
+
+<div class="my-9 not-prose">
+  <div class="flex gap-4 items-start border-l-2 border-[#7ea000] pl-5">
+    <span class="font-mono text-4xl font-bold text-[#7ea000]/25 leading-none">06</span>
+    <div>
+      <p class="font-bold text-gray-900 text-sm mb-1">Pantallas desarrolladas</p>
+      <p class="text-gray-500 text-sm leading-relaxed m-0">
+        Se diseñaron seis interfaces principales para representar las funciones esenciales del sistema y visualizar anticipadamente la experiencia de interacción propuesta.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="my-8 not-prose grid grid-cols-1 md:grid-cols-2 gap-6">
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-login.png"
+      alt="Prototipo de inicio de sesión"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Inicio de sesión</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Pantalla de acceso al Sistema de Gestión de Tutorías Académicas.
+      </p>
+    </figcaption>
+  </figure>
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-horarios.png"
+      alt="Prototipo de gestión de horarios"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Gestión de horarios</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Interfaz destinada a la consulta y administración de horarios disponibles.
+      </p>
+    </figcaption>
+  </figure>
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-registro.png"
+      alt="Prototipo de registro de tutorías"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Registro de tutorías</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Pantalla propuesta para registrar la información correspondiente a una tutoría académica.
+      </p>
+    </figcaption>
+  </figure>
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-reportes.png"
+      alt="Prototipo de reportes académicos"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Reportes</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Interfaz para visualizar información de seguimiento mediante reportes del sistema.
+      </p>
+    </figcaption>
+  </figure>
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-reserva.png"
+      alt="Prototipo de reserva de tutorías"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Reserva de tutorías</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Pantalla destinada a la selección y reserva de una tutoría disponible.
+      </p>
+    </figcaption>
+  </figure>
+
+  <figure class="m-0">
+    <img
+      src="/img/tutoria-usuarios.png"
+      alt="Prototipo de gestión de usuarios"
+      class="w-full rounded-lg border border-gray-200"
+    />
+    <figcaption class="mt-3">
+      <p class="font-bold text-gray-900 text-sm m-0">Gestión de usuarios</p>
+      <p class="text-xs text-gray-500 mt-1 mb-0">
+        Interfaz propuesta para la administración de los usuarios registrados en el sistema.
+      </p>
+    </figcaption>
+  </figure>
+
+</div>
+
+Los prototipos permiten comprobar visualmente cómo los requisitos identificados durante el análisis se trasladan hacia interfaces concretas. De esta forma, el proceso mantiene una continuidad entre las necesidades planteadas inicialmente y el diseño de la solución.
+
+<div class="bg-[#7ea000]/10 border-l-4 border-[#7ea000] p-5 my-8 rounded-r-lg">
+  <p class="text-gray-700 m-0 leading-relaxed">
+    <strong>Herramienta aplicada:</strong> Figma permitió diseñar y organizar las interfaces principales del sistema, proporcionando una representación visual previa a una futura etapa de implementación.
+  </p>
+</div>
+
+</section>
+
+<section class="blog-reveal">
+<div id="tema-5" class="scroll-mt-28"></div>
 
 ## 5. CONCLUSIÓN
 
